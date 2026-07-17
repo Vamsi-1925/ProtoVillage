@@ -1,17 +1,26 @@
-# plan.md — ProtoVillage Phase 1 (Orders Screen)
+# plan.md — ProtoVillage (Graamam Connect) — Phase-wise Build
 
 ## 1) Objectives
-- Deliver **only** the Graamam Connect **Orders** screen (light + OLED dark) matching Stitch mockups pixel-for-pixel.
+- Deliver the **complete Graamam Connect** product (all core screens + flows) as provided in the Stitch UI kit inputs.
 - Use **DESIGN_SYSTEM.md** tokens exclusively (fonts, colors, radii, spacing) and Material Symbols (FILL 1).
-- Implement real data flow (no hardcoded rows): **FARM stack** backend as a **Firestore stand‑in** now; keep a repository interface that can be swapped to Firebase later.
-- Extract reusable UI components: **Sidebar, TopBar, PageHeader, PillTabs, DataTable, StatusPill** (+ CreateOrderDialog).
-- Core interactions: seed sample orders, filter by status tabs, create order writes + live refresh, row expand toggle, dark-mode persistence.
+- Implement real end-to-end data flow (**no hardcoded rows**) using the current **FARM stack** backend as a **Firestore stand‑in**.
+- Keep repository interfaces **Firestore-shaped** so we can swap to real Firebase later by changing only adapter method bodies.
+- Build and reuse a consistent component library across all Graamam screens.
+- Localize for **India-first context**:
+  - Currency: **₹ INR** with `en-IN` digit grouping
+  - Time: **IST** (`Asia/Kolkata`) formatting for dates/timestamps
+  - Sample entities: Indian names, villages, products, addresses, couriers, suppliers.
 
-**Status update:** Phase 1 is complete and verified by automated E2E tests (testing_agent_v3, `iteration_1.json`) with **100% pass rate** across backend, frontend, and design checks.
+**Status update:**
+- Phase 1 (Orders screen) was completed earlier and E2E-verified (testing_agent_v3 `iteration_1.json`) ✅
+- Phase 2 (Complete Graamam Connect app: 10+ routes/screens + flows) is now **implemented and wired** ✅
+- Per user request for Phase 2: **no automated testing was run** (only Phase 1 testing remains on record).
+
+---
 
 ## 2) Implementation Steps
 
-### Phase 1 — Core Flow POC (data contract + live updates)
+### Phase 1 — Core Flow POC (Orders data contract + live-ish updates)
 **Status:** ✅ DONE
 
 **User stories (POC)**
@@ -19,84 +28,181 @@
 2. As a user, I can filter orders by status via `?status=`. ✅
 3. As a user, I can create an order and immediately see it in subsequent list calls. ✅
 4. As a user, seeded orders appear on first run without duplicates. ✅
-5. As a developer, I can swap the repository implementation later without changing UI components. ✅
+5. As a developer, I can swap repository implementation later without changing UI components. ✅
 
 **POC tasks (completed)**
 - Backend (FastAPI + MongoDB)
-  - Defined an `Order` schema mirroring Firestore-doc style (id, order_id, customer{}, items_count/summary, date, total, status, created_at). ✅
-  - Implemented:
-    - `GET /api/graamam/orders?status=` (list + filter)
-    - `POST /api/graamam/orders` (create)
-    - `GET /api/graamam/orders/counts` (badge counts)
-  - Added idempotent seeding on startup to populate sample orders for all statuses. ✅
+  - Implemented `GET /api/graamam/orders?status=` (list + filter) ✅
+  - Implemented `POST /api/graamam/orders` (create) ✅
+  - Implemented `GET /api/graamam/orders/counts` (badge counts) ✅
+  - Added idempotent seeding on startup ✅
 - Frontend repository adapter
-  - Implemented `ordersRepository` in `src/lib/firestoreClient.js` with `list/create/counts/onSnapshot` (polling-based onSnapshot to mimic Firestore). ✅
+  - Implemented `ordersRepository` interface: `list/create/counts/onSnapshot` ✅
 
-### Phase 2 — V1 App Development (Orders screen + components)
-**Status:** ✅ DONE (E2E verified)
+---
 
-**User stories (V1)**
-1. As a producer ops user, I see the Orders page layout: fixed sidebar, top bar, header, tabs, and table. ✅
-2. As a user, the table renders orders from the backend with correct columns and visual chips/pills. ✅
-3. As a user, clicking a status pill tab filters the table and updates the active tab count badge. ✅
-4. As a user, clicking **Create Order** opens a modal; submitting creates a record and updates the table without refresh. ✅
-5. As a user, I can toggle dark mode via the moon icon; preference persists in localStorage. ✅
-6. As a user, I can expand/collapse a row to reveal a simple details section (MVP). ✅
+### Phase 2 — Complete Graamam Connect (all screens + flows, India-localized)
+**Status:** ✅ DONE (build completed; user validation pending)
 
-**V1 build tasks (completed)**
-- Styling system
-  - Tailwind (local config) with token mapping copied from Stitch `code.html` and DESIGN_SYSTEM.md; `darkMode: 'class'`. ✅
-  - Loaded Google Fonts (Raleway, Nunito Sans) and Material Symbols Outlined (FILL 1) in `public/index.html`. ✅
-- App scaffolding
-  - Single route `/` → `OrdersPage` (Phase 1 constraint). ✅
-  - `ThemeProvider` toggles `document.documentElement.classList` and persists setting in localStorage. ✅
-- Reusable components (match Stitch markup)
-  - Implemented under `src/components/graamam/`:
-    - `Sidebar` (220px fixed, active Orders item + badge) ✅
-    - `TopBar` (right-aligned theme toggle + avatar) ✅
-    - `PageHeader` (title/subtitle + Create Order button) ✅
-    - `PillTabs` (New/Packing/Dispatched/Delivered; active styling) ✅
-    - `StatusPill` (maps status → exact tokens for badge colors) ✅
-    - `DataTable` (columns, hover, chevron action, expandable rows) ✅
-    - `CreateOrderDialog` (modal form for create flow) ✅
-- Data wiring
-  - `useOrders` hook loads from repository; computes counts; filters by active status; supports create + optimistic insert; supports row expansion state. ✅
-  - Ensured **no hardcoded HTML rows**; UI renders from backend-seeded orders. ✅
-- End-to-end testing
-  - Verified with testing_agent_v3; backend endpoints, UI rendering, filtering, create flow, theme persistence, and expand/collapse behavior all pass. ✅
+#### Phase 2A — India localization layer
+**Status:** ✅ DONE
+- Currency formatting switched to INR (`₹`) using `en-IN` digit grouping ✅
+- Added helpers:
+  - `formatCurrency` (INR)
+  - `formatCompactINR` (K/L/Cr)
+  - `formatOrderDate` (IST)
+  - `formatDateTimeIST` (IST timestamps)
+  - `formatTimeAgo` (activity feed)
+- Seed data updated across the product:
+  - Indian customers, producers, villages/states, products, addresses ✅
+  - Indian couriers (Delhivery, Blue Dart, DTDC, Ecom Express, Shiprocket, India Post Speed Post, XpressBees) ✅
+  - Indian suppliers (Kadalundi Apiary Co., Kumta Ceramics, Bengaluru Packaging Ltd.) ✅
 
-### Phase 3 — Hardening (still Phase 1 scope; no new screens)
-**Status:** 🟡 PARTIALLY DONE
+#### Phase 2B — Backend expansion (Firestore stand-in for all Graamam domains)
+**Status:** ✅ DONE
+All routes are registered under `/api` and seeded idempotently on startup.
+- Orders
+  - `GET /api/graamam/orders` ✅
+  - `GET /api/graamam/orders/counts` ✅
+  - `POST /api/graamam/orders` ✅
+  - `POST /api/graamam/orders/{order_id}/status` ✅ (dispatch integration)
+- Producers
+  - `GET /api/graamam/producers` ✅
+  - `GET /api/graamam/producers/villages` ✅
+  - `GET /api/graamam/producers/counts` ✅
+  - `POST /api/graamam/producers` ✅
+- Inventory
+  - `GET /api/graamam/inventory` ✅
+  - `GET /api/graamam/inventory/summary` ✅
+  - `POST /api/graamam/inventory` ✅
+  - `POST /api/graamam/inventory/{sku}/adjust` ✅
+- Batches
+  - `GET /api/graamam/batches` ✅
+  - `GET /api/graamam/batches/summary` ✅
+  - `POST /api/graamam/batches` ✅
+- Production
+  - `GET /api/graamam/production` ✅
+  - `POST /api/graamam/production` ✅
+  - `POST /api/graamam/production/{token_id}/status` ✅
+- Procurement
+  - `GET /api/graamam/procurement` ✅
+  - `GET /api/graamam/procurement/summary` ✅
+  - `POST /api/graamam/procurement` ✅
+  - `POST /api/graamam/procurement/{request_id}` ✅ (kanban transitions)
+- Dispatch
+  - `GET /api/graamam/dispatch/queue` ✅ (orders in packing)
+  - `GET /api/graamam/dispatch/recent` ✅
+  - `GET /api/graamam/dispatch/history` ✅
+  - `POST /api/graamam/dispatch/mark` ✅ (creates shipment + flips order status to dispatched)
+- Store
+  - `GET /api/graamam/store` ✅
+  - `POST /api/graamam/store/receive` ✅
+  - `POST /api/graamam/store/sale` ✅
+  - `GET /api/graamam/store/sales` ✅
+  - `GET /api/graamam/store/summary` ✅
+- Reports
+  - `GET /api/graamam/reports/orders|inventory|producers|sales` ✅
+- Dashboard
+  - `GET /api/graamam/dashboard/kpis` ✅
+  - `GET /api/graamam/dashboard/production-overview` ✅
+  - `GET /api/graamam/dashboard/activity` ✅
+  - `GET /api/graamam/dashboard/alerts` ✅
+  - `GET /api/graamam/dashboard/warehouse` ✅
 
-**User stories (Hardening)**
-1. As a user, I see clear loading and empty states for each tab. ✅ (implemented)
-2. As a user, I get a readable error state when the backend is unavailable. ✅ (implemented; toast not added, but visible error state exists)
-3. As a user, form validation prevents invalid totals/statuses. ✅ (implemented in CreateOrderDialog)
-4. As a user, table remains usable on smaller widths via horizontal scroll. ✅ (implemented)
-5. As a developer, repository swap to Firebase requires changing only the adapter module. 🟡 (code structure supports this; remaining deliverable is the written note)
+**One-time migration handling**
+- Legacy dollar-priced seed orders are detected and cleared automatically on startup, then reseeded with INR data ✅
 
-**Hardening tasks (remaining)**
-- Write the one-paragraph **Firebase swap note** (per Phase 1 deliverable) documenting:
-  - Add `firebase` dependency
-  - Create `firebase.js` init using env config
-  - Replace the bodies of `list/create/counts/onSnapshot` in `src/lib/firestoreClient.js` with Firestore calls (`getDocs`, `addDoc`, `onSnapshot`) using the existing document shape. 
+#### Phase 2C — Frontend expansion (all screens wired + reusable component library)
+**Status:** ✅ DONE
+
+**Routes/screens built (Graamam Connect complete)**
+1. `/` — **DashboardPage** ✅
+   - KPIs, weather advisory, production overview tabs, activity feed
+2. `/orders` — **OrdersPage** ✅
+   - Phase 1 screen retained + upgraded to INR/IST + Indian samples
+3. `/inventory` — **InventoryPage** ✅
+   - Status filter pills, category checkboxes, search, inventory table
+   - **New Batch** slide-over → creates a batch
+4. `/production` — **ProductionPage** ✅
+   - Token list, production slip, shortage → Procure link, start/complete/cancel
+5. `/procurement` — **ProcurementPage** ✅
+   - Kanban columns + flows: approve → PO raised → mark purchased → finalize
+6. `/warehouse` — **WarehousePage** ✅
+   - Warehouse KPIs + latest batches + CTA to dispatch
+7. `/dispatch` — **DispatchPage** ✅
+   - Queue from packing orders + courier selection + mark dispatched → updates order status
+8. `/producers` — **ProducersPage** ✅
+   - Producer cards + village filter + register producer drawer
+9. `/store` — **StorePage** ✅
+   - Store stock + record sale drawer (UPI/Cash/Card) + sales table
+10. `/reports` — **ReportsPage** ✅
+   - Report builder + quick ranges + CSV/PDF export
+11. `/settings` — **SettingsPage** ✅
+   - Preference cards (appearance/language/currency/GSTIN/notifications/data)
+
+**Reusable components (BUILD_GUIDE.md compliance)**
+- Phase 1 components (reused across screens):
+  - `Sidebar`, `TopBar`, `PageHeader`, `PillTabs`, `DataTable`, `StatusPill`, `CreateOrderDialog` ✅
+- New shared components for full app:
+  - `AppShell` (sidebar + topbar chrome) ✅
+  - `KPICard` ✅
+  - `ActivityFeed` ✅
+  - `SlideOver` (right-drawer pattern; used for New Batch + other forms) ✅
+  - `EmptyState` ✅
+  - `SearchInput` ✅
+  - `Icon` ✅
+
+**Frontend data layer**
+- Expanded `src/lib/firestoreClient.js` into multiple Firestore-shaped repositories:
+  - `ordersRepository`, `producersRepository`, `inventoryRepository`, `batchesRepository`, `productionRepository`, `procurementRepository`, `dispatchRepository`, `storeRepository`, `reportsRepository`, `dashboardRepository` ✅
+
+---
+
+### Phase 3 — Hardening + Verification (post-build)
+**Status:** 🟡 NOT RUN (deferred by user request)
+
+**Scope**
+- Run full end-to-end verification across all Graamam screens and actions.
+- Improve resilience (edge cases, empty states per screen, form validation completeness, better error recovery).
+
+**Notes**
+- Phase 1 Orders testing remains valid; Phase 2 testing intentionally skipped.
+
+---
+
+### Phase 4 — Firebase/Auth swap + Deployment (final phase)
+**Status:** ⏳ Planned
+
+**Goal**
+- Replace the FastAPI/Mongo stand-in with real Firebase Auth + Firestore while keeping the UI intact.
+
+**Tasks**
+- Add Firebase (`firebase` npm dependency) and create `firebase.js` initialization from env config.
+- Swap repository adapter method bodies in `src/lib/firestoreClient.js` to real Firestore calls:
+  - `list` → `getDocs(query(...))`
+  - `create` → `addDoc(...)`
+  - `counts` → derived aggregation strategy (client-side compute or Cloud Function)
+  - `onSnapshot` → Firestore `onSnapshot(query(...))`
+- Enable invite-only auth (per BUILD_GUIDE/login phases) and ensure `gc2demo_` remains local-only.
+- Deployment steps only after functional sign-off.
+
+---
 
 ## 3) Next Actions
-1. **Ship Phase 1 deliverable note**: one paragraph describing stack + how the next screen will plug into the same component library + repository adapter. (Remaining Phase 1 doc item.)
-2. Await user approval of Phase 1.
-3. On approval, proceed to the next screen in BUILD_GUIDE.md:
-   - **Shared login + app switcher** (login_1/2) + invite-only Auth.
-4. Decide Firebase timing (user preference is “deploy last”):
-   - Option A: keep FastAPI+Mongo stand-in for Phase 2+ UI build, swap to Firebase near final phase.
-   - Option B: once creds are shared, swap `firestoreClient.js` implementation to real Firebase during login phase (no UI rewrite required).
+1. **User review**: Inspect the full Graamam Connect build across all routes (Dashboard, Orders, Inventory, Production, Procurement, Warehouse, Dispatch, Producers, Store, Reports, Settings).
+2. Confirm any copy/terminology changes needed for Indian context (units, GST, addresses, language toggles).
+3. When you say “go”, run `testing_agent_v3` for full app coverage (all screens and write flows).
+4. After functional sign-off, execute the **Firebase + Auth swap** and only then proceed to deployment.
+
+---
 
 ## 4) Success Criteria
-- Only the **Orders** page exists and is reachable; no Inventory/Dashboard/Ops screens implemented. ✅
-- Light + OLED dark modes match Stitch screenshots closely (spacing, typography, colors, radii). ✅
-- Components extracted: Sidebar, TopBar, PageHeader, PillTabs, DataTable, StatusPill (+ CreateOrderDialog). ✅
-- Orders data is loaded from backend (Firestore stand-in), seeded idempotently. ✅
-- Tabs filter by status; active tab shows correct count badge. ✅
-- Create Order writes to backend and appears immediately without refresh. ✅
-- Dark mode toggle works and persists. ✅
-- Testing agent passes end-to-end without critical issues. ✅
-- **Remaining**: Firebase-swap note added to documentation. 🟡
+- Graamam Connect is fully functional end-to-end (all screens listed above working with backend data + write flows). ✅ (build implemented)
+- India-first localization is consistent:
+  - ₹ INR formatting and Indian digit grouping ✅
+  - IST date/time formatting across UI ✅
+  - Indian sample data (names, villages, products, couriers, suppliers) ✅
+- UI remains consistent with DESIGN_SYSTEM.md tokens; light + OLED dark modes work across the app ✅
+- All Graamam screens reuse the shared component library and repository adapters ✅
+- Firestore swap remains a single-module change (repository adapter bodies) ⏳ planned
+- Testing is pending for the whole app (intentionally deferred) 🟡

@@ -11,6 +11,15 @@ import uuid
 from datetime import datetime, timezone
 
 from routers.graamam_orders import router as graamam_orders_router, seed_orders_if_empty
+from routers.graamam_producers import router as graamam_producers_router, seed_producers_if_empty
+from routers.graamam_inventory import router as graamam_inventory_router, seed_inventory_if_empty
+from routers.graamam_batches import router as graamam_batches_router, seed_batches_if_empty
+from routers.graamam_production import router as graamam_production_router, seed_production_if_empty
+from routers.graamam_procurement import router as graamam_procurement_router, seed_procurement_if_empty
+from routers.graamam_dispatch import router as graamam_dispatch_router, seed_shipments_if_empty
+from routers.graamam_store import router as graamam_store_router, seed_store_if_empty
+from routers.graamam_reports import router as graamam_reports_router
+from routers.graamam_dashboard import router as graamam_dashboard_router
 
 
 ROOT_DIR = Path(__file__).parent
@@ -70,6 +79,15 @@ async def get_status_checks():
 
 # Include the router in the main app
 api_router.include_router(graamam_orders_router)
+api_router.include_router(graamam_producers_router)
+api_router.include_router(graamam_inventory_router)
+api_router.include_router(graamam_batches_router)
+api_router.include_router(graamam_production_router)
+api_router.include_router(graamam_procurement_router)
+api_router.include_router(graamam_dispatch_router)
+api_router.include_router(graamam_store_router)
+api_router.include_router(graamam_reports_router)
+api_router.include_router(graamam_dashboard_router)
 app.include_router(api_router)
 
 app.add_middleware(
@@ -91,9 +109,29 @@ logger = logging.getLogger(__name__)
 @app.on_event("startup")
 async def seed_startup():
     try:
+        # Clear old $-priced order seed set if it exists (one-time migration to INR)
+        try:
+            from motor.motor_asyncio import AsyncIOMotorClient
+            _c = AsyncIOMotorClient(os.environ["MONGO_URL"])
+            _db = _c[os.environ["DB_NAME"]]
+            # If we detect the previous small-dollar totals, wipe and reseed with INR seeds.
+            has_old = await _db.graamam_orders.find_one({"order_id": "GC-8902", "total": {"$lt": 1000}}, {"_id": 1})
+            if has_old:
+                await _db.graamam_orders.delete_many({"order_id": {"$in": ["GC-8902","GC-8901","GC-8900","GC-8899","GC-8898","GC-8897","GC-8896","GC-8895"]}})
+                logger.info("[startup] cleared legacy dollar-priced order seeds")
+        except Exception:
+            pass
+
         await seed_orders_if_empty()
+        await seed_producers_if_empty()
+        await seed_inventory_if_empty()
+        await seed_batches_if_empty()
+        await seed_production_if_empty()
+        await seed_procurement_if_empty()
+        await seed_shipments_if_empty()
+        await seed_store_if_empty()
     except Exception as e:  # pragma: no cover
-        logger.exception("[startup] seeding graamam orders failed: %s", e)
+        logger.exception("[startup] seeding graamam collections failed: %s", e)
 
 
 @app.on_event("shutdown")

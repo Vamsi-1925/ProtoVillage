@@ -55,6 +55,9 @@ class Order(BaseModel):
     date: str  # ISO date (yyyy-mm-dd)
     total: float = 0.0
     status: str = "new"
+    delivery_address: Optional[str] = None
+    producer: Optional[str] = None
+    speed: Optional[str] = "standard"
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     @field_validator("status")
@@ -78,6 +81,13 @@ class OrderCreate(BaseModel):
     date: Optional[str] = None  # defaults to today
     total: float = 0.0
     status: str = "new"
+    delivery_address: Optional[str] = None
+    producer: Optional[str] = None
+    speed: Optional[str] = "standard"
+
+
+class OrderStatusUpdate(BaseModel):
+    status: str
 
 
 router = APIRouter(prefix="/graamam/orders", tags=["graamam-orders"])
@@ -177,6 +187,9 @@ async def create_order(payload: OrderCreate):
         date=payload.date or datetime.now(timezone.utc).date().isoformat(),
         total=float(payload.total or 0.0),
         status=status_l,
+        delivery_address=payload.delivery_address,
+        producer=payload.producer,
+        speed=payload.speed or "standard",
     )
     doc = order.model_dump()
     doc["created_at"] = doc["created_at"].isoformat()
@@ -184,107 +197,136 @@ async def create_order(payload: OrderCreate):
     return order
 
 
+@router.post("/{order_id}/status", response_model=Order)
+async def update_order_status(order_id: str, payload: OrderStatusUpdate):
+    db = _get_db()
+    status_l = (payload.status or "").lower().strip()
+    if status_l not in ORDER_STATUSES:
+        raise HTTPException(400, f"status must be one of {sorted(ORDER_STATUSES)}")
+    r = await db.graamam_orders.update_one({"order_id": order_id}, {"$set": {"status": status_l}})
+    if not r.matched_count:
+        raise HTTPException(404, f"order {order_id} not found")
+    doc = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    return _serialize(doc)
+
+
 # ---------- Seeding ----------
 SEED_ORDERS: List[dict] = [
     {
         "order_id": "GC-8902",
         "customer": {
-            "name": "Eleanor Vance",
-            "initials": "EV",
+            "name": "Priya Sharma",
+            "initials": "PS",
             "avatar_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=96&h=96&fit=crop&crop=faces",
         },
         "items_count": 3,
         "items_summary": "3 items",
-        "date": "2023-10-24",
-        "total": 142.5,
+        "date": "2024-11-24",
+        "total": 14250.0,
         "status": "new",
+        "delivery_address": "12, Indira Nagar 1st Stage, Bengaluru 560038",
+        "producer": "Coorg Valley Estates",
     },
     {
         "order_id": "GC-8901",
-        "customer": {"name": "Marcus Reed", "initials": "MR", "avatar_url": None},
+        "customer": {"name": "Rajesh Iyer", "initials": "RI", "avatar_url": None},
         "items_count": 1,
         "items_summary": "1 item",
-        "date": "2023-10-24",
-        "total": 45.0,
+        "date": "2024-11-24",
+        "total": 4500.0,
         "status": "new",
+        "delivery_address": "Flat 3B, Adyar, Chennai 600020",
+        "producer": "Kandhamal Turmeric Co-op",
     },
     {
         "order_id": "GC-8900",
         "customer": {
-            "name": "Priya Nair",
-            "initials": "PN",
+            "name": "Ananya Reddy",
+            "initials": "AR",
             "avatar_url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=96&h=96&fit=crop&crop=faces",
         },
         "items_count": 2,
         "items_summary": "2 items",
-        "date": "2023-10-24",
-        "total": 88.0,
+        "date": "2024-11-24",
+        "total": 8800.0,
         "status": "new",
+        "delivery_address": "18 Jubilee Hills, Hyderabad 500033",
+        "producer": "Sirsi Weavers Collective",
     },
     {
         "order_id": "GC-8899",
         "customer": {
-            "name": "Arthur Pendelton",
-            "initials": "AP",
+            "name": "Arjun Menon",
+            "initials": "AM",
             "avatar_url": "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=96&h=96&fit=crop&crop=faces",
         },
         "items_count": 5,
         "items_summary": "5 items",
-        "date": "2023-10-23",
-        "total": 280.0,
+        "date": "2024-11-23",
+        "total": 28000.0,
         "status": "packing",
+        "delivery_address": "Ravi Villa, Panampilly Nagar, Kochi 682036",
+        "producer": "Kadalundi Apiary",
     },
     {
         "order_id": "GC-8898",
         "customer": {
-            "name": "Sana Iyer",
-            "initials": "SI",
+            "name": "Sana Krishnan",
+            "initials": "SK",
             "avatar_url": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=96&h=96&fit=crop&crop=faces",
         },
         "items_count": 4,
         "items_summary": "4 items",
-        "date": "2023-10-23",
-        "total": 195.75,
+        "date": "2024-11-23",
+        "total": 19575.0,
         "status": "packing",
+        "delivery_address": "42 Kalyani Nagar, Pune 411006",
+        "producer": "Coastal Artisans",
     },
     {
         "order_id": "GC-8897",
         "customer": {
-            "name": "Rohit Menon",
-            "initials": "RM",
+            "name": "Rohit Deshpande",
+            "initials": "RD",
             "avatar_url": None,
         },
         "items_count": 6,
         "items_summary": "6 items",
-        "date": "2023-10-22",
-        "total": 312.0,
+        "date": "2024-11-22",
+        "total": 31200.0,
         "status": "dispatched",
+        "delivery_address": "Marine Drive, Kochi 682011",
+        "producer": "Kandhamal Turmeric Co-op",
     },
     {
         "order_id": "GC-8896",
         "customer": {
-            "name": "Leah Fernandes",
+            "name": "Leela Fernandes",
             "initials": "LF",
             "avatar_url": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=96&h=96&fit=crop&crop=faces",
         },
         "items_count": 2,
         "items_summary": "2 items",
-        "date": "2023-10-21",
-        "total": 74.5,
+        "date": "2024-11-21",
+        "total": 7450.0,
         "status": "delivered",
+        "delivery_address": "Bandra West, Mumbai 400050",
+        "producer": "Vypeen Herbal Co-op",
     },
     {
         "order_id": "GC-8895",
         "customer": {
-            "name": "Daniel Ortiz",
+            "name": "Devraj Oberoi",
             "initials": "DO",
             "avatar_url": None,
         },
         "items_count": 3,
         "items_summary": "3 items",
-        "date": "2023-10-20",
-        "total": 128.9,
+        "date": "2024-11-20",
+        "total": 12890.0,
         "status": "delivered",
+        "delivery_address": "Vasant Vihar, New Delhi 110057",
+        "producer": "Hampi Weavers",
     },
 ]
 
