@@ -21,7 +21,7 @@ export default function WarehousePage() {
   }, []);
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }} topBarTitle="Warehouse Overview">
+    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Warehouse Overview">
       <div data-testid={GRAAMAM_WAREHOUSE.page}>
         <div className="flex items-end justify-between mb-8 gap-4 flex-wrap">
           <div>

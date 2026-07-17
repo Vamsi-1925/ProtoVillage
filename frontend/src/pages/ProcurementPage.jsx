@@ -53,7 +53,7 @@ export default function ProcurementPage() {
   };
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }} topBarTitle="Procurement Management">
+    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Procurement Management">
       <div data-testid={GRAAMAM_PROCUREMENT.page}>
         <PageHeader
           title="Material Shortages"

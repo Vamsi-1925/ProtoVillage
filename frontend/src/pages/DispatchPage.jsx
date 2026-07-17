@@ -31,7 +31,7 @@ export default function DispatchPage() {
   };
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }} topBarTitle="Dispatch Operations">
+    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Dispatch Operations">
       <div data-testid={GRAAMAM_DISPATCH.page}>
         <PageHeader
           title="Dispatch Operations"

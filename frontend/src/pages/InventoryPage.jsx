@@ -37,9 +37,7 @@ export default function InventoryPage() {
   useEffect(() => {
     producersRepository.list().then(setProducers).catch(() => {});
     ordersRepository.counts().then(setOrdersCounts).catch(() => {});
-  }, []);
-
-  const filtered = useMemo(() => {
+  }, []);  const filtered = useMemo(() => {
     return items.filter((it) => {
       if (activeStatus !== "all") {
         if (activeStatus === "low_stock" && !(it.status === "low_stock" || it.status === "critical")) return false;
@@ -63,7 +61,7 @@ export default function InventoryPage() {
   };
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }}>
+    <AppShell badges={{ orders: ordersCounts.received || 0 }}>
       <div data-testid={GRAAMAM_INVENTORY.page}>
         <PageHeader
           title="Inventory Management"

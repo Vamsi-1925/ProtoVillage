@@ -26,7 +26,7 @@ export default function OrdersPage() {
   };
 
   return (
-    <AppShell badges={{ orders: counts.new || 0 }}>
+    <AppShell badges={{ orders: counts.received || 0 }}>
       <div data-testid={GRAAMAM_ORDERS.page}>
         <PageHeader
           title="Orders"

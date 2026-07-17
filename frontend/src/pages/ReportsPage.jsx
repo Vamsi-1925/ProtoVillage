@@ -72,7 +72,7 @@ export default function ReportsPage() {
   };
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }} topBarTitle="Reports & Analytics">
+    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Reports & Analytics">
       <div data-testid={GRAAMAM_REPORTS.page}>
         <PageHeader
           title="Operational Reports"

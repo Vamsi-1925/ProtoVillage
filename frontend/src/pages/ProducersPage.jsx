@@ -40,7 +40,7 @@ export default function ProducersPage() {
   }, [producers, q]);
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }} topBarTitle="Producers">
+    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Producers">
       <div data-testid={GRAAMAM_PRODUCERS.page}>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>

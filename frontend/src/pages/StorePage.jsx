@@ -23,7 +23,7 @@ export default function StorePage() {
   useEffect(() => { ordersRepository.counts().then(setOrdersCounts).catch(() => {}); }, []);
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }} topBarTitle="Experience Store">
+    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Experience Store">
       <div data-testid={GRAAMAM_STORE.page}>
         <PageHeader
           title="Store Overview"

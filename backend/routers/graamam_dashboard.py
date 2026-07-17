@@ -94,7 +94,7 @@ async def warehouse_overview():
     db = get_db()
     total_finished = await db.graamam_inventory.count_documents({"category": {"$in": ["Spices", "Oils", "Grains", "Preserves", "Herbs"]}})
     store_stock = await db.graamam_store_stock.count_documents({})
-    ready_for_dispatch = await db.graamam_orders.count_documents({"status": "packing"})
+    ready_for_dispatch = await db.graamam_orders.count_documents({"status": "ready_dispatch"})
     pending_checks = await db.graamam_batches.count_documents({"status": "qc_pending"})
     return {
         "total_finished_goods": max(total_finished * 120, 1432),

@@ -33,7 +33,7 @@ export default function ProductionPage() {
   };
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }} topBarTitle="Production Management">
+    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Production Management">
       <div data-testid={GRAAMAM_PRODUCTION.page}>
         <PageHeader
           title="Production Management"

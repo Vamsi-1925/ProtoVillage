@@ -13,7 +13,7 @@ export function useOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeStatus, setActiveStatus] = useState("new");
+  const [activeStatus, setActiveStatus] = useState("received");
   const [creating, setCreating] = useState(false);
   const [expandedId, setExpandedId] = useState(null);
 

@@ -47,7 +47,7 @@ class MarkDispatchedPayload(BaseModel):
 async def dispatch_queue():
     """Orders currently in 'packing' status, ready to be dispatched."""
     db = get_db()
-    docs = await db.graamam_orders.find({"status": "packing"}, {"_id": 0}).sort("created_at", -1).to_list(200)
+    docs = await db.graamam_orders.find({"status": "ready_dispatch"}, {"_id": 0}).sort("created_at", -1).to_list(200)
     out = []
     for d in docs:
         d.pop("_id", None)

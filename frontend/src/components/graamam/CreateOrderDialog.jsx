@@ -15,7 +15,7 @@ export default function CreateOrderDialog({ open, onClose, onSubmit, submitting 
   const [itemsCount, setItemsCount] = useState(1);
   const [itemsSummary, setItemsSummary] = useState("");
   const [total, setTotal] = useState("");
-  const [status, setStatus] = useState("new");
+  const [status, setStatus] = useState("received");
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function CreateOrderDialog({ open, onClose, onSubmit, submitting 
       setItemsCount(1);
       setItemsSummary("");
       setTotal("");
-      setStatus("new");
+      setStatus("received");
       setError(null);
     }
   }, [open]);

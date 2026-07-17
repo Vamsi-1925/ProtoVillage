@@ -1,30 +1,22 @@
 [
   {
-    "content": "Phase 1: Orders POC + Orders screen (Phase 1 delivery)",
+    "content": "Backend: 8-status order flow + migration + auth endpoint + raise-invoice-from-order",
     "status": "completed"
   },
   {
-    "content": "Phase 2A: India localization (INR, IST, en-IN formatting, Indian sample data)",
+    "content": "Frontend: AuthContext + LoginPage + RequireAuth gate + user-aware TopBar",
     "status": "completed"
   },
   {
-    "content": "Phase 2B: Backend routers for producers, inventory, batches, production, procurement, dispatch, store, reports, dashboard",
+    "content": "Frontend: Role-filtered Sidebar (7 role-nav profiles)",
     "status": "completed"
   },
   {
-    "content": "Phase 2C: Frontend pages — Dashboard, Inventory, Production, Procurement, Warehouse, Dispatch, Producers, Store, Reports, Settings + reusable component library (AppShell/KPICard/ActivityFeed/SlideOver/EmptyState/SearchInput)",
+    "content": "Frontend: 8-status Orders (pill tabs + status mapper + Raise Invoice per row)",
     "status": "completed"
   },
   {
-    "content": "Phase 2D: Sidebar navigation + routing across all 11 Graamam screens",
+    "content": "Frontend: InvoicePrintPage — ProtoVillage GST invoice with CGST/SGST/IGST + print",
     "status": "completed"
-  },
-  {
-    "content": "Phase 3: End-to-end testing (SKIPPED per user request — to be run when user says go)",
-    "status": "cancelled"
-  },
-  {
-    "content": "Phase 4: Firebase Auth + Firestore swap + deployment (last phase, planned)",
-    "status": "pending"
   }
 ]

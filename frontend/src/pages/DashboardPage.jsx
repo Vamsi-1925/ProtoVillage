@@ -57,7 +57,7 @@ export default function DashboardPage() {
   }, [tab]);
 
   return (
-    <AppShell badges={{ orders: ordersCounts.new || 0 }}>
+    <AppShell badges={{ orders: ordersCounts.received || 0 }}>
       <div data-testid={GRAAMAM_DASHBOARD.page}>
         <div className="flex items-end justify-between mb-8 gap-4 flex-wrap">
           <div>

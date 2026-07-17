@@ -33,7 +33,16 @@ def _get_db():
     return _db
 
 
-ORDER_STATUSES = {"new", "packing", "dispatched", "delivered"}
+ORDER_STATUSES = {
+    "received",
+    "warehouse_check",
+    "ready_dispatch",
+    "production_pending",
+    "production_active",
+    "procurement_pending",
+    "dispatched",
+    "closed",
+}
 
 
 class Customer(BaseModel):
@@ -143,9 +152,9 @@ async def status_counts():
     pipeline = [{"$group": {"_id": "$status", "n": {"$sum": 1}}}]
     async for row in db.graamam_orders.aggregate(pipeline):
         s = (row.get("_id") or "").lower()
+        counts["all"] += row["n"]
         if s in counts:
             counts[s] = row["n"]
-        counts["all"] += row["n"]
     return counts
 
 
@@ -223,7 +232,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "3 items",
         "date": "2024-11-24",
         "total": 14250.0,
-        "status": "new",
+        "status": "received",
         "delivery_address": "12, Indira Nagar 1st Stage, Bengaluru 560038",
         "producer": "Coorg Valley Estates",
     },
@@ -234,7 +243,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "1 item",
         "date": "2024-11-24",
         "total": 4500.0,
-        "status": "new",
+        "status": "received",
         "delivery_address": "Flat 3B, Adyar, Chennai 600020",
         "producer": "Kandhamal Turmeric Co-op",
     },
@@ -249,7 +258,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "2 items",
         "date": "2024-11-24",
         "total": 8800.0,
-        "status": "new",
+        "status": "received",
         "delivery_address": "18 Jubilee Hills, Hyderabad 500033",
         "producer": "Sirsi Weavers Collective",
     },
@@ -264,7 +273,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "5 items",
         "date": "2024-11-23",
         "total": 28000.0,
-        "status": "packing",
+        "status": "warehouse_check",
         "delivery_address": "Ravi Villa, Panampilly Nagar, Kochi 682036",
         "producer": "Kadalundi Apiary",
     },
@@ -279,7 +288,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "4 items",
         "date": "2024-11-23",
         "total": 19575.0,
-        "status": "packing",
+        "status": "warehouse_check",
         "delivery_address": "42 Kalyani Nagar, Pune 411006",
         "producer": "Coastal Artisans",
     },
@@ -294,7 +303,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "6 items",
         "date": "2024-11-22",
         "total": 31200.0,
-        "status": "dispatched",
+        "status": "ready_dispatch",
         "delivery_address": "Marine Drive, Kochi 682011",
         "producer": "Kandhamal Turmeric Co-op",
     },
@@ -309,7 +318,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "2 items",
         "date": "2024-11-21",
         "total": 7450.0,
-        "status": "delivered",
+        "status": "closed",
         "delivery_address": "Bandra West, Mumbai 400050",
         "producer": "Vypeen Herbal Co-op",
     },
@@ -324,7 +333,7 @@ SEED_ORDERS: List[dict] = [
         "items_summary": "3 items",
         "date": "2024-11-20",
         "total": 12890.0,
-        "status": "delivered",
+        "status": "closed",
         "delivery_address": "Vasant Vihar, New Delhi 110057",
         "producer": "Hampi Weavers",
     },

@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/graamam/Icon";
 import StatusPill from "@/components/graamam/StatusPill";
 import { formatCurrency, formatOrderDate, initialsFrom } from "@/lib/formatters";
 import { GRAAMAM_ORDERS } from "@/constants/testIds";
+
+const API = ((typeof process !== "undefined" && process.env && process.env.REACT_APP_BACKEND_URL) || "") + "/api";
 
 const COLUMNS = [
   { key: "order_id", label: "Order ID" },
@@ -53,6 +56,18 @@ export default function DataTable({
   onToggleExpand,
   emptyLabel = "No orders yet",
 }) {
+  const nav = useNavigate();
+  const raiseInvoice = async (e, orderId) => {
+    e.stopPropagation();
+    try {
+      const res = await fetch(`${API}/graamam/invoices/from-order/${orderId}`, { method: "POST" });
+      if (!res.ok) throw new Error(await res.text());
+      const inv = await res.json();
+      nav(`/invoice/${inv.invoice_id}`);
+    } catch (err) {
+      alert(`Could not raise invoice: ${err.message}`);
+    }
+  };
   return (
     <div
       data-testid={GRAAMAM_ORDERS.ordersTable}
@@ -131,21 +146,32 @@ export default function DataTable({
                         <StatusPill status={o.status} />
                       </td>
                       <td className="py-4 px-6 text-right">
-                        <button
-                          type="button"
-                          aria-label={isOpen ? "Collapse row" : "Expand row"}
-                          data-testid={GRAAMAM_ORDERS.ordersTableRowExpand(o.order_id)}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            onToggleExpand && onToggleExpand(o.order_id);
-                          }}
-                          className="text-outline hover:text-primary-container dark:hover:text-white p-2 rounded-full hover:bg-surface-variant/50 dark:hover:bg-white/10 transition-colors"
-                        >
-                          <Icon
-                            name="expand_more"
-                            className={`text-[20px] transition-transform ${isOpen ? "rotate-180" : ""}`}
-                          />
-                        </button>
+                        <div className="inline-flex items-center gap-1">
+                          <button
+                            type="button"
+                            onClick={(e) => raiseInvoice(e, o.order_id)}
+                            title="Raise B2B invoice for this order"
+                            data-testid={`graamam-orders-raise-invoice-${o.order_id}`}
+                            className="text-primary-container dark:text-primary-fixed-dim hover:bg-primary-fixed/50 dark:hover:bg-white/10 p-2 rounded-full transition-colors"
+                          >
+                            <Icon name="receipt_long" className="text-[18px]" />
+                          </button>
+                          <button
+                            type="button"
+                            aria-label={isOpen ? "Collapse row" : "Expand row"}
+                            data-testid={GRAAMAM_ORDERS.ordersTableRowExpand(o.order_id)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onToggleExpand && onToggleExpand(o.order_id);
+                            }}
+                            className="text-outline hover:text-primary-container dark:hover:text-white p-2 rounded-full hover:bg-surface-variant/50 dark:hover:bg-white/10 transition-colors"
+                          >
+                            <Icon
+                              name="expand_more"
+                              className={`text-[20px] transition-transform ${isOpen ? "rotate-180" : ""}`}
+                            />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                     {isOpen ? (

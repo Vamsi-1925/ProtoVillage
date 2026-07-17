@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Icon from "@/components/graamam/Icon";
 import { GRAAMAM_ORDERS } from "@/constants/testIds";
+import { useAuth, ROLE_NAV } from "@/context/AuthContext";
 
-// Full v2 nav (14 items). Order matches the sidebar screenshot from graamam_v2.html.
 const NAV = [
   { key: "dashboard",  label: "Dashboard",   icon: "dashboard",                to: "/",             testId: GRAAMAM_ORDERS.sidebarNavDashboard },
   { key: "orders",     label: "Orders",      icon: "shopping_cart",            to: "/orders",       testId: GRAAMAM_ORDERS.sidebarNavOrders, badgeKey: "orders" },
@@ -22,6 +22,11 @@ const NAV = [
 ];
 
 export default function Sidebar({ badges = {} }) {
+  const { user } = useAuth();
+  const allowed = (user && ROLE_NAV[user.role]) || ROLE_NAV.admin;
+  const items = NAV.filter((i) => allowed.includes(i.key));
+  const canSettings = allowed.includes("settings");
+
   return (
     <nav
       data-testid={GRAAMAM_ORDERS.sidebar}
@@ -38,7 +43,7 @@ export default function Sidebar({ badges = {} }) {
       </div>
 
       <div className="flex-1 flex flex-col gap-0.5 overflow-y-auto px-2 pb-4">
-        {NAV.map((item) => {
+        {items.map((item) => {
           const badge = item.badgeKey ? badges[item.badgeKey] : undefined;
           return (
             <NavLink
@@ -65,16 +70,18 @@ export default function Sidebar({ badges = {} }) {
         })}
       </div>
 
-      <div className="px-4 pt-3 border-t border-white/10">
-        <NavLink to="/settings" className={({ isActive }) => [
-          "rounded-lg px-3.5 py-2 flex items-center gap-3 transition-all",
-          isActive ? "bg-primary text-on-primary" : "text-outline-variant hover:text-inverse-on-surface hover:bg-white/5",
-        ].join(" ")}
-        data-testid={GRAAMAM_ORDERS.sidebarNavSettings}>
-          <Icon name="settings" className="text-[19px]" />
-          <span className="font-body text-[13px] font-medium">Settings</span>
-        </NavLink>
-      </div>
+      {canSettings ? (
+        <div className="px-4 pt-3 border-t border-white/10">
+          <NavLink to="/settings" className={({ isActive }) => [
+            "rounded-lg px-3.5 py-2 flex items-center gap-3 transition-all",
+            isActive ? "bg-primary text-on-primary" : "text-outline-variant hover:text-inverse-on-surface hover:bg-white/5",
+          ].join(" ")}
+          data-testid={GRAAMAM_ORDERS.sidebarNavSettings}>
+            <Icon name="settings" className="text-[19px]" />
+            <span className="font-body text-[13px] font-medium">Settings</span>
+          </NavLink>
+        </div>
+      ) : null}
     </nav>
   );
 }

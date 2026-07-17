@@ -22,6 +22,7 @@ from routers.graamam_reports import router as graamam_reports_router
 from routers.graamam_dashboard import router as graamam_dashboard_router
 from routers.graamam_master_api import router as graamam_master_router
 from routers.graamam_extras import app_router as graamam_extras_router
+from routers.graamam_auth import router as graamam_auth_router
 from routers.graamam_master import import_master_data
 
 
@@ -93,6 +94,7 @@ api_router.include_router(graamam_reports_router)
 api_router.include_router(graamam_dashboard_router)
 api_router.include_router(graamam_master_router)
 api_router.include_router(graamam_extras_router)
+api_router.include_router(graamam_auth_router)
 app.include_router(api_router)
 
 app.add_middleware(
@@ -119,11 +121,22 @@ async def seed_startup():
             from motor.motor_asyncio import AsyncIOMotorClient
             _c = AsyncIOMotorClient(os.environ["MONGO_URL"])
             _db = _c[os.environ["DB_NAME"]]
-            # If we detect the previous small-dollar totals, wipe and reseed with INR seeds.
             has_old = await _db.graamam_orders.find_one({"order_id": "GC-8902", "total": {"$lt": 1000}}, {"_id": 1})
             if has_old:
                 await _db.graamam_orders.delete_many({"order_id": {"$in": ["GC-8902","GC-8901","GC-8900","GC-8899","GC-8898","GC-8897","GC-8896","GC-8895"]}})
                 logger.info("[startup] cleared legacy dollar-priced order seeds")
+
+            # ---- One-time migration: 4-status -> 8-status flow ----
+            legacy_map = {
+                "new":        "received",
+                "packing":    "warehouse_check",
+                "delivered":  "closed",
+                # 'dispatched' stays as-is (both maps allow it)
+            }
+            for old, new in legacy_map.items():
+                r = await _db.graamam_orders.update_many({"status": old}, {"$set": {"status": new}})
+                if r.modified_count:
+                    logger.info("[startup] migrated %d orders %s -> %s", r.modified_count, old, new)
         except Exception:
             pass
 

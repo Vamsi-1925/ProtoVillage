@@ -1,7 +1,16 @@
 // Status meta — covers Orders, Batches, Production tokens, Procurement,
 // Inventory, Producers. Colors follow DESIGN_SYSTEM.md / Stitch reference.
 
-export const STATUS_ORDER = ["new", "packing", "dispatched", "delivered"];
+export const STATUS_ORDER = [
+  "received",
+  "warehouse_check",
+  "ready_dispatch",
+  "production_pending",
+  "production_active",
+  "procurement_pending",
+  "dispatched",
+  "closed",
+];
 
 const basePill = (bg, text, dot, dbg, dtext, ddot) => ({
   bg, text, dot, border: "border-transparent",
@@ -9,19 +18,36 @@ const basePill = (bg, text, dot, dbg, dtext, ddot) => ({
 });
 
 export const STATUS_META = {
-  // ORDERS
-  new: { key: "new", label: "New", pillLabel: "New Order",
+  // ORDERS (v2 8-status flow)
+  received: { key: "received", label: "Received", pillLabel: "Received",
     ...basePill("bg-tertiary-fixed-dim", "text-on-tertiary-fixed", "bg-on-tertiary-fixed",
       "dark:bg-tertiary-fixed-dim", "dark:text-on-tertiary-fixed", "dark:bg-on-tertiary-fixed") },
-  packing: { key: "packing", label: "Packing", pillLabel: "Packing",
+  warehouse_check: { key: "warehouse_check", label: "Warehouse Check", pillLabel: "Warehouse Check",
     ...basePill("bg-secondary-container", "text-on-secondary-container", "bg-on-secondary-container",
       "dark:bg-secondary-fixed", "dark:text-on-secondary-fixed", "dark:bg-on-secondary-fixed") },
-  dispatched: { key: "dispatched", label: "Dispatched", pillLabel: "Dispatched",
+  ready_dispatch: { key: "ready_dispatch", label: "Ready Dispatch", pillLabel: "Ready to Dispatch",
     ...basePill("bg-primary-fixed", "text-on-primary-fixed-variant", "bg-primary-container",
       "dark:bg-primary-fixed-dim", "dark:text-on-primary-fixed", "dark:bg-on-primary-fixed") },
-  delivered: { key: "delivered", label: "Delivered", pillLabel: "Delivered",
+  production_pending: { key: "production_pending", label: "Prod. Pending", pillLabel: "Production Pending",
+    ...basePill("bg-tertiary-fixed", "text-on-tertiary-fixed-variant", "bg-tertiary-fixed-dim") },
+  production_active: { key: "production_active", label: "Prod. Active", pillLabel: "Production Active",
+    ...basePill("bg-tertiary-fixed-dim", "text-on-tertiary-fixed", "bg-on-tertiary-fixed") },
+  procurement_pending: { key: "procurement_pending", label: "Proc. Pending", pillLabel: "Procurement Pending",
+    ...basePill("bg-error-container", "text-on-error-container", "bg-on-error-container") },
+  dispatched: { key: "dispatched", label: "Dispatched", pillLabel: "Dispatched",
+    ...basePill("bg-primary-container", "text-on-primary", "bg-on-primary",
+      "dark:bg-primary-fixed-dim", "dark:text-on-primary-fixed", "dark:bg-on-primary-fixed") },
+  closed: { key: "closed", label: "Closed", pillLabel: "Closed",
     ...basePill("bg-primary", "text-on-primary", "bg-on-primary",
       "dark:bg-primary", "dark:text-on-primary", "dark:bg-on-primary") },
+
+  // Legacy 4-status keys kept for any lingering references
+  new: { key: "new", label: "New", pillLabel: "New",
+    ...basePill("bg-tertiary-fixed-dim", "text-on-tertiary-fixed", "bg-on-tertiary-fixed") },
+  packing: { key: "packing", label: "Packing", pillLabel: "Packing",
+    ...basePill("bg-secondary-container", "text-on-secondary-container", "bg-on-secondary-container") },
+  delivered: { key: "delivered", label: "Delivered", pillLabel: "Delivered",
+    ...basePill("bg-primary", "text-on-primary", "bg-on-primary") },
 
   // BATCHES
   received: { key: "received", label: "Received", pillLabel: "Received",

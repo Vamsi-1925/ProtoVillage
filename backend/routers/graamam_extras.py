@@ -179,6 +179,72 @@ async def create_invoice(payload: InvoicePayload):
     return {k: v for k, v in doc.items() if k != "_id"}
 
 
+@app_router.post("/invoices/from-order/{order_id}", status_code=201)
+async def create_invoice_from_order(order_id: str):
+    db = get_db()
+    order = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    if not order:
+        raise HTTPException(404, f"order {order_id} not found")
+
+    # Try to match the customer against B2B master to pull GSTIN + state + rate card.
+    cust_name = (order.get("customer") or {}).get("name") or ""
+    match = None
+    if cust_name:
+        # loose match on trimmed lowercase
+        async for c in db.graamam_customers_b2b.find({}, {"_id": 0}):
+            if (c.get("name") or "").strip().lower() == cust_name.strip().lower():
+                match = c
+                break
+
+    customer_state = (match or {}).get("state") or ""
+    customer_gstin = (match or {}).get("gstin") or ""
+    line_items = []
+    total = float(order.get("total") or 0)
+    items_count = int(order.get("items_count") or 1)
+    items_summary = order.get("items_summary") or f"{items_count} items"
+    # If rate card present + we can identify a product, build proper lines. Else, one lump line.
+    rate_card = (match or {}).get("rate_card") or []
+    if rate_card and items_count == 1:
+        # single-line B2B order — best effort: use first rate-card row as anchor
+        entry = rate_card[0]
+        line_items = [{
+            "name": entry.get("product") or items_summary,
+            "hsn": "2106",
+            "qty": items_count,
+            "rate": float(entry.get("rate") or (total / items_count if items_count else total)),
+            "gst": 5,
+        }]
+    else:
+        # Split total across items evenly
+        rate = round(total / max(items_count, 1), 2)
+        line_items = [{
+            "name": items_summary,
+            "hsn": "2106",
+            "qty": items_count,
+            "rate": rate,
+            "gst": 5,
+        }]
+
+    payload = InvoicePayload(
+        order_id=order_id,
+        customer_name=cust_name,
+        customer_gstin=customer_gstin,
+        customer_state=customer_state,
+        line_items=line_items,
+        place_of_supply=customer_state or "Andhra Pradesh",
+    )
+    return await create_invoice(payload)
+
+
+@app_router.get("/invoices/{invoice_id}")
+async def get_invoice(invoice_id: str):
+    db = get_db()
+    doc = await db.graamam_invoices.find_one({"invoice_id": invoice_id}, {"_id": 0})
+    if not doc:
+        raise HTTPException(404, "invoice not found")
+    return serialize(doc)
+
+
 @app_router.get("/invoices")
 async def list_invoices(status: Optional[str] = None):
     db = get_db()
