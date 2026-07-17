@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Founder Dashboard | ProtoVillage Ops</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#000000",
+                        "surface-dim": "#121212",
+                        "surface-container-lowest": "#000000",
+                        "surface-container-low": "#0a0a0a",
+                        "surface-container": "#111111",
+                        "surface-container-high": "#1a1a1a",
+                        "surface-container-highest": "#222222",
+                        "on-surface": "#fcf9f5",
+                        "on-surface-variant": "#bec8ca",
+                        "inverse-surface": "#fcf9f5",
+                        "inverse-on-surface": "#1c1c1a",
+                        "outline": "#6f797a",
+                        "outline-variant": "#3f484a",
+                        "primary": "#005158",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1e6a72",
+                        "on-primary-container": "#a2e7f0",
+                        "inverse-primary": "#8dd2da",
+                        "secondary": "#00696d",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#46ABB0",
+                        "on-secondary-container": "#1D1D1B",
+                        "tertiary": "#DDA444",
+                        "on-tertiary": "#1D1D1B",
+                        "error": "#ba1a1a",
+                        "olive-success": "#6B7A41",
+                        "clay-brown": "#A6654E"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Raleway", "sans-serif"],
+                        "display": ["Raleway", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"],
+                        "label": ["Nunito Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #fcf9f5;
+            font-family: 'Nunito Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .vault-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            border: 1px solid #DDA444;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar (Predicted from JSON) -->
+<aside class="fixed left-0 top-0 h-full z-40 h-full w-72 flex-col hidden lg:flex bg-inverse-surface dark:bg-on-surface shadow-xl">
+<div class="p-8 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white">architecture</span>
+</div>
+<div>
+<h1 class="font-display font-bold text-xl text-inverse-on-surface tracking-tight">ProtoVillage Ops</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Rural Operations</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard is active -->
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 transition-transform duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label font-bold text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-md">My Week</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label font-bold text-label-md">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-bold text-label-md">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label font-bold text-label-md">Discussion</span>
+</a>
+<div class="pt-8 pb-4 px-6">
+<div class="h-px bg-outline-variant opacity-20"></div>
+</div>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label font-bold text-label-md">Admin</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add_circle</span>
+                New Task
+            </button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 lg:ml-72 flex flex-col min-h-screen pb-24 lg:pb-12">
+<!-- TopNavBar (Predicted from JSON) -->
+<header class="sticky top-0 w-full h-16 flex justify-between items-center px-4 md:px-10 z-30 bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-display font-bold text-headline-sm text-primary lg:hidden">ProtoVillage Ops</span>
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-4 py-2 w-96 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface w-full" placeholder="Search analytics or vault files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high flex items-center justify-center transition-all">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high flex items-center justify-center transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/20">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-surface">Founder Access</p>
+<p class="text-[10px] text-on-surface-variant">Kalyan Akkipeddi</p>
+</div>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary" data-alt="A professional studio portrait of a visionary social entrepreneur with warm, intelligent eyes and a thoughtful expression, set against a dark, minimalist charcoal background that highlights the high-contrast modern humanist aesthetic of the ProtoVillage brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUzSRWa9020M6bDMi8MpthxdEzKPrAaIGUqIqiQqmMOvkvJMRzUNe1M0XeTYJRqZ5Z2r_rUWEXemYK5oSiuB1265NRsc8YmpLl9yL42bDGQy9iqa2JD-hyTrzWlHODgA7sgR5L0ooN5iXlkZXXLov_l52PGlfzVbGZcF_S9WXhew5Djol39j0KxqPbji-Ex49tFS7J6QcIBuRO2cI3lW7uuwlVzpdfQq729359ciJB4C0_REZasnrqzOtazGja1ij40cKGMyQW2uq_"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-6 md:p-10 max-w-[1280px] w-full mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
+<div>
+<h2 class="font-headline font-bold text-4xl mb-2">Founder Dashboard</h2>
+<p class="text-on-surface-variant text-lg">System-wide performance &amp; strategic oversight.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-high px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="w-2 h-2 bg-olive-success rounded-full animate-pulse"></span>
+<span class="text-sm font-bold">System Online</span>
+</div>
+<div class="bg-surface-container-high px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary">calendar_today</span>
+<span class="text-sm font-bold">Q3 2024</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Main Progress Card -->
+<div class="col-span-12 lg:col-span-8 glass-card rounded-2xl p-8 flex flex-col justify-between overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-primary text-6xl opacity-10 group-hover:opacity-20 transition-opacity">trending_up</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline font-bold text-xl">Overall Village Milestone</h3>
+<span class="bg-primary px-3 py-1 rounded-full text-[10px] font-bold text-white tracking-widest uppercase">Target: 2025 Mastery</span>
+</div>
+<div class="flex items-baseline gap-4 mb-2">
+<span class="text-6xl font-bold font-headline tracking-tight">84.2<span class="text-2xl text-primary">%</span></span>
+<span class="text-olive-success flex items-center text-sm font-bold">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> +3.1% this month
+                            </span>
+</div>
+<div class="w-full bg-surface-container-highest h-4 rounded-full overflow-hidden mb-8">
+<div class="h-full bg-primary w-[84.2%] rounded-full shadow-[0_0_15px_rgba(30,106,114,0.5)]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="space-y-1">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider">Energy</p>
+<p class="text-xl font-bold">92%</p>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider">Water</p>
+<p class="text-xl font-bold">78%</p>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider">Housing</p>
+<p class="text-xl font-bold">64%</p>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider">Livelihood</p>
+<p class="text-xl font-bold">88%</p>
+</div>
+</div>
+</div>
+<!-- Budget vs Actual (Vibrant Secondary Accent) -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-2xl p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-xl">Fiscal Health</h3>
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Allocated Budget</span>
+<span class="font-bold">₹ 4.2M</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Actual Spent</span>
+<span class="font-bold text-secondary-container">₹ 3.85M</span>
+</div>
+</div>
+<!-- Visual Chart Mockup -->
+<div class="h-32 flex items-end justify-between gap-2 px-2">
+<div class="w-full bg-secondary-container rounded-t-sm" style="height: 60%"></div>
+<div class="w-full bg-secondary-container opacity-80 rounded-t-sm" style="height: 80%"></div>
+<div class="w-full bg-secondary-container opacity-60 rounded-t-sm" style="height: 45%"></div>
+<div class="w-full bg-secondary-container opacity-90 rounded-t-sm" style="height: 95%"></div>
+<div class="w-full bg-secondary-container rounded-t-sm" style="height: 70%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 85%"></div>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<div class="bg-secondary-container rounded-lg p-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-on-secondary-container">savings</span>
+<p class="text-on-secondary-container text-xs font-bold">Under budget by 8.3% this quarter. Strategic surplus identified.</p>
+</div>
+</div>
+</div>
+<!-- Performance Trends -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-2xl p-8">
+<h3 class="font-headline font-bold text-xl mb-6">Performance Velocity</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">speed</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="text-sm font-bold">Project Velocity</span>
+<span class="text-sm font-bold text-olive-success">Fast</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-olive-success w-[75%]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary">groups</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="text-sm font-bold">Stakeholder Trust</span>
+<span class="text-sm font-bold">9.2/10</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[92%]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary-container">psychology</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="text-sm font-bold">Operational Clarity</span>
+<span class="text-sm font-bold">Optimal</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[88%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Community Value Aggregate -->
+<div class="col-span-12 md:col-span-7 lg:col-span-5 glass-card rounded-2xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline font-bold text-xl mb-8">Community Value Index</h3>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-2">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">Lives Impacted</p>
+<p class="text-4xl font-bold tracking-tighter">12.4k</p>
+<p class="text-[10px] font-bold text-olive-success flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">trending_up</span> +12% YoY
+                                </p>
+</div>
+<div class="space-y-2">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">Knowledge Assets</p>
+<p class="text-4xl font-bold tracking-tighter">482</p>
+<p class="text-[10px] font-bold text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">verified</span> Open Source
+                                </p>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-high rounded-xl border border-outline-variant/10 flex items-start gap-4">
+<div class="bg-tertiary w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-tertiary">stars</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Bioregional Leader Badge</p>
+<p class="text-xs text-on-surface-variant">ProtoVillage Ops has been ranked #1 in sustainable rural management systems in AP.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Locked Founder Vault -->
+<div class="col-span-12 md:col-span-5 lg:col-span-3 vault-gradient rounded-2xl p-8 flex flex-col justify-center items-center text-center group cursor-pointer hover:border-tertiary transition-all duration-300 shadow-[0_0_30px_rgba(221,164,68,0.1)]">
+<div class="w-16 h-16 rounded-full bg-tertiary/10 border border-tertiary flex items-center justify-center mb-6 animate-pulse-subtle">
+<span class="material-symbols-outlined text-tertiary text-3xl">lock</span>
+</div>
+<h3 class="font-headline font-bold text-xl text-tertiary mb-2 uppercase tracking-widest">Founder Vault</h3>
+<p class="text-on-surface-variant text-sm mb-6 px-4">Secure biometric storage for strategic blueprints and sensitive legalities.</p>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full text-xs font-bold flex items-center gap-2 group-hover:scale-105 transition-transform">
+                        Verify Identity
+                        <span class="material-symbols-outlined text-sm">fingerprint</span>
+</button>
+</div>
+</div>
+<!-- Asymmetric Section: Recent Strategic Decisions -->
+<div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-4 flex flex-col justify-center">
+<h3 class="font-headline font-bold text-2xl mb-4">Strategic Timeline</h3>
+<p class="text-on-surface-variant mb-6">Real-time log of founder-level decisions and system overrides that impact the long-term village trajectory.</p>
+<button class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+                        View full archive <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="lg:col-span-8 space-y-4">
+<!-- Timeline Item -->
+<div class="glass-card p-6 rounded-xl flex gap-6 items-center border-l-4 border-primary">
+<div class="text-center shrink-0">
+<p class="text-xs font-bold text-on-surface-variant uppercase">Sep</p>
+<p class="text-xl font-bold">14</p>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Resource Re-allocation: Sector 4</h4>
+<p class="text-sm text-on-surface-variant">Emergency water pipeline funding approved via reserve surplus.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Timeline Item -->
+<div class="glass-card p-6 rounded-xl flex gap-6 items-center border-l-4 border-tertiary">
+<div class="text-center shrink-0">
+<p class="text-xs font-bold text-on-surface-variant uppercase">Sep</p>
+<p class="text-xl font-bold">08</p>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Partnership Agreement Signed</h4>
+<p class="text-sm text-on-surface-variant">Eco-Innovation Lab designated as technical partner for Waste-to-Energy.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Predicted from JSON, Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-surface lg:hidden border-t border-outline-variant/10 shadow-[0_-4px_10px_rgba(29,29,27,0.08)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-sm">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-sm">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-100" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label font-bold text-label-sm">Capture</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-bold text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label font-bold text-label-sm">Menu</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the "Vault" verification
+        document.querySelector('.vault-gradient').addEventListener('click', function() {
+            const btn = this.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Scanning...';
+            btn.classList.add('animate-pulse');
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Access Denied';
+                btn.classList.remove('animate-pulse');
+                btn.classList.replace('bg-tertiary', 'bg-error');
+                btn.classList.replace('text-on-tertiary', 'text-white');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-error', 'bg-tertiary');
+                    btn.classList.replace('text-white', 'text-on-tertiary');
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body></html>

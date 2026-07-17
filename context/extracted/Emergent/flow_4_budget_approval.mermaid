@@ -1,0 +1,14 @@
+flowchart TD
+    A["Lead drafts quarterly work plan<br/>+ budget together"] --> B["Budget rolls up:<br/>task → objective → goal"]
+    B --> C{{"Founder reviews<br/>quarterly budget"}}
+    C -->|"approve"| D["Approval token issued<br/>e.g. FRM-20260714-003<br/>vertical + date + serial"]
+    C -->|"return"| E["Back to Lead<br/>with comments"]
+    E --> A
+    D --> F["Quarter runs:<br/>12 planned weeks"]
+    F --> G["Weekly: Lead needs a change?"]
+    G -->|"yes"| H["Edit budget with<br/>MANDATORY change comment"]
+    H --> I{{"Founder approves change"}}
+    I -->|"approve"| J["New token issued<br/>immutable log:<br/>who, when, amount, why"]
+    I -->|"return"| G
+    J --> K["Approved weekly amount<br/>ready for disbursement<br/>(see money flow)"]
+    G -->|"no"| K

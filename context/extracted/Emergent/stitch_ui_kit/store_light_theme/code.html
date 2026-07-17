@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Store Overview - Graamam Connect</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&amp;family=Raleway:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#91f2f7",
+                    "on-secondary-fixed": "#002021",
+                    "on-primary-fixed-variant": "#004f56",
+                    "surface-container-highest": "#e5e2de",
+                    "on-primary-container": "#a2e7f0",
+                    "inverse-primary": "#8dd2da",
+                    "surface-container-low": "#f6f3ef",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "surface-container": "#f0edea",
+                    "error": "#ba1a1a",
+                    "surface": "#fcf9f5",
+                    "secondary": "#00696d",
+                    "secondary-fixed": "#91f2f7",
+                    "on-background": "#1c1c1a",
+                    "surface-container-high": "#ebe8e4",
+                    "on-surface-variant": "#3f484a",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "on-secondary-container": "#007074",
+                    "on-primary-fixed": "#001f23",
+                    "surface-dim": "#dcdad6",
+                    "inverse-on-surface": "#f3f0ec",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#281800",
+                    "outline-variant": "#bec8ca",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#a9eef7",
+                    "surface-variant": "#e5e2de",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "tertiary-container": "#825800",
+                    "on-tertiary-container": "#ffd597",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#74d6db",
+                    "tertiary": "#634200",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#fcf9f5",
+                    "primary-container": "#1e6a72",
+                    "background": "#fcf9f5",
+                    "primary-fixed-dim": "#8dd2da",
+                    "on-secondary": "#ffffff",
+                    "primary": "#005158",
+                    "tertiary-fixed": "#ffddaf",
+                    "outline": "#6f797a",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "surface-tint": "#1b6870",
+                    "on-surface": "#1c1c1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway"],
+                    "display": ["Raleway"],
+                    "body": ["Nunito Sans"],
+                    "label": ["Nunito Sans"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Nunito Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Raleway', sans-serif; }
+        .ambient-shadow { box-shadow: 0 8px 24px rgba(29, 29, 27, 0.08); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="bg-inverse-surface dark:bg-black fixed left-0 top-0 h-full w-[220px] shadow-md z-50 flex flex-col h-full py-6">
+<div class="px-6 mb-8">
+<h1 class="font-display font-bold text-xl text-on-primary tracking-tight">Graamam Connect</h1>
+<p class="font-body font-normal text-label-md text-on-surface-variant">Producer Operations</p>
+</div>
+<div class="flex-1 overflow-y-auto font-body font-normal text-label-md">
+<!-- Dashboard -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<!-- Inventory (Active matching "Store") -->
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Inventory
+            </a>
+<!-- Orders -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+                Orders
+            </a>
+<!-- Producers -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+                Producers
+            </a>
+<!-- Settings -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="ml-[220px] w-[calc(100%-220px)] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-black sticky top-0 z-40 w-full flex justify-between items-center h-16 px-8 transition-colors">
+<div class="flex-1"></div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded-full p-2">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A small circular user avatar photo showing a smiling professional woman with short dark hair against a soft, bright cream background. High key lighting, modern approachable corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjvttf8ep8683gnEvDoVQvbMiLdzZVld6Gk_o6e5BGCdIXjW9d9iI9CcnAp41b7vtiHnS7R7Z43TW5kfy6LFMfUcjzYP9Gms7611J-7ZqeuDzbNMFTPzX98RVAmMR4GjWDfK8ChjChcwpSuVUc_M7G3MELFrGdTwhvxPE5xI91RmzES_RiOT6eVJ_9oorg-OsFgEVxjKv1tGb52A5-E0xH67guNgGVhCGmkzTMHFhdfXdpp_Z69HcP3Xry-hc0--Cjj9wsrFcK9FcK"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<main class="flex-1 p-8">
+<header class="mb-8">
+<h2 class="font-headline font-bold text-[32px] text-on-surface tracking-tight">Store Overview</h2>
+<p class="font-body text-body-md text-on-surface-variant mt-2">Manage experience center inventory and record immediate sales.</p>
+</header>
+<!-- Store Stock Table Card -->
+<div class="bg-surface-container-lowest rounded-xl ambient-shadow p-6 overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-semibold text-[20px] text-on-surface">Store Stock</h3>
+<button class="flex items-center gap-2 bg-secondary-container text-on-secondary-container font-label text-label-md px-4 py-2 rounded-lg hover:bg-secondary hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Receive Stock
+                    </button>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-variant font-label text-label-sm text-on-surface-variant tracking-wider uppercase">
+<th class="py-4 px-4 font-semibold">Product</th>
+<th class="py-4 px-4 font-semibold text-right">In Store (Qty)</th>
+<th class="py-4 px-4 font-semibold">Nearest Expiry</th>
+<th class="py-4 px-4 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-surface-variant/50 hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A product photo of a small glass bottle filled with clear liquid, likely coconut oil, with a minimalistic organic label. Photographed in a bright, modern studio setting with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6exW8k9hz04rEf36t1k1x0vWyKP0Jf7RYDI_8UBemhwUnnfyv5uXsKNyZ4a3-1Tk5t0NcItBqULzoxhZJpEy0KO4_6gTKZVAMtReuFuqIPqLFvcYjHfssKobFZs03H6RONM-ZNXWvj3AfTAy51bQLmx5JQfYA_tF2jWq771heJwcobCxl2YUY1S7kR71KT6Tbtutd5JRPyngx__ySc76QPeW3zWWHnOoZjx443ejCf_VumymZkUIyKbMfV_4sUTO71UfpNGaU5oUC"/>
+</div>
+<span class="font-semibold text-on-surface text-[16px]">Coconut Oil 500ml</span>
+</div>
+</td>
+<td class="py-4 px-4 text-right font-medium text-[16px]">24</td>
+<td class="py-4 px-4 text-on-surface-variant">12 Aug 2024</td>
+<td class="py-4 px-4 text-right">
+<button class="bg-primary text-on-primary font-label text-label-md px-4 py-2 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                                        Record Sale
+                                    </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A product photo of a kraft paper pouch containing red, finely ground spice powder, labeled 'Spicy Groundnut Powder'. Bright, natural daylight setting, rustic yet modern presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4OOhU40rhnIBFYbsvxDmPXv-bkkQ5P7CuD2S83PpyE9h2NHe4hbIfM_SvKW3ySFT_gcKTIiE1V7Itp30dd7pGpe-JX3AoyHjSLz4g1M74DjRR5ZSXJ5jIf3Y0Ep0ZwdM4DMaTKFSotBXlg0MgnmqS2rwxufzPw8lVHYv0f48gmLnlHWTiiJIn-CAgXoglAowmm6lUzhHBIO-MRUccc1Vfve55Ebz6_3Aqa4L88oZDPvB-B2su-AVw3vyHCh6hkz-njd2b-VjC1cbO"/>
+</div>
+<span class="font-semibold text-on-surface text-[16px]">Spicy Groundnut Powder</span>
+</div>
+</td>
+<td class="py-4 px-4 text-right font-medium text-[16px]">15</td>
+<td class="py-4 px-4 text-on-surface-variant">05 Sep 2024</td>
+<td class="py-4 px-4 text-right">
+<button class="bg-primary text-on-primary font-label text-label-md px-4 py-2 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                                        Record Sale
+                                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wallet - ProtoVillage Ops</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dcdad6",
+                    "surface-container-low": "#f6f3ef",
+                    "secondary-container": "#91f2f7",
+                    "tertiary": "#634200",
+                    "on-secondary-container": "#007074",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e5e2de",
+                    "inverse-primary": "#8dd2da",
+                    "surface-container": "#f0edea",
+                    "tertiary-fixed": "#ffddaf",
+                    "surface-container-highest": "#e5e2de",
+                    "outline-variant": "#bec8ca",
+                    "on-secondary-fixed": "#002021",
+                    "primary-fixed-dim": "#8dd2da",
+                    "on-primary-fixed": "#001f23",
+                    "on-primary-fixed-variant": "#004f56",
+                    "on-primary-container": "#a2e7f0",
+                    "secondary": "#00696d",
+                    "inverse-on-surface": "#f3f0ec",
+                    "primary-container": "#1e6a72",
+                    "on-surface-variant": "#3f484a",
+                    "on-background": "#1c1c1a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#825800",
+                    "on-tertiary-fixed": "#281800",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "background": "#fcf9f5",
+                    "surface-container-high": "#ebe8e4",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fcf9f5",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "surface": "#fcf9f5",
+                    "secondary-fixed-dim": "#74d6db",
+                    "outline": "#6f797a",
+                    "primary-fixed": "#a9eef7",
+                    "on-tertiary-container": "#ffd597",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#1b6870",
+                    "secondary-fixed": "#91f2f7",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "primary": "#005158",
+                    "on-surface": "#1c1c1a",
+                    "cream-surface": "#FDFAE4",
+                    "warm-sand": "#D9C8A2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway"],
+                    "display": ["Raleway"],
+                    "body": ["Nunito Sans"],
+                    "label": ["Nunito Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FDFAE4;
+            font-family: 'Nunito Sans', sans-serif;
+            color: #1c1c1a;
+        }
+        .font-headline { font-family: 'Raleway', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<!-- Desktop SideNav (Predicted Component) -->
+<aside class="fixed left-0 top-0 h-full z-40 h-full w-72 flex-col hidden lg:flex bg-inverse-surface dark:bg-on-surface shadow-xl">
+<div class="p-6">
+<h1 class="font-display font-bold text-xl text-inverse-on-surface tracking-tight">ProtoVillage Ops</h1>
+<p class="text-xs text-inverse-primary/60 font-label">Rural Operations Management</p>
+</div>
+<nav class="flex-1 px-4 mt-4">
+<!-- Navigation Items Mapping from JSON -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-md">My Week</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-bold text-label-md">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label font-bold text-label-md">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label font-bold text-label-md">Discussion</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label font-bold text-label-md">Dashboard</span>
+</a>
+</nav>
+<div class="p-6">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-lg font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                New Task
+            </button>
+</div>
+</aside>
+<!-- Top Navigation (Mobile/Universal) -->
+<header class="sticky top-0 w-full h-16 flex justify-between items-center px-4 md:px-10 w-full z-30 bg-surface dark:bg-on-surface bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined text-primary">menu</span>
+<h2 class="font-display font-bold text-xl lg:text-2xl text-primary dark:text-inverse-primary tracking-tight">Wallet</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex bg-surface-container-high rounded-full px-4 py-2 items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search transactions..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">language</span>
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="w-8 h-8 rounded-full bg-warm-sand overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A close-up professional headshot of a smiling rural operations lead, wearing a clean linen shirt, with soft natural lighting and a blurred green landscape in the background. The style is warm, authentic, and modern-humanist, emphasizing a planet-positive leadership role." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsh1lVixpD87d9RElJdnckW9QD_b_gIFMFpJQ39lj5I8S-v0GIsAaEvonibaYV9CQPERCEHyX-KIBi-jcqhh50xtVsd1kmBVM2SJTTxWDxicQ0r1Q0hADunKSUGp_5NlSYo6F8BA9_z2IvshZtRgNfWFkx2j6bExceAtZbvzyZCZ-NPmttkJWl1xbTj-z5hSiYTL3vDRjwv1QXIzbNO3pF1gEs5pYNYEMoSk5h1CQFbgFGEl69IbZ6MwRa1GyZDe2---f3lRSyEoRA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 pb-24 lg:pb-12 px-4 md:px-10 mt-8 max-w-[1280px] mx-auto">
+<!-- Bento-style Wallet Overview -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<!-- Amount at Hand Card -->
+<div class="md:col-span-2 bg-primary text-white p-8 rounded-xl shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[220px]">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary-container rounded-full opacity-30"></div>
+<div>
+<h3 class="font-label font-bold text-sm uppercase tracking-widest opacity-80 mb-2">Amount at Hand</h3>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-bold text-4xl md:text-5xl">₹48,250</span>
+<span class="text-lg opacity-70">INR</span>
+</div>
+</div>
+<div class="flex gap-4 mt-6">
+<button class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">history_edu</span> Reconcile
+                    </button>
+<button class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">download</span> Export
+                    </button>
+</div>
+</div>
+<!-- Leads Section: Budget vs Actual -->
+<div class="bg-white p-6 rounded-xl shadow-[0_4px_10px_rgba(29,29,27,0.08)] flex flex-col justify-between border border-warm-sand/20">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-1">Budget Health</h3>
+<p class="text-sm text-on-surface-variant mb-4">Operations Cycle: Q3 Sept</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs font-bold mb-1">
+<span>Planned</span>
+<span>₹120,000</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full">
+<div class="bg-secondary h-full rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-1">
+<span>Actual Spent</span>
+<span>₹86,400</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-error text-error rounded-lg font-bold text-sm hover:bg-error/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">lock</span> Close Accounts
+                </button>
+</div>
+</section>
+<!-- Transaction History -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-2xl text-on-surface">Recent Transactions</h3>
+<div class="flex gap-2">
+<button class="bg-surface-container-high px-3 py-1.5 rounded-full text-xs font-bold hover:bg-surface-variant transition-colors">All</button>
+<button class="px-3 py-1.5 rounded-full text-xs font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Expenses</button>
+<button class="px-3 py-1.5 rounded-full text-xs font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Advances</button>
+</div>
+</div>
+<!-- Transaction List -->
+<div class="space-y-4">
+<!-- Transaction Card 1 -->
+<div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-warm-sand/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition-all group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A high-resolution macro photograph of a neatly folded paper receipt on a rustic wooden table, showing printed numbers and a local vendor stamp. The lighting is bright and clear, emphasizing a planet-positive, rural operations context with earthy tones and sharp textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVGugyIxMM5XDhuYehj_nQLOj8zd2g0so3tXdtL7IZ9TUvgA9E7rXSkjN8x7vKDfc8eVAFZOIqmIVfUXcRaGB2aBGaaS7LfvcSRcOM9MmUiyRbFMl31ZC4aUZ3t0evnvZtiwbQgUW5zo6RpU9i3gqbqUzMbQ_36zUytKZoNc5N8oASqSacmCgvte0lnFjprDP8vI-Cj6FDOaiUjwFg0-h9m67YGwtX_EOpCbRB8PQpVcFYtsfTeNJ0MLFnxySn14zoC8yEGH1TQNke"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+</div>
+</div>
+<div>
+<p class="font-bold text-on-surface">Bamboo Saplings - Ward 4</p>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
+<span class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> 12 Sept 2023
+                                </span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Plantation Budget</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full md:w-auto md:gap-8 border-t md:border-none pt-4 md:pt-0 mt-2 md:mt-0">
+<div class="text-right">
+<p class="font-bold text-error text-lg">- ₹4,500.00</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Debit</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Transaction Card 2 -->
+<div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-warm-sand/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition-all group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A clean photograph of a paper invoice for logistics services, featuring a bold stamp and some handwritten signatures in blue ink. The image has a soft, warm lighting that matches a cream-colored minimalist office aesthetic, with a shallow depth of field focusing on the 'Paid' stamp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmtL5r13qzqAwk7KF5CO-8xRHgZSRMU0nvJr-x462QeewdK33gAWzglGrwv-4jgWEv66K7kAM8I_3hsfPYDdT2eMKHpvKPPykskvvqMpMGYGRjqy-xvCVC_-Jod3-9rEBvSawepKdbCmAea7TTvCPXjPW7mnnTPPtC7kq9Mjcwyx_EQYVclepTuSY2-kTvsSWVoHp8IGURqHv-N-XItHmJPfl3GvZYvR8vE3xHU7tIf9m6FrGAcqs7nd2ASyUvYg6odybNed-RR35u"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+</div>
+</div>
+<div>
+<p class="font-bold text-on-surface">Logistics - Seed Bank Transfer</p>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
+<span class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> 10 Sept 2023
+                                </span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Seed Logistics</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full md:w-auto md:gap-8 border-t md:border-none pt-4 md:pt-0 mt-2 md:mt-0">
+<div class="text-right">
+<p class="font-bold text-error text-lg">- ₹12,800.00</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Debit</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Transaction Card 3 -->
+<div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-warm-sand/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition-all group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 relative flex items-center justify-center bg-surface-container">
+<span class="material-symbols-outlined text-on-surface-variant">attach_money</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Weekly Operations Advance</p>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
+<span class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> 08 Sept 2023
+                                </span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Admin</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full md:w-auto md:gap-8 border-t md:border-none pt-4 md:pt-0 mt-2 md:mt-0">
+<div class="text-right">
+<p class="font-bold text-secondary text-lg">+ ₹50,000.00</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Credit</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-4 text-on-surface-variant font-bold text-sm flex items-center justify-center gap-2 hover:text-primary transition-colors">
+                View All History <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 lg:bottom-12 lg:right-12 w-16 h-16 rounded-full bg-primary text-white shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-surface lg:hidden border-t border-outline-variant shadow-[0_-4px_10px_rgba(29,29,27,0.08)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-[10px]">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-[10px]">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label font-bold text-[10px]">Capture</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label font-bold text-[10px]">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label font-bold text-[10px]">Menu</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for active state scaling
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Dynamic Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

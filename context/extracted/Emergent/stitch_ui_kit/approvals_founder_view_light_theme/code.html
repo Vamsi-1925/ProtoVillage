@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Approvals Inbox | Proto Village Ops</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&amp;family=Nunito+Sans:wght@400;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Scripts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary-fixed-dim": "#f8bc5a",
+                "on-primary-fixed-variant": "#004f56",
+                "primary": "#005158",
+                "inverse-primary": "#8dd2da",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed": "#281800",
+                "inverse-on-surface": "#f3f0ec",
+                "surface-tint": "#1b6870",
+                "background": "#fcf9f5",
+                "surface-container-low": "#f6f3ef",
+                "on-secondary-fixed-variant": "#004f52",
+                "primary-fixed-dim": "#8dd2da",
+                "on-error-container": "#93000a",
+                "on-tertiary-container": "#ffd597",
+                "on-surface": "#1c1c1a",
+                "surface-dim": "#dcdad6",
+                "secondary-fixed": "#91f2f7",
+                "inverse-surface": "#31302e",
+                "tertiary-container": "#825800",
+                "primary-fixed": "#a9eef7",
+                "error-container": "#ffdad6",
+                "surface-variant": "#e5e2de",
+                "on-error": "#ffffff",
+                "surface-container-high": "#ebe8e4",
+                "surface-bright": "#fcf9f5",
+                "secondary-container": "#91f2f7",
+                "on-tertiary-fixed-variant": "#614000",
+                "on-secondary-fixed": "#002021",
+                "surface-container": "#f0edea",
+                "secondary": "#00696d",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed": "#001f23",
+                "surface-container-highest": "#e5e2de",
+                "outline-variant": "#bec8ca",
+                "outline": "#6f797a",
+                "tertiary-fixed": "#ffddaf",
+                "tertiary": "#634200",
+                "surface-container-lowest": "#ffffff",
+                "surface": "#fcf9f5",
+                "on-primary-container": "#a2e7f0",
+                "on-background": "#1c1c1a",
+                "on-surface-variant": "#3f484a",
+                "on-secondary": "#ffffff",
+                "on-secondary-container": "#007074",
+                "error": "#ba1a1a",
+                "secondary-fixed-dim": "#74d6db",
+                "primary-container": "#1e6a72",
+                "cream-surface": "#FDFAE4",
+                "warm-sand": "#D9C8A2"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Raleway", "sans-serif"],
+                "display": ["Raleway", "sans-serif"],
+                "body": ["Nunito Sans", "sans-serif"],
+                "label": ["Nunito Sans", "sans-serif"],
+                "mono": ["JetBrains Mono", "monospace"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Nunito Sans', sans-serif; background-color: #FDFAE4; color: #1c1c1a; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .token-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+    </style>
+</head>
+<body class="bg-cream-surface text-on-surface">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-screen w-[220px] bg-inverse-surface dark:bg-inverse-surface shadow-lg flex flex-col gap-2 p-4 z-50">
+<div class="mb-6 px-2">
+<h1 class="text-xl font-bold font-headline text-on-primary tracking-tight">Proto Village Ops</h1>
+<p class="text-label-sm text-surface-variant font-label opacity-80">Community Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Admin is active because of "Founder View" intent -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="text-label-md font-bold">My Week</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">track_changes</span>
+<span class="text-label-md font-bold">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard_customize</span>
+<span class="text-label-md font-bold">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-label-md font-bold">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-label-md font-bold">Discussion</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-label-md font-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-on-primary rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="text-label-md font-bold">Admin</span>
+</a>
+</nav>
+<button class="mt-auto flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-on-secondary rounded-xl transition-all duration-200 active:scale-95 font-bold shadow-md">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Quick Capture</span>
+</button>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="sticky top-0 w-full z-40 bg-surface-container-lowest shadow-sm flex justify-between items-center h-16 px-8 ml-[220px] pr-[220px]">
+<div class="flex items-center gap-4">
+<h2 class="text-headline-sm font-bold text-on-surface font-headline">Approvals Inbox</h2>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<span class="text-label-md font-medium text-on-surface-variant">Pending Reviews: 3</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer text-label-md">English/Telugu</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="text-label-md font-bold text-on-surface">Arjun Reddy</p>
+<p class="text-xs text-on-surface-variant">Coordinator</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A portrait of a distinguished middle-aged man with a warm smile, wearing traditional hand-woven Indian fabrics in an office filled with natural light and plants. The lighting is soft and golden, reflecting a modern humanist aesthetic. He exudes wisdom and calm authority in a professional yet approachable setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhVaMVNnwQiXpt2RcjwzL9a9n56x0YlTs38ifWNOg29fLzHcEesXucuXbdDbxzGfZI1Ha1Aku-0LZyLUk-Y7hBIfM8SfU90Aaa_kkwn9PV0Opi5OYDbMkY8CNUoUOs_tEttSzPBj4bPCgStgs4PllEcMihebH-QePEZvGp1OQY2x_Q2TablxXzsodOpkg0M8ex6UxsM-vIXXf7cxnkpCGsX2dlGopNhD2suzvIihCR3uJmbEydAy-DmHhmTZpealqOhw4B1zL1eUAE"/>
+</div>
+</div>
+</div>
+</header>
+<main class="ml-[220px] p-10 max-w-[1280px]">
+<!-- Page Header -->
+<section class="mb-10">
+<h1 class="text-headline-lg font-bold font-headline mb-2">Founder Review Dashboard</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Review and authorize pending budget requests for upcoming community initiatives. Each decision is cryptographically logged in the immutable village ledger.</p>
+</section>
+<div class="bento-grid">
+<!-- Pending Requests Feed -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-headline-sm font-bold font-headline">Pending Authority</h3>
+<div class="flex gap-2">
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-label-sm font-bold">Recent First</span>
+</div>
+</div>
+<!-- Request Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-warm-sand/20 group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-6">
+<span class="text-headline-md font-bold text-primary">₹14,500</span>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed text-3xl">water_drop</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-2 h-2 rounded-full bg-[#00696d]"></div>
+<span class="text-label-md font-bold tracking-wider text-secondary">WATER INFRASTRUCTURE</span>
+</div>
+<h4 class="text-headline-sm font-bold mb-2">Deep Well Maintenance &amp; Filter Replacement</h4>
+<p class="text-body-md text-on-surface-variant mb-4">Requesting funds for the quarterly desilting of the primary community well and replacement of carbon filters in the North cluster purification unit.</p>
+<div class="flex items-center gap-3 py-3 border-t border-surface-container">
+<img class="w-6 h-6 rounded-full" data-alt="A small circular profile picture of a young woman with intense, focused eyes and a professional demeanor, set against a blurred background of a modern library. The image has a warm, organic tone consistent with a cream and teal color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaWL3ZtBz88bN8mQ2h_8j9jV4Ha6_JcM07Xq6YGUoBX4piMIUjU1tbhW7cXQZbmX55tD7GRH-KFSnXpWLJiWYH5S6Lg36vhyN2IvfZA_92a1nJ0oBwqn1CFxS2jPAJo5U-WrWZTNJiOdjuW6xHfmmlriRUyYKxXfh5wQZdzCqAtFA57rgo4_0gMDpoO3k9iZjXy1L6FJc7ayiYYawzDmMvrZXuwDE_hlfTLVtu44PHlVSUlPSGtUFhakHLRxs6-6xYllHV1Z9HiCIq"/>
+<span class="text-label-md font-bold text-on-surface">Kavya S.</span>
+<span class="text-on-surface-variant text-label-sm">• Field Engineer</span>
+<span class="ml-auto text-on-surface-variant text-label-sm">Submitted 4h ago</span>
+</div>
+<div class="flex gap-4 mt-6" id="actions-1">
+<button class="flex-1 bg-primary text-on-primary font-bold py-4 px-6 rounded-lg hover:bg-primary-container transition-all active:scale-[0.98] shadow-md flex items-center justify-center gap-2" onclick="approveRequest(1)">
+<span class="material-symbols-outlined">check_circle</span>
+                                    Authorize Payment
+                                </button>
+<button class="flex-1 bg-transparent border-2 border-outline text-on-surface font-bold py-4 px-6 rounded-lg hover:bg-surface-container-low transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">undo</span>
+                                    Return with Comments
+                                </button>
+</div>
+<!-- Success Mockup State -->
+<div class="hidden mt-6 p-6 bg-secondary-container/30 border border-secondary-container rounded-lg flex flex-col items-center justify-center text-center animate-in fade-in slide-in-from-bottom-4" id="token-1">
+<span class="text-label-sm font-bold text-secondary mb-2">IMMUTABLE APPROVAL TOKEN GENERATED</span>
+<div class="font-mono text-xl bg-surface-container-lowest px-6 py-3 rounded-full border-2 border-dashed border-secondary text-secondary tracking-widest token-pulse">
+                                    FRM-20260714-001
+                                </div>
+<p class="text-xs text-on-surface-variant mt-3">Transaction signed by Founder Arjun Reddy</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-warm-sand/20 group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-6">
+<span class="text-headline-md font-bold text-primary">₹8,200</span>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-3xl">school</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-label-md font-bold tracking-wider text-tertiary">EDUCATION</span>
+</div>
+<h4 class="text-headline-sm font-bold mb-2">Tablets for Evening Skills Workshop</h4>
+<p class="text-body-md text-on-surface-variant mb-4">Final installment for 3 refurbished learning tablets for the youth vocational center. Includes localized content pre-loaded.</p>
+<div class="flex items-center gap-3 py-3 border-t border-surface-container">
+<img class="w-6 h-6 rounded-full" data-alt="A close-up portrait of a cheerful elderly man with silver hair and a bright yellow shirt, smiling broadly in a sun-drenched outdoor workshop setting. The photo uses high contrast and warm shadows to create a tactile, authentic feeling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAIYZEWP1J2XFo9IhGeN4EsPW-h9PfAU0D5mBXA5VTq45ZZQs28hEl-5OFSynI7zmmwG_SunUHLG2PAd9VPOdPSpwskkdmTfLNt-VWeZw-Q_bAItFjhNWHv5duwuBo4AzxayuKhaCKduvF8tKHbfnJol6I_S10u_Tr8TOzGoLbJUuIdW99ulFYkfVOW7pTjlS8t84hT7jKDFs2QXDCNOrLhi1fO8Q3RdqoI_s_D_tBf8UdvntZGd__flJsMWMHcGgi-Ow0CrLsxSLW"/>
+<span class="text-label-md font-bold text-on-surface">Venu Gopal</span>
+<span class="text-on-surface-variant text-label-sm">• Learning Lead</span>
+<span class="ml-auto text-on-surface-variant text-label-sm">Submitted 12h ago</span>
+</div>
+<div class="flex gap-4 mt-6" id="actions-2">
+<button class="flex-1 bg-primary text-on-primary font-bold py-4 px-6 rounded-lg hover:bg-primary-container transition-all active:scale-[0.98] shadow-md flex items-center justify-center gap-2" onclick="approveRequest(2)">
+<span class="material-symbols-outlined">check_circle</span>
+                                    Authorize Payment
+                                </button>
+<button class="flex-1 bg-transparent border-2 border-outline text-on-surface font-bold py-4 px-6 rounded-lg hover:bg-surface-container-low transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">undo</span>
+                                    Return with Comments
+                                </button>
+</div>
+<div class="hidden mt-6 p-6 bg-secondary-container/30 border border-secondary-container rounded-lg flex flex-col items-center justify-center text-center" id="token-2">
+<div class="font-mono text-xl bg-surface-container-lowest px-6 py-3 rounded-full border-2 border-dashed border-secondary text-secondary tracking-widest token-pulse">
+                                    FRM-20260714-002
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Analytics & Log -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Approval Stats -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-8 shadow-md">
+<h3 class="text-label-md font-bold mb-4 opacity-80 uppercase tracking-widest">Monthly Spending Cap</h3>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="text-4xl font-bold font-headline">₹42,000</span>
+<span class="text-label-md opacity-70">of ₹1,00,000</span>
+</div>
+<div class="w-full bg-on-primary-container/20 h-2 rounded-full overflow-hidden mb-6">
+<div class="bg-white h-full" style="width: 42%;"></div>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-on-primary-container/20 pt-6">
+<div>
+<p class="text-xs opacity-70">Approvals Today</p>
+<p class="text-xl font-bold">12</p>
+</div>
+<div>
+<p class="text-xs opacity-70">Avg. Response</p>
+<p class="text-xl font-bold">1.4 hrs</p>
+</div>
+</div>
+</div>
+<!-- Immutable Approval Log -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-warm-sand/20 overflow-hidden">
+<div class="p-6 border-b border-surface-container">
+<h3 class="text-headline-sm font-bold font-headline">Immutable Approval Log</h3>
+</div>
+<div class="p-2 space-y-1 max-h-[500px] overflow-y-auto">
+<!-- Log Item 1 -->
+<div class="p-4 hover:bg-surface-container-low rounded-lg transition-colors border-l-4 border-olive-success bg-white mb-2">
+<div class="flex justify-between items-start mb-1">
+<span class="text-label-md font-bold text-on-surface">Arjun Reddy</span>
+<span class="text-[10px] font-mono bg-surface-container px-2 py-0.5 rounded uppercase">Verified</span>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">₹3,400 for Seed distribution initiative</p>
+<div class="flex items-center justify-between mt-2 text-[11px] text-on-surface-variant font-medium">
+<span>Today, 10:45 AM</span>
+<span class="font-mono text-secondary">FRM-20260714-000</span>
+</div>
+</div>
+<!-- Log Item 2 -->
+<div class="p-4 hover:bg-surface-container-low rounded-lg transition-colors border-l-4 border-olive-success bg-white mb-2">
+<div class="flex justify-between items-start mb-1">
+<span class="text-label-md font-bold text-on-surface">Arjun Reddy</span>
+<span class="text-[10px] font-mono bg-surface-container px-2 py-0.5 rounded uppercase">Verified</span>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">₹1,200 for Community Kitchen spices</p>
+<div class="flex items-center justify-between mt-2 text-[11px] text-on-surface-variant font-medium">
+<span>Yesterday</span>
+<span class="font-mono text-secondary">FRM-20260713-994</span>
+</div>
+</div>
+<!-- Log Item 3 -->
+<div class="p-4 hover:bg-surface-container-low rounded-lg transition-colors border-l-4 border-olive-success bg-white">
+<div class="flex justify-between items-start mb-1">
+<span class="text-label-md font-bold text-on-surface">Arjun Reddy</span>
+<span class="text-[10px] font-mono bg-surface-container px-2 py-0.5 rounded uppercase">Verified</span>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">₹25,000 for Solar Grid Inverter</p>
+<div class="flex items-center justify-between mt-2 text-[11px] text-on-surface-variant font-medium">
+<span>July 12, 2026</span>
+<span class="font-mono text-secondary">FRM-20260712-882</span>
+</div>
+</div>
+</div>
+<button class="w-full py-4 text-label-md font-bold text-primary hover:bg-primary-fixed transition-colors border-t border-surface-container">
+                        View Full Ledger
+                    </button>
+</div>
+<!-- Atmospheric Aesthetic Element -->
+<div class="relative rounded-xl overflow-hidden h-48 group cursor-help">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A peaceful, high-quality landscape photo of a sustainable village in rural India at dusk. Warm lights glow from small community buildings nestled among lush green fields and ancient trees. The sky is a deep indigo with the first faint stars, creating a mood of grounded wisdom and planet-positive progress. The style is soft, tactile, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBStiu3WKaqlzq76aJzpbNhcxCF2LiwUzKHrB9EbZogy-7e2V4IX-n6E4RRLYx10mPgSqqgUHH7weIJeE_LYv0VsCyIMiOFe8yq622fWdLKc1p7ZyMWDlNJdWd4GDVBRBfgc73Ngbb0Lbh8HiOHIp9k66PHS3huWc_TwFMUpds8fTQPwyQ4I_vMBCwusEHvYcFEzm8BrOeCD84yFHe9wFrOu_-tiafZvNN7QPDWpbm8s7waoW5Y9ahpUWuHhJfFF5PjmDV4LLFiz_yr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+<p class="text-white text-label-sm italic">"Growth is measured by the roots we nourish today."</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function approveRequest(id) {
+            const actionContainer = document.getElementById(`actions-${id}`);
+            const tokenContainer = document.getElementById(`token-${id}`);
+            
+            // Interaction: Scale and fade out buttons
+            actionContainer.style.opacity = '0';
+            actionContainer.style.transform = 'translateY(10px)';
+            actionContainer.style.transition = 'all 0.3s ease';
+            
+            setTimeout(() => {
+                actionContainer.classList.add('hidden');
+                tokenContainer.classList.remove('hidden');
+                
+                // Micro-interaction: Play a subtle "success" haptic if possible
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(20);
+                }
+            }, 300);
+        }
+    </script>
+</body></html>

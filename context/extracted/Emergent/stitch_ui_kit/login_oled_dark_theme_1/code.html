@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Graamam Connect - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Raleway:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#f0edea",
+                      "background": "#fcf9f5",
+                      "surface-tint": "#1b6870",
+                      "on-primary-fixed-variant": "#004f56",
+                      "inverse-surface": "#31302e",
+                      "on-secondary-fixed-variant": "#004f52",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#614000",
+                      "on-tertiary-fixed": "#281800",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#002021",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#005158",
+                      "tertiary-fixed-dim": "#f8bc5a",
+                      "outline": "#6f797a",
+                      "surface-container-highest": "#e5e2de",
+                      "surface-container-low": "#f6f3ef",
+                      "surface": "#fcf9f5",
+                      "on-tertiary-container": "#ffd597",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#634200",
+                      "surface-dim": "#dcdad6",
+                      "outline-variant": "#bec8ca",
+                      "tertiary-container": "#825800",
+                      "surface-container-high": "#ebe8e4",
+                      "primary-fixed": "#a9eef7",
+                      "on-primary-fixed": "#001f23",
+                      "secondary-container": "#91f2f7",
+                      "surface-variant": "#e5e2de",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#3f484a",
+                      "on-secondary-container": "#007074",
+                      "on-surface": "#1c1c1a",
+                      "tertiary-fixed": "#ffddaf",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#91f2f7",
+                      "inverse-primary": "#8dd2da",
+                      "primary-container": "#1e6a72",
+                      "secondary-fixed-dim": "#74d6db",
+                      "on-primary-container": "#a2e7f0",
+                      "on-background": "#1c1c1a",
+                      "surface-bright": "#fcf9f5",
+                      "primary-fixed-dim": "#8dd2da",
+                      "error-container": "#ffdad6",
+                      "secondary": "#00696d",
+                      "inverse-on-surface": "#f3f0ec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.5rem",
+                      "lg": "1rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Raleway", "sans-serif"],
+                      "display": ["Raleway", "sans-serif"],
+                      "body": ["Nunito Sans", "sans-serif"],
+                      "label": ["Nunito Sans", "sans-serif"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Ensuring strict adherence to requested specific hex values where theme mapping is complex, while primarily relying on theme classes */
+        body { background-color: #000000; }
+        .login-card { background-color: #121212; border: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 font-body text-surface-container-lowest antialiased selection:bg-primary-container selection:text-white">
+<!-- Ambient background glow behind card -->
+<div class="fixed inset-0 pointer-events-none flex items-center justify-center opacity-20">
+<div class="w-[500px] h-[500px] bg-primary-container rounded-full blur-[120px]"></div>
+</div>
+<!-- Login Card -->
+<main class="login-card relative w-full max-w-[420px] rounded-xl shadow-2xl p-8 sm:p-10 z-10">
+<!-- Header & Logo -->
+<header class="flex flex-col items-center text-center mb-10">
+<div class="w-14 h-14 bg-inverse-surface rounded-full flex items-center justify-center mb-4 border border-outline/20 shadow-inner">
+<span class="material-symbols-outlined text-3xl text-primary-fixed" style="font-variation-settings: 'FILL' 1;">
+                    spa
+                </span>
+</div>
+<h1 class="font-display font-bold text-2xl tracking-tight text-surface-container-lowest">
+                Graamam Connect
+            </h1>
+<p class="font-body text-surface-dim text-sm mt-1">
+                Producer Operations Portal
+            </p>
+</header>
+<!-- Login Form -->
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<div class="space-y-4">
+<!-- Username -->
+<div>
+<label class="block font-label text-sm text-surface-dim mb-1.5 ml-1" for="username">Username</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-lg">person</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-3 bg-inverse-surface border border-outline/30 rounded-lg text-surface-container-lowest placeholder-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all text-body-md" id="username" name="username" placeholder="Enter your username" required="" type="text"/>
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="block font-label text-sm text-surface-dim mb-1.5 ml-1" for="password">Password</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-lg">lock</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-3 bg-inverse-surface border border-outline/30 rounded-lg text-surface-container-lowest placeholder-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all text-body-md" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between mt-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline/30 bg-inverse-surface text-primary-container focus:ring-primary-container w-4 h-4 transition-colors" type="checkbox"/>
+<span class="font-body text-sm text-surface-dim group-hover:text-surface-container-lowest transition-colors">Remember me</span>
+</label>
+<a class="font-label text-sm text-primary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Forgot password?</a>
+</div>
+<button class="w-full py-3 px-4 bg-primary-container hover:bg-surface-tint text-on-primary font-label text-base rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 flex justify-center items-center gap-2" type="submit">
+                Sign in
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</form>
+<!-- Demo Accounts Section -->
+<div class="mt-10 pt-6 border-t border-outline/10">
+<p class="font-label text-xs text-center text-surface-dim mb-4 uppercase tracking-wider">Demo Access</p>
+<div class="flex flex-wrap justify-center gap-2">
+<button class="px-4 py-1.5 bg-secondary-fixed hover:bg-secondary-fixed-dim text-on-surface font-label text-xs rounded-full transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                    Distributor
+                </button>
+<button class="px-4 py-1.5 bg-secondary-fixed hover:bg-secondary-fixed-dim text-on-surface font-label text-xs rounded-full transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[14px]">agriculture</span>
+                    Producer
+                </button>
+<button class="px-4 py-1.5 bg-secondary-fixed hover:bg-secondary-fixed-dim text-on-surface font-label text-xs rounded-full transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[14px]">admin_panel_settings</span>
+                    Admin
+                </button>
+</div>
+</div>
+</main>
+<!-- Interactive script for demo chips -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const demoButtons = document.querySelectorAll('.bg-secondary-fixed');
+
+            demoButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const role = btn.textContent.trim();
+                    usernameInput.value = `demo_${role.toLowerCase()}`;
+                    passwordInput.value = 'graamam123';
+                    
+                    // Visual feedback
+                    btn.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        btn.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body></html>

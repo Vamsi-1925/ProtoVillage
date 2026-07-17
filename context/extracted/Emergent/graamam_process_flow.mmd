@@ -1,0 +1,117 @@
+%% Graamam Connect — Complete Process Flow
+%% One flow per page. Each section below is a standalone `flowchart TD` block,
+%% delimited by a "PAGE N:" comment. graamam_process_flow.html splits on that
+%% delimiter and renders each block onto its own page when building the PDF.
+%% Shape convention: hexagon {{ }} = human approval/review gate · diamond { } = system
+%% decision or verdict (white) · dark-green rounded rect = token/record/milestone ·
+%% pink rounded rect = blocked/rejected/failed outcome · pale-green rounded rect = normal step.
+
+%% ===== PAGE 1: Order intake & routing =====
+flowchart TD
+    A(["New Order Created<br/>B2B or B2C"]):::milestone --> B("Order Token issued<br/>ORD-xxxx + Warehouse Token WH-xxxx"):::milestone
+    B --> C{"Finished stock<br/>available?"}:::decision
+    C -->|yes| D("Mark Ready for Dispatch")
+    C -->|no| E("Raise Production Token<br/>PROD-xxxx")
+    D --> F(["&rarr; Dispatch &amp; Invoicing<br/>(page 4)"]):::milestone
+    E --> G(["&rarr; Production<br/>(page 2)"]):::milestone
+
+    classDef decision fill:#ffffff,stroke:#b0b0b0,stroke-width:1px,color:#333333
+    classDef milestone fill:#1e4620,stroke:#1e4620,stroke-width:1px,color:#ffffff
+    classDef warn fill:#f3ddd3,stroke:#e0c4b6,stroke-width:1px,color:#5c4033
+
+%% ===== PAGE 2: Production — recipe to finished goods =====
+flowchart TD
+    A("Production Token<br/>PROD-xxxx, from Warehouse") --> B("Create Production Slip<br/>computes Raw Material need from Recipe")
+    B --> C{"Raw materials<br/>sufficient?"}:::decision
+    C -->|yes| D("Start Production<br/>deduct RM stock")
+    D --> E("Add Finished Goods<br/>expiry-dated batch"):::milestone
+    E --> F(["&rarr; back to Warehouse<br/>ready to dispatch"]):::milestone
+    C -->|no| G("Insufficient — production blocked"):::warn
+    G --> H("Raise Procurement Token<br/>PROC-xxxx")
+    H --> I(["&rarr; Procurement<br/>(page 3)"]):::milestone
+
+    classDef decision fill:#ffffff,stroke:#b0b0b0,stroke-width:1px,color:#333333
+    classDef milestone fill:#1e4620,stroke:#1e4620,stroke-width:1px,color:#ffffff
+    classDef warn fill:#f3ddd3,stroke:#e0c4b6,stroke-width:1px,color:#5c4033
+
+%% ===== PAGE 3: Procurement — two-stage approval =====
+flowchart TD
+    A("Procurement Token<br/>PROC-xxxx, status Pending") --> B{{"Graamam Lead (Namma)<br/>reviews in Approvals"}}
+    B -->|rejected| C("Request Rejected"):::warn
+    B -->|approved| D{{"Procurement Team<br/>reviews"}}
+    D --> E("Raise Purchase Order(s)<br/>one per material category, printable,<br/>vendor auto-recognised"):::milestone
+    E --> F("Goods Received")
+    F --> G{"QC per item:<br/>Pass or Fail?"}:::decision
+    G -->|pass| H("Add to Inventory<br/>+ record cost, rate vendor"):::milestone
+    H --> I(["&rarr; back to Production<br/>materials now available"]):::milestone
+    G -->|fail| J("Returned to Supplier<br/>not added to stock"):::warn
+
+    classDef decision fill:#ffffff,stroke:#b0b0b0,stroke-width:1px,color:#333333
+    classDef milestone fill:#1e4620,stroke:#1e4620,stroke-width:1px,color:#ffffff
+    classDef warn fill:#f3ddd3,stroke:#e0c4b6,stroke-width:1px,color:#5c4033
+
+%% ===== PAGE 4: Dispatch & invoicing =====
+flowchart TD
+    A("Order Ready for Dispatch") --> B("Dispatch Order")
+    B --> C("Deduct Finished Goods<br/>FIFO by expiry")
+    C --> D("Auto-generate Tax Invoice<br/>B2B INVOICE / B2C TAX INVOICE<br/>+ A5 shipping label"):::milestone
+    D --> E(["&rarr; Accounts<br/>(page 5)"]):::milestone
+
+    classDef decision fill:#ffffff,stroke:#b0b0b0,stroke-width:1px,color:#333333
+    classDef milestone fill:#1e4620,stroke:#1e4620,stroke-width:1px,color:#ffffff
+    classDef warn fill:#f3ddd3,stroke:#e0c4b6,stroke-width:1px,color:#5c4033
+
+%% ===== PAGE 5: Accounts — receivables & payments =====
+flowchart TD
+    A("Tax Invoice generated") --> B{"B2B or<br/>B2C?"}:::decision
+    B -->|B2B| C("Receivable<br/>payment term + due date")
+    C --> D("Record Payment")
+    D --> E(["Order Complete"]):::milestone
+    B -->|B2C| F("Auto-paid"):::milestone
+    F --> E
+    E --> G("Accounts analytics dashboard<br/>revenue, spend, receivables — B2B/B2C/All")
+
+    classDef decision fill:#ffffff,stroke:#b0b0b0,stroke-width:1px,color:#333333
+    classDef milestone fill:#1e4620,stroke:#1e4620,stroke-width:1px,color:#ffffff
+    classDef warn fill:#f3ddd3,stroke:#e0c4b6,stroke-width:1px,color:#5c4033
+
+%% ===== PAGE 6: Order-lifecycle exceptions =====
+flowchart TD
+    A("Open / in-process Order") --> B("Cancel Order")
+    B --> C("Stage-aware inventory reconciliation"):::milestone
+
+    A --> D{"Who is<br/>editing?"}:::decision
+    D -->|"admin or B2C"| E("Edit applied directly"):::milestone
+    D -->|"B2B, non-admin"| F("Sent to Admin Panel<br/>&rarr; Order Edits queue")
+    F --> G{{"Admin<br/>reviews"}}
+    G -->|approved| E
+    G -->|rejected| H("Edit Rejected"):::warn
+
+    A --> I("Non-admin requests deletion")
+    I --> J("Deletion Ticket raised")
+    J --> K{{"Admin<br/>reviews ticket"}}
+    K -->|approved| L("Order Cancelled"):::milestone
+    K -->|rejected| M("Ticket Rejected"):::warn
+
+    classDef decision fill:#ffffff,stroke:#b0b0b0,stroke-width:1px,color:#333333
+    classDef milestone fill:#1e4620,stroke:#1e4620,stroke-width:1px,color:#ffffff
+    classDef warn fill:#f3ddd3,stroke:#e0c4b6,stroke-width:1px,color:#5c4033
+
+%% ===== PAGE 7: Team communication — Discussions =====
+flowchart TD
+    A("Any Order / WH / PROD / PROC token") --> B{"Order still<br/>open/in-process?"}:::decision
+    B -->|yes| C("&#128172; Discuss button on Orders row<br/>pre-linked to that token")
+    B -->|no| D("Quick Discuss hidden<br/>use Discussions page instead")
+    D --> E("+ New Discussion<br/>link ANY token, open or closed"):::milestone
+    C --> F("Thread started"):::milestone
+    E --> F
+    F --> G("Reply — any team member")
+    G --> H{"Order dispatched<br/>or cancelled?"}:::decision
+    H -->|yes| I("Thread auto-closes"):::milestone
+    H -->|no| G
+    F --> J("Creator or Admin<br/>can Close manually")
+    J --> K("Thread closed<br/>stays visible under Closed / All tabs"):::milestone
+
+    classDef decision fill:#ffffff,stroke:#b0b0b0,stroke-width:1px,color:#333333
+    classDef milestone fill:#1e4620,stroke:#1e4620,stroke-width:1px,color:#ffffff
+    classDef warn fill:#f3ddd3,stroke:#e0c4b6,stroke-width:1px,color:#5c4033

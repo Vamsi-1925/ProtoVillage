@@ -1,0 +1,16 @@
+flowchart TD
+    A["Lead creates task<br/>template: 'By doing this,<br/>I will achieve ...'"] --> B["Assign to member(s)<br/>due day + priority<br/>push notification"]
+    R["Recurring task template<br/>daily / weekly / monthly / custom"] --> B
+    B --> C["Todo"]
+    C --> D["In Progress<br/>photos, checklist, comments<br/>(every comment must tag someone)"]
+    D --> BL["Blocked<br/>lead notified"]
+    BL --> D
+    D --> E["Marked Done by assignee<br/>counts toward progress %<br/>immediately"]
+    E --> P["Pending Verification"]
+    P --> T{{"Tuesday meeting:<br/>verification team reviews"}}
+    T --> SC["Assessment score 1–10 each:<br/>1. Necessity<br/>2. Effectiveness<br/>3. Hygiene & Beauty"]
+    SC --> Q{"Verdict"}
+    Q -->|"Done<br/>post verification"| DN["Task closes<br/>stays counted<br/>score joins person + vertical<br/>quality-of-work record"]
+    Q -->|"Redo"| RD["Returns with comments<br/>progress rolled back"]
+    RD --> C
+    R -.->|"previous instance unfinished<br/>when next spawns"| ES["Stays open AND<br/>escalates to Lead"]

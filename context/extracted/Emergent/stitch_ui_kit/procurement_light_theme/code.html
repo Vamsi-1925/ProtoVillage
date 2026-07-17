@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Procurement - Graamam Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&amp;family=Nunito+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f6f3ef",
+                      "on-secondary-fixed": "#002021",
+                      "primary-fixed": "#a9eef7",
+                      "on-surface-variant": "#3f484a",
+                      "inverse-primary": "#8dd2da",
+                      "on-secondary-fixed-variant": "#004f52",
+                      "primary-fixed-dim": "#8dd2da",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e5e2de",
+                      "surface-dim": "#dcdad6",
+                      "inverse-on-surface": "#f3f0ec",
+                      "secondary-fixed-dim": "#74d6db",
+                      "inverse-surface": "#31302e",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#007074",
+                      "secondary-fixed": "#91f2f7",
+                      "on-surface": "#1c1c1a",
+                      "tertiary-container": "#825800",
+                      "primary-container": "#1e6a72",
+                      "on-tertiary-fixed-variant": "#614000",
+                      "on-primary-fixed-variant": "#004f56",
+                      "tertiary-fixed": "#ffddaf",
+                      "surface": "#fcf9f5",
+                      "on-primary-container": "#a2e7f0",
+                      "surface-tint": "#1b6870",
+                      "secondary": "#00696d",
+                      "background": "#fcf9f5",
+                      "on-background": "#1c1c1a",
+                      "surface-container-high": "#ebe8e4",
+                      "surface-container-highest": "#e5e2de",
+                      "outline": "#6f797a",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#91f2f7",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#f8bc5a",
+                      "tertiary": "#634200",
+                      "surface-bright": "#fcf9f5",
+                      "on-primary-fixed": "#001f23",
+                      "primary": "#005158",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container": "#f0edea",
+                      "on-tertiary-container": "#ffd597",
+                      "outline-variant": "#bec8ca",
+                      "on-tertiary-fixed": "#281800",
+                      "cream-surface": "#FDFAE4",
+                      "warm-sand": "#D9C8A2",
+                      "gold": "#DDA444",
+                      "charcoal": "#1D1D1B",
+                      "olive": "#6B7A41",
+                      "terracotta": "#87211E"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.5rem",
+                      "sm": "0.25rem",
+                      "md": "0.75rem",
+                      "lg": "1rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Raleway"
+                      ],
+                      "display": [
+                              "Raleway"
+                      ],
+                      "body": [
+                              "Nunito Sans"
+                      ],
+                      "label": [
+                              "Nunito Sans"
+                      ]
+              },
+              "fontSize": {}
+      },
+          },
+        }
+    </script>
+<style>
+        body { background-color: #FDFAE4; color: #1D1D1B; }
+        .ambient-shadow { box-shadow: 0 8px 32px rgba(29, 29, 27, 0.08); }
+        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(29, 29, 27, 0.12); }
+    </style>
+</head>
+<body class="font-body antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="bg-inverse-surface dark:bg-black fixed left-0 top-0 h-full w-[220px] no-border shadow-md flex flex-col h-full py-6 z-50">
+<div class="px-6 mb-8 flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<img alt="Zygote logo glyph" class="w-8 h-8 object-contain rounded-full" data-alt="A minimalist line-art logo of a stylized leaf inside a circle, drawn in white on a dark charcoal background. The design is organic, geometric, and modern humanist, fitting a bioregional eco-friendly brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQhz45xG4mD37bd6LOQKDBvoWK_geqfRPyPmQDg24d4R4pkKx4jzXqx7ED2IINiQPG3Vn9CNJkXl85wEJaPvEjX1tvf7yWGCR8oiyPoPrfwnfWfRy0hzBofPQUAT4nc9MMfgCK2G3KkCnIsv2bBDAdec4k7RH_fper6qRT_-BGF8ApPCBIVNWwk8gzY_CqNrg8f9-NI6VUKzO9OEbVbQz0CmDxZjFTw7H1UbTFdMiV1mT1lxTEf1MLueZ9-xv1PZDt6d3eT9SAwpWm"/>
+<span class="font-display font-bold text-xl text-on-primary tracking-tight">Graamam Connect</span>
+</div>
+<span class="text-on-surface-variant text-sm font-label ml-11">Producer Operations</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-label-md">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-label-md">Inventory</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label text-label-md">Orders</span>
+</a>
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label text-label-md">Procurement</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label text-label-md">Producers</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-[220px] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-background dark:bg-black flat no shadows flex justify-between items-center h-16 px-8 border-b border-surface-variant/30">
+<h1 class="font-headline font-semibold text-xl text-charcoal">Procurement Management</h1>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<img alt="User avatar" class="w-10 h-10 rounded-full object-cover border-2 border-surface-variant" data-alt="A portrait of a local producer smiling warmly. The photo is high quality, well-lit with natural warm sunlight, reflecting an organic, earthy vibe. The person wears simple, earth-toned clothing, fitting a community-focused, modern humanist brand style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe6Q9CRVS_vKHrmqjJBlmtivU1qQVnVIsuYBEHB6t3MdNFR6krx44RqQYMam7ijbpga_2CY4EfdFXcKDzpvXX-Sj4_ddZG7RGTFpxEHTqljEttGYyhqaYljA_OktEaac5GVrB7Tab3dKwGtGTnNje_HfpwSmtBpPCVd719j2m_sHKRvW6KsP6di4OvXVEdVVz1f-egZOe8quIFgQdyiXNnQKsi8EO1B01H85eNc6RQ6AxkU5naygodksog37o9l2yk0yg56G1HtQWO"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-10 max-w-[1280px] w-full mx-auto">
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-headline font-bold text-3xl text-charcoal mb-2">Material Shortages</h2>
+<p class="text-charcoal/70 font-body">Review and manage pending procurement requests to restock inventory.</p>
+</div>
+<button class="bg-primary-container text-white font-label font-bold py-3 px-6 rounded-lg hover-lift flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Request
+                </button>
+</div>
+<!-- Bento Grid Layout for Requests -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Stage Column 1: Pending Approval -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between pb-2 border-b border-warm-sand">
+<h3 class="font-headline font-semibold text-lg text-charcoal">Pending Approval</h3>
+<span class="bg-warm-sand text-charcoal font-label text-xs px-2 py-1 rounded-full">2</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-[1rem] p-6 ambient-shadow hover-lift flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline font-semibold text-charcoal text-lg">Organic Cotton Yarn</h4>
+<p class="text-sm text-charcoal/60 mt-1">Req ID: #PR-0042</p>
+</div>
+<span class="bg-gold text-charcoal font-label text-xs px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="pending">pending</span> pending
+                            </span>
+</div>
+<div class="bg-cream-surface rounded-lg p-4 border border-warm-sand/50">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-charcoal/70">Quantity Needed:</span>
+<span class="font-bold text-charcoal">50 kg</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-charcoal/70">Required By:</span>
+<span class="font-semibold text-charcoal">Oct 15, 2023</span>
+</div>
+</div>
+<button class="bg-primary-container text-white font-label font-bold py-3 px-4 rounded-lg w-full transition-transform active:scale-95">
+                            Approve &amp; Raise PO
+                        </button>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-[1rem] p-6 ambient-shadow hover-lift flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline font-semibold text-charcoal text-lg">Natural Indigo Dye</h4>
+<p class="text-sm text-charcoal/60 mt-1">Req ID: #PR-0043</p>
+</div>
+<span class="bg-gold text-charcoal font-label text-xs px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="pending">pending</span> pending
+                            </span>
+</div>
+<div class="bg-cream-surface rounded-lg p-4 border border-warm-sand/50">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-charcoal/70">Quantity Needed:</span>
+<span class="font-bold text-charcoal">10 Liters</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-charcoal/70">Required By:</span>
+<span class="font-semibold text-charcoal">Oct 18, 2023</span>
+</div>
+</div>
+<button class="bg-primary-container text-white font-label font-bold py-3 px-4 rounded-lg w-full transition-transform active:scale-95">
+                            Approve &amp; Raise PO
+                        </button>
+</div>
+</div>
+<!-- Stage Column 2: PO Raised -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between pb-2 border-b border-warm-sand">
+<h3 class="font-headline font-semibold text-lg text-charcoal">PO Raised</h3>
+<span class="bg-warm-sand text-charcoal font-label text-xs px-2 py-1 rounded-full">1</span>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-[1rem] p-6 ambient-shadow hover-lift flex flex-col gap-4 border border-secondary/20">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline font-semibold text-charcoal text-lg">Beeswax Blocks</h4>
+<p class="text-sm text-charcoal/60 mt-1">PO: #PO-0891</p>
+</div>
+<span class="bg-secondary text-charcoal font-label text-xs px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="receipt">receipt</span> po_raised
+                            </span>
+</div>
+<div class="bg-cream-surface rounded-lg p-4 border border-warm-sand/50">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-charcoal/70">Supplier:</span>
+<span class="font-semibold text-charcoal">Local Apiary Co.</span>
+</div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-charcoal/70">Ordered:</span>
+<span class="font-bold text-charcoal">20 kg</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-charcoal/70">Est. Delivery:</span>
+<span class="font-semibold text-charcoal">Oct 12, 2023</span>
+</div>
+</div>
+<button class="border border-charcoal/20 text-charcoal font-label font-bold py-3 px-4 rounded-lg w-full transition-colors hover:bg-warm-sand/30">
+                            Mark Purchased
+                        </button>
+</div>
+</div>
+<!-- Stage Column 3: Received & QC -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between pb-2 border-b border-warm-sand">
+<h3 class="font-headline font-semibold text-lg text-charcoal">Received &amp; QC</h3>
+<span class="bg-warm-sand text-charcoal font-label text-xs px-2 py-1 rounded-full">1</span>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-[1rem] p-6 ambient-shadow hover-lift flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline font-semibold text-charcoal text-lg">Terracotta Clay</h4>
+<p class="text-sm text-charcoal/60 mt-1">PO: #PO-0885</p>
+</div>
+<span class="bg-olive text-white font-label text-xs px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> qc_pass
+                            </span>
+</div>
+<div class="bg-cream-surface rounded-lg p-4 border border-warm-sand/50">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-charcoal/70">Received:</span>
+<span class="font-bold text-charcoal">100 kg</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-charcoal/70">Quality Check:</span>
+<span class="font-semibold text-olive">Passed</span>
+</div>
+</div>
+<button class="bg-primary-container text-white font-label font-bold py-3 px-4 rounded-lg w-full transition-transform active:scale-95">
+                            Enter Cost &amp; Finalize
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

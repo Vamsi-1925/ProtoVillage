@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wallet - ProtoVillage Ops</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#000000",
+                        "on-surface": "#ffffff",
+                        "surface-container": "#121212",
+                        "surface-container-high": "#1a1a1a",
+                        "primary": "#1E6A72",
+                        "on-primary": "#ffffff",
+                        "secondary": "#46ABB0",
+                        "on-secondary": "#121212",
+                        "tertiary": "#DDA444",
+                        "on-tertiary": "#121212",
+                        "outline": "#3f484a",
+                        "outline-variant": "#2a2a2a",
+                        "primary-container": "#1e6a72",
+                        "on-primary-container": "#a2e7f0",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f3f0ec"
+                    },
+                    fontFamily: {
+                        "headline": ["Raleway", "sans-serif"],
+                        "display": ["Raleway", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"],
+                        "label": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Nunito Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .oled-card {
+            background-color: #121212;
+            border: 1px solid #1a1a1a;
+        }
+        /* Custom scrollbar for OLED */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #1E6A72; border-radius: 10px; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="fixed left-0 top-0 h-full z-40 h-full w-72 flex-col hidden lg:flex bg-inverse-surface dark:bg-on-surface shadow-xl">
+<div class="p-6 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white">eco</span>
+</div>
+<div>
+<h1 class="font-display font-bold text-xl text-inverse-on-surface tracking-tight">ProtoVillage Ops</h1>
+<p class="text-[10px] text-surface-variant uppercase tracking-widest font-bold">Rural Operations Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- My Week -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-md">My Week</span>
+</a>
+<!-- Goals -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-md">Goals</span>
+</a>
+<!-- Board -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label font-bold text-label-md">Board</span>
+</a>
+<!-- Quick Capture -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label font-bold text-label-md">Quick Capture</span>
+</a>
+<!-- Wallet (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label font-bold text-label-md">Wallet</span>
+</a>
+<!-- Discussion -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label font-bold text-label-md">Discussion</span>
+</a>
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label font-bold text-label-md">Dashboard</span>
+</a>
+<!-- Admin -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label font-bold text-label-md">Admin</span>
+</a>
+</nav>
+<button class="mt-auto mx-2 bg-primary text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+<span>New Task</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-72 pb-24 lg:pb-10">
+<!-- TopNavBar (Execution from JSON) -->
+<header class="sticky top-0 w-full h-16 flex justify-between items-center px-4 md:px-10 w-full z-30 bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-display font-bold text-headline-sm text-primary lg:hidden">ProtoVillage Ops</span>
+<div class="hidden md:flex items-center bg-surface-container h-10 px-4 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 text-on-surface" placeholder="Search transactions..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">language</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-all relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer">
+<img class="w-8 h-8 rounded-full border border-primary" data-alt="A professional close-up portrait of a rural village operations manager, wearing a clean linen shirt, looking confident and warm. The lighting is soft and natural, emphasizing a trustworthy and grounded personality. High-resolution, modern humanist style with deep black OLED-friendly background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS6JZpVzp_oXJS9XsTUWXLOZ3hic_qUnfns4-O4rU8kyj8QcY5sRBz69RUy3pAjdeD1YLPv7JkoDOobH2SI24GCiTrXE8YqakxDKrKQUNuCrazp7Q6q5Rmb6GRyg_cjMkJbGPOu-SBTZt6l9l9YBAu84G8Q1ZFUsFSYPwBL5E-eyho6FWNOhaEUjqcoWN33coZPhm6AE3fbB9gMzenX7aNQ6kVLDAWX8DmmQ9xdCShtIPkAoltJkAOH19j7u6ToSdcz8irJ0U8-JyV"/>
+<span class="hidden md:block font-label font-bold text-label-md text-on-surface">User Profile</span>
+</div>
+</div>
+</header>
+<!-- Wallet Screen Content -->
+<div class="max-w-5xl mx-auto px-4 md:px-10 py-8">
+<h2 class="font-headline font-bold text-3xl mb-8">Wallet</h2>
+<!-- Amount at Hand Card -->
+<div class="oled-card rounded-xl p-8 mb-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-primary">
+<div class="relative z-10">
+<p class="font-label font-bold text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Amount at Hand</p>
+<div class="flex items-baseline gap-2">
+<span class="text-secondary font-headline font-bold text-4xl">₹</span>
+<span class="font-display font-extrabold text-6xl tracking-tight">42,850</span>
+<span class="text-surface-variant font-headline font-semibold text-2xl">.00</span>
+</div>
+</div>
+<div class="flex gap-3 relative z-10">
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">upload</span>
+                        Request Funds
+                    </button>
+<button class="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Settle Up
+                    </button>
+</div>
+<!-- Subtle Texture/Decoration -->
+<div class="absolute right-[-20px] top-[-20px] opacity-10">
+<span class="material-symbols-outlined text-[180px] text-primary select-none">payments</span>
+</div>
+</div>
+<!-- Summary Chips -->
+<div class="flex flex-wrap gap-4 mb-10">
+<div class="bg-surface-container rounded-full px-5 py-2 flex items-center gap-2 border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label text-label-md">Pending: <span class="text-tertiary font-bold">₹1,200</span></span>
+</div>
+<div class="bg-surface-container rounded-full px-5 py-2 flex items-center gap-2 border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label text-label-md">Spent Today: <span class="text-secondary font-bold">₹850</span></span>
+</div>
+<div class="ml-auto flex items-center gap-2 text-on-surface-variant cursor-pointer hover:text-white">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span class="font-label text-label-sm uppercase font-bold">Filter History</span>
+</div>
+</div>
+<!-- Transaction History -->
+<div class="space-y-4">
+<h3 class="font-headline font-semibold text-xl mb-6 text-on-surface-variant">Recent Transactions</h3>
+<!-- Transaction Item 1 -->
+<div class="oled-card group p-4 rounded-xl flex items-center justify-between hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A sharp, high-contrast macro photograph of a paper invoice for construction materials. The receipt has handwritten ink notes and a clear shop stamp. The lighting is focused and professional, against a deep charcoal background consistent with an OLED UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc0all7Iyr-y0DmjFPduk1pMksAi1a-9QOCILQd9Bo5xm3EHwc-oAB8j0onvAYd0ZA1X42pJBOTNwHpFUUFjSYjf6mk4kcunPfNLWUXRfaclTBEVZqhVfscsCaawl3_B48hHByOgLxVnDf7OzyoQoD4r64Nk9XeyeOfj3Cp0P8SZdeSiNVPRbaBjKsyIBlEEoKi6CiXtWC1ofgXhSXVLbor9FxvRuTsTJzjAnvyYJqPn4NwsV0z4WQn1lNtxgAGI_S5bOPnSYRPb79"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Cement Bags (x10)</p>
+<p class="text-sm text-on-surface-variant">Rural Development • Oct 14, 2:30 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-display font-bold text-xl text-error">- ₹3,500</p>
+<span class="inline-block px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-[10px] font-bold uppercase">Pending Approval</span>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="oled-card group p-4 rounded-xl flex items-center justify-between hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A clear photograph of a printed bill for diesel fuel from a rural petrol station. The paper is slightly crumpled but the numbers are legible. Dark, atmospheric lighting with high contrast for OLED display, emphasizing texture and authenticity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNc6HGe6eHL8WOvM3KjN1GPkl_dTOkMrVLMNOAKlAflskhsXNH9OaCRsS6TgoglfeXFbGmVitWGiak8gpbYvzBK0J1kFwV_ydsCcuKnl3ejsjB20NtLMC7GxC8M2vKrlKobF6-_VW_7lhTKzV8TWZqgl34ngulCOE1A3EKtOW-0e-YqfDPjdSMlf9HREf29EvYudbOp3X5tINR6eiTFJU2ydI6j2YEMd1kKexgdeV-VNCp6diCLxyzTDo8FxSYk-U2uGTXTEJV-K1Y"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Generator Fuel</p>
+<p class="text-sm text-on-surface-variant">Utility Ops • Oct 13, 11:15 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-display font-bold text-xl text-error">- ₹1,200</p>
+<span class="inline-block px-2 py-0.5 rounded bg-secondary text-on-secondary text-[10px] font-bold uppercase tracking-wider">Verified</span>
+</div>
+</div>
+<!-- Transaction Item 3 -->
+<div class="oled-card group p-4 rounded-xl flex items-center justify-between hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional top-down photo of an official government treasury receipt for land taxes. The document features a crisp blue seal and official typography. Styled for a modern dark UI with deep shadows and clean edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLk1sRTDY1hIzATlDNkMXuW9y687QE0clePa8doQrnyUJCR28O-G4Hh0DeHgT0eVecZiqv_6zLeFGccr86vhQsSnWa5rZUBpPfFoyl7xO7rPaWTJYRv61jdlu1Xh6Xn-upGTx3a47we6yntMnBWWWyjfc05k6IWP6g5VNcgkBnnRqedmCXBZRpRbtnAk_Dvo6R2JlUY-kFD2X5oZynYy2XE_JJIh03Uxf7Lqlq5h8HDYyhLW9R6dSrszMqPAuT11qw6S-W-Z3r5DTW"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Quarterly Land Tax</p>
+<p class="text-sm text-on-surface-variant">Admin • Oct 10, 9:00 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-display font-bold text-xl text-error">- ₹8,400</p>
+<span class="inline-block px-2 py-0.5 rounded bg-secondary text-on-secondary text-[10px] font-bold uppercase tracking-wider">Verified</span>
+</div>
+</div>
+<!-- Transaction Item 4 (Income) -->
+<div class="oled-card group p-4 rounded-xl flex items-center justify-between hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl">account_balance</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">HQ Fund Transfer</p>
+<p class="text-sm text-on-surface-variant">Ops Budget • Oct 08, 4:45 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-display font-bold text-xl text-secondary">+ ₹50,000</p>
+<span class="inline-block px-2 py-0.5 rounded bg-secondary text-on-secondary text-[10px] font-bold uppercase tracking-wider">Settled</span>
+</div>
+</div>
+</div>
+<!-- View More Button -->
+<button class="w-full mt-8 py-4 border border-dashed border-outline-variant rounded-xl text-on-surface-variant font-bold hover:border-primary hover:text-primary transition-all">
+                Load Older Transactions
+            </button>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-24 lg:bottom-10 right-6 lg:right-10 w-16 h-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- BottomNavBar (Execution from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-surface lg:hidden border-t border-outline-variant shadow-[0_-4px_10px_rgba(29,29,27,0.08)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-sm">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-sm">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label font-bold text-label-sm">Capture</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-100" href="#">
+<span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label font-bold text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label font-bold text-label-sm">Menu</span>
+</a>
+</nav>
+<script>
+        // Simple Micro-interaction for cards
+        document.querySelectorAll('.oled-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // FAB Click ripple effect (simulated)
+        const fab = document.querySelector('button.fixed.bottom-24');
+        fab.addEventListener('click', () => {
+            console.log('Opening Add Transaction Modal...');
+            // In a real app, this would trigger a modal
+        });
+    </script>
+</body></html>

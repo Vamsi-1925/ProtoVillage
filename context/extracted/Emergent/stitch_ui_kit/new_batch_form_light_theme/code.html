@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Graamam Connect - New Batch</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dcdad6",
+                    "surface-container-low": "#f6f3ef",
+                    "secondary-container": "#91f2f7",
+                    "tertiary": "#634200",
+                    "on-secondary-container": "#007074",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e5e2de",
+                    "inverse-primary": "#8dd2da",
+                    "surface-container": "#f0edea",
+                    "tertiary-fixed": "#ffddaf",
+                    "surface-container-highest": "#e5e2de",
+                    "outline-variant": "#bec8ca",
+                    "on-secondary-fixed": "#002021",
+                    "primary-fixed-dim": "#8dd2da",
+                    "on-primary-fixed": "#001f23",
+                    "on-primary-fixed-variant": "#004f56",
+                    "on-primary-container": "#a2e7f0",
+                    "secondary": "#00696d",
+                    "inverse-on-surface": "#f3f0ec",
+                    "primary-container": "#1e6a72",
+                    "on-surface-variant": "#3f484a",
+                    "on-background": "#1c1c1a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#825800",
+                    "on-tertiary-fixed": "#281800",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "background": "#fcf9f5",
+                    "surface-container-high": "#ebe8e4",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fcf9f5",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "surface": "#fcf9f5",
+                    "secondary-fixed-dim": "#74d6db",
+                    "outline": "#6f797a",
+                    "primary-fixed": "#a9eef7",
+                    "on-tertiary-container": "#ffd597",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#1b6870",
+                    "secondary-fixed": "#91f2f7",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "primary": "#005158",
+                    "on-surface": "#1c1c1a",
+                    "cream-surface": "#FDFAE4",
+                    "warm-sand": "#D9C8A2",
+                    "terracotta-error": "#87211E",
+                    "olive-success": "#6B7A41",
+                    "clay-brown": "#A6654E",
+                    "dusty-rose": "#D8A39D"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway", "sans-serif"],
+                    "display": ["Raleway", "sans-serif"],
+                    "body": ["Nunito Sans", "sans-serif"],
+                    "label": ["Nunito Sans", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Nunito Sans', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Raleway', sans-serif; }
+        
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #D9C8A2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Sidebar Component (Shared Component: SideNavBar) -->
+<aside class="fixed left-0 top-0 h-full w-[220px] bg-inverse-surface flex flex-col py-6 shadow-md z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-sm">agriculture</span>
+</div>
+<div>
+<h1 class="font-display font-bold text-xl text-on-primary tracking-tight leading-none">Graamam</h1>
+<p class="text-[10px] text-surface-variant tracking-widest uppercase mt-1">Connect</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-label-md">Inventory</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-label-md">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label text-label-md">Orders</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label text-label-md">Producers</span>
+</a>
+<div class="mt-auto pt-4 border-t border-surface-variant/10">
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Header Component (Shared Component: TopAppBar) -->
+<header class="sticky top-0 z-40 w-full h-16 bg-background flex justify-between items-center px-8 ml-[220px] w-[calc(100%-220px)]">
+<h2 class="font-headline font-semibold text-headline-sm text-primary">Inventory Management</h2>
+<div class="flex items-center gap-6">
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors focus:ring-2 focus:ring-primary">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<div class="flex items-center gap-3 border-l pl-6 border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="font-label text-label-md text-on-surface">Operations Manager</p>
+<p class="text-xs text-on-surface-variant">Thanjavur Hub</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-warm-sand overflow-hidden border-2 border-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a friendly operations manager in a clean linen shirt, set against a soft warm-toned background with natural lighting. The style is modern humanist with high-quality photography, reflecting a planet-positive and trustworthy personality in a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7KUO9f9WQ6zpWMlnTcFbvQZvEHZalB68w__qFWM89HzM3t3gDoer2QfXqf8-CgoXEdwlI0zwc73qME4RGpTatLMf7XzuJ9ra7AJSEJdTAVXIgTYhxI5Tj8rmZs0HbYrctvJq0Wyce_RPkRkJ6iSEX6HMULn1eHZF9FifkTzxvQCxrXki2MBdQuDqLOO5_9WmoIqybhq-Oi50SpcX13alxr7GgOAjKUJ9XwKXpUIzU203fbn0ehxrht5KC_CyI2fGIRp2fm7N_oLr7"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[220px] p-8 min-h-[calc(100vh-64px)] bg-cream-surface">
+<!-- Background Page Content (Dashboard Mock) -->
+<div class="max-w-6xl mx-auto opacity-40 pointer-events-none transition-opacity duration-500" id="page-content">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-variant">
+<p class="text-on-surface-variant text-sm font-label uppercase tracking-wider mb-2">Total Batches</p>
+<p class="text-4xl font-headline font-bold text-primary">124</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-variant">
+<p class="text-on-surface-variant text-sm font-label uppercase tracking-wider mb-2">In Transit</p>
+<p class="text-4xl font-headline font-bold text-secondary">3,450 kg</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-variant">
+<p class="text-on-surface-variant text-sm font-label uppercase tracking-wider mb-2">Pending Quality</p>
+<p class="text-4xl font-headline font-bold text-tertiary">12</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant overflow-hidden">
+<div class="px-6 py-4 border-b border-surface-variant flex justify-between items-center">
+<h3 class="font-headline font-semibold text-lg">Active Batches</h3>
+</div>
+<div class="h-96 flex items-center justify-center text-on-surface-variant italic">
+                    Latest activity will be listed here...
+                </div>
+</div>
+</div>
+<!-- NEW BATCH DRAWER OVERLAY -->
+<div class="fixed inset-0 z-50 flex justify-end bg-on-surface/20 backdrop-blur-sm transition-opacity duration-300" id="drawer-overlay">
+<!-- Animated Background Shader (Embedded within the drawer side for atmosphere) -->
+<div class="relative w-full max-w-lg bg-surface-container-lowest h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-500">
+
+<!-- Drawer Header -->
+<div class="px-8 py-10 flex justify-between items-center relative z-10">
+<div>
+<h2 class="text-headline-md font-bold text-primary">New Batch</h2>
+<p class="text-on-surface-variant text-body-sm mt-1">Record fresh produce from our network partners.</p>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors group" id="close-drawer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">close</span>
+</button>
+</div>
+<!-- Form Content -->
+<div class="flex-1 overflow-y-auto px-8 py-2 custom-scrollbar relative z-10">
+<form class="space-y-8 pb-12" id="new-batch-form">
+<!-- Product Field -->
+<div class="space-y-2">
+<label class="block font-label text-label-md text-on-surface">Product Selection</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 appearance-none text-on-surface font-body cursor-pointer">
+<option disabled="" selected="" value="">Choose a variety...</option>
+<option value="traditional-rice">Traditional Rice - Mapillai Samba</option>
+<option value="cold-pressed-oil">Cold Pressed Groundnut Oil</option>
+<option value="organic-turmeric">Organic Turmeric Powder</option>
+<option value="jaggery-powder">Country Jaggery Powder</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<!-- Producer Field -->
+<div class="space-y-2">
+<label class="block font-label text-label-md text-on-surface">Village / Producer</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 appearance-none text-on-surface font-body cursor-pointer">
+<option disabled="" selected="" value="">Select producer source...</option>
+<option value="p1">Mannargudi Organic Collective</option>
+<option value="p2">Senthil Kumar (Keezhur Village)</option>
+<option value="p3">Vetrivel Agro (Vedaranyam)</option>
+<option value="p4">Women's Self Help Group - Sirkazhi</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">group</span>
+</div>
+</div>
+<!-- Quantity with Segmented Toggle -->
+<div class="space-y-3">
+<label class="block font-label text-label-md text-on-surface">Quantity Received</label>
+<div class="flex gap-4">
+<input class="flex-1 bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 text-on-surface font-headline font-bold text-lg placeholder:text-outline-variant" placeholder="0.00" type="number"/>
+<div class="flex bg-surface-container-high rounded-lg p-1 min-w-[160px]">
+<button class="unit-toggle flex-1 py-2 px-3 text-sm font-label rounded-md bg-primary text-on-primary transition-all shadow-sm" onclick="selectUnit(this)" type="button">kg</button>
+<button class="unit-toggle flex-1 py-2 px-3 text-sm font-label rounded-md text-on-surface-variant hover:text-on-surface transition-all" onclick="selectUnit(this)" type="button">g</button>
+<button class="unit-toggle flex-1 py-2 px-3 text-sm font-label rounded-md text-on-surface-variant hover:text-on-surface transition-all" onclick="selectUnit(this)" type="button">pcs</button>
+</div>
+</div>
+</div>
+<!-- Date Field -->
+<div class="space-y-2">
+<label class="block font-label text-label-md text-on-surface">Collection Date</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 text-on-surface font-body" type="date"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">calendar_today</span>
+</div>
+</div>
+<!-- Photo Upload Area -->
+<div class="space-y-2">
+<label class="block font-label text-label-md text-on-surface">Visual Verification (Photo)</label>
+<div class="border-2 border-dashed border-warm-sand rounded-xl p-8 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group cursor-pointer flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">add_a_photo</span>
+</div>
+<p class="font-label text-label-md text-primary">Upload or Snap Photo</p>
+<p class="text-xs text-on-surface-variant mt-1">Capture quality check of the shipment</p>
+</div>
+</div>
+<!-- Notes Field -->
+<div class="space-y-2">
+<label class="block font-label text-label-md text-on-surface">Notes &amp; Observations</label>
+<textarea class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 text-on-surface font-body resize-none placeholder:text-outline-variant" placeholder="Describe quality, packing condition, or special handling..." rows="3"></textarea>
+</div>
+</form>
+</div>
+<!-- Footer Actions -->
+<div class="p-8 bg-surface-container-low border-t border-surface-variant flex gap-4 relative z-10">
+<button class="flex-1 py-4 px-6 rounded-lg font-label text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" id="cancel-btn">
+                        Cancel
+                    </button>
+<button class="flex-1 py-4 px-6 rounded-lg font-label bg-primary text-on-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">save</span>
+                        Save Batch
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- UI Interactions Script -->
+<script>
+        // Unit Selection Logic
+        function selectUnit(element) {
+            const buttons = document.querySelectorAll('.unit-toggle');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+                btn.classList.add('text-on-surface-variant');
+            });
+            element.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+            element.classList.remove('text-on-surface-variant');
+        }
+
+        // Drawer Close Handling
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        const closeDrawer = document.getElementById('close-drawer');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const pageContent = document.getElementById('page-content');
+
+        function toggleDrawer() {
+            drawerOverlay.classList.toggle('hidden');
+            if (drawerOverlay.classList.contains('hidden')) {
+                pageContent.classList.remove('opacity-40');
+            } else {
+                pageContent.classList.add('opacity-40');
+            }
+        }
+
+        closeDrawer.addEventListener('click', () => {
+            drawerOverlay.classList.add('opacity-0');
+            setTimeout(() => {
+                drawerOverlay.classList.add('hidden');
+                pageContent.classList.remove('opacity-40');
+            }, 300);
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            drawerOverlay.classList.add('opacity-0');
+            setTimeout(() => {
+                drawerOverlay.classList.add('hidden');
+                pageContent.classList.remove('opacity-40');
+            }, 300);
+        });
+
+        // Simple form validation visual cue
+        document.getElementById('new-batch-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Logic for saving...
+        });
+    </script>
+</body></html>

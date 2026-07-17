@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Budgets &amp; Approvals | Proto Village Ops</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#f8bc5a",
+                      "on-primary-fixed-variant": "#004f56",
+                      "primary": "#005158",
+                      "inverse-primary": "#8dd2da",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#281800",
+                      "inverse-on-surface": "#f3f0ec",
+                      "surface-tint": "#1b6870",
+                      "background": "#fcf9f5",
+                      "surface-container-low": "#f6f3ef",
+                      "on-secondary-fixed-variant": "#004f52",
+                      "primary-fixed-dim": "#8dd2da",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#ffd597",
+                      "on-surface": "#1c1c1a",
+                      "surface-dim": "#dcdad6",
+                      "secondary-fixed": "#91f2f7",
+                      "inverse-surface": "#31302e",
+                      "tertiary-container": "#825800",
+                      "primary-fixed": "#a9eef7",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e5e2de",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#ebe8e4",
+                      "surface-bright": "#fcf9f5",
+                      "secondary-container": "#91f2f7",
+                      "on-tertiary-fixed-variant": "#614000",
+                      "on-secondary-fixed": "#002021",
+                      "surface-container": "#f0edea",
+                      "secondary": "#00696d",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#001f23",
+                      "surface-container-highest": "#e5e2de",
+                      "outline-variant": "#bec8ca",
+                      "outline": "#6f797a",
+                      "tertiary-fixed": "#ffddaf",
+                      "tertiary": "#634200",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fcf9f5",
+                      "on-primary-container": "#a2e7f0",
+                      "on-background": "#1c1c1a",
+                      "on-surface-variant": "#3f484a",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#007074",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#74d6db",
+                      "primary-container": "#1e6a72",
+                      "cream-surface": "#FDFAE4",
+                      "warm-sand": "#D9C8A2",
+                      "charcoal": "#1D1D1B",
+                      "gold": "#DDA444",
+                      "secondary-teal": "#46ABB0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.5rem",
+                      "lg": "0.75rem",
+                      "xl": "1rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Raleway", "sans-serif"],
+                      "display": ["Raleway", "sans-serif"],
+                      "body": ["Nunito Sans", "sans-serif"],
+                      "label": ["Nunito Sans", "sans-serif"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #FDFAE4;
+            color: #1D1D1B;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .construction-indicator { border-left: 4px solid #C97B3D; }
+        .farming-indicator { border-left: 4px solid #4C9A6E; }
+        
+        /* Custom scrollbar for budget view */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f0edea; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #bec8ca; border-radius: 10px; }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-cream-surface min-h-screen">
+<!-- SideNavBar (JSON Derived) -->
+<aside class="fixed left-0 top-0 h-screen w-[220px] bg-inverse-surface shadow-lg z-50 flex flex-col p-4 gap-2">
+<div class="mb-8 px-2">
+<h1 class="text-xl font-bold font-headline text-on-primary tracking-tight">Proto Village Ops</h1>
+<p class="text-label-sm text-on-primary/60 font-label">Community Management</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<!-- Active state for Goals (Semantic Mapping for Budgets) -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">calendar_view_week</span>
+<span class="text-label-md font-bold">My Week</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-on-primary rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined filled-icon">track_changes</span>
+<span class="text-label-md font-bold">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard_customize</span>
+<span class="text-label-md font-bold">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-label-md font-bold">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-label-md font-bold">Dashboard</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary py-3 px-4 rounded-lg flex items-center justify-center gap-2 font-bold transition-all active:scale-95 shadow-md">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Quick Capture</span>
+</button>
+</aside>
+<!-- Main Shell -->
+<div class="ml-[220px] min-h-screen flex flex-col">
+<!-- TopNavBar (JSON Derived) -->
+<header class="sticky top-0 w-full z-40 bg-surface-container-lowest shadow-sm flex justify-between items-center h-16 px-8">
+<div class="flex items-center gap-6">
+<h2 class="text-headline-sm font-bold text-on-surface font-headline">Budgets &amp; Approvals</h2>
+<nav class="hidden md:flex gap-4">
+<span class="text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer">English/Telugu</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="text-label-md font-bold text-on-surface">Arjun Reddy</p>
+<p class="text-xs text-on-surface-variant">Coordinator</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a South Asian man in his 30s with a warm, confident expression. He is wearing a sustainable linen shirt in an olive green tone. The background is a soft-focus community garden with earthy textures and warm, natural sunlight. Modern humanist photography style with clean composition and organic warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqkcXEUv0_bFQ8Y710Rci8XuWUUwtMqew1mHoCxUZtielhhz1xGalKS3Eg_CWxrzq6hZq3vErXrNu4Hc_lIHJLFXnyV6es5OA_nwTuCiCmRUqxDUNGLYtHUXBphgHRuZm-oqdBNhgNhUmB7nEAgROqjuLWur-DyyS8l0VuyUZILUiiOQSzX58zsM_WEmUlovmtuJwwTBQaqJlN23psWn-58fZwvkq1zXa-qF3kdpVAMeLCsrbJg5peKltgpDZ1_pcjsNDH5BbEVsxK"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-8 max-w-[1280px] mx-auto w-full flex-1">
+<!-- Summary Bento Section -->
+<section class="bento-grid mb-8">
+<div class="col-span-8 bg-white p-6 rounded-xl shadow-sm flex flex-col justify-between border border-warm-sand/20">
+<div>
+<h3 class="text-headline-md font-bold font-headline mb-2">Q3 Infrastructure Fund</h3>
+<p class="text-body-md text-on-surface-variant mb-4">Tracking auto-rollups across Construction, Permaculture, and Community goals.</p>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="p-4 bg-surface-container rounded-lg">
+<p class="text-label-sm uppercase tracking-wider text-on-surface-variant mb-1">Total Estimated</p>
+<p class="text-2xl font-bold font-headline text-primary">₹14,50,000</p>
+</div>
+<div class="p-4 bg-surface-container rounded-lg">
+<p class="text-label-sm uppercase tracking-wider text-on-surface-variant mb-1">Total Actual</p>
+<p class="text-2xl font-bold font-headline text-charcoal">₹9,24,000</p>
+</div>
+<div class="p-4 bg-secondary-container rounded-lg">
+<p class="text-label-sm uppercase tracking-wider text-charcoal mb-1">Current Variance</p>
+<p class="text-2xl font-bold font-headline text-on-secondary-container">-₹5,26,000</p>
+</div>
+</div>
+</div>
+<div class="col-span-4 bg-white p-6 rounded-xl shadow-sm border border-warm-sand/20 relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-primary/5 rounded-full"></div>
+<h3 class="text-headline-sm font-bold font-headline mb-4">Pending Approvals</h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-cream-surface rounded-lg border border-gold/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gold">pending_actions</span>
+<div>
+<p class="text-label-md font-bold">Foundation Piling</p>
+<p class="text-xs text-on-surface-variant">Arjun • ₹45,000</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">arrow_circle_right</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-cream-surface rounded-lg border border-gold/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gold">pending_actions</span>
+<div>
+<p class="text-label-md font-bold">Drip Irrigation</p>
+<p class="text-xs text-on-surface-variant">Maya • ₹12,800</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">arrow_circle_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Collapsible Budget Tree -->
+<section class="bg-white rounded-xl shadow-md border border-warm-sand/30 overflow-hidden">
+<!-- Header row -->
+<div class="grid grid-cols-12 gap-4 px-6 py-4 bg-surface-container-low border-b border-warm-sand/20 text-label-md font-bold text-on-surface-variant uppercase tracking-wider">
+<div class="col-span-5">Goal / Objective / Task</div>
+<div class="col-span-2 text-right">Estimated (₹)</div>
+<div class="col-span-2 text-right">Actual (₹)</div>
+<div class="col-span-1 text-right">Variance</div>
+<div class="col-span-2 text-center">Status &amp; Progress</div>
+</div>
+<div class="divide-y divide-warm-sand/10">
+<!-- Goal Level: Construction -->
+<div class="group">
+<div class="grid grid-cols-12 gap-4 px-6 py-5 items-center construction-indicator hover:bg-surface-container-lowest transition-colors cursor-pointer">
+<div class="col-span-5 flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+<span class="material-symbols-outlined text-primary filled-icon">home_work</span>
+<div>
+<p class="text-body-md font-bold">Goal: Expand Eco-Housing Cluster</p>
+<p class="text-xs text-on-surface-variant">3 Objectives • 12 Tasks</p>
+</div>
+</div>
+<div class="col-span-2 text-right font-bold">8,00,000</div>
+<div class="col-span-2 text-right font-bold">4,50,000</div>
+<div class="col-span-1 text-right text-olive-success font-bold">-43%</div>
+<div class="col-span-2 px-4">
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 56%;"></div>
+</div>
+<p class="text-[10px] text-center mt-1 text-on-surface-variant">56% Complete</p>
+</div>
+</div>
+<!-- Objective Level (Indented) -->
+<div class="bg-surface-container-lowest/50">
+<div class="grid grid-cols-12 gap-4 px-6 py-4 items-center border-l-4 border-warm-sand ml-4 hover:bg-cream-surface/50">
+<div class="col-span-5 flex items-center gap-4 pl-8">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">keyboard_arrow_down</span>
+<div>
+<p class="text-body-sm font-semibold">Obj: Phase 1 Civil Works</p>
+<p class="text-[10px] uppercase text-on-surface-variant">Rollup Active</p>
+</div>
+</div>
+<div class="col-span-2 text-right text-body-sm">3,50,000</div>
+<div class="col-span-2 text-right text-body-sm">3,10,000</div>
+<div class="col-span-1 text-right text-error text-body-sm font-bold">+11%</div>
+<div class="col-span-2 px-4 flex justify-center">
+<span class="px-2 py-0.5 bg-gold text-charcoal text-[10px] font-bold rounded-full">REVIEW NEEDED</span>
+</div>
+</div>
+<!-- Task Level (Indented) -->
+<div class="grid grid-cols-12 gap-4 px-6 py-3 items-center ml-16 hover:bg-white border-l border-warm-sand/20">
+<div class="col-span-5 flex items-center gap-3 pl-12">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<p class="text-body-sm">Task: Foundation Excavation</p>
+</div>
+<div class="col-span-2 text-right text-body-sm text-on-surface-variant">45,000</div>
+<div class="col-span-2 text-right text-body-sm text-on-surface-variant">48,200</div>
+<div class="col-span-1 text-right text-body-sm">+₹3.2k</div>
+<div class="col-span-2 flex items-center gap-2 px-4">
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 100%;"></div>
+</div>
+<span class="material-symbols-outlined text-olive-success text-sm">check_circle</span>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 px-6 py-3 items-center ml-16 hover:bg-white border-l border-warm-sand/20">
+<div class="col-span-5 flex items-center gap-3 pl-12">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<p class="text-body-sm">Task: Material Procurement (Bricks)</p>
+</div>
+<div class="col-span-2 text-right text-body-sm text-on-surface-variant">2,00,000</div>
+<div class="col-span-2 text-right text-body-sm text-on-surface-variant">2,15,000</div>
+<div class="col-span-1 text-right text-body-sm">+₹15k</div>
+<div class="col-span-2 flex items-center gap-2 px-4">
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gold" style="width: 45%;"></div>
+</div>
+<span class="material-symbols-outlined text-gold text-sm">history</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Goal Level: Farming -->
+<div class="group">
+<div class="grid grid-cols-12 gap-4 px-6 py-5 items-center farming-indicator hover:bg-surface-container-lowest transition-colors cursor-pointer">
+<div class="col-span-5 flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+<span class="material-symbols-outlined text-primary filled-icon">potted_plant</span>
+<div>
+<p class="text-body-md font-bold">Goal: Regenerative Orchard Expansion</p>
+<p class="text-xs text-on-surface-variant">2 Objectives • 8 Tasks</p>
+</div>
+</div>
+<div class="col-span-2 text-right font-bold">4,50,000</div>
+<div class="col-span-2 text-right font-bold">2,10,000</div>
+<div class="col-span-1 text-right text-olive-success font-bold">-53%</div>
+<div class="col-span-2 px-4">
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 32%;"></div>
+</div>
+<p class="text-[10px] text-center mt-1 text-on-surface-variant">32% Complete</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mandatory Adjustment Panel -->
+<section class="mt-8 bento-grid">
+<div class="col-span-7 bg-white p-8 rounded-xl shadow-md border-t-4 border-primary">
+<h3 class="text-headline-sm font-bold font-headline mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+                        Weekly Budget Adjustments
+                    </h3>
+<div class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface">Select Goal/Task</label>
+<select class="w-full bg-cream-surface border-warm-sand/30 rounded-lg py-2 px-4 focus:ring-primary focus:border-primary">
+<option>Phase 1 Civil Works - Material Procurement</option>
+<option>Orchard Expansion - Seedlings</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface">Adjustment Amount (₹)</label>
+<input class="w-full bg-cream-surface border-warm-sand/30 rounded-lg py-2 px-4 focus:ring-primary focus:border-primary" placeholder="+ / - 0.00" type="number"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface flex items-center gap-2">
+                                Mandatory Change Comment
+                                <span class="text-[10px] bg-error-container text-on-error-container px-2 py-0.5 rounded-full uppercase">Required</span>
+</label>
+<textarea class="w-full bg-cream-surface border-warm-sand/30 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-body-sm" placeholder="Explain why this variance is occurring (e.g. Market price hike for fuel, unexpected rock strata in excavation)..." rows="3"></textarea>
+</div>
+<div class="flex justify-end gap-4">
+<button class="px-6 py-2 rounded-lg border border-outline text-on-surface-variant font-bold hover:bg-surface-container transition-colors">Discard</button>
+<button class="px-8 py-2 rounded-lg bg-primary text-on-primary font-bold shadow-md hover:bg-primary-container transition-all active:scale-95">Submit for Approval</button>
+</div>
+</div>
+</div>
+<div class="col-span-5 flex flex-col gap-4">
+<div class="bg-secondary-container p-6 rounded-xl flex-1 relative overflow-hidden group">
+<div class="absolute right-0 bottom-0 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[120px]">account_balance</span>
+</div>
+<h4 class="text-headline-sm font-bold text-charcoal mb-2">Budget Policy</h4>
+<p class="text-body-sm text-charcoal/80 mb-4 leading-relaxed">Adjustments exceeding 10% of total estimate require Coordinator approval. All comments are logged for quarterly audit.</p>
+<a class="text-label-md font-bold text-primary flex items-center gap-1 hover:underline" href="#">
+                            View Full Policy <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-warm-sand/20 flex flex-col gap-4">
+<h4 class="text-label-md font-bold text-on-surface-variant flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-secondary-teal">history</span>
+                            Recent Logs
+                        </h4>
+<div class="space-y-3">
+<div class="flex gap-3 text-xs">
+<span class="font-bold text-primary">Today</span>
+<p class="text-on-surface-variant">Arjun adjusted "Seedlings" by <span class="text-olive-success">+₹2,500</span></p>
+</div>
+<div class="flex gap-3 text-xs">
+<span class="font-bold text-on-surface-variant">Yesterday</span>
+<p class="text-on-surface-variant">System auto-rolled up <span class="font-bold">₹12,400</span> for "Phase 1 Civil"</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / Identity -->
+<footer class="p-8 mt-12 bg-surface-container-highest flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined filled-icon">nature_people</span>
+</div>
+<div>
+<p class="font-headline font-bold text-charcoal">Proto Village Operating System</p>
+<p class="text-xs">Version 2.4.0 • Bioregional Infrastructure Node</p>
+</div>
+</div>
+<p class="text-body-sm font-label">© 2024 Proto Village • Rooted in Tradition, Built for Future</p>
+</footer>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('aside nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Mock active state toggle
+                if(!this.classList.contains('bg-primary')) {
+                    document.querySelector('aside nav a.bg-primary').classList.replace('bg-primary', 'text-on-surface-variant');
+                    document.querySelector('aside nav a.bg-primary')?.classList.add('hover:text-on-surface', 'hover:bg-surface-container-high');
+                    this.classList.remove('text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-container-high');
+                    this.classList.add('bg-primary', 'text-on-primary');
+                }
+            });
+        });
+
+        // Simple collapsible logic mock
+        document.querySelectorAll('.cursor-pointer.construction-indicator, .cursor-pointer.farming-indicator').forEach(row => {
+            row.addEventListener('click', () => {
+                const icon = row.querySelector('.material-symbols-outlined:first-child');
+                if(icon.innerText === 'expand_more') {
+                    icon.innerText = 'chevron_right';
+                } else {
+                    icon.innerText = 'expand_more';
+                }
+            });
+        });
+    </script>
+</body></html>

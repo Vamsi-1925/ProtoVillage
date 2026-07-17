@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Graamam Connect - Production Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Raleway:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f6f3ef",
+                    "on-secondary-fixed": "#002021",
+                    "primary-fixed": "#a9eef7",
+                    "on-surface-variant": "#3f484a",
+                    "inverse-primary": "#8dd2da",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "primary-fixed-dim": "#8dd2da",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e5e2de",
+                    "surface-dim": "#dcdad6",
+                    "inverse-on-surface": "#f3f0ec",
+                    "secondary-fixed-dim": "#74d6db",
+                    "inverse-surface": "#31302e",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#007074",
+                    "secondary-fixed": "#91f2f7",
+                    "on-surface": "#1c1c1a",
+                    "tertiary-container": "#825800",
+                    "primary-container": "#1e6a72",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "on-primary-fixed-variant": "#004f56",
+                    "tertiary-fixed": "#ffddaf",
+                    "surface": "#fcf9f5",
+                    "on-primary-container": "#a2e7f0",
+                    "surface-tint": "#1b6870",
+                    "secondary": "#00696d",
+                    "background": "#fcf9f5",
+                    "on-background": "#1c1c1a",
+                    "surface-container-high": "#ebe8e4",
+                    "surface-container-highest": "#e5e2de",
+                    "outline": "#6f797a",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#91f2f7",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "tertiary": "#634200",
+                    "surface-bright": "#fcf9f5",
+                    "on-primary-fixed": "#001f23",
+                    "primary": "#005158",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container": "#f0edea",
+                    "on-tertiary-container": "#ffd597",
+                    "outline-variant": "#bec8ca",
+                    "on-tertiary-fixed": "#281800",
+                    
+                    "cream-surface": "#FDFAE4",
+                    "warm-sand": "#D9C8A2",
+                    "terracotta-error": "#87211E",
+                    "olive-success": "#6B7A41",
+                    "gold-badge": "#DDA444",
+                    "charcoal": "#1D1D1B"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px",
+                    "card": "0.75rem"
+            },
+            "spacing": {
+              "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway", "sans-serif"],
+                    "display": ["Raleway", "sans-serif"],
+                    "body": ["Nunito Sans", "sans-serif"],
+                    "label": ["Nunito Sans", "sans-serif"]
+            },
+            boxShadow: {
+              'warm-soft': '0 10px 25px -5px rgba(29, 29, 27, 0.08), 0 8px 10px -6px rgba(29, 29, 27, 0.04)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FDFAE4;
+            color: #1D1D1B;
+        }
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .icon-fill {
+           font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[220px] bg-inverse-surface dark:bg-black shadow-md z-50 flex flex-col py-6">
+<div class="px-6 mb-8 flex flex-col items-start gap-2">
+<div class="flex items-center gap-3">
+<img alt="Zygote logo glyph" class="w-8 h-8 rounded-full object-cover" data-alt="A stylized Zygote logo glyph, minimalist and modern, featuring organic circular elements reflecting nature and technology. The logo is rendered in a soft cream color against a dark background, embodying a bioregional and artisanal ethos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG7RsjqQGHBs_U0jjCaAOlWGfKvjsshUcuKk5Fkt8nVIBJZmzKEI6NOcVennnuZ8ponnV4Na83iRtRBKo4zNBm_RF6GZfKGaaSyn9rPX-datx0ZAXtSXDOACknwuMqon60pa0vO943bfLLazovFKMM8tGx9HcKAVMI4qJKwImYmRUeL-DVy60ti6SDslmBKS3uG68PI_RgUqY9_gp462X4fpiVeTuNEz1CVqjElWJNgweIhGWAu4HV9TpPhN_rrdW3deu5bPvQtK4C"/>
+<span class="font-display font-bold text-xl text-on-primary tracking-tight">Graamam Connect</span>
+</div>
+<span class="font-body font-normal text-label-md text-primary dark:text-primary-fixed-dim">Producer Operations</span>
+</div>
+<nav class="flex-1 overflow-y-auto w-full">
+<ul class="flex flex-col gap-1 w-full px-2">
+<li>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-body font-normal text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="font-body font-normal text-label-md">Inventory</span>
+</a>
+</li>
+<li>
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 shadow-md" href="#">
+<span class="material-symbols-outlined icon-fill text-[20px]">precision_manufacturing</span>
+<span class="font-body font-normal text-label-md">Production</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+<span class="font-body font-normal text-label-md">Orders</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="font-body font-normal text-label-md">Producers</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 mt-auto" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-body font-normal text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[220px] w-[calc(100%-220px)] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-background dark:bg-black flex justify-between items-center h-16 px-8 border-b border-surface-variant/20">
+<div class="hidden font-headline font-semibold text-headline-sm text-primary dark:text-primary-fixed-dim">
+                Graamam Connect
+            </div>
+<div class="flex-1"></div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full focus:ring-2 focus:ring-primary focus:outline-none">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="A small, circular profile picture of an artisan worker, smiling warmly. The photo is well-lit, showing natural textures and a friendly demeanor, fitting for a community-focused production management system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUxhkJpWEFIGeFpWSQPSMEHu3h6NI-NcBMUAcXAMYwxivKhjqF_FtG1wPOBsucDeBOO5fepgtYqHrNbdPKUyAKALwxCBDVSFNEyJTk38w4hd-UpaxfuFoOsD4gBNvAOPveZ-OaYzlpcepLMYWS8A-7BfOy_Nn4fg-uGx-5Q2JlD24Y9H59M5tWGCV7oxuWSj5OKYpzvxl1SGpJchyaYxeinTthFGXcumlf4WmQiRy3wTfMRyqvfdWdu99EBjQg3ZpRreykRikOjsGg"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-8 overflow-y-auto max-w-container-max mx-auto w-full">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="font-headline font-bold text-3xl text-charcoal tracking-tight mb-2">Production Management</h1>
+<p class="font-body text-body-lg text-outline">Manage active production tokens and raw material requirements.</p>
+</div>
+<button class="bg-primary-container text-on-primary font-label font-bold py-3 px-6 rounded-lg hover:bg-primary transition-colors flex items-center gap-2 shadow-sm focus:ring-2 focus:ring-offset-2 focus:ring-primary-container">
+<span class="material-symbols-outlined">add</span>
+                    Create Slip
+                </button>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Active Production Tokens List (Bento Box style) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-card p-6 shadow-warm-soft border border-surface-variant/30 flex-1">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline font-semibold text-xl text-charcoal">Active Tokens</h2>
+<span class="bg-primary-container/10 text-primary-container text-xs font-bold px-2 py-1 rounded-full">3 Active</span>
+</div>
+<div class="space-y-4">
+<!-- Token Item 1 -->
+<div class="p-4 rounded-lg bg-cream-surface border border-warm-sand hover:shadow-md transition-shadow cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-gold-badge"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<span class="font-label font-bold text-sm text-charcoal">TK-2023-11A</span>
+<span class="bg-gold-badge text-charcoal text-xs font-bold px-2 py-1 rounded-full">Pending</span>
+</div>
+<p class="font-body text-body-md font-semibold text-charcoal pl-2">Organic Turmeric Powder (50kg)</p>
+<p class="font-body text-body-sm text-outline mt-1 pl-2">Order: ORD-9921</p>
+</div>
+<!-- Token Item 2 (Active state visualization) -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border-2 border-primary-container shadow-md cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<span class="font-label font-bold text-sm text-charcoal">TK-2023-11B</span>
+<span class="bg-primary-container text-on-primary text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">sync</span> Active
+                                    </span>
+</div>
+<p class="font-body text-body-md font-semibold text-charcoal pl-2">Cold Pressed Coconut Oil (200L)</p>
+<p class="font-body text-body-sm text-outline mt-1 pl-2">Order: ORD-9925</p>
+</div>
+<!-- Token Item 3 -->
+<div class="p-4 rounded-lg bg-cream-surface border border-warm-sand hover:shadow-md transition-shadow cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-olive-success"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<span class="font-label font-bold text-sm text-charcoal">TK-2023-10X</span>
+<span class="bg-olive-success text-on-primary text-xs font-bold px-2 py-1 rounded-full">Complete</span>
+</div>
+<p class="font-body text-body-md font-semibold text-charcoal pl-2">Handwoven Cotton Throws (50 units)</p>
+<p class="font-body text-body-sm text-outline mt-1 pl-2">Order: ORD-9910</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed View of Production Slip -->
+<div class="lg:col-span-8 flex flex-col">
+<div class="bg-surface-container-lowest rounded-card p-8 shadow-warm-soft border border-surface-variant/30 h-full flex flex-col">
+<!-- Slip Header -->
+<div class="flex justify-between items-start border-b border-warm-sand pb-6 mb-6">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<h2 class="font-headline font-bold text-2xl text-charcoal">Production Slip: TK-2023-11B</h2>
+<span class="bg-primary-container text-on-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Active</span>
+</div>
+<p class="font-body text-body-lg text-charcoal">Cold Pressed Coconut Oil (200L)</p>
+<div class="flex gap-4 mt-3">
+<span class="font-body text-body-sm text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">calendar_today</span> Due: Nov 28, 2023</span>
+<span class="font-body text-body-sm text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">shopping_bag</span> Order: ORD-9925</span>
+<span class="font-body text-body-sm text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">person</span> Producer Group: Coastal Artisans</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container border border-outline-variant text-charcoal font-label font-bold py-2 px-4 rounded-lg hover:bg-surface-variant transition-colors">
+                                    Print Slip
+                                </button>
+<button class="bg-olive-success text-on-primary font-label font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined">check_circle</span>
+                                    Mark Complete
+                                </button>
+</div>
+</div>
+<!-- Material Requirements -->
+<div class="flex-1">
+<h3 class="font-headline font-semibold text-lg text-charcoal mb-4">Raw Material Requirements</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body">
+<thead>
+<tr class="border-b border-outline-variant/30 text-outline text-label-sm uppercase tracking-wider">
+<th class="pb-3 font-semibold">Material</th>
+<th class="pb-3 font-semibold">Required</th>
+<th class="pb-3 font-semibold">Available</th>
+<th class="pb-3 font-semibold">Status</th>
+</tr>
+</thead>
+<tbody class="text-body-sm">
+<tr class="border-b border-outline-variant/10 hover:bg-warm-sand/20 transition-colors">
+<td class="py-4 font-semibold text-charcoal">Dried Coconuts (Copra)</td>
+<td class="py-4 text-charcoal">450 kg</td>
+<td class="py-4 text-charcoal">500 kg</td>
+<td class="py-4">
+<span class="bg-olive-success/10 text-olive-success text-xs font-bold px-2 py-1 rounded-full">Sufficient</span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-warm-sand/20 transition-colors">
+<td class="py-4 font-semibold text-charcoal">Glass Bottles (1L)</td>
+<td class="py-4 text-charcoal">200 units</td>
+<td class="py-4 text-charcoal">215 units</td>
+<td class="py-4">
+<span class="bg-olive-success/10 text-olive-success text-xs font-bold px-2 py-1 rounded-full">Sufficient</span>
+</td>
+</tr>
+<!-- Shortage Alert Row -->
+<tr class="border-b border-terracotta-error/20 bg-terracotta-error/5 hover:bg-terracotta-error/10 transition-colors">
+<td class="py-4 font-semibold text-terracotta-error flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+                                                Custom Labels
+                                            </td>
+<td class="py-4 text-charcoal">200 units</td>
+<td class="py-4 text-terracotta-error font-bold">45 units</td>
+<td class="py-4">
+<span class="bg-terracotta-error text-on-error text-xs font-bold px-2 py-1 rounded-full shadow-sm">Shortage</span>
+<button class="ml-2 text-primary hover:underline text-xs font-semibold">Procure</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-warm-sand/20 transition-colors">
+<td class="py-4 font-semibold text-charcoal">Packaging Boxes</td>
+<td class="py-4 text-charcoal">20 units</td>
+<td class="py-4 text-charcoal">50 units</td>
+<td class="py-4">
+<span class="bg-olive-success/10 text-olive-success text-xs font-bold px-2 py-1 rounded-full">Sufficient</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Actions Footer -->
+<div class="mt-8 pt-6 border-t border-warm-sand flex justify-end gap-4 bg-cream-surface -mx-8 -mb-8 p-6 rounded-b-card">
+<button class="bg-transparent border border-outline text-charcoal font-label font-bold py-2 px-6 rounded-lg hover:bg-surface-variant transition-colors">
+                                Cancel Production
+                            </button>
+<button class="bg-primary-container text-on-primary font-label font-bold py-2 px-6 rounded-lg hover:bg-primary transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed" disabled="" title="Cannot start until shortages are resolved">
+                                Start Production
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard - ProtoVillage Ops</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&amp;family=Nunito+Sans:wght@400;700&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dcdad6",
+                        "surface-container-low": "#f6f3ef",
+                        "secondary-container": "#91f2f7",
+                        "tertiary": "#634200",
+                        "on-secondary-container": "#007074",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e5e2de",
+                        "inverse-primary": "#8dd2da",
+                        "surface-container": "#f0edea",
+                        "tertiary-fixed": "#ffddaf",
+                        "surface-container-highest": "#e5e2de",
+                        "outline-variant": "#bec8ca",
+                        "on-secondary-fixed": "#002021",
+                        "primary-fixed-dim": "#8dd2da",
+                        "on-primary-fixed": "#001f23",
+                        "on-primary-fixed-variant": "#004f56",
+                        "on-primary-container": "#a2e7f0",
+                        "secondary": "#00696d",
+                        "inverse-on-surface": "#f3f0ec",
+                        "primary-container": "#1e6a72",
+                        "on-surface-variant": "#3f484a",
+                        "on-background": "#1c1c1a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#825800",
+                        "on-tertiary-fixed": "#281800",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "background": "#fcf9f5",
+                        "surface-container-high": "#ebe8e4",
+                        "on-secondary-fixed-variant": "#004f52",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf9f5",
+                        "tertiary-fixed-dim": "#f8bc5a",
+                        "surface": "#fcf9f5",
+                        "secondary-fixed-dim": "#74d6db",
+                        "outline": "#6f797a",
+                        "primary-fixed": "#a9eef7",
+                        "on-tertiary-container": "#ffd597",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#1b6870",
+                        "secondary-fixed": "#91f2f7",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "primary": "#005158",
+                        "on-surface": "#1c1c1a",
+                        "cream-surface": "#FDFAE4",
+                        "warm-sand": "#D9C8A2",
+                        "terracotta-error": "#87211E",
+                        "olive-success": "#6B7A41",
+                        "clay-brown": "#A6654E",
+                        "dusty-rose": "#D8A39D"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Raleway", "sans-serif"],
+                        "display": ["Raleway", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"],
+                        "label": ["Nunito Sans", "sans-serif"],
+                        "wordmark": ["Poppins", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fcf9f5; font-family: 'Nunito Sans', sans-serif; color: #1c1c1a; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(217, 200, 162, 0.3); }
+        .circular-progress { position: relative; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: conic-gradient(var(--progress-color) calc(var(--progress-val) * 1%), #e5e2de 0); }
+        .circular-progress::before { content: ""; position: absolute; width: 52px; height: 52px; border-radius: 50%; background: #ffffff; }
+        .circular-progress span { position: relative; font-weight: 700; font-size: 0.75rem; color: #1c1c1a; }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Desktop Sidebar -->
+<aside class="fixed left-0 top-0 h-full z-40 h-full w-72 flex-col hidden lg:flex bg-inverse-surface dark:bg-on-surface shadow-xl">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-wordmark text-xl">P</div>
+<div>
+<h1 class="font-display font-bold text-xl text-inverse-on-surface tracking-tight">ProtoVillage Ops</h1>
+<p class="text-[10px] text-surface-variant font-label uppercase tracking-widest">Rural Operations Management</p>
+</div>
+</div>
+<button class="w-full py-3 px-4 bg-primary text-white rounded-xl font-label font-bold flex items-center justify-center gap-2 mb-8 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+                New Task
+            </button>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-md">My Week</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label font-bold text-label-md">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-bold text-label-md">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label font-bold text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label font-bold text-label-md">Discussion</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label font-bold text-label-md">Admin</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Top Navigation -->
+<header class="sticky top-0 w-full h-16 bg-surface-container-low shadow-sm flex justify-between items-center px-4 md:px-10 z-30 lg:pl-80">
+<div class="flex items-center gap-4">
+<span class="font-display font-bold text-headline-sm text-primary dark:text-inverse-primary lg:hidden">ProtoVillage Ops</span>
+<div class="hidden md:flex bg-surface-container h-10 items-center px-3 rounded-full border border-outline-variant w-64">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-body placeholder:text-on-surface-variant" placeholder="Search operations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-primary">language</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-all relative">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-terracotta-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a visionary community founder in a sunlit rural setting. The person has a warm, confident expression and is dressed in smart casual attire. The photography style is natural and airy, with soft focus on the lush green landscape of an eco-village in the background, utilizing the primary teal and cream brand palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhRMo40Vcdas3w2aUdhaADvxqOBOLGvqXQ9ccWbyiFDINQ8RgmO_8NHRqCiWSOwDe0CU6ZD5-ku3CqP_fPhRn8uVu_bPX754v2yXwJTM3tXuBrGLi-wxUsCIm7k6UAwJ2D33h6QyWv9fm9932efSZEwoUBHI0YieioVEeRnJCfr_AvJU1sk_Ti6FBAjntYzrib6i1ys4AcutbRhOR8PQL5hkXtYYP47ZDHGxPdsqj6dF89nSkEs-89KKadU2ZZsWmq7ydg_cR7f-yC"/>
+</div>
+<span class="hidden sm:block font-label text-label-md font-bold">Admin</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="lg:ml-72 min-h-screen p-4 md:p-10 pb-32 lg:pb-10">
+<div class="max-w-[1280px] mx-auto">
+<!-- Page Header -->
+<div class="mb-10">
+<h2 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-2">Founder Dashboard</h2>
+<p class="text-on-surface-variant font-body">Overview of ProtoVillage ecosystem health and administrative actions.</p>
+</div>
+<!-- Dashboard Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- 1. Progress at a Glance -->
+<div class="md:col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_20px_rgba(29,29,27,0.04)] border border-surface-container">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-headline-sm">Progress at a Glance</h3>
+<span class="material-symbols-outlined text-on-surface-variant">monitoring</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-col items-center text-center">
+<div class="circular-progress mb-3" style="--progress-val: 78; --progress-color: #1e6a72;">
+<span>78%</span>
+</div>
+<p class="font-label font-bold text-xs uppercase tracking-wider text-on-surface-variant">Infrastructure</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-col items-center text-center">
+<div class="circular-progress mb-3" style="--progress-val: 45; --progress-color: #DDA444;">
+<span>45%</span>
+</div>
+<p class="font-label font-bold text-xs uppercase tracking-wider text-on-surface-variant">Bio-Farming</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-col items-center text-center">
+<div class="circular-progress mb-3" style="--progress-val: 92; --progress-color: #6B7A41;">
+<span>92%</span>
+</div>
+<p class="font-label font-bold text-xs uppercase tracking-wider text-on-surface-variant">Education</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-col items-center text-center">
+<div class="circular-progress mb-3" style="--progress-val: 12; --progress-color: #87211E;">
+<span>12%</span>
+</div>
+<p class="font-label font-bold text-xs uppercase tracking-wider text-on-surface-variant">New Tech</p>
+</div>
+</div>
+</div>
+<!-- 2. Budget vs Actual -->
+<div class="md:col-span-8 lg:col-span-5 bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_20px_rgba(29,29,27,0.04)] border border-surface-container">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-headline-sm">Budget vs Actual</h3>
+<div class="flex gap-2">
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-primary"></span><span class="text-[10px] font-bold">ACTUAL</span></div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-warm-sand"></span><span class="text-[10px] font-bold">BUDGET</span></div>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-bold mb-1"><span>Q1 Operations</span><span>₹ 4.2M / 5M</span></div>
+<div class="h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 84%"></div>
+<div class="bg-warm-sand h-full opacity-50" style="width: 16%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-1"><span>Solar Expansion</span><span>₹ 1.8M / 1.5M</span></div>
+<div class="h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-terracotta-error h-full" style="width: 100%"></div>
+</div>
+<p class="text-[10px] text-terracotta-error mt-1 font-bold">Over budget by 20%</p>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-1"><span>Community Fund</span><span>₹ 0.9M / 2M</span></div>
+<div class="h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-olive-success h-full" style="width: 45%"></div>
+<div class="bg-warm-sand h-full opacity-50" style="width: 55%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Performance Index -->
+<div class="md:col-span-4 lg:col-span-3 bg-primary-container rounded-3xl p-6 shadow-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline font-bold text-headline-sm text-on-primary-container mb-4">Lead Performance</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-on-primary-container p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close up of a village lead, smiling warmly. A person of wisdom and experience, wearing traditional but clean regional attire. Soft golden hour lighting in a rural setting, high contrast against the teal UI colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBagQuXLw8Ons7Sixn0BKoEubweYGQu75rT30FerfmKoquhpr2TM8brP0dLlKwWULBXcgopwWoguELHnlkND5ia3S17AnOzR3T12MaY3gNj8_UHYMFF-xEgFl9Fat-9DfuZDwCH4HHOvDRYVhD2jGzlCqRTW-hWQWChSpJCcdX2f_5dFfkUrI21MwqiowkhOR7TpVZc8alyE6DEtYOFeUZ4D1ZvoScLWY_P7vYchKYshdgKvma6czjjS2AUHlSFk_Ru0Lc8LsKu2Tz4"/>
+</div>
+<div>
+<p class="text-white text-sm font-bold">Ravi Kumar</p>
+<div class="flex gap-0.5 text-[#DDA444]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-on-primary-container p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A focused female community lead organizing a group discussion under a large tree. Her expression is serious yet compassionate. Modern humanist photography style with earthy tones and vibrant green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTAhIW5OXOr5c7WQypJT19IhBa-yOj_W5gjhkfDcESZ4cAAWdRzBoEL9OoUN9u5b7LIQbgSdQDznWEncjbwNFx2Y1V7gXVg5lNmucadctu8d5THrHPPorPN-0SNHOGN1mXN7emMx4juC-qXvFgjATcp10iQeExFDob1gIuJu6FiJJShI5Bfhx8aOYquqLwH4xbZQf12aAbiTXYIjchYwJfIVPavojSOESmnKWZtEqZkMvxUM-WDAc7Bi9a1hfm6dg2feweZds-dRGB"/>
+</div>
+<div>
+<p class="text-white text-sm font-bold">Lila Devi</p>
+<div class="flex gap-0.5 text-[#DDA444]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-xs font-bold transition-all">View All Scores</button>
+</div>
+<!-- Abstract Background Pattern -->
+<div class="absolute -bottom-10 -right-10 opacity-20 rotate-12">
+<span class="material-symbols-outlined text-9xl text-on-primary-container">psychology</span>
+</div>
+</div>
+<!-- 4. Community Value Score -->
+<div class="md:col-span-6 lg:col-span-4 bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_20px_rgba(29,29,27,0.04)] border border-surface-container">
+<h3 class="font-headline font-bold text-headline-sm mb-4">Community Value</h3>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="text-5xl font-bold text-primary">8.4</span>
+<span class="text-on-surface-variant font-bold text-sm">/ 10.0</span>
+<span class="ml-auto text-olive-success flex items-center text-sm font-bold"><span class="material-symbols-outlined">trending_up</span> +0.2</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-olive-success">eco</span>
+<span class="text-sm font-bold">Resource Sharing</span>
+</div>
+<span class="text-sm font-bold">9.1</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-terracotta-error">handshake</span>
+<span class="text-sm font-bold">Conflict Resolution</span>
+</div>
+<span class="text-sm font-bold">6.8</span>
+</div>
+</div>
+</div>
+<!-- 5. Daily-slider Rollup -->
+<div class="md:col-span-6 lg:col-span-4 bg-surface-container-lowest rounded-3xl p-6 shadow-[0_4px_20px_rgba(29,29,27,0.04)] border border-surface-container">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline font-bold text-headline-sm">Daily Ops Pulse</h3>
+<span class="px-2 py-1 bg-warm-sand/30 text-on-surface text-[10px] font-bold rounded">LIVE</span>
+</div>
+<div class="space-y-6 py-4">
+<div class="relative">
+<div class="flex justify-between text-xs font-bold mb-2"><span>Manpower Utilization</span><span>92%</span></div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="92"/>
+</div>
+<div class="relative">
+<div class="flex justify-between text-xs font-bold mb-2"><span>Water Consumption</span><span>64%</span></div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="64"/>
+</div>
+<div class="relative">
+<div class="flex justify-between text-xs font-bold mb-2"><span>Energy Surplus</span><span>28%</span></div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="28"/>
+</div>
+</div>
+</div>
+<!-- 6. Founder-only Vault -->
+<div class="md:col-span-12 lg:col-span-4 bg-inverse-surface rounded-3xl p-6 shadow-2xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-2 text-inverse-primary">
+<span class="material-symbols-outlined">lock</span>
+<h3 class="font-headline font-bold text-headline-sm">Founder Vault</h3>
+</div>
+<span class="px-3 py-1 bg-terracotta-error text-white text-[10px] font-bold rounded-full">RESTRICTED</span>
+</div>
+<div class="space-y-4">
+<div class="border-l-2 border-inverse-primary pl-4 py-1">
+<p class="text-xs text-surface-variant font-bold uppercase tracking-widest mb-1">Current Vote</p>
+<p class="text-white font-bold">Land Acquisition Block C</p>
+<div class="flex gap-2 mt-2">
+<div class="px-2 py-1 bg-white/10 rounded text-[10px] text-white">4 For</div>
+<div class="px-2 py-1 bg-white/10 rounded text-[10px] text-white">1 Against</div>
+</div>
+</div>
+<div class="border-l-2 border-outline pl-4 py-1">
+<p class="text-xs text-surface-variant font-bold uppercase tracking-widest mb-1">Financial Audit</p>
+<p class="text-white font-bold">FY24 Governance Report.pdf</p>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full py-4 bg-inverse-primary text-primary rounded-2xl font-bold hover:scale-[0.98] transition-transform">
+                        Access Deep Analytics
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-surface lg:hidden border-t border-outline-variant shadow-[0_-4px_10px_rgba(29,29,27,0.08)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-sm">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-sm">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container rounded-xl px-4 py-2 scale-90 duration-100" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label font-bold text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-bold text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label font-bold text-label-sm">Menu</span>
+</a>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        // Simple scale effect on interaction
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.95)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'scale(1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+
+        // Dashboard range input visual update
+        const ranges = document.querySelectorAll('input[type="range"]');
+        ranges.forEach(range => {
+            range.addEventListener('input', (e) => {
+                const val = e.target.value;
+                const span = e.target.parentElement.querySelector('span:last-child');
+                span.innerText = val + '%';
+                
+                // Color shift based on value
+                if(val < 30) e.target.style.accentColor = '#87211E';
+                else if(val < 70) e.target.style.accentColor = '#DDA444';
+                else e.target.style.accentColor = '#005158';
+            });
+        });
+    </script>
+</body></html>

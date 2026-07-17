@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Triage Queue - ProtoVillage Ops</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&amp;family=Nunito+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3f484a",
+                      "inverse-primary": "#8dd2da",
+                      "on-secondary-fixed-variant": "#004f52",
+                      "on-secondary-fixed": "#002021",
+                      "surface-container-low": "#f6f3ef",
+                      "primary-fixed": "#a9eef7",
+                      "surface-dim": "#dcdad6",
+                      "inverse-on-surface": "#f3f0ec",
+                      "primary-fixed-dim": "#8dd2da",
+                      "surface-variant": "#e5e2de",
+                      "on-error": "#ffffff",
+                      "on-surface": "#1c1c1a",
+                      "secondary-fixed": "#91f2f7",
+                      "tertiary-container": "#825800",
+                      "primary-container": "#1e6a72",
+                      "on-tertiary-fixed-variant": "#614000",
+                      "on-primary-fixed-variant": "#004f56",
+                      "secondary-fixed-dim": "#74d6db",
+                      "inverse-surface": "#31302e",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#007074",
+                      "secondary": "#00696d",
+                      "surface-tint": "#1b6870",
+                      "on-primary-container": "#a2e7f0",
+                      "tertiary-fixed": "#ffddaf",
+                      "surface": "#fcf9f5",
+                      "surface-container-high": "#ebe8e4",
+                      "on-background": "#1c1c1a",
+                      "background": "#fcf9f5",
+                      "tertiary-fixed-dim": "#f8bc5a",
+                      "secondary-container": "#91f2f7",
+                      "surface-container-highest": "#e5e2de",
+                      "outline": "#6f797a",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#f0edea",
+                      "on-tertiary-container": "#ffd597",
+                      "tertiary": "#634200",
+                      "surface-bright": "#fcf9f5",
+                      "primary": "#005158",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#001f23",
+                      "outline-variant": "#bec8ca",
+                      "on-tertiary-fixed": "#281800",
+                      "cream-surface": "#FDFAE4",
+                      "warm-sand": "#D9C8A2",
+                      "terracotta-error": "#87211E",
+                      "olive-success": "#6B7A41",
+                      "clay-brown": "#A6654E",
+                      "dusty-rose": "#D8A39D"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.5rem",
+                      "sm": "0.25rem",
+                      "md": "0.75rem",
+                      "lg": "1rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Raleway"
+                      ],
+                      "display": [
+                              "Raleway"
+                      ],
+                      "body": [
+                              "Nunito Sans"
+                      ],
+                      "label": [
+                              "Nunito Sans"
+                      ]
+              },
+              "fontSize": {}
+      },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Nunito Sans', sans-serif; background-color: #fcf9f5; }
+        h1, h2, h3, h4, h5, h6, .font-headline, .font-display { font-family: 'Raleway', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-inverse-surface dark:bg-on-surface h-full w-72 flex-col hidden lg:flex shadow-xl fixed left-0 top-0 z-40">
+<div class="p-6">
+<h1 class="font-display font-bold text-xl text-inverse-on-surface tracking-tight">ProtoVillage Ops</h1>
+<p class="font-body text-inverse-primary mt-1 text-sm">Rural Operations Management</p>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_view_week">calendar_view_week</span>
+<span class="font-label font-bold text-label-md">My Week</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="target">target</span>
+<span class="font-label font-bold text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label font-bold text-label-md">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label font-bold text-label-md">Quick Capture</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label font-bold text-label-md">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label font-bold text-label-md">Discussion</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label font-bold text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant hover:text-white transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label font-bold text-label-md">Admin</span>
+</a>
+</div>
+<div class="p-6">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-lg font-label font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Task
+            </button>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 lg:ml-72 flex flex-col h-screen overflow-hidden bg-surface">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-on-surface sticky top-0 w-full h-16 bg-surface-container-low shadow-sm flex justify-between items-center px-4 md:px-10 z-30">
+<div class="flex items-center gap-4">
+<h2 class="font-display font-bold text-headline-sm text-primary dark:text-inverse-primary lg:hidden">ProtoVillage Ops</h2>
+</div>
+<div class="flex items-center gap-4 text-primary dark:text-inverse-primary">
+<button class="p-2 hover:bg-surface-container-high transition-all rounded-full">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high transition-all rounded-full">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high transition-all rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-terracotta-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-2 ml-4">
+<span class="font-label font-bold text-label-md hidden md:block text-on-surface-variant">User Profile</span>
+<img alt="User Avatar" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small circular profile picture of an administrative user in a brightly lit modern office setting. The user has a warm, professional demeanor. Soft natural lighting emphasizes the high-quality, modern humanist design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6ffTRh9M8RIqdPc9DOvuW122A80Kb5r2-QptwrkGtmAbPgXIA-p_21qQiH-DKaB34-Kypdc0yYH-XgbHIwpBKe8TbOC-10hwRpMbOfh__JjZjWalv3tSkWo5oHKQsJPf5UJ4cTg0kATvk4Cp9kGwRPQ5wDAnt2Yp0SELG77bdWzJye8YCpWMdqiN0OySVsExOcrIlH-LaE0FJ6d5jItDR4uklOoasxMw6zDhbE32aU1A-gTy5Sba_-7lnjqublzvz6-Cvt71_rR0S"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto p-4 md:p-10 pb-24 lg:pb-10 bg-cream-surface">
+<!-- Header Section -->
+<div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-2">Triage Queue</h1>
+<p class="font-body text-body-lg text-on-surface-variant">Lead view of incoming quick-capture tokens.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface-container-low text-on-surface font-label font-bold rounded-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+                        Filter
+                    </button>
+<button class="px-4 py-2 bg-primary text-white font-label font-bold rounded-lg hover:bg-secondary transition-colors">
+                        Auto-Assign
+                    </button>
+</div>
+</div>
+<!-- Queue Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(29,29,27,0.04)] border border-surface-container-high overflow-hidden">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-4 p-6 border-b border-surface-container bg-surface-container-low/50">
+<div class="col-span-5 md:col-span-4 font-label font-bold text-label-sm text-on-surface-variant uppercase tracking-wider">Token Details</div>
+<div class="col-span-3 md:col-span-2 hidden md:block font-label font-bold text-label-sm text-on-surface-variant uppercase tracking-wider">Requester</div>
+<div class="col-span-3 md:col-span-2 font-label font-bold text-label-sm text-on-surface-variant uppercase tracking-wider">Vertical</div>
+<div class="col-span-2 md:col-span-1 font-label font-bold text-label-sm text-on-surface-variant uppercase tracking-wider">Age</div>
+<div class="col-span-5 md:col-span-3 font-label font-bold text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</div>
+</div>
+<!-- List Items -->
+<div class="divide-y divide-surface-container">
+<!-- Item 1: Flagged -->
+<div class="grid grid-cols-12 gap-4 p-6 items-center hover:bg-warm-sand/10 transition-colors">
+<div class="col-span-12 md:col-span-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-terracotta-error mt-0.5" data-icon="flag">flag</span>
+<div>
+<h3 class="font-headline font-semibold text-headline-sm text-on-surface leading-tight">Water Pump Repair</h3>
+<p class="font-body text-body-sm text-on-surface-variant mt-1 line-clamp-1">Pump #3 at North field is making a grinding noise.</p>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2 hidden md:flex items-center gap-2">
+<img alt="Requester" class="w-6 h-6 rounded-full object-cover" data-alt="A tiny profile portrait of a rural field worker wearing a hat, smiling warmly. The photo is taken outdoors in bright, soft sunlight, highlighting the natural, human-centric focus of the application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxN8kCv51sh7WMOiVK4Z4bYqd4-_9V4_vF3uqph65nGZepVvP-YvlndyZQxWq7oo-A1wgFnElCNjBP7l0KfEeTFztj7APIq938igCzTfk6FlMRPDUdTc0gu3eeiw7xV1UR11O4Qj1y6e8TJ_kAn-58Xn1Ea3ZNMpEDFQlaDhPR9XmNBViWP1V_Dto7ZnNilWTm8YSpo9fSot2ycRTgk7KJW0FXO7pRJsid88Ht7stDzh4pIpD0-G4ev2hlGrycNAqPxXm67YnrZhQO"/>
+<span class="font-body text-body-sm text-on-surface">Rajesh K.</span>
+</div>
+<div class="col-span-4 md:col-span-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label text-label-sm">Infrastructure</span>
+</div>
+<div class="col-span-4 md:col-span-1">
+<span class="font-label font-bold text-terracotta-error">4d</span>
+</div>
+<div class="col-span-12 md:col-span-3 flex justify-end gap-2 mt-4 md:mt-0">
+<button class="px-3 py-1.5 text-secondary hover:bg-secondary-container/30 rounded-lg font-label text-label-sm transition-colors border border-transparent hover:border-secondary-container">Ask around</button>
+<button class="px-3 py-1.5 text-primary hover:bg-primary-container/20 rounded-lg font-label text-label-sm transition-colors border border-transparent hover:border-primary-container">File as task</button>
+</div>
+</div>
+<!-- Item 2: Reminder -->
+<div class="grid grid-cols-12 gap-4 p-6 items-center hover:bg-warm-sand/10 transition-colors">
+<div class="col-span-12 md:col-span-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-[#DDA444] mt-0.5" data-icon="timer">timer</span>
+<div>
+<h3 class="font-headline font-semibold text-headline-sm text-on-surface leading-tight">Seed Distribution List</h3>
+<p class="font-body text-body-sm text-on-surface-variant mt-1 line-clamp-1">Need final count for monsoon sowing season.</p>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2 hidden md:flex items-center gap-2">
+<img alt="Requester" class="w-6 h-6 rounded-full object-cover" data-alt="A small, high-quality portrait of a female agricultural coordinator looking thoughtfully at the camera. The background is slightly blurred greenery, emphasizing a clean, optimistic, and natural aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDelByZ85Hq6B2XODJVeFlhZtwCMGD8vVbrY47KU5h2KhSluzYN4mb3GyLExtZIGoqRwSbt17NlOVe2_n3u49Ulrv5drYexkkeRttbIiGs7Mb-yJI0V1egh2fCsczHWGnnmrj_vkaud40lklZB3DaxmjRLwcw6aVFyL3qeckyx91Ti9OLeGyTHGaA9h1OaZBkPkrgyneO_jZY0atqyj7jWbpBOXyCCCsWP5-VK5-FWT0ijQCT5qwZyprXJsfNm75Q_QOv3jXgZdZarW"/>
+<span class="font-body text-body-sm text-on-surface">Meera S.</span>
+</div>
+<div class="col-span-4 md:col-span-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label text-label-sm">Agriculture</span>
+</div>
+<div class="col-span-4 md:col-span-1">
+<span class="font-label font-bold text-[#DDA444]">2d</span>
+</div>
+<div class="col-span-12 md:col-span-3 flex justify-end gap-2 mt-4 md:mt-0">
+<button class="px-3 py-1.5 text-secondary hover:bg-secondary-container/30 rounded-lg font-label text-label-sm transition-colors border border-transparent hover:border-secondary-container">Ask around</button>
+<button class="px-3 py-1.5 text-primary hover:bg-primary-container/20 rounded-lg font-label text-label-sm transition-colors border border-transparent hover:border-primary-container">File as task</button>
+</div>
+</div>
+<!-- Item 3: Normal -->
+<div class="grid grid-cols-12 gap-4 p-6 items-center hover:bg-warm-sand/10 transition-colors">
+<div class="col-span-12 md:col-span-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-outline mt-0.5" data-icon="inbox">inbox</span>
+<div>
+<h3 class="font-headline font-semibold text-headline-sm text-on-surface leading-tight">Guest Visit Setup</h3>
+<p class="font-body text-body-sm text-on-surface-variant mt-1 line-clamp-1">Prepare visitor center for Friday's delegation.</p>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2 hidden md:flex items-center gap-2">
+<img alt="Requester" class="w-6 h-6 rounded-full object-cover" data-alt="A small circular photo of an event organizer, smiling warmly in a well-lit, minimal room. The light colors and natural tones align with a modern humanist design approach." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7oZHag-gy9lKkkpJx2DJ9uOLv-MSt3NTp6IqsR57wcL9MA2rzd0b7vGpUfzxArSZLr2UgfhGxFwoHIxKrzCQS_e9GgAYQDEevTNH9oRr49fAEULOokAxty-Y_CTJBb0baHzJb7s0qa1GsTz_Dd9opCBc4NR6K2FQ_ngzwVzKPSvGknibiLXM1A7PWGrMqVnxKrmZUSfFY2sb_Wke1S-64b2oezqEpbz3x-t9xBc-GAJMzxbbEg_gvgHgvOACgoMqbOIuSmWcoqt1v"/>
+<span class="font-body text-body-sm text-on-surface">Amit P.</span>
+</div>
+<div class="col-span-4 md:col-span-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label text-label-sm">Hospitality</span>
+</div>
+<div class="col-span-4 md:col-span-1">
+<span class="font-label font-bold text-on-surface-variant">4h</span>
+</div>
+<div class="col-span-12 md:col-span-3 flex justify-end gap-2 mt-4 md:mt-0">
+<button class="px-3 py-1.5 text-terracotta-error hover:bg-error-container/30 rounded-lg font-label text-label-sm transition-colors border border-transparent hover:border-error-container">Escalate</button>
+<button class="px-3 py-1.5 text-primary hover:bg-primary-container/20 rounded-lg font-label text-label-sm transition-colors border border-transparent hover:border-primary-container">File as task</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-on-surface fixed bottom-0 w-full lg:hidden rounded-t-xl border-t border-outline-variant shadow-[0_-4px_10px_rgba(29,29,27,0.08)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-surface">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_view_week">calendar_view_week</span>
+<span class="font-label font-bold text-label-sm mt-1">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="target">target</span>
+<span class="font-label font-bold text-label-sm mt-1">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label font-bold text-label-sm mt-1">Capture</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-100 hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label font-bold text-label-sm mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-label font-bold text-label-sm mt-1">Menu</span>
+</a>
+</nav>
+</body></html>

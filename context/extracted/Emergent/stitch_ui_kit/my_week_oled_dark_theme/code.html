@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Week - ProtoVillage Ops</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&amp;family=Nunito+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3f484a",
+                        "inverse-primary": "#8dd2da",
+                        "on-secondary-fixed-variant": "#004f52",
+                        "on-secondary-fixed": "#002021",
+                        "surface-container-low": "#121212", // Overridden for OLED
+                        "primary-fixed": "#a9eef7",
+                        "surface-dim": "#1a1a1a", // Overridden for OLED
+                        "inverse-on-surface": "#f3f0ec",
+                        "primary-fixed-dim": "#8dd2da",
+                        "surface-variant": "#222222", // Overridden for OLED
+                        "on-error": "#ffffff",
+                        "on-surface": "#ffffff", // Overridden for OLED
+                        "secondary-fixed": "#91f2f7",
+                        "tertiary-container": "#825800",
+                        "primary-container": "#1e6a72",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "on-primary-fixed-variant": "#004f56",
+                        "secondary-fixed-dim": "#74d6db",
+                        "inverse-surface": "#e0e0e0", // Overridden for OLED
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#007074",
+                        "secondary": "#00696d",
+                        "surface-tint": "#1b6870",
+                        "on-primary-container": "#a2e7f0",
+                        "tertiary-fixed": "#ffddaf",
+                        "surface": "#121212", // Overridden for OLED (Card Surface)
+                        "surface-container-high": "#2a2a2a", // Overridden for OLED
+                        "on-background": "#ffffff", // Overridden for OLED
+                        "background": "#000000", // Overridden for OLED (Shell Background)
+                        "tertiary-fixed-dim": "#f8bc5a",
+                        "secondary-container": "#91f2f7",
+                        "surface-container-highest": "#333333", // Overridden for OLED
+                        "outline": "#6f797a",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#000000", // Overridden for OLED
+                        "surface-container": "#1e1e1e", // Overridden for OLED
+                        "on-tertiary-container": "#ffd597",
+                        "tertiary": "#634200",
+                        "surface-bright": "#1a1a1a", // Overridden for OLED
+                        "primary": "#1e6a72", // Adjusted to Primary Teal
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001f23",
+                        "outline-variant": "#444444", // Overridden for OLED
+                        "on-tertiary-fixed": "#281800",
+                        // Custom Brand Colors Added for easier reference
+                        "brand-primary": "#1E6A72",
+                        "brand-secondary": "#46ABB0",
+                        "brand-gold": "#DDA444",
+                        "brand-charcoal": "#1D1D1B",
+                        "brand-cream": "#FDFAE4",
+                        "brand-warm-grey": "#A0A0A0" // Light warm-grey text for OLED
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem", // Added for large radius
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Raleway", "sans-serif"],
+                        "display": ["Raleway", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"],
+                        "label": ["Nunito Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.background');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-container-highest');
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+    </style>
+</head>
+<body class="font-body antialiased flex flex-col min-h-screen">
+<!-- TopNavBar (Mobile Only) -->
+<header class="flex justify-between items-center px-4 md:px-10 w-full z-30 sticky top-0 h-16 bg-surface-container-lowest shadow-sm lg:hidden">
+<div class="font-display font-bold text-xl text-primary">ProtoVillage Ops</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant cursor-pointer" data-alt="A detailed, high-resolution portrait of a rugged, middle-aged operations manager with a short beard, wearing a practical canvas jacket over a teal henley. The lighting is moody and cinematic, set against a dark, out-of-focus background with subtle warm light. Shot in a modern, documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZzr9TaJ3HeghgewlK9U54Oo18EADddJf7ZhuU6PV96ZInWtYZZ7FBW8ergwB85qF5TRKOLjY1-KREyVP4qG6fy9wfYL4aFPLWXXnS7Q2XaiXA9gezXodzNAZTXk5-8a-PqEub6QIuZLue8PX1dKgbM9IXcto_EJhfR8b8dGUNVfpUYFiNwYlhUcTb8QGfPBTAqIrmeKA4MZYCc0_aORmYBsYUbRPo94rDnhM7wgdMK-Df8rXB6mD5nYG_8Qork_nL0Mla4yWaBOHj"/>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar (Desktop Only) -->
+<nav class="fixed left-0 top-0 h-full z-40 bg-surface-container-lowest shadow-xl flex-col hidden lg:flex w-72 border-r border-outline-variant">
+<div class="p-6 flex items-center gap-4 border-b border-outline-variant">
+<img class="w-10 h-10 rounded-lg object-contain bg-surface" data-alt="A sleek, minimalist logo representing a stylized village or community, designed with sharp geometric lines in primary teal and gold against a pure black background. The overall aesthetic is highly modern, crisp, and high-tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWX0LL0yyL3AkUl4yWmNAsPEmrOSRCNJJITfdeCyEURfRalRYNWloaUQZGskBFlTzmWbUaMetwTH7PmWBKkJsVwaAD4lH9krWQt9R6xS3A-UJEtKhO0JJ7gSIBrq9337nq7w7SaGeEK0EhfJVVrIE5ZleIPiLg0F-IJfvKmj0k5DlejH_aKNYhW4EcajjMbxRzhS8GCWoPHBcxwhWZFPIoLebbbQEI-O_Pa5wyZOCFVxRZyKeWPH_DMVVGu4qpLRyO0g46RXsreSfr"/>
+<div>
+<h1 class="font-display font-bold text-xl text-white tracking-tight">ProtoVillage Ops</h1>
+<p class="font-body text-sm text-brand-warm-grey">Rural Operations Management</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-white rounded-lg mx-2 my-1 shadow-[0_0_15px_rgba(30,106,114,0.3)] transform scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_view_week" data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_view_week</span>
+<span class="font-label font-bold text-label-md">My Week</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-brand-warm-grey hover:text-white mx-2 my-1 hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="target">target</span>
+<span class="font-label font-bold text-label-md">Goals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-brand-warm-grey hover:text-white mx-2 my-1 hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label font-bold text-label-md">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-brand-warm-grey hover:text-white mx-2 my-1 hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label font-bold text-label-md">Quick Capture</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-brand-warm-grey hover:text-white mx-2 my-1 hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label font-bold text-label-md">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-brand-warm-grey hover:text-white mx-2 my-1 hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label font-bold text-label-md">Discussion</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-brand-warm-grey hover:text-white mx-2 my-1 hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label font-bold text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-brand-warm-grey hover:text-white mx-2 my-1 hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label font-bold text-label-md">Admin</span>
+</a>
+</div>
+<div class="p-4 border-t border-outline-variant">
+<button class="w-full bg-brand-primary text-white font-label font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-opacity shadow-[0_4px_12px_rgba(30,106,114,0.4)]">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    New Task
+                </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-72 p-4 md:p-8 pb-24 lg:pb-8 overflow-y-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div>
+<h2 class="font-headline font-bold text-3xl md:text-4xl text-white tracking-tight mb-1">My Week</h2>
+<p class="font-body text-brand-warm-grey text-lg">Oct 24 - Oct 30</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 rounded-lg border border-outline-variant text-white font-label font-bold hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                        Filter
+                    </button>
+<button class="px-4 py-2 rounded-lg bg-brand-primary text-white font-label font-bold hover:bg-opacity-90 transition-opacity shadow-[0_2px_8px_rgba(30,106,114,0.3)]">
+                        Sync Data
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Progress Card -->
+<div class="md:col-span-2 bg-surface rounded-2xl p-6 shadow-lg border border-outline-variant relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-transparent opacity-50"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-semibold text-xl text-white">Weekly Objectives</h3>
+<span class="bg-[#DDA444] text-[#1D1D1B] px-3 py-1 rounded-full text-xs font-bold font-label">In Progress</span>
+</div>
+<div class="space-y-6">
+<!-- Slider 1: Active -->
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-body text-white">Water System Maintenance</span>
+<span class="font-label font-bold text-brand-secondary">75%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2.5 overflow-hidden">
+<div class="bg-brand-secondary h-2.5 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<!-- Slider 2: Locked/Pending -->
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-body text-brand-warm-grey flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+                                        Solar Panel Inspection
+                                    </span>
+<span class="font-label font-bold text-brand-warm-grey">0%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2.5 overflow-hidden border border-outline-variant border-dashed">
+<div class="bg-outline h-2.5 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Weather/Conditions Card (Glassmorphism inspired) -->
+<div class="bg-surface rounded-2xl p-6 shadow-lg border border-outline-variant flex flex-col justify-between">
+<div>
+<h3 class="font-headline font-semibold text-xl text-white mb-2">Conditions</h3>
+<p class="font-body text-brand-warm-grey text-sm mb-4">Current site status</p>
+</div>
+<div class="flex items-center justify-center py-4">
+<span class="material-symbols-outlined text-6xl text-brand-gold" data-icon="sunny">sunny</span>
+</div>
+<div class="text-center mt-auto">
+<div class="font-display font-bold text-3xl text-white">24°C</div>
+<div class="font-body text-brand-warm-grey text-sm">Optimal for outdoor work</div>
+</div>
+</div>
+<!-- Task List Card -->
+<div class="md:col-span-3 bg-surface rounded-2xl p-0 shadow-lg border border-outline-variant overflow-hidden">
+<div class="p-6 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="font-headline font-semibold text-xl text-white">Action Items</h3>
+<button class="text-brand-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<ul class="divide-y divide-outline-variant">
+<!-- Task Item 1 -->
+<li class="p-4 hover:bg-surface-container-high transition-colors flex items-start gap-4 group cursor-pointer">
+<div class="mt-1">
+<span class="material-symbols-outlined text-brand-secondary" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label font-bold text-white text-base mb-1">Verify Seed Inventory</h4>
+<p class="font-body text-brand-warm-grey text-sm line-clamp-2">Check storage unit B for remaining heritage tomato seeds before spring planting.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-[#46ABB0] text-[#1D1D1B] px-2 py-0.5 rounded-full text-xs font-bold font-label">High Priority</span>
+<span class="text-xs text-brand-warm-grey font-body">Today</span>
+</div>
+</li>
+<!-- Task Item 2 -->
+<li class="p-4 hover:bg-surface-container-high transition-colors flex items-start gap-4 group cursor-pointer">
+<div class="mt-1">
+<span class="material-symbols-outlined text-brand-warm-grey" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label font-bold text-white text-base mb-1">Update Community Board</h4>
+<p class="font-body text-brand-warm-grey text-sm line-clamp-2">Post the new workshop schedule for next month's permaculture classes.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-surface-container-highest text-white px-2 py-0.5 rounded-full text-xs font-bold font-label border border-outline-variant">Routine</span>
+<span class="text-xs text-brand-warm-grey font-body">Tomorrow</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-surface border-t border-outline-variant shadow-[0_-4px_10px_rgba(0,0,0,0.5)] lg:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-100 shadow-[0_0_10px_rgba(30,106,114,0.3)]" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_view_week" data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_view_week</span>
+<span class="font-label font-bold text-label-sm mt-1">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center text-brand-warm-grey px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="target">target</span>
+<span class="font-label font-bold text-label-sm mt-1">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-brand-warm-grey px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label font-bold text-label-sm mt-1">Capture</span>
+</a>
+<a class="flex flex-col items-center justify-center text-brand-warm-grey px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label font-bold text-label-sm mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-brand-warm-grey px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-label font-bold text-label-sm mt-1">Menu</span>
+</a>
+</nav>
+</body></html>

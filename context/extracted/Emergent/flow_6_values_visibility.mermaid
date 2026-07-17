@@ -1,0 +1,12 @@
+flowchart TD
+    A{{"Tuesday meeting"}} --> B["Community rates each Lead<br/>1–10 per community value<br/>anonymous + optional voice/text note"]
+    B --> C["Scores stored"]
+    C --> D["Personal dashboard:<br/>each person sees ONLY<br/>their own value score"]
+    C --> E["Public to everyone:<br/>community-wide aggregate<br/>value score only"]
+    C --> F["Auto-picked weekly<br/>BEST and LEAST scores"]
+    F --> G["Founder view:<br/>can attach improvement note<br/>'work on this value/domain'"]
+    C --> H["Founder-only vault:<br/>who voted, notes, reasons<br/>not even Admin sees"]
+    H --> I{"Edit needed?"}
+    I -->|"only if necessary"| J["Founder discusses with<br/>the person who voted<br/>then edits — change logged"]
+    F -.->|"value score falls"| K["Private 1:1 with Founder<br/>NOT recorded in the app"]
+    B --> L["Values measure growth in<br/>community responsibility —<br/>higher value = larger responsibilities<br/>(not salary)"]

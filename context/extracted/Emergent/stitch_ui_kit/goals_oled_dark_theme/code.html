@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Goals - ProtoVillage Ops</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3f484a",
+                        "inverse-primary": "#8dd2da",
+                        "on-secondary-fixed-variant": "#004f52",
+                        "on-secondary-fixed": "#002021",
+                        "surface-container-low": "#f6f3ef",
+                        "primary-fixed": "#a9eef7",
+                        "surface-dim": "#dcdad6",
+                        "inverse-on-surface": "#f3f0ec",
+                        "primary-fixed-dim": "#8dd2da",
+                        "surface-variant": "#e5e2de",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1c1a",
+                        "secondary-fixed": "#91f2f7",
+                        "tertiary-container": "#825800",
+                        "primary-container": "#1e6a72",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "on-primary-fixed-variant": "#004f56",
+                        "secondary-fixed-dim": "#74d6db",
+                        "inverse-surface": "#31302e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#007074",
+                        "secondary": "#00696d",
+                        "surface-tint": "#1b6870",
+                        "on-primary-container": "#a2e7f0",
+                        "tertiary-fixed": "#ffddaf",
+                        "surface": "#fcf9f5",
+                        "surface-container-high": "#ebe8e4",
+                        "on-background": "#1c1c1a",
+                        "background": "#fcf9f5",
+                        "tertiary-fixed-dim": "#f8bc5a",
+                        "secondary-container": "#91f2f7",
+                        "surface-container-highest": "#e5e2de",
+                        "outline": "#6f797a",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0edea",
+                        "on-tertiary-container": "#ffd597",
+                        "tertiary": "#634200",
+                        "surface-bright": "#fcf9f5",
+                        "primary": "#005158",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001f23",
+                        "outline-variant": "#bec8ca",
+                        "on-tertiary-fixed": "#281800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Raleway", "sans-serif"],
+                        "display": ["Raleway", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"],
+                        "label": ["Nunito Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for tree view */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3f484a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6f797a; }
+
+        /* Tree structural lines */
+        .tree-line::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem; /* -20px */
+            top: 2rem;
+            bottom: -1rem;
+            width: 1px;
+            background-color: #3f484a; /* on-surface-variant */
+            opacity: 0.5;
+        }
+        .tree-item-last .tree-line::before { display: none; }
+        .tree-branch::after {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 2rem;
+            width: 1rem;
+            height: 1px;
+            background-color: #3f484a;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-on-surface text-inverse-on-surface font-body min-h-screen flex flex-col md:flex-row antialiased">
+<!-- SideNavBar (Desktop) -->
+<nav class="fixed left-0 top-0 h-full z-40 bg-inverse-surface w-72 flex-col hidden lg:flex shadow-xl">
+<div class="p-6 flex flex-col items-center border-b border-on-surface-variant/20">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl text-on-primary-container">energy_savings_leaf</span>
+</div>
+<h1 class="font-display font-bold text-xl text-inverse-on-surface tracking-tight">ProtoVillage Ops</h1>
+<p class="font-label text-sm text-outline-variant mt-1">Rural Operations Management</p>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-md">My Week</span>
+</a>
+<!-- Active -->
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined fill">target</span>
+<span class="font-label font-bold text-label-md">Goals</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label font-bold text-label-md">Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label font-bold text-label-md">Quick Capture</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-bold text-label-md">Wallet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label font-bold text-label-md">Discussion</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label font-bold text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label font-bold text-label-md">Admin</span>
+</a>
+</div>
+<div class="p-6 border-t border-on-surface-variant/20">
+<button class="w-full bg-primary text-on-primary font-label font-bold py-3 rounded-lg shadow-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                New Task
+            </button>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 lg:ml-72 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full h-16 bg-inverse-surface shadow-sm z-30 flex justify-between items-center px-4 md:px-10 border-b border-on-surface-variant/10">
+<div class="flex items-center gap-4">
+<h2 class="font-display font-bold text-headline-sm text-inverse-primary lg:hidden">ProtoVillage Ops</h2>
+<!-- Search Bar -->
+<div class="hidden md:flex items-center bg-on-surface px-4 py-1.5 rounded-full border border-outline-variant/30 focus-within:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<input class="bg-transparent border-none text-surface-variant focus:ring-0 text-sm w-64 placeholder:text-outline-variant/50" placeholder="Search goals..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-inverse-primary hover:bg-surface-container-high/10 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="text-inverse-primary hover:bg-surface-container-high/10 p-2 rounded-full transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="flex items-center gap-2 text-inverse-primary hover:bg-surface-container-high/10 py-1 px-2 rounded-full transition-all border border-outline-variant/20">
+<div class="w-8 h-8 rounded-full bg-tertiary-container overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a thoughtful agricultural worker in warm, earthy lighting against a dark, dramatic background. Professional, high quality, optimistic mood, subtle teal and gold ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz7y8SHmK1G7DEe5ePKqegFOcCYoEs5ULh1cIPUCDFpU7wdSUaAvRizq_4iSXRQ6ERcpz9GUdln36tNdO696hsf9aVY6qQDubKhxq6xaA4K8CO3e_D-tlu0f4XwUZeWsAHeUQ6UIy9nwINso9yMDT9A3GYmUSPpc9iGQqKOscLSyI85nqQw8RYMdx5-70LnVbsx72u2cFEGB-GYdeZNr1TKtZ8aye7mWA7urgR24Dg0dNO8uzWxFaJS1rxa3sGj2F8pbwQTzZpHsWH"/>
+</div>
+<span class="font-label text-sm hidden md:block">User Profile</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-4 md:p-8 pb-24 md:pb-8 max-w-[1280px] mx-auto w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<h1 class="font-headline font-bold text-3xl md:text-4xl text-inverse-on-surface mb-2 tracking-tight">Strategic Goals</h1>
+<p class="text-outline-variant font-body text-body-md">Track macro progress and cascading objectives.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 rounded-lg border border-outline-variant/30 text-surface-variant hover:bg-inverse-surface transition-colors font-label text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filter
+                    </button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label text-sm flex items-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">add</span> New Goal
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="bg-inverse-surface rounded-xl p-6 border border-outline-variant/10 shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/10 rounded-full blur-xl group-hover:bg-primary-container/20 transition-all"></div>
+<h3 class="font-label font-bold text-outline-variant text-sm uppercase tracking-wider mb-2">Total Progress</h3>
+<div class="flex items-center justify-between">
+<span class="font-headline font-bold text-4xl text-inverse-primary">68%</span>
+<div class="relative w-16 h-16">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-on-surface stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3"></path>
+<path class="text-inverse-primary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="68, 100" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="bg-inverse-surface rounded-xl p-6 border border-outline-variant/10 shadow-lg">
+<h3 class="font-label font-bold text-outline-variant text-sm uppercase tracking-wider mb-2">Active Initiatives</h3>
+<div class="flex items-center gap-4 mt-2">
+<span class="font-headline font-bold text-4xl text-secondary-fixed">12</span>
+<span class="text-surface-variant text-sm bg-on-surface px-2 py-1 rounded">+3 this month</span>
+</div>
+</div>
+<div class="bg-inverse-surface rounded-xl p-6 border border-outline-variant/10 shadow-lg">
+<h3 class="font-label font-bold text-outline-variant text-sm uppercase tracking-wider mb-2">At Risk</h3>
+<div class="flex items-center gap-4 mt-2">
+<span class="font-headline font-bold text-4xl text-tertiary-fixed-dim">2</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim">warning</span>
+</div>
+</div>
+</div>
+<!-- Collapsible Tree Structure -->
+<div class="bg-inverse-surface rounded-xl border border-outline-variant/10 shadow-xl overflow-hidden p-2 md:p-4">
+<!-- Tree Root 1 -->
+<div class="relative pl-2 py-2">
+<!-- Goal Item Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-on-surface rounded-lg border border-outline-variant/5 hover:border-outline-variant/20 transition-colors group z-10 relative">
+<div class="flex items-center gap-4 mb-3 sm:mb-0">
+<button class="text-outline-variant hover:text-inverse-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="relative w-10 h-10">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-inverse-surface stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="4"></path>
+<path class="text-primary-fixed stroke-current drop-shadow-md" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="85, 100" stroke-width="4"></path>
+</svg>
+</div>
+<div>
+<h4 class="font-headline font-semibold text-lg text-surface-bright group-hover:text-primary-fixed transition-colors">Q3 Village Infrastructure</h4>
+<p class="text-sm text-outline-variant font-body line-clamp-1">Establish core utilities for new residential sectors.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-xs font-label font-bold tracking-wider">ON TRACK</span>
+<div class="hidden sm:flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-on-surface object-cover" data-alt="Small circular avatar profile picture of a woman with dark hair against a minimalist dark teal background. High quality, soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjQQJJpMOV_0bbuQqbIWxEHe0lu56a0SW9e3wQSgXeV_H3y4pxjiIqcoJwbCBkx3n7xW1ipIue9O8vuwQlXHQ4cUwADMrf_e2ywPccyGHFtfARtQtmHy4p62vaoYD6MEqkbtb60-jZGYsx9lCVwRs00lKiMfscFjPcQ3Fdo7Q7Ff6q2RPkBjhFFGPZoJ-mdr4q3LX4-5lYMLTrSnfE2GTMyW1-XJW55Ui6F9z4O3eX7b5kYbRi_wcF5FR6kTXx97nnv38F9hEiCr48"/>
+<img class="w-8 h-8 rounded-full border-2 border-on-surface object-cover" data-alt="Small circular avatar profile picture of a man with glasses against a dark warm background. High quality, professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ4M07kBS0PlCh8Td-j1EOIDE9J-i1x9dFjww-vbKqYy4cr3hMvZP2VaQd_fXq_ANzufkrekZ5oFwweqiqsmaWbbiCocmMdElIKVFMQFwTE45uhB9LpPYgm4j7qt27ma1-AgAtJfuwMjVTWYrFSfFrTVAzmo9gZoeKCEXRnGT5wHFye_04x2wwPFHE1LMIWOlgNjuuZusUNyBb-Y2svqVk9QNdNFA6eM6_TuBkns-iT-YVVvKYqmIJpoDiKvlCGlH9t7PQJNDBj8ox"/>
+</div>
+<button class="text-outline-variant hover:text-white transition-colors opacity-0 group-hover:opacity-100 hidden sm:block">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Children container -->
+<div class="relative ml-8 mt-2 tree-line pl-6">
+<!-- Child 1.1 -->
+<div class="relative py-2 tree-branch">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-on-surface/50 rounded-lg border border-transparent hover:border-outline-variant/10 transition-colors group">
+<div class="flex items-center gap-3">
+<button class="text-outline-variant hover:text-secondary-fixed transition-colors focus:outline-none">
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="relative w-8 h-8">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-inverse-surface stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke-width="4"></path>
+<path class="text-secondary-fixed stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke-dasharray="100, 100" stroke-width="4"></path>
+</svg>
+</div>
+<h5 class="font-headline font-semibold text-md text-surface-dim">Water Filtration System</h5>
+</div>
+<div class="flex items-center gap-3 mt-2 sm:mt-0 pl-11 sm:pl-0">
+<span class="px-2 py-0.5 bg-secondary-container/20 text-secondary-fixed rounded-full text-[10px] font-label font-bold uppercase border border-secondary-fixed/30">COMPLETED</span>
+</div>
+</div>
+<!-- Grandchildren -->
+<div class="relative ml-8 mt-1 pl-6 border-l border-outline-variant/30 border-dashed">
+<div class="relative py-1 flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></div>
+<span class="text-sm text-surface-variant font-body strike-through">Source main components</span>
+</div>
+</div>
+<div class="relative py-1 flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></div>
+<span class="text-sm text-surface-variant font-body">Install central pump</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Child 1.2 -->
+<div class="relative py-2 tree-branch">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-on-surface/50 rounded-lg border border-transparent hover:border-outline-variant/10 transition-colors group">
+<div class="flex items-center gap-3">
+<button class="text-outline-variant hover:text-inverse-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined transition-transform duration-200 transform -rotate-90">expand_more</span>
+</button>
+<div class="relative w-8 h-8">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-inverse-surface stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke-width="4"></path>
+<path class="text-tertiary-fixed-dim stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke-dasharray="45, 100" stroke-width="4"></path>
+</svg>
+</div>
+<h5 class="font-headline font-semibold text-md text-surface-dim">Solar Grid Expansion</h5>
+</div>
+<div class="flex items-center gap-3 mt-2 sm:mt-0 pl-11 sm:pl-0">
+<span class="px-2 py-0.5 bg-tertiary-container/30 text-tertiary-fixed-dim rounded-full text-[10px] font-label font-bold uppercase border border-tertiary-fixed-dim/30">AT RISK</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tree Root 2 -->
+<div class="relative pl-2 py-2 mt-4 tree-item-last">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-on-surface rounded-lg border border-outline-variant/5 hover:border-outline-variant/20 transition-colors group z-10 relative">
+<div class="flex items-center gap-4 mb-3 sm:mb-0">
+<button class="text-outline-variant hover:text-inverse-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined transition-transform duration-200 transform -rotate-90">expand_more</span>
+</button>
+<div class="relative w-10 h-10">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-inverse-surface stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke-width="4"></path>
+<path class="text-primary-fixed stroke-current drop-shadow-md" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke-dasharray="20, 100" stroke-width="4"></path>
+</svg>
+</div>
+<div>
+<h4 class="font-headline font-semibold text-lg text-surface-bright group-hover:text-primary-fixed transition-colors">Community Outreach Program</h4>
+<p class="text-sm text-outline-variant font-body line-clamp-1">Engage neighboring sectors for agricultural exchange.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-variant/10 text-surface-variant rounded-full text-xs font-label font-bold tracking-wider border border-surface-variant/20">PLANNING</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full lg:hidden rounded-t-xl bg-surface dark:bg-on-surface border-t border-outline-variant shadow-[0_-4px_10px_rgba(29,29,27,0.08)] left-0 z-50 flex justify-around items-center h-20 px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">calendar_view_week</span>
+<span class="font-label font-bold text-[10px] mt-1">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-100 shadow-inner" href="#">
+<span class="material-symbols-outlined fill text-2xl">target</span>
+<span class="font-label font-bold text-[10px] mt-1">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+<span class="font-label font-bold text-[10px] mt-1">Capture</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="font-label font-bold text-[10px] mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">menu</span>
+<span class="font-label font-bold text-[10px] mt-1">Menu</span>
+</a>
+</nav>
+</body></html>

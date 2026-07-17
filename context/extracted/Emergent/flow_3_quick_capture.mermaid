@@ -1,0 +1,14 @@
+flowchart TD
+    A["Anyone taps +<br/>title + optional note/photo<br/>2 taps"] --> B["Choose target vertical<br/>(any vertical, even not their own)"]
+    A --> OPT["Optional: escalate flag<br/>+ tag people who should decide"]
+    B --> C["Lead's triage queue"]
+    C --> D{"Lead decides"}
+    D -->|"file it"| E["Becomes a task<br/>under an objective<br/>or floating in vertical"]
+    D -->|"needs decision"| F["Escalate to Admin<br/>with comments + suggestions"]
+    D -->|"ask around"| G["Request suggestions<br/>from tagged people"]
+    G --> D
+    F --> E
+    C -.->|"unresolved > 2 days"| H["Reminder to Lead"]
+    H -.->|"still unresolved"| I["Flagged to Admin"]
+    E --> S["Creator always sees status:<br/>pending / resolved<br/>+ can comment inside their token"]
+    C --> S

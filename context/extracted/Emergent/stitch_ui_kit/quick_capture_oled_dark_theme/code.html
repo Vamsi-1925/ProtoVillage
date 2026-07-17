@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quick Capture - ProtoVillage Ops</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3f484a",
+                      "inverse-primary": "#8dd2da",
+                      "on-secondary-fixed-variant": "#004f52",
+                      "on-secondary-fixed": "#002021",
+                      "surface-container-low": "#f6f3ef",
+                      "primary-fixed": "#a9eef7",
+                      "surface-dim": "#dcdad6",
+                      "inverse-on-surface": "#f3f0ec",
+                      "primary-fixed-dim": "#8dd2da",
+                      "surface-variant": "#e5e2de",
+                      "on-error": "#ffffff",
+                      "on-surface": "#1c1c1a",
+                      "secondary-fixed": "#91f2f7",
+                      "tertiary-container": "#825800",
+                      "primary-container": "#1e6a72",
+                      "on-tertiary-fixed-variant": "#614000",
+                      "on-primary-fixed-variant": "#004f56",
+                      "secondary-fixed-dim": "#74d6db",
+                      "inverse-surface": "#31302e",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#007074",
+                      "secondary": "#00696d",
+                      "surface-tint": "#1b6870",
+                      "on-primary-container": "#a2e7f0",
+                      "tertiary-fixed": "#ffddaf",
+                      "surface": "#fcf9f5",
+                      "surface-container-high": "#ebe8e4",
+                      "on-background": "#1c1c1a",
+                      "background": "#fcf9f5",
+                      "tertiary-fixed-dim": "#f8bc5a",
+                      "secondary-container": "#91f2f7",
+                      "surface-container-highest": "#e5e2de",
+                      "outline": "#6f797a",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#f0edea",
+                      "on-tertiary-container": "#ffd597",
+                      "tertiary": "#634200",
+                      "surface-bright": "#fcf9f5",
+                      "primary": "#005158",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#001f23",
+                      "outline-variant": "#bec8ca",
+                      "on-tertiary-fixed": "#281800"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Raleway"],
+                      "display": ["Raleway"],
+                      "body": ["Nunito Sans"],
+                      "label": ["Nunito Sans"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #31302e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6f797a; }
+    </style>
+</head>
+<body class="bg-black text-inverse-on-surface font-body overflow-x-hidden min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full h-16 flex justify-between items-center px-4 md:px-10 z-30 bg-black shadow-sm border-b border-inverse-surface lg:pl-80 transition-all">
+<div class="flex items-center gap-4">
+<h1 class="font-display font-bold text-headline-sm text-inverse-primary lg:hidden">ProtoVillage Ops</h1>
+<h1 class="font-display font-bold text-headline-sm text-inverse-primary hidden lg:block">Quick Capture</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-full hidden md:block">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-variant overflow-hidden border border-outline">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A close-up, dimly lit portrait of an operations manager. Shot in an OLED dark theme aesthetic with deep blacks and subtle cool teal rim lighting. High contrast, professional yet rugged vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU15ZBRK5IUaPG7xIU7-9YZ9l5QOttsXF85KnJHBTXB4mL4wXdyc-irPYu74s0VfdCRtF6Fo2pEPrSrP7lWnwHqQ8Cam40OF76rBVFTWOhyIFi0En3P9s7ez-HrCz4VtanRhrFd9E7hbgJAf9ddKa7IpfdQ9NSmCWbSo1a6rWwiJCTJIdHFDd-ihIrA54f4WG0TUuNLOGLSFTDZKuxLybwAf0DI3nb80g-A9_b8jvYGVi-HMrlmC2M_EnwrHT3FRbnR_dA5FleXQi7"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Web) -->
+<nav class="fixed left-0 top-0 h-full z-40 w-72 flex-col hidden lg:flex bg-inverse-surface shadow-xl">
+<div class="p-6 pb-2 border-b border-surface/10">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-display font-bold text-xl">
+                    PV
+                </div>
+<div>
+<h2 class="font-headline font-bold text-inverse-primary text-lg leading-tight">ProtoVillage Ops</h2>
+<p class="font-label text-sm text-surface-variant">Rural Operations Management</p>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-label font-bold text-label-md py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mb-4">
+<span class="material-symbols-outlined">add</span> New Task
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto py-4 flex flex-col font-label font-bold text-label-md">
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span> My Week
+            </a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">target</span> Goals
+            </a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">grid_view</span> Board
+            </a>
+<a class="flex items-center gap-3 px-4 py-4 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 scale-95 transition-transform duration-150 shadow-inner" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span> Quick Capture
+            </a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span> Wallet
+            </a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">forum</span> Discussion
+            </a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-4 text-surface-variant hover:text-white mx-2 my-1 hover:bg-on-surface-variant transition-colors duration-200 mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span> Admin
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 p-4 md:p-8 pb-24 lg:pb-8 max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+<!-- Left Column: The Capture Interface -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Main Input Area (Glassmorphism inspired dark card) -->
+<div class="bg-inverse-surface/80 backdrop-blur-md rounded-xl border border-outline/30 p-1 flex flex-col gap-1 shadow-2xl relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<textarea class="w-full bg-transparent border-none text-white text-xl p-6 placeholder:text-outline focus:ring-0 resize-none min-h-[200px] font-body" placeholder="What's happening on the ground?"></textarea>
+<div class="flex justify-between items-center p-4 bg-black/40 rounded-b-lg backdrop-blur-sm">
+<div class="flex gap-2">
+<button class="p-3 rounded-full hover:bg-surface-variant/20 text-inverse-primary transition-colors">
+<span class="material-symbols-outlined">alternate_email</span>
+</button>
+<button class="p-3 rounded-full hover:bg-surface-variant/20 text-inverse-primary transition-colors">
+<span class="material-symbols-outlined">tag</span>
+</button>
+</div>
+<span class="text-outline text-sm font-label">0/500</span>
+</div>
+</div>
+<!-- Big Vertical Action Buttons (Pop against black) -->
+<div class="grid grid-cols-3 gap-4">
+<button class="flex flex-col items-center justify-center gap-3 p-8 rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary hover:text-on-secondary-container transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-secondary/20">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+<span class="font-label font-bold tracking-wider uppercase text-sm">Photo</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-8 rounded-xl bg-tertiary hover:bg-tertiary-container text-on-tertiary hover:text-on-tertiary-container transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-tertiary/20">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="font-label font-bold tracking-wider uppercase text-sm">Audio</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-8 rounded-xl bg-surface-tint hover:bg-primary text-white transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-surface-tint/20">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label font-bold tracking-wider uppercase text-sm">Location</span>
+</button>
+</div>
+<!-- Primary Send Action -->
+<button class="w-full py-5 rounded-xl bg-primary-container text-white font-headline font-bold text-xl tracking-wide flex items-center justify-center gap-3 hover:bg-primary transition-colors duration-300 shadow-[0_0_20px_rgba(30,106,114,0.4)] hover:shadow-[0_0_30px_rgba(30,106,114,0.6)] mt-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+                    SEND CAPTURE
+                </button>
+</div>
+<!-- Right Column: Recent Captures -->
+<div class="lg:col-span-4 flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline font-bold text-xl text-inverse-on-surface">My captures</h3>
+<button class="text-inverse-primary hover:text-white transition-colors text-sm font-label flex items-center gap-1">
+                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Status Chips & Items List -->
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<div class="bg-inverse-surface rounded-xl p-4 flex flex-col gap-3 border border-outline/20 hover:border-outline/50 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-surface-variant text-sm font-label">
+<span class="material-symbols-outlined text-base">schedule</span> 10 mins ago
+                            </div>
+<!-- Inverted Teal Rule Status Chip -->
+<span class="bg-secondary-container text-on-surface px-3 py-1 rounded-full font-label font-bold text-xs tracking-wider uppercase">
+                                Syncing
+                            </span>
+</div>
+<p class="text-white font-body text-sm line-clamp-2">Recorded audio log for the new well pump installation at Sector 4. Seems to be running slightly loud.</p>
+<div class="flex gap-2 mt-1">
+<span class="text-inverse-primary bg-primary/20 px-2 py-0.5 rounded text-xs font-label">Audio</span>
+<span class="text-inverse-primary bg-primary/20 px-2 py-0.5 rounded text-xs font-label">Sector 4</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-inverse-surface rounded-xl p-4 flex flex-col gap-3 border border-outline/20 hover:border-outline/50 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-surface-variant text-sm font-label">
+<span class="material-symbols-outlined text-base">schedule</span> 2 hours ago
+                            </div>
+<!-- Gold Equivalent Status Chip for Review -->
+<span class="bg-tertiary-fixed-dim text-on-surface px-3 py-1 rounded-full font-label font-bold text-xs tracking-wider uppercase">
+                                Pending
+                            </span>
+</div>
+<div class="flex gap-3">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A vivid photograph of a newly planted sapling in rich, dark soil. Shot against an OLED pure black background framing, with high contrast dramatic lighting emphasizing the bright green leaves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwypIAoIIa8mnEwLegs9aVVavhUpYdLgK7lnA2krH746_xitzt4aEi-vG1W0k6JVRwcC-zDztQxhT2GWXeXwtpWkheg9Kc2C5MmZb26lrJpsnENQ8a4719oM65BYJi_BNWrji2tBQ53UCYdshEvfi4xw7yVkdszJan-RWlKhBALt6xc4cNkkTvazfvMubky8ZBV6JY19NVgteEnllRFB4pC0wDrd5G185HERJe9-m3cqXAqWV6XvvOE-3jer2sjFaixojjOKaUtHWn"/>
+</div>
+<p class="text-white font-body text-sm line-clamp-3">Soil moisture levels are looking great post-rain. Uploaded 3 photos of the saplings.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-inverse-surface rounded-xl p-4 flex flex-col gap-3 border border-outline/20 hover:border-outline/50 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-surface-variant text-sm font-label">
+<span class="material-symbols-outlined text-base">schedule</span> Yesterday
+                            </div>
+<!-- Success State Chip -->
+<span class="bg-[#6B7A41] text-white px-3 py-1 rounded-full font-label font-bold text-xs tracking-wider uppercase">
+                                Processed
+                            </span>
+</div>
+<p class="text-white font-body text-sm line-clamp-2">Weekly community meeting notes captured. Action items extracted and assigned to the board.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-black border-t border-inverse-surface shadow-[0_-4px_10px_rgba(0,0,0,0.5)] lg:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_view_week</span>
+<span class="font-label font-bold text-label-sm mt-1">My Week</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="font-label font-bold text-label-sm mt-1">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-100 shadow-[0_0_15px_rgba(30,106,114,0.3)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label font-bold text-label-sm mt-1">Capture</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-bold text-label-sm mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label font-bold text-label-sm mt-1">Menu</span>
+</a>
+</nav>
+</body></html>

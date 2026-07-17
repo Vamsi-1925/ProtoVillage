@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispatch Management - Graamam Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f6f3ef",
+                        "on-secondary-fixed": "#002021",
+                        "primary-fixed": "#a9eef7",
+                        "on-surface-variant": "#3f484a",
+                        "inverse-primary": "#8dd2da",
+                        "on-secondary-fixed-variant": "#004f52",
+                        "primary-fixed-dim": "#8dd2da",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "surface-dim": "#dcdad6",
+                        "inverse-on-surface": "#f3f0ec",
+                        "secondary-fixed-dim": "#74d6db",
+                        "inverse-surface": "#31302e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#007074",
+                        "secondary-fixed": "#91f2f7",
+                        "on-surface": "#1c1c1a",
+                        "tertiary-container": "#825800",
+                        "primary-container": "#1e6a72",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "on-primary-fixed-variant": "#004f56",
+                        "tertiary-fixed": "#ffddaf",
+                        "surface": "#fcf9f5",
+                        "on-primary-container": "#a2e7f0",
+                        "surface-tint": "#1b6870",
+                        "secondary": "#00696d",
+                        "background": "#fcf9f5",
+                        "on-background": "#1c1c1a",
+                        "surface-container-high": "#ebe8e4",
+                        "surface-container-highest": "#e5e2de",
+                        "outline": "#6f797a",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#91f2f7",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#f8bc5a",
+                        "tertiary": "#634200",
+                        "surface-bright": "#fcf9f5",
+                        "on-primary-fixed": "#001f23",
+                        "primary": "#005158",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#f0edea",
+                        "on-tertiary-container": "#ffd597",
+                        "outline-variant": "#bec8ca",
+                        "on-tertiary-fixed": "#281800"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Raleway", "sans-serif"],
+                        "display": ["Raleway", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"],
+                        "label": ["Nunito Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ambient-shadow {
+            box-shadow: 0 16px 32px -4px rgba(29, 29, 27, 0.08);
+        }
+        .organic-shape {
+            border-radius: 1.5rem 0.5rem 1.5rem 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen antialiased selection:bg-primary-container selection:text-white">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-[220px] bg-inverse-surface dark:bg-black text-primary dark:text-primary-fixed-dim font-body text-label-md flex flex-col py-6 no-border shadow-md z-50">
+<div class="px-6 mb-8">
+<h1 class="font-display font-bold text-xl text-on-primary tracking-tight">Graamam Connect</h1>
+<p class="text-on-surface-variant text-sm mt-1">Producer Operations</p>
+</div>
+<div class="flex-1 overflow-y-auto space-y-2">
+<!-- Dashboard -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Inventory -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+<span>Inventory</span>
+</a>
+<!-- Orders (Active for Dispatch Intent) -->
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span>Orders</span>
+</a>
+<!-- Producers -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+<span>Producers</span>
+</a>
+<!-- Settings -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-background dark:bg-black text-primary dark:text-primary-fixed-dim font-headline font-semibold text-headline-sm flex justify-between items-center h-16 px-8 ml-[220px] w-[calc(100%-220px)] flat no shadows">
+<div class="flex-1">
+<h2 class="text-on-background font-headline font-semibold text-headline-sm tracking-tight">Dispatch Operations</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded-full p-2">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-surface-container-high">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="A close-up, high-quality photograph of a warm, smiling farmer wearing a natural fiber hat, standing in a brightly lit field. The lighting is soft and golden, creating a friendly, trustworthy, and organic vibe suitable for an artisanal supply chain avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWeJQJZ4NBwON-KwWOWXhcLUYzp1kQVE_5WkRqWHUthofwKn8o4zlLWm664VvdZRE2cCPYLHE1b-4guwOr_RJp9H6iEtm3uVLykN8OrIoZdECeCmYX1ny-5EgooVeHFOZDdJYQJ_gDAHUX0PnTdFrtA48bOAgao29EF83ioykqY8RSoyFg9E9QZcmLtvqluigQ1uUl20hhHFlwzS885989GAS6NoIyKT4tsbDbgvnLZhRFuWgScPXBazjreyMhLoykhOh1fSoIfJpm"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-[220px] p-8 md:p-12 max-w-[1280px]">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Left Column: Ready for Dispatch -->
+<div class="xl:col-span-7 flex flex-col gap-6">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline font-bold text-headline-md text-on-surface">Ready for Dispatch</h3>
+<span class="bg-tertiary-container text-on-tertiary-container text-label-sm font-bold px-3 py-1 rounded-full">3 Orders Pending</span>
+</div>
+<!-- Dispatch Card 1 -->
+<div class="glass-card ambient-shadow rounded-xl p-6 transition-transform hover:-translate-y-1 duration-300">
+<div class="flex justify-between items-start mb-4 border-b border-surface-container pb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Order #ORD-8821</span>
+<span class="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-xs font-bold">Standard</span>
+</div>
+<h4 class="font-headline font-bold text-headline-sm text-on-surface">Village Co-op Grocery</h4>
+<p class="text-body-sm text-outline flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                142 River Road, Block B
+                            </p>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-bold text-on-surface block">12 items</span>
+<span class="text-body-sm text-outline">2 Boxes</span>
+</div>
+</div>
+<div class="flex items-center gap-3 mb-6 bg-surface-container-low p-3 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">local_shipping</span>
+<div class="text-sm">
+<span class="font-bold text-on-surface">Courier:</span> <span class="text-on-surface-variant">Green Miles Logistics</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 mt-4">
+<button class="px-5 py-2.5 rounded-lg border border-outline text-on-surface font-label text-label-md hover:bg-surface-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">print</span>
+                            Print Form
+                        </button>
+<button class="px-5 py-2.5 rounded-lg bg-primary-container text-white font-label text-label-md hover:bg-primary transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Mark Dispatched
+                        </button>
+</div>
+</div>
+<!-- Dispatch Card 2 -->
+<div class="glass-card ambient-shadow rounded-xl p-6 transition-transform hover:-translate-y-1 duration-300">
+<div class="flex justify-between items-start mb-4 border-b border-surface-container pb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Order #ORD-8822</span>
+<span class="bg-tertiary text-white px-2 py-0.5 rounded text-xs font-bold">Express</span>
+</div>
+<h4 class="font-headline font-bold text-headline-sm text-on-surface">Urban Farm Collective</h4>
+<p class="text-body-sm text-outline flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                88 City Square, North Zone
+                            </p>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-bold text-on-surface block">5 items</span>
+<span class="text-body-sm text-outline">1 Box</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 mt-4">
+<button class="px-5 py-2.5 rounded-lg border border-outline text-on-surface font-label text-label-md hover:bg-surface-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">print</span>
+                            Print Form
+                        </button>
+<button class="px-5 py-2.5 rounded-lg bg-primary-container text-white font-label text-label-md hover:bg-primary transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Mark Dispatched
+                        </button>
+</div>
+</div>
+</div>
+<!-- Right Column: Dispatch History -->
+<div class="xl:col-span-5">
+<div class="bg-surface-container-lowest rounded-xl ambient-shadow p-6 sticky top-24">
+<h3 class="font-headline font-bold text-headline-md text-on-surface mb-6 border-b border-surface-container pb-4">Recent Dispatches</h3>
+<div class="space-y-6">
+<!-- History Item 1 -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</div>
+<div class="w-px h-full bg-surface-container-high my-2"></div>
+</div>
+<div class="flex-1 pb-4">
+<div class="flex justify-between items-start mb-1">
+<h5 class="font-bold text-on-surface">#ORD-8819</h5>
+<span class="text-xs text-on-surface-variant font-bold">2 hrs ago</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-2">Heritage Markets</p>
+<a class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+                                    View Invoice
+                                </a>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</div>
+<div class="w-px h-full bg-surface-container-high my-2"></div>
+</div>
+<div class="flex-1 pb-4">
+<div class="flex justify-between items-start mb-1">
+<h5 class="font-bold text-on-surface">#ORD-8818</h5>
+<span class="text-xs text-on-surface-variant font-bold">5 hrs ago</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-2">Local Pantry Inc.</p>
+<a class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+                                    View Invoice
+                                </a>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h5 class="font-bold text-on-surface">#ORD-8815</h5>
+<span class="text-xs text-on-surface-variant font-bold">Yesterday</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-2">Green Roots Cafe</p>
+<a class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+                                    View Invoice
+                                </a>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-lg border border-surface-container-highest text-on-surface-variant font-label text-label-md hover:bg-surface-container transition-colors text-center">
+                        View Full History
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

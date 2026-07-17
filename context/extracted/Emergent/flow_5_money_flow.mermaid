@@ -1,0 +1,12 @@
+flowchart TD
+    A["Approved weekly budget<br/>(token on record)"] --> B["Accounting disburses<br/>week's amount to Lead"]
+    B --> C["User wallet block:<br/>amount at hand<br/>+ transaction history"]
+    C --> D["Spend happens"]
+    D --> E{"Bill photo attached?"}
+    E -->|"no"| F["Transaction CANNOT be saved<br/>bill attachment is mandatory"]
+    F --> D
+    E -->|"yes"| G["Transaction recorded<br/>linked to bill + budget line"]
+    G --> C
+    G --> H["Tuesday: Lead tallies<br/>spend vs disbursed amount<br/>closes the week's accounts"]
+    H --> I["Founder dashboard:<br/>budget vs actual<br/>per vertical, real time"]
+    B --> I

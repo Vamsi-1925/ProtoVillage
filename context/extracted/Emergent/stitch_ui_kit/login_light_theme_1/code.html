@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Graamam Connect</title>
+<!-- Google Fonts: Raleway (Headings/Display) & Nunito Sans (Body/UI) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&amp;family=Raleway:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f0edea",
+                    "background": "#fcf9f5",
+                    "surface-tint": "#1b6870",
+                    "on-primary-fixed-variant": "#004f56",
+                    "inverse-surface": "#31302e",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "on-tertiary-fixed": "#281800",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#002021",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#005158",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "outline": "#6f797a",
+                    "surface-container-highest": "#e5e2de",
+                    "surface-container-low": "#f6f3ef",
+                    "surface": "#fcf9f5",
+                    "on-tertiary-container": "#ffd597",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#634200",
+                    "surface-dim": "#dcdad6",
+                    "outline-variant": "#bec8ca",
+                    "tertiary-container": "#825800",
+                    "surface-container-high": "#ebe8e4",
+                    "primary-fixed": "#a9eef7",
+                    "on-primary-fixed": "#001f23",
+                    "secondary-container": "#91f2f7",
+                    "surface-variant": "#e5e2de",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#3f484a",
+                    "on-secondary-container": "#007074",
+                    "on-surface": "#1c1c1a",
+                    "tertiary-fixed": "#ffddaf",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#91f2f7",
+                    "inverse-primary": "#8dd2da",
+                    "primary-container": "#1e6a72",
+                    "secondary-fixed-dim": "#74d6db",
+                    "on-primary-container": "#a2e7f0",
+                    "on-background": "#1c1c1a",
+                    "surface-bright": "#fcf9f5",
+                    "primary-fixed-dim": "#8dd2da",
+                    "error-container": "#ffdad6",
+                    "secondary": "#00696d",
+                    "inverse-on-surface": "#f3f0ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px",
+                    "2xl": "1rem"
+            },
+            "spacing": {
+                "unit": "8px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway", "sans-serif"],
+                    "display": ["Raleway", "sans-serif"],
+                    "body": ["Nunito Sans", "sans-serif"],
+                    "label": ["Nunito Sans", "sans-serif"]
+            },
+            "boxShadow": {
+                'ambient': '0 16px 40px -12px rgba(29, 29, 27, 0.08)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center p-4 md:p-8 font-body text-on-surface antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- Main Login Card (White surface on Cream background) -->
+<main class="w-full max-w-md bg-surface-container-lowest rounded-2xl p-8 md:p-12 shadow-ambient border border-outline-variant/20 relative overflow-hidden">
+<!-- Decorative organic background shape (subtle) -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header / Logo -->
+<div class="flex flex-col items-center mb-10 relative z-10">
+<!-- Zygote Glyph (Teal ring with dot) -->
+<div class="w-14 h-14 rounded-full border-4 border-primary-container flex items-center justify-center mb-5">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+</div>
+<!-- Wordmark & Tagline -->
+<h1 class="font-display font-bold text-3xl md:text-[32px] text-on-surface tracking-tight mb-2">
+                Graamam Connect
+            </h1>
+<p class="font-body text-body-md text-on-surface-variant">
+                Handmade Happiness
+            </p>
+</div>
+<!-- Login Form -->
+<form class="space-y-6 relative z-10">
+<!-- Username Input -->
+<div class="space-y-2">
+<label class="block font-label text-label-md text-on-surface ml-1" for="username">
+                    Username
+                </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-11 pr-4 py-3.5 text-on-surface placeholder:text-outline/70 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 outline-none transition-all duration-200 font-body text-body-md" id="username" name="username" placeholder="Enter your username" type="text"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="block font-label text-label-md text-on-surface" for="password">
+                        Password
+                    </label>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-11 pr-4 py-3.5 text-on-surface placeholder:text-outline/70 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 outline-none transition-all duration-200 font-body text-body-md" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Submit Button (Primary Teal #1E6A72 with White text) -->
+<button class="w-full mt-2 bg-primary-container text-on-primary font-label text-[16px] py-4 rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary-container/20 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-2" type="button">
+                Sign in
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+<!-- Demo Users Section -->
+<div class="mt-10 pt-8 border-t border-outline-variant/30 relative z-10">
+<p class="text-center font-label text-label-sm text-outline uppercase tracking-widest mb-5">
+                Quick Login (Demo)
+            </p>
+<div class="flex flex-wrap justify-center gap-3">
+<!-- Chips in Secondary Teal mapping (bg-secondary-fixed/secondary-container) with dark text -->
+<button class="px-5 py-2.5 rounded-full bg-secondary-fixed text-on-surface font-label text-label-md hover:bg-secondary-fixed-dim hover:-translate-y-0.5 transition-all duration-200 border border-secondary-fixed-dim/30 shadow-sm" onclick="document.getElementById('username').value='coordinator_demo'; document.getElementById('password').value='demo123';" type="button">
+                    Coordinator
+                </button>
+<button class="px-5 py-2.5 rounded-full bg-secondary-fixed text-on-surface font-label text-label-md hover:bg-secondary-fixed-dim hover:-translate-y-0.5 transition-all duration-200 border border-secondary-fixed-dim/30 shadow-sm" onclick="document.getElementById('username').value='qc_officer_demo'; document.getElementById('password').value='demo123';" type="button">
+                    QC Officer
+                </button>
+</div>
+</div>
+</main>
+</body></html>

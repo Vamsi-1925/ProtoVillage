@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Warehouse Overview - Graamam Connect</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#91f2f7",
+                        "on-secondary-fixed": "#002021",
+                        "on-primary-fixed-variant": "#004f56",
+                        "surface-container-highest": "#e5e2de",
+                        "on-primary-container": "#a2e7f0",
+                        "inverse-primary": "#8dd2da",
+                        "surface-container-low": "#f6f3ef",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "surface-container": "#f0edea",
+                        "error": "#ba1a1a",
+                        "surface": "#fcf9f5",
+                        "secondary": "#00696d",
+                        "secondary-fixed": "#91f2f7",
+                        "on-background": "#1c1c1a",
+                        "surface-container-high": "#ebe8e4",
+                        "on-surface-variant": "#3f484a",
+                        "on-secondary-fixed-variant": "#004f52",
+                        "on-secondary-container": "#007074",
+                        "on-primary-fixed": "#001f23",
+                        "surface-dim": "#dcdad6",
+                        "inverse-on-surface": "#f3f0ec",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#281800",
+                        "outline-variant": "#bec8ca",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#a9eef7",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "tertiary-container": "#825800",
+                        "on-tertiary-container": "#ffd597",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#74d6db",
+                        "tertiary": "#634200",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf9f5",
+                        "primary-container": "#1e6a72",
+                        "background": "#fcf9f5",
+                        "primary-fixed-dim": "#8dd2da",
+                        "on-secondary": "#ffffff",
+                        "primary": "#005158",
+                        "tertiary-fixed": "#ffddaf",
+                        "outline": "#6f797a",
+                        "tertiary-fixed-dim": "#f8bc5a",
+                        "surface-tint": "#1b6870",
+                        "on-surface": "#1c1c1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Raleway"],
+                        "display": ["Raleway"],
+                        "body": ["Nunito Sans"],
+                        "label": ["Nunito Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom arbitrary colors requested by user mapped to classes to avoid inline styles where possible */
+        .bg-oled-black { background-color: #000000; }
+        .bg-oled-card { background-color: #121212; }
+        .bg-oled-sidebar { background-color: #1D1D1B; }
+        .text-oled-light { color: #fcf9f5; }
+        .text-oled-muted { color: #bec8ca; }
+    </style>
+</head>
+<body class="bg-oled-black text-oled-light font-body h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-[220px] bg-oled-sidebar text-primary-fixed-dim font-body font-normal text-label-md flex flex-col py-6 z-50">
+<div class="px-6 mb-8 flex flex-col gap-1">
+<h1 class="font-display font-bold text-xl text-surface tracking-tight">Graamam Connect</h1>
+<span class="text-xs text-oled-muted">Producer Operations</span>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<!-- Dashboard (Inactive) -->
+<a class="text-oled-muted hover:text-surface hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Inventory (Active) -->
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" data-weight="fill">inventory_2</span>
+<span>Inventory</span>
+</a>
+<!-- Orders (Inactive) -->
+<a class="text-oled-muted hover:text-surface hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Orders</span>
+</a>
+<!-- Producers (Inactive) -->
+<a class="text-oled-muted hover:text-surface hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Producers</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="text-oled-muted hover:text-surface hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="ml-[220px] w-[calc(100%-220px)] flex flex-col h-full overflow-y-auto">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-oled-black text-primary-fixed-dim font-headline font-semibold text-headline-sm flex justify-between items-center h-16 px-8 py-4">
+<div class="flex items-center gap-4">
+<!-- Brand hidden per JSON instructions, relying on SideNavBar -->
+</div>
+<div class="flex items-center gap-4">
+<button class="text-oled-muted hover:text-surface transition-colors focus:ring-2 focus:ring-primary rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A macro photography shot of an intricately carved wooden texture with concentric circles resembling a fingerprint, warmly lit by soft, golden-hour ambient light to emphasize the organic, artisanal nature of the material." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzdwPSTesSlt2O4X3rGYUH6dGKmguGfBtgzGxv0EuhM2WDGF69T2rcEyDjzxcaJyI96s-ENefKTMLfOYl0EiNvZ8hyn2Fy6ADMofP5OdaBDSgDV9U6jDG1TbvO-0Ni9teAnLLqkZOYaQR5BdMAfBtQRGsmHk5Sre2T50M8yyjSAy88s5jbEmaZ1CANQNKMxKm0ublwlOtMxHNytela-LSQrC9NZKHAj31XDEQnsAYIe53Gnga_rr95v38Axdb3Z4dph_KIPvWC1-lN"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-8 lg:px-[40px] max-w-[1280px] mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+<div>
+<h2 class="font-headline font-bold text-headline-lg text-surface tracking-tight mb-2">Warehouse Overview</h2>
+<p class="font-body text-body-md text-oled-muted">Manage real-time inventory and dispatch pipelines.</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label font-bold text-label-md px-6 py-3 rounded-lg flex items-center gap-2 transition-all shadow-[0_4px_24px_rgba(30,106,114,0.3)] hover:shadow-[0_6px_32px_rgba(30,106,114,0.4)] hover:-translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+                    Process Dispatches
+                </button>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Stat Card 1 -->
+<div class="bg-oled-card rounded-[16px] p-6 border border-white/5 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 text-primary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="package_2">package_2</span>
+</div>
+<h3 class="font-label text-label-md text-oled-muted">Total Finished Goods</h3>
+</div>
+<div class="font-headline font-bold text-display-lg text-surface">
+                        1,432
+                    </div>
+<div class="mt-4 flex items-center gap-2 text-label-sm font-label">
+<span class="inline-flex items-center gap-1 bg-[#6B7A41]/20 text-[#6B7A41] px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +12% this week
+                        </span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-oled-card rounded-[16px] p-6 border border-white/5 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-[#DDA444]/10 rounded-full blur-2xl group-hover:bg-[#DDA444]/20 transition-all duration-500"></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-[#DDA444]/20 text-[#DDA444] flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="rule">rule</span>
+</div>
+<h3 class="font-label text-label-md text-oled-muted">Pending Checks</h3>
+</div>
+<div class="font-headline font-bold text-display-lg text-surface">
+                        24
+                    </div>
+<div class="mt-4 flex items-center gap-2 text-label-sm font-label">
+<span class="inline-flex items-center gap-1 bg-[#DDA444] text-[#1D1D1B] px-3 py-1 rounded-full font-bold">
+                            Requires Attention
+                        </span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-oled-card rounded-[16px] p-6 border border-white/5 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-[#46ABB0]/10 rounded-full blur-2xl group-hover:bg-[#46ABB0]/20 transition-all duration-500"></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-[#46ABB0]/20 text-[#46ABB0] flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<h3 class="font-label text-label-md text-oled-muted">Ready for Dispatch</h3>
+</div>
+<div class="font-headline font-bold text-display-lg text-surface">
+                        156
+                    </div>
+<div class="mt-4 flex items-center gap-2 text-label-sm font-label">
+<span class="inline-flex items-center gap-1 bg-[#46ABB0] text-[#1D1D1B] px-3 py-1 rounded-full font-bold">
+                            Cleared for Route
+                        </span>
+</div>
+</div>
+</div>
+<!-- Atmosphere structural element to demonstrate modern layout -->
+<div class="mt-8 bg-oled-card rounded-[16px] border border-white/5 h-64 relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
+<p class="text-oled-muted font-body text-body-md relative z-10 flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-[32px] opacity-50" data-icon="inventory_2">inventory_2</span>
+                    Detailed inventory view rendering canvas
+                 </p>
+</div>
+</main>
+</div>
+</body></html>

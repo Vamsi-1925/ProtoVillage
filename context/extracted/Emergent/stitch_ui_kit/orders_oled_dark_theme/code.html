@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Graamam Connect - Orders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f0edea",
+                    "background": "#fcf9f5",
+                    "surface-tint": "#1b6870",
+                    "on-primary-fixed-variant": "#004f56",
+                    "inverse-surface": "#31302e",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "on-tertiary-fixed": "#281800",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#002021",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#005158",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "outline": "#6f797a",
+                    "surface-container-highest": "#e5e2de",
+                    "surface-container-low": "#f6f3ef",
+                    "surface": "#fcf9f5",
+                    "on-tertiary-container": "#ffd597",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#634200",
+                    "surface-dim": "#dcdad6",
+                    "outline-variant": "#bec8ca",
+                    "tertiary-container": "#825800",
+                    "surface-container-high": "#ebe8e4",
+                    "primary-fixed": "#a9eef7",
+                    "on-primary-fixed": "#001f23",
+                    "secondary-container": "#91f2f7",
+                    "surface-variant": "#e5e2de",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#3f484a",
+                    "on-secondary-container": "#007074",
+                    "on-surface": "#1c1c1a",
+                    "tertiary-fixed": "#ffddaf",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#91f2f7",
+                    "inverse-primary": "#8dd2da",
+                    "primary-container": "#1e6a72",
+                    "secondary-fixed-dim": "#74d6db",
+                    "on-primary-container": "#a2e7f0",
+                    "on-background": "#1c1c1a",
+                    "surface-bright": "#fcf9f5",
+                    "primary-fixed-dim": "#8dd2da",
+                    "error-container": "#ffdad6",
+                    "secondary": "#00696d",
+                    "inverse-on-surface": "#f3f0ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway", "sans-serif"],
+                    "display": ["Raleway", "sans-serif"],
+                    "body": ["Nunito Sans", "sans-serif"],
+                    "label": ["Nunito Sans", "sans-serif"]
+            }
+          }
+        },
+      }
+    </script>
+<style>
+        /* Base styles to enforce the requested dark theme while respecting system constraints where possible */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .oled-card {
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="font-body antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-[220px] bg-inverse-surface shadow-md flex flex-col py-6 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-display font-bold text-xl">
+                GC
+            </div>
+<div>
+<h1 class="font-display font-bold text-lg text-white tracking-tight">Graamam Connect</h1>
+<p class="font-body text-sm text-outline-variant">Producer Operations</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1 px-2">
+<a class="text-on-surface-variant hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label font-bold text-sm">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label font-bold text-sm">Inventory</span>
+</a>
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label font-bold text-sm">Orders</span>
+</a>
+<a class="text-on-surface-variant hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label font-bold text-sm">Producers</span>
+</a>
+</div>
+<div class="px-2 mt-auto">
+<a class="text-on-surface-variant hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label font-bold text-sm">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[220px] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-black/80 backdrop-blur-md flex justify-between items-center h-16 px-8 border-b border-white/5">
+<h2 class="font-headline font-semibold text-xl text-white">Orders Management</h2>
+<div class="flex items-center gap-4">
+<button class="text-outline-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-outline-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar portrait of a professional operations manager in a well-lit office, high-quality, modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvMGPhHB5cJ-dQgj6WEvm1cZFtCdZdDgwfkZYILbuHAYIHbZFg_dIXHHTGyLEiwUfzmeFSWvwazWNOBnnAMibav5RuRJmh5OowaNdTMWq23mCHHxm-ZiWCHkjbuLp_6BOWOiEbUjEe5F-9gIbv2Wod_bKNtns9ocog-aPWItVOp7ndDXftFjExXGasUkejCIxVCk5gWwtApUKtHa_GFmeRCetyv87f9Gs3GgBZ7sbqPDKThE4UgKmMR1cqItj3qmAY1t9rnFcahl6Y"/>
+</div>
+</header>
+<!-- Content -->
+<div class="p-8 max-w-[1280px] w-full mx-auto">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline font-bold text-2xl text-white mb-1">Active Orders</h3>
+<p class="text-outline-variant text-sm">Manage and track your regional producer fulfillments.</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label font-bold px-4 py-2 rounded flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+                    New Order
+                </button>
+</div>
+<!-- Orders Table Card -->
+<div class="oled-card rounded-xl overflow-hidden shadow-2xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10 text-outline-variant text-xs uppercase font-label tracking-wider">
+<th class="p-4 font-semibold">Order ID</th>
+<th class="p-4 font-semibold">Producer</th>
+<th class="p-4 font-semibold">Items</th>
+<th class="p-4 font-semibold">Date</th>
+<th class="p-4 font-semibold">Status</th>
+<th class="p-4 font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+<td class="p-4 font-mono text-outline-variant">#ORD-8821</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant/20 flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-sm">agriculture</span>
+</div>
+<span class="font-semibold text-white">Valley Farms Co.</span>
+</div>
+</td>
+<td class="p-4 text-outline-variant">24 crates (Organic Apples)</td>
+<td class="p-4 text-outline-variant">Oct 24, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label bg-primary text-on-primary">
+                                        Completed
+                                    </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-outline-variant hover:text-white">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+<td class="p-4 font-mono text-outline-variant">#ORD-8822</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant/20 flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-sm">forest</span>
+</div>
+<span class="font-semibold text-white">Pine Ridge Apiary</span>
+</div>
+</td>
+<td class="p-4 text-outline-variant">12 jars (Raw Honey)</td>
+<td class="p-4 text-outline-variant">Oct 25, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label bg-secondary-fixed text-on-secondary-fixed">
+                                        Processing
+                                    </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-outline-variant hover:text-white">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4 font-mono text-outline-variant">#ORD-8823</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant/20 flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-sm">water_drop</span>
+</div>
+<span class="font-semibold text-white">Clearwater Dairy</span>
+</div>
+</td>
+<td class="p-4 text-outline-variant">50 gal (Whole Milk)</td>
+<td class="p-4 text-outline-variant">Oct 26, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label bg-tertiary-fixed-dim text-on-tertiary-fixed">
+                                        Pending
+                                    </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-outline-variant hover:text-white">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</body></html>

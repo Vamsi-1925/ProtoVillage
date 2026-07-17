@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Graamam Connect - Inventory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#121212", /* Override for OLED dark theme cards */
+                        "background": "#000000", /* Override for OLED dark theme background */
+                        "surface-tint": "#1b6870",
+                        "on-primary-fixed-variant": "#004f56",
+                        "inverse-surface": "#121212", /* Sidebar bg */
+                        "on-secondary-fixed-variant": "#004f52",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "on-tertiary-fixed": "#281800",
+                        "error": "#87211E", /* Terracotta */
+                        "on-secondary-fixed": "#002021",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#005158",
+                        "tertiary-fixed-dim": "#f8bc5a",
+                        "outline": "#6f797a",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container-low": "#f6f3ef",
+                        "surface": "#121212",
+                        "on-tertiary-container": "#ffd597",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#634200",
+                        "surface-dim": "#dcdad6",
+                        "outline-variant": "#333333", /* Darker outline for dark mode */
+                        "tertiary-container": "#825800",
+                        "surface-container-high": "#ebe8e4",
+                        "primary-fixed": "#a9eef7",
+                        "on-primary-fixed": "#001f23",
+                        "secondary-container": "#91f2f7",
+                        "surface-variant": "#1a1a1a", /* Darker variant */
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#a3a3a3", /* Light warm-grey text */
+                        "on-secondary-container": "#007074",
+                        "on-surface": "#e5e5e5", /* High contrast light grey */
+                        "tertiary-fixed": "#ffddaf",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#91f2f7",
+                        "inverse-primary": "#8dd2da",
+                        "primary-container": "#1e6a72",
+                        "secondary-fixed-dim": "#74d6db",
+                        "on-primary-container": "#a2e7f0",
+                        "on-background": "#e5e5e5",
+                        "surface-bright": "#fcf9f5",
+                        "primary-fixed-dim": "#8dd2da",
+                        "error-container": "#ffdad6",
+                        "secondary": "#00696d",
+                        "inverse-on-surface": "#f3f0ec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": [
+                            "Raleway"
+                        ],
+                        "display": [
+                            "Raleway"
+                        ],
+                        "body": [
+                            "Nunito Sans"
+                        ],
+                        "label": [
+                            "Nunito Sans"
+                        ]
+                    },
+                    "fontSize": {}
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e5e5e5;
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-primary-container flex bg-background text-on-background">
+<!-- SideNavBar -->
+<nav class="bg-inverse-surface dark:bg-black fixed left-0 top-0 h-full w-[220px] no-border shadow-md z-50 flex flex-col h-full py-6">
+<div class="px-6 mb-8">
+<h1 class="font-display font-bold text-xl text-on-surface tracking-tight mb-1">Graamam Connect</h1>
+<p class="font-body text-sm text-on-surface-variant">Producer Operations</p>
+</div>
+<div class="flex-1 flex flex-col gap-1 px-2">
+<!-- Dashboard (Inactive) -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container font-label text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Dashboard
+            </a>
+<!-- Inventory (Active) -->
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 font-label text-sm scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                Inventory
+            </a>
+<!-- Orders (Inactive) -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container font-label text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                Orders
+            </a>
+<!-- Producers (Inactive) -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container font-label text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+                Producers
+            </a>
+<!-- Settings (Inactive) -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:bg-primary-container/20 hover:text-on-primary-container font-label text-sm mt-auto" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="ml-[220px] flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-black sticky top-0 z-40 w-full flat no shadows flex justify-between items-center h-16 px-8 border-b border-outline-variant/30">
+<h2 class="font-headline font-semibold text-lg text-on-surface hidden">Graamam Connect</h2>
+<div class="flex-1"></div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded-full p-2">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A close up portrait of a rural artisan smiling, high contrast dark cinematic lighting, moody black background, sharp focus, professional photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdfWqVd1pd3FKA2f832qx-4LGCotbNxk8RDuGmyc4G9fnHuAeHH-nOYXnbLL9pO2f1KAaW1RPjXMZB8EnkGc8l0sD0kAvgfL5x3XNhoh2mv-KflYo1dou1mbuNr6ov8dEoPNhMnosWHrn9JvyIT5oXXxkvF8cMRHx29dQa8sp6nx_Jz_9UsE6sjTQnyRPJL4YFjx444jgDnkaEKHwj3XHyz_BDkKWQDlKU5835m7S1-UD6TJ-9Ec3zsQpn3_1N34WsMHa3hHxdjflJ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 p-8">
+<div class="max-w-[1280px] mx-auto">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div>
+<h2 class="font-headline font-bold text-3xl text-on-surface mb-2">Inventory Management</h2>
+<p class="font-body text-on-surface-variant">Track and manage artisanal stock across all producer networks.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container hover:bg-surface-variant text-on-surface font-label text-sm px-4 py-2 rounded-DEFAULT border border-outline-variant flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                            Filter
+                        </button>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label text-sm px-5 py-2 rounded-DEFAULT flex items-center gap-2 transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Add Item
+                        </button>
+</div>
+</div>
+<!-- Metrics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary-fixed">inventory_2</span>
+</div>
+<span class="text-xs font-label text-on-surface-variant px-2 py-1 bg-surface-variant rounded-full">+12%</span>
+</div>
+<div>
+<p class="font-body text-sm text-on-surface-variant mb-1">Total Items</p>
+<p class="font-headline font-bold text-2xl text-on-surface">1,248</p>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error/10 rounded-lg">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<span class="text-xs font-label text-error px-2 py-1 bg-error/10 rounded-full">Requires Action</span>
+</div>
+<div>
+<p class="font-body text-sm text-on-surface-variant mb-1">Low Stock Alerts</p>
+<p class="font-headline font-bold text-2xl text-on-surface">24</p>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface-container rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at top right, #1e6a72 0%, transparent 60%);"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary-fixed">local_shipping</span>
+</div>
+</div>
+<div class="relative z-10">
+<p class="font-body text-sm text-on-surface-variant mb-1">Pending Dispatches</p>
+<p class="font-headline font-bold text-2xl text-on-surface">86</p>
+</div>
+</div>
+</div>
+<!-- Inventory Table Section -->
+<div class="bg-surface-container rounded-xl border border-outline-variant/50 overflow-hidden shadow-sm">
+<!-- Table Toolbar -->
+<div class="p-4 border-b border-outline-variant/50 flex flex-col sm:flex-row justify-between items-center gap-4 bg-surface-variant/30">
+<div class="relative w-full sm:w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-surface border border-outline-variant rounded-DEFAULT pl-10 pr-4 py-2 text-sm font-body text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-on-surface-variant/50" placeholder="Search inventory..." type="text"/>
+</div>
+<div class="flex gap-2 w-full sm:w-auto">
+<select class="bg-surface border border-outline-variant rounded-DEFAULT px-3 py-2 text-sm font-body text-on-surface focus:outline-none focus:border-primary w-full sm:w-auto appearance-none pr-8 relative">
+<option>All Categories</option>
+<option>Textiles</option>
+<option>Pottery</option>
+<option>Woodwork</option>
+</select>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface/50 border-b border-outline-variant/50">
+<th class="px-6 py-4 font-label text-xs uppercase tracking-wider text-on-surface-variant">Product Details</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-wider text-on-surface-variant">SKU</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-wider text-on-surface-variant">Producer</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-wider text-on-surface-variant">Stock Level</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-wider text-on-surface-variant">Status</th>
+<th class="px-6 py-4 font-label text-xs uppercase tracking-wider text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body text-sm">
+<!-- Row 1 (Normal) -->
+<tr class="hover:bg-surface-variant/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-md bg-surface overflow-hidden border border-outline-variant/50 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up of a handwoven cotton textile in earthy tones, geometric patterns, dark moody lighting highlighting texture, professional product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE-F6i7XqDAcZI48nmApkhEcqNNU2iB9Cf6-k1pS_Od_AEATKCMhJXU6kjRiL4pBBVXGuOFgmjkZHWyBmXyi1tvJUjRQ48e-8z0YQ4hw471cETkk0lJNWDocpC5xuRX2h6BHAxxgAi3BFaDlkAOlbLzYDdJCgZThuRWK4tC1FcGSX2UCo8wuQyTSlb7wLf3bPGCflUsq8TNKM40QzZm165cYztqXDzsp0MhuJ5kf1pKzZKOLDkWxlj3Hke-UNk4HuusfoTui6Hlhzl"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Handwoven Ikat Scarf</p>
+<p class="text-xs text-on-surface-variant">Textiles</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">TX-IK-001</td>
+<td class="px-6 py-4 text-on-surface">Weavers Coop #4</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-semibold">145</span>
+<span class="text-xs text-on-surface-variant">units</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label bg-secondary/10 text-secondary-fixed-dim border border-secondary/20">In Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 (Low Stock - Error) -->
+<tr class="hover:bg-surface-variant/30 transition-colors group bg-error/5">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-md bg-surface overflow-hidden border border-error/30 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Artisanal clay pottery bowl, dark rustic background, single spotlight illuminating the textured surface, cinematic product shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI7AB9eJwzzhXLQlc7eqamUYfwGC5ELJC6_uMaL0yjhspYkrM3kvsyKWIwdwDjIRWW28JUFvfejCb-zGN6nuaBQ_sOVTwi0K4eZgqQak7cM60J3UKEg83F9FOTgE1dZHCY38OH61-2eKZLP-Dg3gKXs6XLV1wTr0f9_JYR1KXmOh2Q5kpHlim9AbrAuYUL55OaBoI7co9swnPLF-CkxhpfDTzSkj-2qWnGt18ULM_plyafthKVtvYIyEzItWbSWTAJOxduAI6YFhyD"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Terracotta Serving Bowl</p>
+<p class="text-xs text-on-surface-variant">Pottery</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">PT-TC-042</td>
+<td class="px-6 py-4 text-on-surface">Clay Masters Guild</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="text-error font-bold">12</span>
+<span class="text-xs text-on-surface-variant">units</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label bg-error text-on-error shadow-sm shadow-error/20">Low Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 (Normal) -->
+<tr class="hover:bg-surface-variant/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-md bg-surface overflow-hidden border border-outline-variant/50 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Carved wooden spoon set, rich dark wood grains, resting on dark slate surface, moody atmospheric lighting, high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq6734uR5IBtltHIqHl8Xw1YuqLcqUsRBuUIpzSCkyi6VMWCm-UMBq4zuL7m54ywJMLgLxz4G7iiwXrElh9pJFVnOfDsx59WdlzzpWAlevSoiuVvgM51K_vi2fgfGGUSh34-9tM78tR-rQ3Il2Ga6hYOkYT798rNbU0yLQnT5cv12fwGbAL6ereqh9dDlHaGxv1raR7hKOIQpZ45AHOGCaUBtg0S0Up7MsxvDYGjkt_hQo6mN5tZUxibhWSTwx8zz00HyoxS42n0KY"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Teak Wood Spoon Set</p>
+<p class="text-xs text-on-surface-variant">Woodwork</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">WD-TK-018</td>
+<td class="px-6 py-4 text-on-surface">Forest Edge Artisans</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-semibold">89</span>
+<span class="text-xs text-on-surface-variant">units</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label bg-secondary/10 text-secondary-fixed-dim border border-secondary/20">In Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-outline-variant/50 flex items-center justify-between bg-surface-variant/20">
+<p class="text-sm text-on-surface-variant font-body">Showing <span class="font-semibold text-on-surface">1</span> to <span class="font-semibold text-on-surface">3</span> of <span class="font-semibold text-on-surface">1,248</span> results</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded border border-outline-variant text-on-surface-variant hover:bg-surface-variant disabled:opacity-50 text-sm font-label" disabled="">Previous</button>
+<button class="px-3 py-1 rounded border border-outline-variant text-on-surface hover:bg-surface-variant text-sm font-label bg-surface">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

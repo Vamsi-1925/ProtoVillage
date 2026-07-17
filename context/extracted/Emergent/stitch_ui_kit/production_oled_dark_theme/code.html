@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Production Management - Graamam Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Raleway:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#91f2f7",
+                    "on-secondary-fixed": "#002021",
+                    "on-primary-fixed-variant": "#004f56",
+                    "surface-container-highest": "#e5e2de",
+                    "on-primary-container": "#a2e7f0",
+                    "inverse-primary": "#8dd2da",
+                    "surface-container-low": "#f6f3ef",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "surface-container": "#f0edea",
+                    "error": "#ba1a1a",
+                    "surface": "#fcf9f5",
+                    "secondary": "#00696d",
+                    "secondary-fixed": "#91f2f7",
+                    "on-background": "#1c1c1a",
+                    "surface-container-high": "#ebe8e4",
+                    "on-surface-variant": "#3f484a",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "on-secondary-container": "#007074",
+                    "on-primary-fixed": "#001f23",
+                    "surface-dim": "#dcdad6",
+                    "inverse-on-surface": "#f3f0ec",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#281800",
+                    "outline-variant": "#bec8ca",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#a9eef7",
+                    "surface-variant": "#e5e2de",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "tertiary-container": "#825800",
+                    "on-tertiary-container": "#ffd597",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#74d6db",
+                    "tertiary": "#634200",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#fcf9f5",
+                    "primary-container": "#1e6a72",
+                    "background": "#fcf9f5",
+                    "primary-fixed-dim": "#8dd2da",
+                    "on-secondary": "#ffffff",
+                    "primary": "#005158",
+                    "tertiary-fixed": "#ffddaf",
+                    "outline": "#6f797a",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "surface-tint": "#1b6870",
+                    "on-surface": "#1c1c1a",
+                    "dark-bg": "#000000",
+                    "dark-card": "#121212",
+                    "dark-text": "#e0e0e0",
+                    "dark-muted": "#9e9e9e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway"],
+                    "display": ["Raleway"],
+                    "body": ["Nunito Sans"],
+                    "label": ["Nunito Sans"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: theme('colors.dark-bg'); color: theme('colors.dark-text'); }
+        .glass-panel { background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body class="font-body antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-[220px] bg-dark-card shadow-md flex flex-col py-6 z-50 border-r border-white/5">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">eco</span>
+</div>
+<div>
+<h1 class="font-display font-bold text-xl text-white tracking-tight">Graamam Connect</h1>
+<p class="text-xs text-dark-muted font-body">Producer Operations</p>
+</div>
+</div>
+<div class="flex-1 px-2 space-y-1">
+<a class="text-dark-muted hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label-md">Dashboard</span>
+</a>
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 shadow-[0_0_15px_rgba(0,81,88,0.3)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label text-label-md">Inventory</span>
+</a>
+<a class="text-dark-muted hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label text-label-md">Orders</span>
+</a>
+<a class="text-dark-muted hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label text-label-md">Producers</span>
+</a>
+<a class="text-dark-muted hover:text-white hover:bg-white/5 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="ml-[220px] w-[calc(100%-220px)] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-dark-bg/90 backdrop-blur-md flex justify-between items-center h-16 px-8 border-b border-white/5">
+<h2 class="font-headline font-semibold text-headline-sm text-white">Production Management</h2>
+<div class="flex items-center gap-4">
+<button class="p-2 text-dark-muted hover:text-white transition-colors rounded-full hover:bg-white/5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-white/10">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdlW-f04zoxkXaG6p6N1T9JAKhU6WySytn9LUcW5Ro7HHM3DusRgvAFighLXxgX55-YUZeEj_gEgs4OcUDrMVmVXw0hwF8gFfqL1eFoHGzf0YVWQnFA4Pm-J9Nrtg24aQyRl6Z4QJ6-lu5pQ_Jgwri7BUUA_ZDtHSX4METmnL6FNxQwu13nDC5lrpEtaMxSn-JMp94E7kHFdeMLa6NLw4nRNVwTUzAEkPfY70C1lPpTMnr9LK2Bi-cFsrDCqeng8OouhJfNNN3m5Xs"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Side: Active Tokens -->
+<section class="lg:col-span-4 flex flex-col gap-4">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-headline font-semibold text-lg text-white">Active Tokens</h3>
+<button class="text-primary-fixed-dim hover:text-primary-fixed text-sm font-label flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> Filter
+                    </button>
+</div>
+<!-- Token Card: Active -->
+<div class="bg-dark-card rounded-xl p-5 border border-primary/30 shadow-[0_0_20px_rgba(0,81,88,0.1)] cursor-pointer hover:border-primary transition-all relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary group-hover:w-1.5 transition-all"></div>
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="text-xs font-label text-dark-muted mb-1 block">TOKEN ID</span>
+<h4 class="font-headline font-bold text-white text-lg">TK-2023-11B</h4>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary-fixed-dim text-xs font-label border border-primary/20 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim animate-pulse"></span> Active
+                        </span>
+</div>
+<div class="space-y-2 mt-4">
+<div class="flex justify-between text-sm">
+<span class="text-dark-muted">Product</span>
+<span class="text-white font-medium">Virgin Coconut Oil</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-dark-muted">Target Yield</span>
+<span class="text-white font-medium">50 Liters</span>
+</div>
+<div class="mt-3 pt-3 border-t border-white/5 flex justify-between items-center">
+<span class="text-xs text-dark-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Started 2h ago
+                             </span>
+<div class="flex -space-x-2">
+<img alt="Worker" class="w-6 h-6 rounded-full border border-dark-card" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZWGBfn7-EjkCUhTjhZU_gs0wsUfSFCK2xoMzdR-b_SuN1BZow5JgxnVsYmQC88tupMdnrHKBDZ6s77DiqjSqIXGf3bdDlku-G4xko3cb5iZ4NRbcVSuuVCAAHgG0aJ9YfDo2nhMtp0dzNjQ8a_JgHgRBIrJQ-rdW4o3jQOvZ2aVv5O-udzEcvLZ8KkjwbgJ2WvYQZEN4YIpjqi8JWsiNP7XaztcsLrjnXA_gmAEaxGB2NVvgeXOm8s2Dqlxgc98SyYxhP5KctVSe7"/>
+<div class="w-6 h-6 rounded-full border border-dark-card bg-surface-variant flex items-center justify-center text-[10px] text-on-surface-variant">+2</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Token Card: Pending -->
+<div class="bg-dark-card rounded-xl p-5 border border-white/5 hover:border-white/10 transition-all cursor-pointer opacity-80">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="text-xs font-label text-dark-muted mb-1 block">TOKEN ID</span>
+<h4 class="font-headline font-bold text-white text-lg">TK-2023-11A</h4>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#333] text-[#aaa] text-xs font-label border border-white/10">
+                            Pending
+                        </span>
+</div>
+<div class="space-y-2 mt-4">
+<div class="flex justify-between text-sm">
+<span class="text-dark-muted">Product</span>
+<span class="text-white font-medium">Desiccated Coconut</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-dark-muted">Target Yield</span>
+<span class="text-white font-medium">100 kg</span>
+</div>
+</div>
+</div>
+<!-- Token Card: Complete -->
+<div class="bg-dark-card rounded-xl p-5 border border-white/5 hover:border-white/10 transition-all cursor-pointer opacity-60">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="text-xs font-label text-dark-muted mb-1 block">TOKEN ID</span>
+<h4 class="font-headline font-bold text-white text-lg line-through text-dark-muted">TK-2023-10X</h4>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#1e3a29] text-[#6bbf82] text-xs font-label border border-[#1e3a29]">
+                            Complete
+                        </span>
+</div>
+<div class="space-y-2 mt-4">
+<div class="flex justify-between text-sm">
+<span class="text-dark-muted">Product</span>
+<span class="text-white font-medium">Coconut Shell Charcoal</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-dark-muted">Yield</span>
+<span class="text-[#6bbf82] font-medium">250 kg</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Production Slip Details -->
+<section class="lg:col-span-8 flex flex-col h-full">
+<div class="bg-dark-card border border-white/10 rounded-2xl flex flex-col h-full overflow-hidden shadow-2xl relative">
+<!-- Decorative header background -->
+<div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none"></div>
+<!-- Slip Header -->
+<div class="p-8 pb-6 border-b border-white/5 relative z-10">
+<div class="flex justify-between items-end">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<h2 class="font-display font-bold text-3xl text-white">Production Slip</h2>
+<span class="px-3 py-1 rounded-lg bg-primary/20 text-primary-fixed-dim text-sm font-label border border-primary/30">TK-2023-11B</span>
+</div>
+<p class="text-dark-muted font-body">Virgin Coconut Oil • Batch #VCO-442</p>
+</div>
+<div class="text-right">
+<span class="text-xs text-dark-muted font-label block mb-1">SCHEDULED FOR</span>
+<span class="text-white font-medium">Today, 14:00</span>
+</div>
+</div>
+</div>
+<!-- Slip Body -->
+<div class="p-8 flex-1 overflow-y-auto space-y-8 relative z-10">
+<!-- Specs Grid -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-black/50 rounded-xl p-4 border border-white/5">
+<span class="text-xs text-dark-muted font-label block mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">thermostat</span> TEMP
+                                </span>
+<span class="text-white font-headline text-xl">45°C</span>
+</div>
+<div class="bg-black/50 rounded-xl p-4 border border-white/5">
+<span class="text-xs text-dark-muted font-label block mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span> DURATION
+                                </span>
+<span class="text-white font-headline text-xl">4h 30m</span>
+</div>
+<div class="bg-black/50 rounded-xl p-4 border border-white/5">
+<span class="text-xs text-dark-muted font-label block mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">scale</span> EST. YIELD
+                                </span>
+<span class="text-white font-headline text-xl">50L</span>
+</div>
+</div>
+<!-- Bill of Materials -->
+<div>
+<h3 class="font-headline font-semibold text-lg text-white mb-4 border-b border-white/5 pb-2">Raw Material Requirements</h3>
+<div class="space-y-3">
+<!-- Material: Coconuts -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-black/30 border border-white/5 hover:bg-black/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-variant/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-dark-muted">grass</span>
+</div>
+<div>
+<h4 class="text-white font-medium">Raw Coconuts</h4>
+<p class="text-xs text-dark-muted">Grade A, Dehusked</p>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-white font-medium">500 pcs</span>
+<span class="text-xs text-[#6bbf82]">In Stock (1,200 pcs)</span>
+</div>
+</div>
+<!-- Material: Glass Bottles -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-black/30 border border-white/5 hover:bg-black/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-variant/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-dark-muted">water_bottle</span>
+</div>
+<div>
+<h4 class="text-white font-medium">Glass Bottles</h4>
+<p class="text-xs text-dark-muted">500ml, Sterilized</p>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-white font-medium">100 pcs</span>
+<span class="text-xs text-[#6bbf82]">In Stock (150 pcs)</span>
+</div>
+</div>
+<!-- Material: Labels (SHORTAGE ALERT) -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-[#2a1313] border border-[#ff5252]/30 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-[#ff5252]"></div>
+<div class="flex items-center gap-4 pl-2">
+<div class="w-10 h-10 rounded-lg bg-[#ff5252]/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#ff5252]">label</span>
+</div>
+<div>
+<h4 class="text-white font-medium">Product Labels</h4>
+<p class="text-xs text-[#ff9999]">VCO Export Batch</p>
+</div>
+</div>
+<div class="text-right flex flex-col items-end">
+<span class="block text-white font-medium">100 pcs</span>
+<span class="text-xs text-[#ff5252] flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[12px]">warning</span> Shortage (80 pcs available)
+                                        </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-6 border-t border-white/5 bg-black/40 flex justify-end gap-4 z-10">
+<button class="px-6 py-2.5 rounded-lg border border-white/10 text-white font-label hover:bg-white/5 transition-colors">
+                            Cancel
+                        </button>
+<button class="px-6 py-2.5 rounded-lg bg-primary text-white font-label font-bold hover:bg-primary-container transition-all shadow-[0_0_15px_rgba(0,81,88,0.5)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span> Start Production
+                        </button>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Producers | Graamam Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&amp;family=Nunito+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#000000",
+                    "surface-dim": "#1c1c1a",
+                    "surface-container-low": "#121212",
+                    "secondary-container": "#91f2f7",
+                    "tertiary": "#634200",
+                    "on-secondary-container": "#007074",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#1c1c1a",
+                    "inverse-primary": "#8dd2da",
+                    "surface-container": "#0a0a0a",
+                    "tertiary-fixed": "#ffddaf",
+                    "surface-container-highest": "#1c1c1a",
+                    "outline-variant": "#3f484a",
+                    "on-secondary-fixed": "#002021",
+                    "primary-fixed-dim": "#8dd2da",
+                    "on-primary-fixed": "#001f23",
+                    "on-primary-fixed-variant": "#004f56",
+                    "on-primary-container": "#a2e7f0",
+                    "secondary": "#00696d",
+                    "inverse-on-surface": "#fcf9f5",
+                    "primary-container": "#1e6a72",
+                    "on-surface-variant": "#bec8ca",
+                    "on-background": "#fcf9f5",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#825800",
+                    "on-tertiary-fixed": "#281800",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#fcf9f5",
+                    "background": "#000000",
+                    "surface-container-high": "#141414",
+                    "on-secondary-fixed-variant": "#004f52",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#1c1c1a",
+                    "tertiary-fixed-dim": "#f8bc5a",
+                    "surface": "#000000",
+                    "secondary-fixed-dim": "#74d6db",
+                    "outline": "#6f797a",
+                    "primary-fixed": "#a9eef7",
+                    "on-tertiary-container": "#ffd597",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#1b6870",
+                    "secondary-fixed": "#91f2f7",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "primary": "#005158",
+                    "on-surface": "#fcf9f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.75rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Raleway", "sans-serif"],
+                    "display": ["Raleway", "sans-serif"],
+                    "body": ["Nunito Sans", "sans-serif"],
+                    "label": ["Nunito Sans", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #fcf9f5;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(28, 28, 26, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1e6a72;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[220px] bg-inverse-surface dark:bg-black flex flex-col py-6 no-border shadow-md z-50">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-lg" data-icon="token">token</span>
+</div>
+<span class="font-display font-bold text-xl text-on-primary tracking-tight">Graamam</span>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body font-normal text-label-md">Dashboard</span>
+</a>
+<!-- Inventory -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body font-normal text-label-md">Inventory</span>
+</a>
+<!-- Orders -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body font-normal text-label-md">Orders</span>
+</a>
+<!-- Producers (ACTIVE) -->
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body font-normal text-label-md">Producers</span>
+</a>
+<!-- Settings -->
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body font-normal text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="p-4 rounded-xl bg-surface-variant/5 border border-white/5">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2">Connected Village</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#6B7A41] animate-pulse"></div>
+<span class="text-xs font-semibold">Vayanad North</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[220px] w-[calc(100%-220px)] h-screen flex flex-col bg-black">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 w-full flex justify-between items-center h-16 px-8 bg-background dark:bg-black flat no shadows">
+<div class="flex flex-col">
+<h1 class="font-headline font-semibold text-headline-sm text-primary">Producers</h1>
+<p class="text-[10px] text-on-surface-variant tracking-wider uppercase">Graamam Connect • Regional Operations</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary cursor-pointer transition-colors" data-icon="search">search</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="dark_mode">dark_mode</span>
+<div class="flex items-center gap-3 border-l border-white/10 pl-6">
+<div class="text-right">
+<p class="text-xs font-bold leading-none">Anand K.</p>
+<p class="text-[10px] text-on-surface-variant">Admin</p>
+</div>
+<img class="w-8 h-8 rounded-full border border-primary/30" data-alt="A professional headshot of a regional manager in a modern office, characterized by warm ambient lighting and soft bokeh background. The subject is wearing a smart casual outfit, conveying reliability and expertise. The overall aesthetic is clean, sharp, and high-quality, fitting a modern humanist design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMSrbVKFAIEnMNCjwIRI4Pwy6O16DHIU9I2hAy_51-Lxky10r4icEqjzkqI5FlFRuwVCQRIzo9ELO9E7ZoPF15hts64sPqjlgZoygjtfQznSPmK3yyXfwxLlagCFghrL1Y7T_m4g-FzKq88eZKeT2bksACViH4aeVIrKpVcIpxsc-_zevefEx8ySdx-1_M9fPqrmwu1t7zwmiyV-fTt9S-G3J5YsQhOiRjjjSuF0KrAUm8JMIzQ0Ho07inGZzT7QPSA-qtNSr8WGW5"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+<!-- Dashboard Top Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div class="flex items-center gap-2 bg-surface-variant/10 p-1 rounded-lg border border-white/5">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-md text-sm font-bold shadow-lg shadow-primary/20">All Producers</button>
+<button class="px-4 py-2 text-on-surface-variant hover:text-on-surface transition-colors text-sm font-bold">Active Batches</button>
+<button class="px-4 py-2 text-on-surface-variant hover:text-on-surface transition-colors text-sm font-bold">Pending Approval</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-surface-container-high px-4 py-2 rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-sm text-on-surface-variant mr-2" data-icon="filter_list">filter_list</span>
+<span class="text-sm font-bold text-on-surface-variant">Filter By Region</span>
+</div>
+<button class="flex items-center gap-2 bg-primary px-6 py-2.5 rounded-lg text-white font-bold text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/10">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+                        Onboard Producer
+                    </button>
+</div>
+</div>
+<!-- Stats Overview - Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container rounded-xl p-6 border border-white/5 flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="groups">groups</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Total Producers</p>
+<h3 class="text-3xl font-display font-bold text-white">128</h3>
+</div>
+<div class="bg-surface-container rounded-xl p-6 border border-white/5 flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="verified">verified</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Certified Organic</p>
+<h3 class="text-3xl font-display font-bold text-white">94%</h3>
+</div>
+<div class="bg-surface-container rounded-xl p-6 border border-white/5 flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="package_2">package_2</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Active Batches</p>
+<h3 class="text-3xl font-display font-bold text-white">42</h3>
+</div>
+<div class="bg-surface-container rounded-xl p-6 border border-white/5 flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="star">star</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Quality Avg</p>
+<h3 class="text-3xl font-display font-bold text-white">4.8</h3>
+</div>
+</div>
+<!-- Producers Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-high rounded-2xl overflow-hidden border border-white/5 hover:border-primary/30 transition-all duration-300 group flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A lush, green mountain farm landscape in Kerala, India, at dawn. Soft mist rolls over neatly organized rows of spice plants and coffee bushes. The lighting is ethereal and warm, highlighting the vibrant emerald greens of the vegetation. The scene represents pure, sustainable agriculture in a modern humanist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbV29MWZR-imTRY9CX7bB5qpctQdkRvpi-F7o78BIn4aeIQJI6ErHZ3wiG4zoRI4U387HZ2dpZD4YM1qpUgn6HGey92bB_pnIpLtBmrGf4bktzEn2KwkuYD8tBoRCfVxzmsnICLRrW83lSXVCKiGRJ_j6MEnuRNYV3eLDBG1WTxcSGNhzEjrU_fucuVAnk6-j48uBO1qQEIMgBLczs2Wsi5tyrHYxgIwy9IJXNSSOwP-n1gToXusZbvAI7MAtXxj3DG7Lr9ejDa3WT"/>
+<div class="absolute top-4 right-4 flex gap-2">
+<span class="bg-[#6B7A41] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Active</span>
+<span class="bg-[#DDA444] text-[#1D1D1B] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">A+ Grade</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline font-bold text-lg text-white">Varghese Abraham</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                                    Idukki Highlands
+                                </p>
+</div>
+<div class="w-12 h-12 bg-black rounded-xl border border-white/10 flex flex-col items-center justify-center">
+<span class="text-lg font-bold text-primary leading-none">08</span>
+<span class="text-[8px] uppercase font-bold text-on-surface-variant">Batches</span>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Primary Crop</span>
+<span class="font-bold text-white">Black Pepper</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Quality Score</span>
+<div class="flex gap-1 text-[#DDA444]">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star_half" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+<div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5 flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-variant text-sm font-bold hover:bg-white/10 transition-colors">View Profile</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-primary/20 text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-high rounded-2xl overflow-hidden border border-white/5 hover:border-primary/30 transition-all duration-300 group flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up of sun-dried cocoa beans spread out on a traditional wooden drying tray. The warm sunlight creates rhythmic shadows and highlights the rich chocolatey browns and reddish hues of the beans. The setting is a clean, modern village processing center, embodying a sense of craftsmanship and organic quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZtmX7DmlqQppEst5pbnfrc3JmO0FQtAacN6Lez2PvAvs2cNf43PvwQw2BqTiwxH8XvFJPdNBepZMF854-XHcONvgZ9kGxmoUZJuD1e1QjXDrcow58PlzuiWXE29F6kAKdW-AdzdP_IqHFHEACi-7TdM5RzyzP1LQYa_DGRBrkGyGLqUGdJI8x9lnMSffxAsqE0S3sLMNkEhkKvQqVyWGWdJlGP0dmKC_cBnEkE35ZMcHSM_mJQMs17OKuJRK6XCEtNBsvax7XkhEi"/>
+<div class="absolute top-4 right-4 flex gap-2">
+<span class="bg-[#6B7A41] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Active</span>
+<span class="bg-[#46ABB0] text-[#1D1D1B] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">B Grade</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline font-bold text-lg text-white">Meera Nair</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                                    Palakkad Plains
+                                </p>
+</div>
+<div class="w-12 h-12 bg-black rounded-xl border border-white/10 flex flex-col items-center justify-center">
+<span class="text-lg font-bold text-primary leading-none">03</span>
+<span class="text-[8px] uppercase font-bold text-on-surface-variant">Batches</span>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Primary Crop</span>
+<span class="font-bold text-white">Cocoa Beans</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Quality Score</span>
+<div class="flex gap-1 text-[#DDA444]">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star_outline">star_outline</span>
+</div>
+</div>
+<div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5 flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-variant text-sm font-bold hover:bg-white/10 transition-colors">View Profile</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-primary/20 text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-high rounded-2xl overflow-hidden border border-white/5 hover:border-primary/30 transition-all duration-300 group flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An artisanal coconut processing facility where fresh, split coconuts are being processed for virgin oil. The atmosphere is bright and sterile but warm, with wooden accents and modern machinery. The lighting is soft and focused, capturing the pristine white of the coconut flesh against deep charcoal surfaces. High-end, planet-positive aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG9oOFKDXQgxHBT9olNBhQPy0v_pevTPtKKe2jLDa9_ownL3SpkqG873Mxb4IHUI9Mt4FQ_PDiPa1vpv-Vlan2vb0U25BZCm-H0T9z8DGqV3YLRq3KXgik6bPZpYWMHf9fESg179JCQ-ODGvZ08uh2_NRcneZZiwSlr9jbme2mhia4bSqrgvMhaYhHH_CExPddCJOAx61OJbCGE7kbQOrNqTDxEbUkDG7DTJgTHsZMvFlGSPQ6axqOq7v10QcncV68mjii29ZfIK3u"/>
+<div class="absolute top-4 right-4 flex gap-2">
+<span class="bg-[#87211E] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">In Review</span>
+<span class="bg-[#DDA444] text-[#1D1D1B] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">A Grade</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline font-bold text-lg text-white">Siddharth Menon</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                                    Kozhikode Coastal
+                                </p>
+</div>
+<div class="w-12 h-12 bg-black rounded-xl border border-white/10 flex flex-col items-center justify-center">
+<span class="text-lg font-bold text-primary leading-none">12</span>
+<span class="text-[8px] uppercase font-bold text-on-surface-variant">Batches</span>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Primary Crop</span>
+<span class="font-bold text-white">Virgin Coconut Oil</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Quality Score</span>
+<div class="flex gap-1 text-[#DDA444]">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[98%]"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5 flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-variant text-sm font-bold hover:bg-white/10 transition-colors">View Profile</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-primary/20 text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Regional Insights Section -->
+<div class="mt-12">
+<h3 class="font-headline font-bold text-xl text-white mb-6">Regional Quality Map</h3>
+<div class="bg-surface-container rounded-2xl overflow-hidden border border-white/5 p-2 h-[400px] relative">
+<img class="w-full h-full object-cover rounded-xl grayscale opacity-50 contrast-125" data-location="Kerala Highlands" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA06qUPWYxy_MK6fpOWiq_e0ci3pRK9wXNjB42zSLl65BNJzPUhV4U3qOS3e3FG30pmq1yklKUKuf1gMXtXO5--7XUJsQbpE3JtpbNpurochsv_2JE8dZOgBclxMLbvS1aCwiyq1Io-jyTh4QnNNRm7I43G1TCLri491SxBkB-s8dzyEDzBJAK7X2jVxFSgpp5HIWvqi6QAkCDYoqTgrwOQtp-BWKH2tgcr5PIgKbT1b__c2ssCqguVgMb8DKpy_WXKRXYCXbmbChv_"/>
+<!-- Overlay Glass Card -->
+<div class="absolute bottom-8 left-8 p-6 glass-card rounded-xl max-w-sm">
+<h4 class="font-headline font-bold text-lg text-white mb-2">Vayanad North Sector</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">Highest yield projected for the harvest season. Quality scores across the region show a 12% improvement compared to previous quarter.</p>
+<div class="flex gap-4">
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Producers</p>
+<p class="text-xl font-bold text-white">42</p>
+</div>
+<div class="border-l border-white/10 h-10"></div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Avg Quality</p>
+<p class="text-xl font-bold text-[#6B7A41]">4.9</p>
+</div>
+</div>
+</div>
+<!-- Map Pins (Mock) -->
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-4 h-4 bg-primary rounded-full border-2 border-white animate-ping absolute"></div>
+<div class="w-4 h-4 bg-primary rounded-full border-2 border-white relative z-10 shadow-lg shadow-primary/50"></div>
+</div>
+<div class="absolute top-2/3 right-1/4">
+<div class="w-4 h-4 bg-[#6B7A41] rounded-full border-2 border-white relative z-10"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick action -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl shadow-primary/40 hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+
+        // Search Bar Focus Effect
+        const searchIcon = document.querySelector('[data-icon="search"]');
+        searchIcon.addEventListener('mouseover', () => {
+            searchIcon.classList.add('scale-110');
+        });
+        searchIcon.addEventListener('mouseout', () => {
+            searchIcon.classList.remove('scale-110');
+        });
+    </script>
+</body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Graamam Connect - Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#91f2f7",
+                        "on-secondary-fixed": "#002021",
+                        "on-primary-fixed-variant": "#004f56",
+                        "surface-container-highest": "#e5e2de",
+                        "on-primary-container": "#a2e7f0",
+                        "inverse-primary": "#8dd2da",
+                        "surface-container-low": "#f6f3ef",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "surface-container": "#f0edea",
+                        "error": "#ba1a1a",
+                        "surface": "#fcf9f5",
+                        "secondary": "#00696d",
+                        "secondary-fixed": "#91f2f7",
+                        "on-background": "#1c1c1a",
+                        "surface-container-high": "#ebe8e4",
+                        "on-surface-variant": "#3f484a",
+                        "on-secondary-fixed-variant": "#004f52",
+                        "on-secondary-container": "#007074",
+                        "on-primary-fixed": "#001f23",
+                        "surface-dim": "#dcdad6",
+                        "inverse-on-surface": "#f3f0ec",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#281800",
+                        "outline-variant": "#bec8ca",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#a9eef7",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "tertiary-container": "#825800",
+                        "on-tertiary-container": "#ffd597",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#74d6db",
+                        "tertiary": "#634200",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf9f5",
+                        "primary-container": "#1e6a72",
+                        "background": "#fcf9f5",
+                        "primary-fixed-dim": "#8dd2da",
+                        "on-secondary": "#ffffff",
+                        "primary": "#005158",
+                        "tertiary-fixed": "#ffddaf",
+                        "outline": "#6f797a",
+                        "tertiary-fixed-dim": "#f8bc5a",
+                        "surface-tint": "#1b6870",
+                        "on-surface": "#1c1c1a",
+                        "brand-cream": "#FDFAE4",
+                        "brand-charcoal": "#1D1D1B",
+                        "brand-warm-sand": "#D9C8A2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Raleway", "sans-serif"],
+                        "display": ["Raleway", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"],
+                        "label": ["Nunito Sans", "sans-serif"]
+                    },
+                    "fontSize": {}
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #FDFAE4; color: #1D1D1B; }
+        .shadow-ambient { box-shadow: 0 4px 16px rgba(29, 29, 27, 0.08); }
+        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29, 29, 27, 0.12); }
+    </style>
+</head>
+<body class="font-body text-brand-charcoal flex h-screen overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<nav class="bg-inverse-surface dark:bg-black fixed left-0 top-0 h-full w-[220px] shadow-md z-50">
+<div class="flex flex-col h-full py-6">
+<div class="px-6 mb-8 flex items-center gap-3">
+<img alt="Zygote logo glyph" class="w-8 h-8 rounded-full" data-alt="A stylized logo glyph representing a small organic farm collective, featuring circular motifs resembling tree rings and subtle leaf elements, in clean minimalist lines, rendered in warm cream on a dark inverse-surface background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV4J4vRrs2qTc5QpAQV0iODm5jUj3IGRrjIgkGF2bHn7Nk2RwoyYs584nMrolNsiX2XsLP4GQH4gPK4GkRo8pBfUPDFk1ajzVEJ6XWSVsEeS3NjLwLP6dLS252pwaNkjP4oQsqSMoNBWgnm4Fshpi-lmhuS1qlt3q8lRA2R-gMXu8B-W-pyfr9aIDtEeoYieJxkshvA008cvayezZ7LtNMYnf229QBPuqt8mFGNVDkp9S5HwOY_OyL3tnAyOcAVIUsXcIta9rFD0Q9"/>
+<div>
+<h1 class="font-display font-bold text-xl text-on-primary tracking-tight">Graamam Connect</h1>
+<p class="font-body text-label-sm text-surface-variant/80">Producer Operations</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1 px-2">
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label text-label-md">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-label-md">Inventory</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label text-label-md">Orders</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-primary hover:bg-surface-variant/10 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span class="font-label text-label-md">Producers</span>
+</a>
+<!-- Fallback to Settings as it's the closest functional screen to 'Reports' if reports isn't explicitly listed, though we should really highlight intent. We'll leave them all inactive since this is a specific sub-view not directly matching standard tabs, or we can assume it falls under Settings/Dashboard. Let's highlight Dashboard as intent if it's an overview, or just keep them inactive as it might be a sub-menu. To follow exact instructions: intent fallback for "Reports" might be "Dashboard" (data overview). -->
+<a class="bg-primary text-on-primary rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="bar_chart">bar_chart</span>
+<span class="font-label text-label-md">Reports</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[220px] bg-brand-cream overflow-y-auto h-full">
+<!-- TopAppBar (Shared Component) -->
+<header class="sticky top-0 z-40 w-full bg-background dark:bg-black flex justify-between items-center h-16 px-8">
+<div>
+<!-- Empty to balance, title is below -->
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling user in their mid-30s, warm lighting, outdoors with slightly blurred natural greenery in the background, signifying an approachable and earthly brand persona, high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGeDrt2s-bp_cJJMSICxbcR6wS09luDhMBq0crVjwJFKg_xttVh_cREbgR72QREewirHW-A7Q70Wfu1Q_cXyyxrwNF-ZizUqcCcecDp0cK-ec9EQRpWNoc-uYR9nhgAtY-I4ZQ_vVN3SMl1ibfllM8jTUK-zoAX7r2p-Tno_AASA5-ANcl5XWFQL3pu2amWTIjv9WT3qxvjgImzJv1S6Ljq2tfhuSJZvRGJ0Q4NM_I1J3j94oQL2eL-KJixgcuIVlbbIkqywVQ36yd"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 max-w-[1280px] mx-auto space-y-8">
+<div class="flex items-end justify-between">
+<h2 class="font-headline font-bold text-[32px] text-brand-charcoal">Operational Reports</h2>
+</div>
+<!-- Report Builder Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-ambient hover-lift">
+<h3 class="font-headline font-semibold text-[20px] text-brand-charcoal mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">tune</span>
+                    Report Builder
+                </h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label text-label-sm text-on-surface-variant">Report Type</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-bright border border-outline-variant rounded-lg px-4 py-3 font-body text-body-md text-brand-charcoal focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+<option>Orders</option>
+<option>Production</option>
+<option>GST</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-label-sm text-on-surface-variant">Quick Range</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-bright border border-outline-variant rounded-lg px-4 py-3 font-body text-body-md text-brand-charcoal focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+<option>Last 30 Days</option>
+<option>This Month</option>
+<option>Last Quarter</option>
+<option>Custom</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-label-sm text-on-surface-variant">Start Date</label>
+<div class="relative">
+<input class="w-full bg-surface-bright border border-outline-variant rounded-lg px-4 py-3 font-body text-body-md text-brand-charcoal focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="date" value="2023-09-01"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-label-sm text-on-surface-variant">End Date</label>
+<div class="relative">
+<input class="w-full bg-surface-bright border border-outline-variant rounded-lg px-4 py-3 font-body text-body-md text-brand-charcoal focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="date" value="2023-09-30"/>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-primary hover:bg-primary/90 text-white font-label font-bold text-label-md px-6 py-3 rounded-lg shadow-sm transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="bolt">bolt</span>
+                        Generate Report
+                    </button>
+</div>
+</section>
+<!-- Data Table Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-ambient overflow-hidden">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-surface-bright">
+<div>
+<h3 class="font-headline font-semibold text-[20px] text-brand-charcoal">Orders Report</h3>
+<p class="font-body text-body-sm text-on-surface-variant mt-1">Sept 1, 2023 - Sept 30, 2023</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-brand-cream border border-brand-charcoal/20 hover:bg-brand-warm-sand text-brand-charcoal font-label font-bold text-label-md px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                            CSV
+                        </button>
+<button class="bg-brand-cream border border-brand-charcoal/20 hover:bg-brand-warm-sand text-brand-charcoal font-label font-bold text-label-md px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+                            PDF
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body text-body-md border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label text-label-sm uppercase tracking-wider">
+<th class="p-4 font-semibold border-b border-outline-variant/30">Order ID</th>
+<th class="p-4 font-semibold border-b border-outline-variant/30">Date</th>
+<th class="p-4 font-semibold border-b border-outline-variant/30">Producer</th>
+<th class="p-4 font-semibold border-b border-outline-variant/30">Items</th>
+<th class="p-4 font-semibold border-b border-outline-variant/30">Total</th>
+<th class="p-4 font-semibold border-b border-outline-variant/30">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="hover:bg-brand-warm-sand/30 transition-colors border-b border-outline-variant/10">
+<td class="p-4 text-brand-charcoal font-medium">#ORD-9021</td>
+<td class="p-4 text-on-surface-variant">Sep 28, 2023</td>
+<td class="p-4">Green Valley Farms</td>
+<td class="p-4">12</td>
+<td class="p-4 font-semibold">₹14,500</td>
+<td class="p-4">
+<span class="bg-[#6B7A41] text-white px-3 py-1 rounded-full text-label-sm font-label inline-block">Fulfilled</span>
+</td>
+</tr>
+<tr class="hover:bg-brand-warm-sand/30 transition-colors border-b border-outline-variant/10">
+<td class="p-4 text-brand-charcoal font-medium">#ORD-9022</td>
+<td class="p-4 text-on-surface-variant">Sep 28, 2023</td>
+<td class="p-4">Sunrise Orchards</td>
+<td class="p-4">8</td>
+<td class="p-4 font-semibold">₹9,200</td>
+<td class="p-4">
+<span class="bg-[#DDA444] text-brand-charcoal px-3 py-1 rounded-full text-label-sm font-label inline-block">Processing</span>
+</td>
+</tr>
+<tr class="hover:bg-brand-warm-sand/30 transition-colors border-b border-outline-variant/10">
+<td class="p-4 text-brand-charcoal font-medium">#ORD-9023</td>
+<td class="p-4 text-on-surface-variant">Sep 27, 2023</td>
+<td class="p-4">Heritage Dairy</td>
+<td class="p-4">24</td>
+<td class="p-4 font-semibold">₹22,100</td>
+<td class="p-4">
+<span class="bg-[#6B7A41] text-white px-3 py-1 rounded-full text-label-sm font-label inline-block">Fulfilled</span>
+</td>
+</tr>
+<tr class="hover:bg-brand-warm-sand/30 transition-colors">
+<td class="p-4 text-brand-charcoal font-medium">#ORD-9024</td>
+<td class="p-4 text-on-surface-variant">Sep 25, 2023</td>
+<td class="p-4">Riverbend Spices</td>
+<td class="p-4">5</td>
+<td class="p-4 font-semibold">₹3,450</td>
+<td class="p-4">
+<span class="bg-[#87211E] text-white px-3 py-1 rounded-full text-label-sm font-label inline-block">Cancelled</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low border-t border-outline-variant/30 flex justify-between items-center text-body-sm text-on-surface-variant">
+<span>Showing 1 to 4 of 128 entries</span>
+<div class="flex gap-1">
+<button class="px-3 py-1 rounded bg-brand-cream border border-outline-variant/50 hover:bg-brand-warm-sand transition-colors">Prev</button>
+<button class="px-3 py-1 rounded bg-primary text-white border border-primary transition-colors">1</button>
+<button class="px-3 py-1 rounded bg-brand-cream border border-outline-variant/50 hover:bg-brand-warm-sand transition-colors">2</button>
+<button class="px-3 py-1 rounded bg-brand-cream border border-outline-variant/50 hover:bg-brand-warm-sand transition-colors">Next</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>
