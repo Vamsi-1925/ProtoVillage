@@ -10,6 +10,8 @@ from typing import List
 import uuid
 from datetime import datetime, timezone
 
+from routers.graamam_orders import router as graamam_orders_router, seed_orders_if_empty
+
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -20,7 +22,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Create the main app without a prefix
-app = FastAPI()
+app = FastAPI(title="ProtoVillage API", version="0.1.0")
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
@@ -67,6 +69,7 @@ async def get_status_checks():
     return status_checks
 
 # Include the router in the main app
+api_router.include_router(graamam_orders_router)
 app.include_router(api_router)
 
 app.add_middleware(
@@ -83,6 +86,15 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+@app.on_event("startup")
+async def seed_startup():
+    try:
+        await seed_orders_if_empty()
+    except Exception as e:  # pragma: no cover
+        logger.exception("[startup] seeding graamam orders failed: %s", e)
+
 
 @app.on_event("shutdown")
 async def shutdown_db_client():

@@ -1,0 +1,30 @@
+[
+  {
+    "content": "Phase 1 POC: backend orders API + Mongo seed + repository adapter + quick verification",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 2: Update Tailwind config with DESIGN_SYSTEM tokens + load Google Fonts + Material Symbols in public/index.html",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 2: Build reusable components (Sidebar, TopBar, PageHeader, PillTabs, DataTable, StatusPill, CreateOrderDialog)",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 2: OrdersPage composition + theme provider + wire data",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 2: All 6 user stories covered in development",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 2: End-to-End Testing using Testing Agent",
+    "status": "in_progress"
+  },
+  {
+    "content": "Phase 3: Hardening — loading/empty/error states, validation, docs for Firebase swap path",
+    "status": "pending"
+  }
+]
