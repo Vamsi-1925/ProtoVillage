@@ -20,6 +20,9 @@ from routers.graamam_dispatch import router as graamam_dispatch_router, seed_shi
 from routers.graamam_store import router as graamam_store_router, seed_store_if_empty
 from routers.graamam_reports import router as graamam_reports_router
 from routers.graamam_dashboard import router as graamam_dashboard_router
+from routers.graamam_master_api import router as graamam_master_router
+from routers.graamam_extras import app_router as graamam_extras_router
+from routers.graamam_master import import_master_data
 
 
 ROOT_DIR = Path(__file__).parent
@@ -88,6 +91,8 @@ api_router.include_router(graamam_dispatch_router)
 api_router.include_router(graamam_store_router)
 api_router.include_router(graamam_reports_router)
 api_router.include_router(graamam_dashboard_router)
+api_router.include_router(graamam_master_router)
+api_router.include_router(graamam_extras_router)
 app.include_router(api_router)
 
 app.add_middleware(
@@ -125,6 +130,9 @@ async def seed_startup():
         await seed_orders_if_empty()
         await seed_producers_if_empty()
         await seed_inventory_if_empty()
+        # Import ProtoVillage / Graamam master data (replaces fake inventory
+        # with real Products + brings in B2B/B2C customers + Costing).
+        await import_master_data()
         await seed_batches_if_empty()
         await seed_production_if_empty()
         await seed_procurement_if_empty()

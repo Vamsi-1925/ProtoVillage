@@ -13,6 +13,11 @@ import DispatchPage from "@/pages/DispatchPage";
 import StorePage from "@/pages/StorePage";
 import ReportsPage from "@/pages/ReportsPage";
 import SettingsPage from "@/pages/SettingsPage";
+import AccountsPage from "@/pages/AccountsPage";
+import ApprovalsPage from "@/pages/ApprovalsPage";
+import DiscussionsPage from "@/pages/DiscussionsPage";
+import MasterDataPage from "@/pages/MasterDataPage";
+import AdminPage from "@/pages/AdminPage";
 
 function App() {
   return (
@@ -29,7 +34,12 @@ function App() {
             <Route path="/warehouse" element={<WarehousePage />} />
             <Route path="/dispatch" element={<DispatchPage />} />
             <Route path="/store" element={<StorePage />} />
+            <Route path="/accounts" element={<AccountsPage />} />
             <Route path="/reports" element={<ReportsPage />} />
+            <Route path="/approvals" element={<ApprovalsPage />} />
+            <Route path="/discussions" element={<DiscussionsPage />} />
+            <Route path="/master-data" element={<MasterDataPage />} />
+            <Route path="/admin" element={<AdminPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<DashboardPage />} />
           </Routes>

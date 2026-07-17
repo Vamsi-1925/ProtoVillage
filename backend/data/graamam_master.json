@@ -1,0 +1,8087 @@
+{
+  "products": [
+    {
+      "id": "P001",
+      "category": "Food Powder",
+      "name": "200gm Powder - Curry leaf",
+      "pack": "200gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 195,
+      "discount": 0
+    },
+    {
+      "id": "P002",
+      "category": "Food Powder",
+      "name": "200gm Powder - Spicy Ground nut",
+      "pack": "200gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "5 months from Mfg date",
+      "price": 195,
+      "discount": 5
+    },
+    {
+      "id": "P003",
+      "category": "Food Powder",
+      "name": "200gm Powder - Spicy Sesame",
+      "pack": "200gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 195,
+      "discount": 10
+    },
+    {
+      "id": "P004",
+      "category": "Food Powder",
+      "name": "200gm Powder - Moringa leaf",
+      "pack": "200gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 195,
+      "discount": 15
+    },
+    {
+      "id": "P005",
+      "category": "Food Powder",
+      "name": "50gm Powder - Curry leaf",
+      "pack": "50gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 60,
+      "discount": null
+    },
+    {
+      "id": "P006",
+      "category": "Food Powder",
+      "name": "50gm Powder - Spicy Ground nut",
+      "pack": "50gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "5 months from Mfg date",
+      "price": 60,
+      "discount": null
+    },
+    {
+      "id": "P007",
+      "category": "Food Powder",
+      "name": "50gm Powder - Spicy Sesame",
+      "pack": "50gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 60,
+      "discount": null
+    },
+    {
+      "id": "P008",
+      "category": "Food Powder",
+      "name": "50gm Powder - Moringa leaf",
+      "pack": "50gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 60,
+      "discount": null
+    },
+    {
+      "id": "P009",
+      "category": "Snack",
+      "name": "Millet crispies - Classic",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P010",
+      "category": "Snack",
+      "name": "Millet crispies - Classic Sweet",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P011",
+      "category": "Snack",
+      "name": "Millet Crispies - Moringa",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P012",
+      "category": "Snack",
+      "name": "Millet Crispies - Mint",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P013",
+      "category": "Snack",
+      "name": "Millet Crispies - Ginger",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P014",
+      "category": "Snack",
+      "name": "Millet Crispies - Garlic",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P015",
+      "category": "Snack",
+      "name": "Millet Crispies - Coriander",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P016",
+      "category": "Snack",
+      "name": "Millet Crispies - Curry leaf",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 175,
+      "discount": null
+    },
+    {
+      "id": "P017",
+      "category": "Snack",
+      "name": "30gm Millet crispies - Classic",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P018",
+      "category": "Snack",
+      "name": "30gm Millet crispies - Classic Sweet",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P019",
+      "category": "Snack",
+      "name": "30gm Millet Crispies - Moringa",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P020",
+      "category": "Snack",
+      "name": "30gm Millet Crispies - Mint",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P021",
+      "category": "Snack",
+      "name": "30gm Millet Crispies - Ginger",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P022",
+      "category": "Snack",
+      "name": "30gm Millet Crispies - Garlic",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P023",
+      "category": "Snack",
+      "name": "30gm Millet Crispies - Coriander",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P024",
+      "category": "Snack",
+      "name": "30gm Millet Crispies - Curry leaf",
+      "pack": "30gm",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P025",
+      "category": "Snack",
+      "name": "Millet Crispies - Classic Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P026",
+      "category": "Snack",
+      "name": "Millet Crispies - Classic Sweet Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P027",
+      "category": "Snack",
+      "name": "Millet Crispies - Coriander Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P028",
+      "category": "Snack",
+      "name": "Millet Crispies - Curry leaf Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P029",
+      "category": "Snack",
+      "name": "Millet Crispies - Garlic Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P030",
+      "category": "Snack",
+      "name": "Millet Crispies - Ginger Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P031",
+      "category": "Snack",
+      "name": "Millet Crispies - Mint Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P032",
+      "category": "Snack",
+      "name": "Millet Crispies - Moringa Loose",
+      "pack": "",
+      "hsn": "1904",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P033",
+      "category": "Pickle",
+      "name": "300gm Pickle - Coriander",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P034",
+      "category": "Pickle",
+      "name": "300gm Pickle - Ginger",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P035",
+      "category": "Pickle",
+      "name": "300gm Pickle - Spicy Gongura",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P036",
+      "category": "Pickle",
+      "name": "300gm Pickle - Sweet and Tangy Gungura",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P037",
+      "category": "Pickle",
+      "name": "300gm Pickle - Moringa",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P038",
+      "category": "Pickle",
+      "name": "300gm Pickle - Tomato",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P039",
+      "category": "Pickle",
+      "name": "300gm Pickle - Spicy Avakaya",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P040",
+      "category": "Pickle",
+      "name": "300gm Pickle - Pesara Avakaya",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P041",
+      "category": "Pickle",
+      "name": "300gm Pickle - Spicy Amla",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P042",
+      "category": "Pickle",
+      "name": "300gm Pickle - Magaya (Mango)",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P043",
+      "category": "Pickle",
+      "name": "300gm Pickle - Amla Thokku Pickle",
+      "pack": "300gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 300,
+      "discount": null
+    },
+    {
+      "id": "P044",
+      "category": "Pickle",
+      "name": "Pickle - Coriander - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 50,
+      "discount": null
+    },
+    {
+      "id": "P045",
+      "category": "Pickle",
+      "name": "Pickle - Ginger - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 50,
+      "discount": null
+    },
+    {
+      "id": "P046",
+      "category": "Pickle",
+      "name": "Pickle - Spicy Gongura - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 50,
+      "discount": null
+    },
+    {
+      "id": "P047",
+      "category": "Pickle",
+      "name": "Pickle - Sweet and Tangy Gongura - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 50,
+      "discount": null
+    },
+    {
+      "id": "P048",
+      "category": "Pickle",
+      "name": "Pickle - Moringa - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 50,
+      "discount": null
+    },
+    {
+      "id": "P049",
+      "category": "Pickle",
+      "name": "Pickle - Tomato - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 50,
+      "discount": null
+    },
+    {
+      "id": "P050",
+      "category": "Pickle",
+      "name": "Pickle - Spicy Avakaya - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P051",
+      "category": "Pickle",
+      "name": "Pickle - Pesara Avakaya - LOOSE",
+      "pack": "",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P052",
+      "category": "Pickle (Mini Pack)",
+      "name": "30gm Pickle - Coriander",
+      "pack": "30gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P053",
+      "category": "Pickle (Mini Pack)",
+      "name": "30gm Pickle - Ginger",
+      "pack": "30gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P054",
+      "category": "Pickle (Mini Pack)",
+      "name": "30gm Pickle - Spicy Gongura",
+      "pack": "30gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P055",
+      "category": "Pickle (Mini Pack)",
+      "name": "30gm Pickle - Sweet and Tangy Gungura",
+      "pack": "30gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P056",
+      "category": "Pickle (Mini Pack)",
+      "name": "30gm Pickle - Amla",
+      "pack": "30gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P057",
+      "category": "Pickle (Mini Pack)",
+      "name": "30gm Pickle - Moringa",
+      "pack": "30gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P058",
+      "category": "Pickle (Mini Pack)",
+      "name": "30gm Pickle - Tomato",
+      "pack": "30gm",
+      "hsn": "2001",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P059",
+      "category": "Papad",
+      "name": "100gm Rice Papad",
+      "pack": "100gm",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P060",
+      "category": "Papad",
+      "name": "100gm Rice Papad - Masala",
+      "pack": "100gm",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": 100,
+      "discount": null
+    },
+    {
+      "id": "P061",
+      "category": "Papad",
+      "name": "100gm Rice Papad - Coriander",
+      "pack": "100gm",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P062",
+      "category": "Papad",
+      "name": "100gm Poha Papad",
+      "pack": "100gm",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P063",
+      "category": "Papad",
+      "name": "100gm Ragi Papad",
+      "pack": "100gm",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P064",
+      "category": "Papad",
+      "name": "100gm Sabudana Papad",
+      "pack": "100gm",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P065",
+      "category": "Papad",
+      "name": "100gm Rava Papad",
+      "pack": "100gm",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P066",
+      "category": "Snack / Spice",
+      "name": "100gm Sundried Curd Chilli",
+      "pack": "100gm",
+      "hsn": "904",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P067",
+      "category": "Snack",
+      "name": "100gm Muruku - Ragi",
+      "pack": "100gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "12 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P068",
+      "category": "Edible Oil",
+      "name": "500ml Cold pressed Oil - Coconut",
+      "pack": "500ml",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 250,
+      "discount": null
+    },
+    {
+      "id": "P069",
+      "category": "Edible Oil",
+      "name": "500ml Cold pressed Oil - Groundnut",
+      "pack": "500ml",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 220,
+      "discount": null
+    },
+    {
+      "id": "P070",
+      "category": "Edible Oil",
+      "name": "500ml Cold pressed Oil - Sesame",
+      "pack": "500ml",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P071",
+      "category": "Edible Oil",
+      "name": "500ml Cold pressed Oil - Gongura",
+      "pack": "500ml",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P072",
+      "category": "Edible Oil",
+      "name": "1 litre Cold pressed Oil - Coconut",
+      "pack": "1 litre",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P073",
+      "category": "Edible Oil",
+      "name": "1 litre Cold pressed Oil - Groundnut",
+      "pack": "1 litre",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P074",
+      "category": "Edible Oil",
+      "name": "1 litre Cold pressed Oil - Sesame",
+      "pack": "1 litre",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P075",
+      "category": "Edible Oil",
+      "name": "1 litre Cold pressed Oil - Gongura",
+      "pack": "1 litre",
+      "hsn": "1515",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P076",
+      "category": "Jam",
+      "name": "Roselle Jam",
+      "pack": "",
+      "hsn": "2007",
+      "gst": 5,
+      "shelfLife": "1 month from Mfg date",
+      "price": 195,
+      "discount": null
+    },
+    {
+      "id": "P077",
+      "category": "Jam",
+      "name": "Papaya Jam",
+      "pack": "",
+      "hsn": "2007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P078",
+      "category": "Instant Mix",
+      "name": "Sambhar Readymix Powder 250",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 150,
+      "discount": null
+    },
+    {
+      "id": "P079",
+      "category": "Instant Mix",
+      "name": "Rasam Powder",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 150,
+      "discount": null
+    },
+    {
+      "id": "P080",
+      "category": "Spice Powder",
+      "name": "250gm Kura Karam",
+      "pack": "250gm",
+      "hsn": "910",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 150,
+      "discount": null
+    },
+    {
+      "id": "P081",
+      "category": "Spice Powder",
+      "name": "100gm Masala Karam",
+      "pack": "100gm",
+      "hsn": "910",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 150,
+      "discount": null
+    },
+    {
+      "id": "P082",
+      "category": "Instant Mix",
+      "name": "Little Millet Payasam Instant Mix 100",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 150,
+      "discount": null
+    },
+    {
+      "id": "P083",
+      "category": "Instant Mix",
+      "name": "Rice Payasam Instant Mix 100",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "3 months from Mfg date",
+      "price": 275,
+      "discount": null
+    },
+    {
+      "id": "P084",
+      "category": "Instant Mix",
+      "name": "300gm Puliogre Mix",
+      "pack": "300gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 275,
+      "discount": null
+    },
+    {
+      "id": "P085",
+      "category": "Spice Powder",
+      "name": "200g Puliyogare masala powder mix",
+      "pack": "200g",
+      "hsn": "910",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 275,
+      "discount": null
+    },
+    {
+      "id": "P086",
+      "category": "Instant Mix",
+      "name": "200gm Sprouted Ulavachaaru Readymix Powder",
+      "pack": "200gm",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 275,
+      "discount": null
+    },
+    {
+      "id": "P087",
+      "category": "Instant Mix",
+      "name": "Sambhar Readymix Powder 50",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P088",
+      "category": "Soup Mix",
+      "name": "Amla Soup 50",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P089",
+      "category": "Soup Mix",
+      "name": "Palak Soup 50",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P090",
+      "category": "Soup Mix",
+      "name": "Moringa Pulp Soup 50",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P091",
+      "category": "Soup Mix",
+      "name": "Moringa Leaf Soup 50",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P092",
+      "category": "Soup Mix",
+      "name": "Amla Soup 100",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": 275,
+      "discount": null
+    },
+    {
+      "id": "P093",
+      "category": "Soup Mix",
+      "name": "Palak Soup 100",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P094",
+      "category": "Soup Mix",
+      "name": "Moringa Pulp Soup 100",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P095",
+      "category": "Soup Mix",
+      "name": "Moringa Leaf Soup 100",
+      "pack": "",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "6 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P096",
+      "category": "Instant Mix",
+      "name": "Millet Dosa Mix",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "12months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P097",
+      "category": "Millet Product",
+      "name": "Kodo Millet Rava",
+      "pack": "",
+      "hsn": "1103",
+      "gst": 0,
+      "shelfLife": "12months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P098",
+      "category": "Instant Mix",
+      "name": "Millet Khichdi Mix",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "12months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P099",
+      "category": "Health Mix",
+      "name": "Millet Nutri Mix Unsprouted",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "12months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P100",
+      "category": "Specialty Food",
+      "name": "Artisanal Rice Paper Wrap",
+      "pack": "",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "1 week",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P101",
+      "category": "Sweet",
+      "name": "Artisanal Boondi Laddoo",
+      "pack": "",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "1 week",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P102",
+      "category": "Snack",
+      "name": "Artisanal Poha Murukulu",
+      "pack": "",
+      "hsn": "1905",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P103",
+      "category": "Fresh Produce",
+      "name": "250gm Fresh Moringa Leaves",
+      "pack": "250gm",
+      "hsn": "709",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P104",
+      "category": "Fruit Pulp",
+      "name": "1kg Wood Apple Pulp",
+      "pack": "1kg",
+      "hsn": "2008",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 900,
+      "discount": null
+    },
+    {
+      "id": "P105",
+      "category": "Chutney / Sauce",
+      "name": "300gm Tender Tamarind Gojju",
+      "pack": "300gm",
+      "hsn": "2103",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P106",
+      "category": "Fresh Produce",
+      "name": "100g - Fresh Gongura Leaves",
+      "pack": "100g",
+      "hsn": "709",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 750,
+      "discount": null
+    },
+    {
+      "id": "P107",
+      "category": "Sweet Filling",
+      "name": "1kg - Poornam for Bobbattu",
+      "pack": "1kg",
+      "hsn": "2106",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P108",
+      "category": "Dough Mix",
+      "name": "1kg - Chiroti Ravva Dough",
+      "pack": "1kg",
+      "hsn": "1902",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P109",
+      "category": "Soup / Gravy",
+      "name": "1lit - Holige Rasam",
+      "pack": "1lit",
+      "hsn": "2104",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P110",
+      "category": "Handloom Saree",
+      "name": "Handloom Saree - Silk + Cotton",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P111",
+      "category": "Handloom Saree",
+      "name": "Handloom Saree - Silk + Bamboo",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 450,
+      "discount": null
+    },
+    {
+      "id": "P112",
+      "category": "Handloom Saree",
+      "name": "Handloom Saree - Cotton + Bamboo",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P113",
+      "category": "Handloom Saree",
+      "name": "Handloom Saree - Cotton + Cotton",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P114",
+      "category": "",
+      "name": "Handloom Fabric - Bamboo + Banana",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 120,
+      "discount": null
+    },
+    {
+      "id": "P115",
+      "category": "",
+      "name": "Handloom Fabric - Banana + Banana",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 18,
+      "shelfLife": "",
+      "price": 120,
+      "discount": null
+    },
+    {
+      "id": "P116",
+      "category": "",
+      "name": "Handloom Fabric - Cotton + Banana",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 18,
+      "shelfLife": "",
+      "price": 150,
+      "discount": null
+    },
+    {
+      "id": "P117",
+      "category": "",
+      "name": "Handloom Fabric - Silk + Banana",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P118",
+      "category": "Handloom Fabric",
+      "name": "Handloom Fabric - Silk + Cotton",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 2495,
+      "discount": null
+    },
+    {
+      "id": "P119",
+      "category": "Handloom Fabric",
+      "name": "Handloom Fabric - Silk + Bamboo",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 700,
+      "discount": null
+    },
+    {
+      "id": "P120",
+      "category": "Handloom Fabric",
+      "name": "Handloom Fabric - Cotton + Bamboo",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 5,
+      "shelfLife": "",
+      "price": 700,
+      "discount": null
+    },
+    {
+      "id": "P121",
+      "category": "Handloom Fabric",
+      "name": "Handloom Fabric - Cotton + Cotton",
+      "pack": "",
+      "hsn": "5007",
+      "gst": 18,
+      "shelfLife": "",
+      "price": 400,
+      "discount": null
+    },
+    {
+      "id": "P122",
+      "category": "Handloom Fabric",
+      "name": "Cotton WA (40/2) + Linen WE (50), GSM 240",
+      "pack": "",
+      "hsn": "5309",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P123",
+      "category": "Handloom Fabric",
+      "name": "Hand Loom Band - \n(Sample)\n100% Cotton 10/2 Indigo-Dyed Yarn",
+      "pack": "",
+      "hsn": "5007",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P124",
+      "category": "Cosmetic",
+      "name": "Carrot Oil Face & Body Cream",
+      "pack": "",
+      "hsn": "3304",
+      "gst": null,
+      "shelfLife": "",
+      "price": 400,
+      "discount": null
+    },
+    {
+      "id": "P125",
+      "category": "Cosmetic",
+      "name": "100gm Kaanthi Herbal Face Ubtan",
+      "pack": "100gm",
+      "hsn": "3304",
+      "gst": null,
+      "shelfLife": "8 months from Mfg date",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P126",
+      "category": "Cosmetic",
+      "name": "100gm Kaanthi Ayurvedic hair Spa",
+      "pack": "100gm",
+      "hsn": "3305",
+      "gst": 5,
+      "shelfLife": "8 months from Mfg date",
+      "price": 150,
+      "discount": null
+    },
+    {
+      "id": "P127",
+      "category": "Cosmetic",
+      "name": "Kaajal",
+      "pack": "",
+      "hsn": "3304",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P128",
+      "category": "Cosmetic",
+      "name": "Hair oil",
+      "pack": "",
+      "hsn": "3305",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P129",
+      "category": "Promotional Pack",
+      "name": "Sample Box With all Products",
+      "pack": "",
+      "hsn": "2106",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P130",
+      "category": "Handicraft",
+      "name": "Hamper Bags (hand woven)",
+      "pack": "",
+      "hsn": "4602",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P131",
+      "category": "",
+      "name": "Chefs",
+      "pack": "",
+      "hsn": "",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    },
+    {
+      "id": "P132",
+      "category": "",
+      "name": "Chicken",
+      "pack": "",
+      "hsn": "105",
+      "gst": null,
+      "shelfLife": "",
+      "price": null,
+      "discount": null
+    }
+  ],
+  "costing": [
+    {
+      "mainProduct": "Crispies",
+      "variant": "Classic Millet Crispies",
+      "rmCostKg": 273.818571428571,
+      "cogsKg": 638.639499831403,
+      "cogsSku": 63.8639499831403,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Crispies",
+      "variant": "Garlic Millet Crispies",
+      "rmCostKg": 288.192857142857,
+      "cogsKg": 653.013785545689,
+      "cogsSku": 65.3013785545689,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Crispies",
+      "variant": "Curry leaf Millet Crispies",
+      "rmCostKg": 277.148571428571,
+      "cogsKg": 641.969499831403,
+      "cogsSku": 64.1969499831404,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Crispies",
+      "variant": "Mint Millet Crispies",
+      "rmCostKg": 273.329999999999,
+      "cogsKg": 638.150928402831,
+      "cogsSku": 63.8150928402831,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Crispies",
+      "variant": "Ginger Millet Crispies",
+      "rmCostKg": 276.647142857142,
+      "cogsKg": 641.468071259974,
+      "cogsSku": 64.1468071259974,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Crispies",
+      "variant": "Coriander Millet Crispies",
+      "rmCostKg": 273.33,
+      "cogsKg": 638.150928402832,
+      "cogsSku": 63.8150928402832,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Crispies",
+      "variant": "Sweet Millet Crispies",
+      "rmCostKg": 267.235714285714,
+      "cogsKg": 632.056642688546,
+      "cogsSku": 63.2056642688546,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Crispies",
+      "variant": "Moringa Millet Crispies",
+      "rmCostKg": 271.941428571428,
+      "cogsKg": 636.76235697426,
+      "cogsSku": 63.6762356974261,
+      "mrp": 175
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Spicy Gongura Pickle",
+      "rmCostKg": 517.596630327056,
+      "cogsKg": 654.596630327056,
+      "cogsSku": 163.649157581764,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Sweet & Tangy gongura Pickle",
+      "rmCostKg": 479.289544235924,
+      "cogsKg": 614.289544235924,
+      "cogsSku": 184.286863270777,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Coriander Pickle",
+      "rmCostKg": 425.288976453488,
+      "cogsKg": 560.288976453488,
+      "cogsSku": 168.086692936046,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Ginger Pickle",
+      "rmCostKg": 359.837889383343,
+      "cogsKg": 494.837889383343,
+      "cogsSku": 148.451366815003,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Tomato Pickle",
+      "rmCostKg": 361.52489626556,
+      "cogsKg": 496.52489626556,
+      "cogsSku": 148.957468879668,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Moringa Pickle",
+      "rmCostKg": 479.987080103359,
+      "cogsKg": 614.987080103359,
+      "cogsSku": 184.496124031008,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Amla Thokku Pickle",
+      "rmCostKg": 290.036496350365,
+      "cogsKg": 425.036496350365,
+      "cogsSku": 127.51094890511,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Spicy amla Pickle",
+      "rmCostKg": 481.0546875,
+      "cogsKg": 616.0546875,
+      "cogsSku": 184.81640625,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Tomato Drumstick Pickle",
+      "rmCostKg": 284.668965517241,
+      "cogsKg": 419.668965517241,
+      "cogsSku": 125.900689655172,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Spicy Mango Pickle",
+      "rmCostKg": 0,
+      "cogsKg": 135,
+      "cogsSku": 40.5,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "Moong Mango Pickle",
+      "rmCostKg": 0,
+      "cogsKg": 135,
+      "cogsSku": 40.5,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Pickles",
+      "variant": "All pickle 30g",
+      "rmCostKg": 517.596630327056,
+      "cogsKg": 942.596630327056,
+      "cogsSku": 47.1298315163528,
+      "mrp": 75
+    },
+    {
+      "mainProduct": "Powders",
+      "variant": "Groundnut Chutney Powder",
+      "rmCostKg": 282.719082719082,
+      "cogsKg": 394.329546920498,
+      "cogsSku": 78.8659093840997,
+      "mrp": 195
+    },
+    {
+      "mainProduct": "Powders",
+      "variant": "Curry leaf Chutney Powder",
+      "rmCostKg": 242.567901234567,
+      "cogsKg": 354.178365435983,
+      "cogsSku": 70.8356730871966,
+      "mrp": 195
+    },
+    {
+      "mainProduct": "Powders",
+      "variant": "Moringa Chutney Powder",
+      "rmCostKg": 250.10101010101,
+      "cogsKg": 361.711474302426,
+      "cogsSku": 72.3422948604852,
+      "mrp": 195
+    },
+    {
+      "mainProduct": "Powders",
+      "variant": "Amla Chutney Powder",
+      "rmCostKg": 227.072758037225,
+      "cogsKg": 338.683222238641,
+      "cogsSku": 67.7366444477282,
+      "mrp": 195
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Puliyogare",
+      "rmCostKg": 254.6,
+      "cogsKg": 429.6,
+      "cogsSku": 128.88,
+      "mrp": 300
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Rasam",
+      "rmCostKg": 359.7,
+      "cogsKg": 449.7,
+      "cogsSku": 89.94,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Sambar Instant",
+      "rmCostKg": 218.7,
+      "cogsKg": 308.7,
+      "cogsSku": 61.74,
+      "mrp": 220
+    },
+    {
+      "mainProduct": "Soup",
+      "variant": "Palak",
+      "rmCostKg": 560.994736842105,
+      "cogsKg": 759.215665244937,
+      "cogsSku": 75.9215665244937,
+      "mrp": 275
+    },
+    {
+      "mainProduct": "Soup",
+      "variant": "Moringa Leaf Instant Soup Mix",
+      "rmCostKg": 416.257894736842,
+      "cogsKg": 614.478823139674,
+      "cogsSku": 61.4478823139674,
+      "mrp": 275
+    },
+    {
+      "mainProduct": "Soup",
+      "variant": "Moringa Seed and Pulp Instant Soup Mix",
+      "rmCostKg": 508.363157894736,
+      "cogsKg": 706.584086297568,
+      "cogsSku": 70.6584086297568,
+      "mrp": 275
+    },
+    {
+      "mainProduct": "Soup",
+      "variant": "Amla Instant Soup Mix",
+      "rmCostKg": 403.099999999999,
+      "cogsKg": 601.320928402831,
+      "cogsSku": 60.1320928402831,
+      "mrp": 275
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Poha Papad",
+      "rmCostKg": 103.18376068376,
+      "cogsKg": 540.68376068376,
+      "cogsSku": 54.068376068376,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Rice Papad",
+      "rmCostKg": 95.4472305389221,
+      "cogsKg": 532.947230538922,
+      "cogsSku": 53.2947230538922,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Ragi Papad",
+      "rmCostKg": 83.5545112781955,
+      "cogsKg": 521.054511278195,
+      "cogsSku": 52.1054511278195,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Sabhudhana Papad",
+      "rmCostKg": 95.1198630136986,
+      "cogsKg": 532.619863013699,
+      "cogsSku": 53.2619863013699,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Ravva Papad",
+      "rmCostKg": 89.959420153875,
+      "cogsKg": 527.459420153875,
+      "cogsSku": 52.7459420153875,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Coriander Papad",
+      "rmCostKg": 92.9281671576988,
+      "cogsKg": 530.428167157699,
+      "cogsSku": 53.0428167157699,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Masala Papad",
+      "rmCostKg": 71.3178750784683,
+      "cogsKg": 508.817875078468,
+      "cogsSku": 50.8817875078468,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Papad",
+      "variant": "Curd Chilli Papad",
+      "rmCostKg": 103.515172573546,
+      "cogsKg": 541.015172573546,
+      "cogsSku": 54.1015172573546,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Snacks",
+      "variant": "Ragi Murukulu",
+      "rmCostKg": 213.002319771591,
+      "cogsKg": 483.002319771591,
+      "cogsSku": 48.3002319771591,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Snacks",
+      "variant": "Poha Murukulu",
+      "rmCostKg": 206.413548012764,
+      "cogsKg": 476.413548012764,
+      "cogsSku": 47.6413548012764,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Puliyogare Podi",
+      "rmCostKg": 238.142041851617,
+      "cogsKg": 391.308708518284,
+      "cogsSku": 78.2617417036567,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Puliyogare Gojju",
+      "rmCostKg": 273.356198553255,
+      "cogsKg": 408.356198553255,
+      "cogsSku": 122.506859565976,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Sambar Masala",
+      "rmCostKg": 235.332917422867,
+      "cogsKg": 388.499584089534,
+      "cogsSku": 77.6999168179067,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Sambar Instant",
+      "rmCostKg": 181.87892709952,
+      "cogsKg": 335.045593766187,
+      "cogsSku": 67.0091187532373,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Instant Sprouted horse gram Rasam",
+      "rmCostKg": 181.87892709952,
+      "cogsKg": 335.045593766187,
+      "cogsSku": 67.0091187532373,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Masala Karam",
+      "rmCostKg": 130.049942374183,
+      "cogsKg": 283.21660904085,
+      "cogsSku": 56.6433218081699,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Kura Karam",
+      "rmCostKg": 238.142041851617,
+      "cogsKg": 391.308708518284,
+      "cogsSku": 78.2617417036567,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Instant Mix",
+      "variant": "Herbal Tea",
+      "rmCostKg": 238.142041851617,
+      "cogsKg": 737.47537518495,
+      "cogsSku": 36.8737687592475,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Jam",
+      "variant": "Rosella Jam",
+      "rmCostKg": 259.063599458728,
+      "cogsKg": 394.063599458728,
+      "cogsSku": 118.219079837618,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Sweet",
+      "variant": "Little Millet Payasam",
+      "rmCostKg": 201.006610638515,
+      "cogsKg": 359.006610638515,
+      "cogsSku": 35.9006610638515,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Sweet",
+      "variant": "Rice Payasam",
+      "rmCostKg": 176.740407204385,
+      "cogsKg": 334.740407204385,
+      "cogsSku": 33.4740407204385,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Herbal",
+      "variant": "Herbal Face and Body Ubtan",
+      "rmCostKg": 173.707776904948,
+      "cogsKg": 331.707776904948,
+      "cogsSku": 33.1707776904948,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Herbal",
+      "variant": "Herbal Hair and scalp Cleanser",
+      "rmCostKg": 246.714434601354,
+      "cogsKg": 429.714434601354,
+      "cogsSku": 42.9714434601354,
+      "mrp": null
+    },
+    {
+      "mainProduct": "Herbal",
+      "variant": "Herbal Hair Oil",
+      "rmCostKg": 482.276474318326,
+      "cogsKg": 825.276474318326,
+      "cogsSku": 82.5276474318326,
+      "mrp": null
+    }
+  ],
+  "b2bCustomers": [
+    {
+      "name": "Beruru Pvt. Ltd",
+      "contact": "Anju",
+      "mobile": "8892563357",
+      "email": "anju@beruru.com",
+      "address": "4019, 1st Main road, HAL 2nd Stage, Service Road, Domlur",
+      "city": "Bengaluru",
+      "pincode": "560008",
+      "state": "Karnataka",
+      "gstin": "29AAKCB1362M1ZB",
+      "rateCard": [
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 92.63
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 99.73
+        }
+      ]
+    },
+    {
+      "name": "Simhapuri Organic Products",
+      "contact": "Ram Mohan ",
+      "mobile": "9110756745",
+      "email": "",
+      "address": "",
+      "city": "Nellore",
+      "pincode": "",
+      "state": "Andhra Pradesh",
+      "gstin": "",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 205.36
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 205.36
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 205.36
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 205.36
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 205.36
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 87.62
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 87.62
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 87.62
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 95.24
+        }
+      ]
+    },
+    {
+      "name": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+      "contact": "Dr Dayaprasad Kulkarni",
+      "mobile": "6909797479",
+      "email": "drdaya@aarogyaseva.org",
+      "address": "35 T Mariappa Road, Jayanagar ",
+      "city": "Bangalore",
+      "pincode": "560011",
+      "state": "Karnataka",
+      "gstin": "",
+      "rateCard": [
+        {
+          "product": "Pickle - Coriander - Loose",
+          "rate": 156.25
+        },
+        {
+          "product": "Pickle - Ginger - Loose",
+          "rate": 156.25
+        },
+        {
+          "product": "Pickle - Spicy Gongura - Loose",
+          "rate": 156.25
+        },
+        {
+          "product": "Pickle - Sweet and Tangy Gongura - Loose",
+          "rate": 156.25
+        },
+        {
+          "product": "Pickle - Moringa - Loose",
+          "rate": 156.25
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 92.63
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 99.73
+        },
+        {
+          "product": "Millet Crispies - Classic Loose",
+          "rate": 95
+        },
+        {
+          "product": "Millet Crispies - Classic Sweet Loose",
+          "rate": 95
+        },
+        {
+          "product": "Millet Crispies - Coriander Loose",
+          "rate": 95
+        },
+        {
+          "product": "Millet Crispies - Curry leaf Loose",
+          "rate": 95
+        },
+        {
+          "product": "Millet Crispies - Ginger Loose",
+          "rate": 95
+        },
+        {
+          "product": "Millet Crispies - Mint Loose",
+          "rate": 95
+        },
+        {
+          "product": "Millet Crispies - Moringa Loose",
+          "rate": 95
+        }
+      ]
+    },
+    {
+      "name": "Petrichor Agri ventures",
+      "contact": "Raghu",
+      "mobile": "9611322825",
+      "email": "",
+      "address": "Kambipura, Kengeri,",
+      "city": "Bangalore",
+      "pincode": "560074",
+      "state": "Karnataka",
+      "gstin": "29ABBFP9736A1Z5",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 230
+        },
+        {
+          "product": "Pickle - Coriander - Loose",
+          "rate": 230
+        },
+        {
+          "product": "Pickle - Ginger - Loose",
+          "rate": 230
+        },
+        {
+          "product": "Pickle - Spicy Gongura - Loose",
+          "rate": 230
+        },
+        {
+          "product": "Pickle - Sweet and Tangy Gongura - Loose",
+          "rate": 230
+        },
+        {
+          "product": "Pickle - Moringa - Loose",
+          "rate": 230
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 100
+        }
+      ]
+    },
+    {
+      "name": "BANGALORE AIRPORT HOTEL LIMITED",
+      "contact": "",
+      "mobile": "",
+      "email": "",
+      "address": "",
+      "city": "Bangalore",
+      "pincode": "",
+      "state": "Karnataka",
+      "gstin": "29AABCL2550N1Z8",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 267.86
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 267.86
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 267.86
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 267.86
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 267.86
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 85.71
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 85.71
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 85.71
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 85.71
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 85.71
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 85.71
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 85.71
+        }
+      ]
+    },
+    {
+      "name": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+      "contact": "Jasmer",
+      "mobile": "9867399004",
+      "email": "jasmer@foodlink.in",
+      "address": "301, Safal Pride, Sion - Trombay road, Deonar",
+      "city": "Mumbai",
+      "pincode": "400088",
+      "state": "Maharashtra",
+      "gstin": "27AADCF0664K1ZJ",
+      "rateCard": [
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 100
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 100
+        }
+      ]
+    },
+    {
+      "name": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+      "contact": "Biswajit Panda",
+      "mobile": "7008028652",
+      "email": "pandiyarajan.purchase@gmail.com",
+      "address": "Prestige Estates Projects Limited, Prestige Falcon Tower No.19, Brunton Road",
+      "city": "Bangalore",
+      "pincode": "560025",
+      "state": "Karnataka",
+      "gstin": "29AABCP8096K1ZP",
+      "rateCard": [
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 123.81
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 133.33
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 133.33
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 133.33
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 133.33
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 133.33
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 133.33
+        }
+      ]
+    },
+    {
+      "name": "Sheraton Grand Bengaluru Whitefield",
+      "contact": "Chef JP",
+      "mobile": "",
+      "email": "chandan.b@sheraton.com",
+      "address": "Sheraton Grand Bengaluru Whitefield, Prestige Shantiniketan Hoodi, Whitefield",
+      "city": "Bangalore",
+      "pincode": "560048",
+      "state": "Karnataka",
+      "gstin": "29AAQCS7527K2ZG",
+      "rateCard": [
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 119.05
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 119.05
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 119.05
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 119.05
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 119.05
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 119.05
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 119.05
+        }
+      ]
+    },
+    {
+      "name": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+      "contact": "Chief Accountant",
+      "mobile": "",
+      "email": "BLRKR.PUR@conradhotels.com",
+      "address": "Conrad Bengaluru\n25/3 Kensington Road, Ulsoor",
+      "city": "Bengaluru",
+      "pincode": "560008",
+      "state": "Karnataka",
+      "gstin": "29AAJCP6547P2ZE",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 223.21
+        },
+        {
+          "product": "Pickle - Coriander - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Ginger - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Spicy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Sweet and Tangy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Moringa - Loose",
+          "rate": 750
+        },
+        {
+          "product": "200gm Powder - Moringa leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 142.86
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Classic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Classic Sweet Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Coriander Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Curry leaf Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Garlic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Ginger Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Mint Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Moringa Loose",
+          "rate": 840
+        },
+        {
+          "product": "Sambhar Readymix Powder 250",
+          "rate": 122
+        },
+        {
+          "product": "300gm Puliogre Mix",
+          "rate": 169.5
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Palak Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Pulp Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Leaf Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Amla Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Palak Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Pulp Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Leaf Soup 100",
+          "rate": 194.21
+        }
+      ]
+    },
+    {
+      "name": "Atta Galatta Books and Publishers Private Limited",
+      "contact": "Manager",
+      "mobile": "96325 10126",
+      "email": "thebookstore@attagalatta.com",
+      "address": "178, 5th Main Road, 9th Cross. First Stage Indiranagar",
+      "city": "Bangalore",
+      "pincode": "560038",
+      "state": "Karnataka",
+      "gstin": "29AAOCA4845Q2ZP",
+      "rateCard": [
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 95.24
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 102.56
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 102.56
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 102.56
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 102.56
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 102.56
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 102.56
+        }
+      ]
+    },
+    {
+      "name": "Schloss Bengalore Limited",
+      "contact": "Vivek",
+      "mobile": "80954 23339",
+      "email": "purchase.tlpb@theleela.com",
+      "address": "The Leela Palace, 23 Old Airport Road, Kodihalli.",
+      "city": "Bangalore",
+      "pincode": "560008",
+      "state": "Karnataka",
+      "gstin": "29ABBCS7760A1ZC",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Tomato",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Avakaya",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Pesara Avakaya",
+          "rate": 223.21
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 114.29
+        }
+      ]
+    },
+    {
+      "name": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+      "contact": "Shevani",
+      "mobile": "98186 69033",
+      "email": "",
+      "address": "PROPERTY NO. 54,55,BHAWANI KUNJ, SECTOR D/2, VASANT KUNJ, South West Delhi, , 110070",
+      "city": "New Delhi",
+      "pincode": "110070",
+      "state": "Delhi",
+      "gstin": "07AAFCN3953P1ZV",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 223.21
+        },
+        {
+          "product": "200gm Powder - Moringa leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 142.86
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 99.05
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 106.67
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 106.67
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 106.67
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 106.67
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 106.67
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 106.67
+        },
+        {
+          "product": "Sambhar Readymix Powder 250",
+          "rate": 129.94
+        },
+        {
+          "product": "300gm Puliogre Mix",
+          "rate": 194.92
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 81.92
+        }
+      ]
+    },
+    {
+      "name": "SV Enterprises",
+      "contact": "Sharan Hallyal",
+      "mobile": "8546849326",
+      "email": "sharanappa.hallyal@hyatt.com",
+      "address": "Hyatt Centric Hebbal Bengaluru,\n43/4, Hebbal Village, Bellary Road",
+      "city": "Bengaluru",
+      "pincode": "560092",
+      "state": "Karnataka",
+      "gstin": "29ACJFS0555P1ZE",
+      "rateCard": [
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 114.29
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 114.29
+        }
+      ]
+    },
+    {
+      "name": "MANYATA PROMOTERS PVT LTD.",
+      "contact": "Chandan",
+      "mobile": "9663750651",
+      "email": "",
+      "address": "Hilton & Hilton Garden Inn Bengaluru \nEmbassy Manyata Business Park\nNagawara, Hebbal Outer Ring Road",
+      "city": "Bengaluru",
+      "pincode": "560045",
+      "state": "Karnataka",
+      "gstin": "29AADCM2448J3Z6",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Pesara Avakaya",
+          "rate": 223.21
+        },
+        {
+          "product": "Pickle - Coriander - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Ginger - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Spicy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Sweet and Tangy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Moringa - Loose",
+          "rate": 750
+        },
+        {
+          "product": "30gm Pickle - Coriander",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Ginger",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Spicy Gongura",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Sweet and Tangy Gungura",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Amla",
+          "rate": 40
+        },
+        {
+          "product": "200gm Powder - Moringa leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 142.86
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Classic Sweet",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 110
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Classic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Classic Sweet Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Coriander Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Curry leaf Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Garlic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Ginger Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Mint Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Moringa Loose",
+          "rate": 840
+        },
+        {
+          "product": "Sambhar Readymix Powder 250",
+          "rate": 122
+        },
+        {
+          "product": "300gm Puliogre Mix",
+          "rate": 169.5
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Palak Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Pulp Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Leaf Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Amla Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Palak Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Pulp Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Leaf Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Millet Khichdi Mix",
+          "rate": 714.29
+        },
+        {
+          "product": "Kodo Millet Rava",
+          "rate": 333.33
+        },
+        {
+          "product": "Millet Dosa Mix",
+          "rate": 524
+        },
+        {
+          "product": "Millet Nutri Mix Unsprouted",
+          "rate": 429
+        },
+        {
+          "product": "Millet Nutri Mix Sprouted",
+          "rate": 523.81
+        },
+        {
+          "product": "Artisanal Rice Paper Wrap",
+          "rate": 1810
+        },
+        {
+          "product": "Artisanal Boondi Laddoo",
+          "rate": 942.86
+        },
+        {
+          "product": "100gm Kaanthi Herbal Face Ubtan",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Ayurvedic hair Spa",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+          "rate": 81.92
+        },
+        {
+          "product": "250gm Kura Karam",
+          "rate": 198.41
+        },
+        {
+          "product": "100gm Masala Karam",
+          "rate": 79.37
+        },
+        {
+          "product": "250gm Fresh Moringa Leaves",
+          "rate": 110
+        },
+        {
+          "product": "1kg Wood Apple Pulp",
+          "rate": 400
+        },
+        {
+          "product": "300gm Pickle - Spicy Amla",
+          "rate": 223.21
+        },
+        {
+          "product": "100gm Sundried Curd Chilli",
+          "rate": 79.37
+        },
+        {
+          "product": "Little Millet Payasam Instant Mix 100",
+          "rate": 105.93
+        },
+        {
+          "product": "100gm Rice Papad - Masala",
+          "rate": 83.33
+        },
+        {
+          "product": "100gm Rava Papad",
+          "rate": 83.33
+        },
+        {
+          "product": "100gm Sabudana Papad",
+          "rate": 83.33
+        },
+        {
+          "product": "100gm Rice Papad - Coriander",
+          "rate": 83.33
+        },
+        {
+          "product": "200gm Sprouted Ulavachaaru Readymix Powder",
+          "rate": 122
+        },
+        {
+          "product": "300gm Tender Tamarind Gojju",
+          "rate": 300
+        },
+        {
+          "product": "300gm Pickle - Magaya (Mango)",
+          "rate": 223.21
+        },
+        {
+          "product": "Rice Payasam Instant Mix 100",
+          "rate": 105.93
+        },
+        {
+          "product": "Artisanal Poha Murukulu",
+          "rate": 76.27
+        },
+        {
+          "product": "300gm Pickle - Amla Thokku Pickle",
+          "rate": 223.21
+        },
+        {
+          "product": "1kg - Chiroti Ravva Dough",
+          "rate": 127.12
+        },
+        {
+          "product": "1kg - Poornam for Bobbattu",
+          "rate": 571.43
+        },
+        {
+          "product": "100g - Fresh Gongura Leaves",
+          "rate": 60
+        },
+        {
+          "product": "200g Puliyogare masala powder mix",
+          "rate": 142.86
+        },
+        {
+          "product": "1lit - Holige Rasam",
+          "rate": 84.75
+        },
+        {
+          "product": "Chefs",
+          "rate": 2500
+        }
+      ]
+    },
+    {
+      "name": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+      "contact": "Shishir",
+      "mobile": "9910161090",
+      "email": "naturessoul23@gmail.com",
+      "address": "27 ground floor main market Defence Colony",
+      "city": "New Delhi",
+      "pincode": "110024",
+      "state": "New Delhi",
+      "gstin": "07AAPCA5994F1Z6",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 179.46
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 179.46
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 179.46
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 179.46
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 179.46
+        },
+        {
+          "product": "300gm Pickle - Tomato",
+          "rate": 179.46
+        },
+        {
+          "product": "300gm Pickle - Spicy Avakaya",
+          "rate": 179.46
+        },
+        {
+          "product": "300gm Pickle - Pesara Avakaya",
+          "rate": 179.46
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 111.67
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 111.67
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 111.67
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 111.67
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 111.67
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 111.67
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 111.67
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 85.17
+        },
+        {
+          "product": "Palak Soup 50",
+          "rate": 85.17
+        },
+        {
+          "product": "Moringa Pulp Soup 50",
+          "rate": 85.17
+        },
+        {
+          "product": "Moringa Leaf Soup 50",
+          "rate": 85.17
+        },
+        {
+          "product": "Amla Soup 100",
+          "rate": 156.14
+        },
+        {
+          "product": "Palak Soup 100",
+          "rate": 156.14
+        },
+        {
+          "product": "Moringa Pulp Soup 100",
+          "rate": 156.14
+        },
+        {
+          "product": "Moringa Leaf Soup 100",
+          "rate": 156.14
+        }
+      ]
+    },
+    {
+      "name": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+      "contact": "Gourav Sachdeva",
+      "mobile": "8800895505",
+      "email": "Gourav.Sachdeva@hilton.com",
+      "address": "Sector-56, Golf Course Road",
+      "city": "Gurgaon",
+      "pincode": "122011",
+      "state": "Haryana",
+      "gstin": "06AACCB4653P1ZD",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 223.21
+        },
+        {
+          "product": "Pickle - Coriander - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Ginger - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Spicy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Sweet and Tangy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Moringa - Loose",
+          "rate": 750
+        },
+        {
+          "product": "200gm Powder - Moringa leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 142.86
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Classic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Classic Sweet Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Coriander Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Curry leaf Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Garlic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Ginger Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Mint Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Moringa Loose",
+          "rate": 840
+        },
+        {
+          "product": "Sambhar Readymix Powder 250",
+          "rate": 122
+        },
+        {
+          "product": "300gm Puliogre Mix",
+          "rate": 169.5
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Palak Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Pulp Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Leaf Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Amla Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Palak Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Pulp Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Leaf Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "100gm Kaanthi Herbal Face Ubtan",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Ayurvedic hair Spa",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+          "rate": 81.92
+        }
+      ]
+    },
+    {
+      "name": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+      "contact": "Akhilesh Vishwakarma",
+      "mobile": "9229836150",
+      "email": "Akhilesh.Vishwakarma@hilton.com",
+      "address": "Kalyani Tech Park EPIP Zone, ITPL Main Road, Whitefield",
+      "city": "Bengaluru",
+      "pincode": "560037",
+      "state": "Karnataka",
+      "gstin": "29AAHCK2519A1ZT",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 223.21
+        },
+        {
+          "product": "Pickle - Coriander - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Ginger - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Spicy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Sweet and Tangy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Moringa - Loose",
+          "rate": 750
+        },
+        {
+          "product": "200gm Powder - Moringa leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 142.86
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Classic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Classic Sweet Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Coriander Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Curry leaf Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Garlic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Ginger Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Mint Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Moringa Loose",
+          "rate": 840
+        },
+        {
+          "product": "Sambhar Readymix Powder 250",
+          "rate": 122
+        },
+        {
+          "product": "300gm Puliogre Mix",
+          "rate": 169.5
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Palak Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Pulp Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Leaf Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Amla Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Palak Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Pulp Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Leaf Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "100gm Kaanthi Herbal Face Ubtan",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Ayurvedic hair Spa",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+          "rate": 81.92
+        }
+      ]
+    },
+    {
+      "name": "Earthbound Expressions Private Limited",
+      "contact": "Anvit Goyal",
+      "mobile": "",
+      "email": "anvit.raga@gmail.com",
+      "address": "#182, sector -16",
+      "city": "Panchkula",
+      "pincode": "134113",
+      "state": "Haryana",
+      "gstin": "06AAHCE8887F1Z6",
+      "rateCard": [
+        {
+          "product": "Cotton WA (40/2) + Linen WE (50), GSM 240",
+          "rate": 1150
+        }
+      ]
+    },
+    {
+      "name": "Sonal Kushwaha",
+      "contact": "Sonal Kushwaha",
+      "mobile": "8726902237",
+      "email": "",
+      "address": "",
+      "city": "Kanpur",
+      "pincode": "",
+      "state": "Uttar Pradesh",
+      "gstin": "",
+      "rateCard": [
+        {
+          "product": "Handloom Fabric - Cotton + Cotton",
+          "rate": 589.71
+        }
+      ]
+    },
+    {
+      "name": "Nisha Bihani",
+      "contact": "Nisha Bihani",
+      "mobile": "9886019076",
+      "email": "nishabihani@gmail.com",
+      "address": "NO. 11 A/38, CUNNINGHAM ROAD",
+      "city": "Bengaluru ",
+      "pincode": "560052",
+      "state": "Karnataka",
+      "gstin": "29AMYPB2500J1ZX",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 285.71
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 285.71
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 285.71
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 285.71
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 285.71
+        },
+        {
+          "product": "300gm Pickle - Tomato",
+          "rate": 285.71
+        },
+        {
+          "product": "300gm Pickle - Spicy Avakaya",
+          "rate": 285.71
+        },
+        {
+          "product": "300gm Pickle - Pesara Avakaya",
+          "rate": 285.71
+        },
+        {
+          "product": "30gm Pickle - Coriander",
+          "rate": 47.62
+        },
+        {
+          "product": "30gm Pickle - Ginger",
+          "rate": 47.62
+        },
+        {
+          "product": "30gm Pickle - Spicy Gongura",
+          "rate": 47.62
+        },
+        {
+          "product": "30gm Pickle - Sweet and Tangy Gungura",
+          "rate": 47.62
+        },
+        {
+          "product": "30gm Pickle - Amla",
+          "rate": 47.62
+        },
+        {
+          "product": "200gm Powder - Moringa leaf",
+          "rate": 171.43
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 171.43
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 171.43
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 171.43
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 166.67
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 166.67
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 166.67
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 166.67
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 166.67
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 166.67
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 166.67
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 142.86
+        },
+        {
+          "product": "Palak Soup 50",
+          "rate": 142.86
+        },
+        {
+          "product": "Moringa Pulp Soup 50",
+          "rate": 142.86
+        },
+        {
+          "product": "Moringa Leaf Soup 50",
+          "rate": 142.86
+        },
+        {
+          "product": "300gm Pickle - Spicy Amla",
+          "rate": 285.71
+        },
+        {
+          "product": "30gm Pickle - Moringa",
+          "rate": 47.62
+        },
+        {
+          "product": "Hamper Bags (hand woven)",
+          "rate": 423.73
+        },
+        {
+          "product": "50gm Powder - Curry leaf",
+          "rate": 52.38
+        },
+        {
+          "product": "50gm Powder - Spicy Ground nut",
+          "rate": 52.38
+        },
+        {
+          "product": "50gm Powder - Spicy Sesame",
+          "rate": 52.38
+        },
+        {
+          "product": "50gm Powder - Moringa leaf",
+          "rate": 52.38
+        },
+        {
+          "product": "Sambhar Readymix Powder 50",
+          "rate": 71.43
+        }
+      ]
+    },
+    {
+      "name": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+      "contact": "Indra Singh",
+      "mobile": "9876543210",
+      "email": "indra.singh@hilton.com",
+      "address": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA Genome Valley,Turkapally(V),Shamirpet(M), Medchal-Malkagiri-District. Telangana-500078",
+      "city": "Hyderabad",
+      "pincode": "500078",
+      "state": "Telangana",
+      "gstin": "36AAGCC9043A1ZY",
+      "rateCard": [
+        {
+          "product": "300gm Pickle - Coriander",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Ginger",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Spicy Gongura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Sweet and Tangy Gungura",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Moringa",
+          "rate": 223.21
+        },
+        {
+          "product": "300gm Pickle - Pesara Avakaya",
+          "rate": 223.21
+        },
+        {
+          "product": "Pickle - Coriander - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Ginger - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Spicy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Sweet and Tangy Gongura - Loose",
+          "rate": 750
+        },
+        {
+          "product": "Pickle - Moringa - Loose",
+          "rate": 750
+        },
+        {
+          "product": "30gm Pickle - Coriander",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Ginger",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Spicy Gongura",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Sweet and Tangy Gungura",
+          "rate": 40
+        },
+        {
+          "product": "30gm Pickle - Amla",
+          "rate": 40
+        },
+        {
+          "product": "200gm Powder - Moringa leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Curry leaf",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Ground nut",
+          "rate": 142.86
+        },
+        {
+          "product": "200gm Powder - Spicy Sesame",
+          "rate": 142.86
+        },
+        {
+          "product": "Millet Crispies - Classic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Coriander",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Curry leaf",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Garlic",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Ginger",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Mint",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Moringa",
+          "rate": 109.52
+        },
+        {
+          "product": "Millet Crispies - Classic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Classic Sweet Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Coriander Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Curry leaf Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Garlic Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Ginger Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Mint Loose",
+          "rate": 840
+        },
+        {
+          "product": "Millet Crispies - Moringa Loose",
+          "rate": 840
+        },
+        {
+          "product": "Sambhar Readymix Powder 250",
+          "rate": 122
+        },
+        {
+          "product": "300gm Puliogre Mix",
+          "rate": 169.5
+        },
+        {
+          "product": "Amla Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Palak Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Pulp Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Moringa Leaf Soup 50",
+          "rate": 81.92
+        },
+        {
+          "product": "Amla Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Palak Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Pulp Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Moringa Leaf Soup 100",
+          "rate": 194.21
+        },
+        {
+          "product": "Millet Khichdi Mix",
+          "rate": 714.29
+        },
+        {
+          "product": "Kodo Millet Rava",
+          "rate": 333.33
+        },
+        {
+          "product": "Millet Dosa Mix",
+          "rate": 523.81
+        },
+        {
+          "product": "Millet Nutri Mix Unsprouted",
+          "rate": 428.57
+        },
+        {
+          "product": "Millet Nutri Mix Sprouted",
+          "rate": 523.81
+        },
+        {
+          "product": "Artisanal Rice Paper Wrap",
+          "rate": 1809.52
+        },
+        {
+          "product": "Artisanal Boondi Laddoo",
+          "rate": 942.86
+        },
+        {
+          "product": "100gm Kaanthi Herbal Face Ubtan",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Ayurvedic hair Spa",
+          "rate": 91.81
+        },
+        {
+          "product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+          "rate": 81.92
+        },
+        {
+          "product": "250gm Kura Karam",
+          "rate": 198.41
+        },
+        {
+          "product": "100gm Masala Karam",
+          "rate": 79.37
+        },
+        {
+          "product": "250gm Fresh Moringa Leaves",
+          "rate": 110
+        },
+        {
+          "product": "1kg Wood Apple Pulp",
+          "rate": 400
+        },
+        {
+          "product": "300gm Pickle - Spicy Amla",
+          "rate": 223.21
+        },
+        {
+          "product": "100gm Sundried Curd Chilli",
+          "rate": 79.37
+        },
+        {
+          "product": "Little Millet Payasam Instant Mix 100",
+          "rate": 105.93
+        },
+        {
+          "product": "100gm Rice Papad - Masala",
+          "rate": 83.33
+        },
+        {
+          "product": "100gm Rava Papad",
+          "rate": 83.33
+        },
+        {
+          "product": "100gm Sabudana Papad",
+          "rate": 83.33
+        },
+        {
+          "product": "100gm Rice Papad - Coriander",
+          "rate": 83.33
+        },
+        {
+          "product": "Chefs",
+          "rate": 2500
+        }
+      ]
+    },
+    {
+      "name": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+      "contact": "Ajay Kanna Siddareddi",
+      "mobile": "9738133647",
+      "email": "Syed.Moin@marriotthotels.com",
+      "address": "JW Marriott, Bengaluru\n24/1,\nVittal Malya Road",
+      "city": "Bengaluru ",
+      "pincode": "560001",
+      "state": "KARNATAKA",
+      "gstin": "29AACCG1048B1Z2",
+      "rateCard": [
+        {
+          "product": "30gm Pickle - Coriander",
+          "rate": 49
+        },
+        {
+          "product": "30gm Pickle - Ginger",
+          "rate": 49
+        },
+        {
+          "product": "30gm Pickle - Spicy Gongura",
+          "rate": 49
+        },
+        {
+          "product": "30gm Pickle - Sweet and Tangy Gungura",
+          "rate": 49
+        },
+        {
+          "product": "30gm Pickle - Amla",
+          "rate": 49
+        },
+        {
+          "product": "30gm Pickle - Moringa",
+          "rate": 49
+        },
+        {
+          "product": "30gm Pickle - Tomato",
+          "rate": 49
+        },
+        {
+          "product": "30gm Millet Crispies - Classic",
+          "rate": 67
+        },
+        {
+          "product": "30gm Millet Crispies - Classic Sweet",
+          "rate": 67
+        },
+        {
+          "product": "30gm Millet Crispies - Coriander",
+          "rate": 67
+        },
+        {
+          "product": "30gm Millet Crispies - Curry leaf",
+          "rate": 67
+        },
+        {
+          "product": "30gm Millet Crispies - Garlic",
+          "rate": 67
+        },
+        {
+          "product": "30gm Millet Crispies - Ginger",
+          "rate": 67
+        },
+        {
+          "product": "30gm Millet Crispies - Mint",
+          "rate": 67
+        },
+        {
+          "product": "30gm Millet Crispies - Moringa",
+          "rate": 67
+        }
+      ]
+    },
+    {
+      "name": "Indigowares Ltd",
+      "contact": "Lisa redding",
+      "mobile": "+44 7799 200141",
+      "email": "",
+      "address": "4 Saxon road \nWheathampstead\n",
+      "city": "Hertfordshire ",
+      "pincode": "AL48NY",
+      "state": "UNITED KINGDOM",
+      "gstin": "",
+      "rateCard": [
+        {
+          "product": "Hand Loom Band - \n(Sample)\n100% Cotton 10/2 Indigo-Dyed Yarn",
+          "rate": 2000
+        }
+      ]
+    }
+  ],
+  "b2cCustomers": [
+    {
+      "name": "Umariyam Shiek",
+      "mobile": "8977582817"
+    },
+    {
+      "name": "Ravi",
+      "mobile": ""
+    },
+    {
+      "name": "Tadisetti Lakshmi",
+      "mobile": "9494888751"
+    },
+    {
+      "name": "Ananda Kumar",
+      "mobile": ""
+    },
+    {
+      "name": "Shiva Kumar",
+      "mobile": "7386939217"
+    },
+    {
+      "name": "KS Rao",
+      "mobile": ""
+    },
+    {
+      "name": "Saloni",
+      "mobile": ""
+    },
+    {
+      "name": "Ranga",
+      "mobile": ""
+    },
+    {
+      "name": "Harinath Reddy",
+      "mobile": "9963790366"
+    },
+    {
+      "name": "Anji Reddy",
+      "mobile": ""
+    },
+    {
+      "name": "V ANANDA KUMAR",
+      "mobile": ""
+    },
+    {
+      "name": "SONAL KUSHWAHA",
+      "mobile": "8726902237"
+    },
+    {
+      "name": "B MUBEENA",
+      "mobile": ""
+    },
+    {
+      "name": "BHAJANTHRI LAVANYA",
+      "mobile": "8096747307"
+    },
+    {
+      "name": "SHAMEERA",
+      "mobile": ""
+    },
+    {
+      "name": "MS NANDHINI RAMADASS",
+      "mobile": ""
+    },
+    {
+      "name": "BHARAT M",
+      "mobile": "8247463532"
+    },
+    {
+      "name": "VEMULA ASWINI",
+      "mobile": "9491881940"
+    },
+    {
+      "name": "SOUNDARAJAN R",
+      "mobile": ""
+    },
+    {
+      "name": "MUBARAK",
+      "mobile": "9071349057"
+    },
+    {
+      "name": "NAVEEN KUMAR B S",
+      "mobile": "9964673424"
+    },
+    {
+      "name": "THIMMARAJU V",
+      "mobile": ""
+    },
+    {
+      "name": "AJAY SINGH",
+      "mobile": ""
+    },
+    {
+      "name": "DAVANAM ANITHA",
+      "mobile": ""
+    },
+    {
+      "name": "KURUBA RAMAKRISHNAPPA",
+      "mobile": "9573830796"
+    },
+    {
+      "name": "H ROHITH KUMAR",
+      "mobile": ""
+    },
+    {
+      "name": "K BABU REDDY",
+      "mobile": ""
+    },
+    {
+      "name": "NESE NARASIMHA MURTHY",
+      "mobile": ""
+    },
+    {
+      "name": "GAJULA BHARATH",
+      "mobile": "9494609210"
+    },
+    {
+      "name": "Benguluru Deepthi",
+      "mobile": "9182632493"
+    },
+    {
+      "name": "J SIVAKUMAR",
+      "mobile": ""
+    },
+    {
+      "name": "GOWTHAMAN A",
+      "mobile": ""
+    },
+    {
+      "name": "T JAGADEESHAPPA",
+      "mobile": "9441143854"
+    },
+    {
+      "name": "K NAVEEN KUMAR",
+      "mobile": "8555030397"
+    },
+    {
+      "name": "SIDDAPPAGARI VISHNUVARDHAN",
+      "mobile": ""
+    },
+    {
+      "name": "I HASAN ALIE",
+      "mobile": "9003838138"
+    },
+    {
+      "name": "GITHA",
+      "mobile": "9480865270"
+    },
+    {
+      "name": "GOVARDHNA",
+      "mobile": "9491038011"
+    },
+    {
+      "name": "CHETANA BHAT",
+      "mobile": ""
+    },
+    {
+      "name": "NAGENDRA PRANESWARA RAO SANJEEVA",
+      "mobile": ""
+    },
+    {
+      "name": "RAVIRAJ GAJANAN KADLE",
+      "mobile": ""
+    },
+    {
+      "name": "Y KALYANI",
+      "mobile": ""
+    },
+    {
+      "name": "PENNABADI VENKATA SIDDHA REDDY",
+      "mobile": "9845460304"
+    },
+    {
+      "name": "Rajen Vadera",
+      "mobile": ""
+    },
+    {
+      "name": "AARYA SUDHANSHU CHOUDHARI",
+      "mobile": "8073057191"
+    },
+    {
+      "name": "MEDINI RAGHAVAN",
+      "mobile": ""
+    },
+    {
+      "name": "AAYUSHI JAIN",
+      "mobile": ""
+    },
+    {
+      "name": "PIYUSH PRAVIN SHAH",
+      "mobile": ""
+    },
+    {
+      "name": "SURYA RAGHAV EZIL",
+      "mobile": ""
+    },
+    {
+      "name": "LAVANYA N",
+      "mobile": "9980973134"
+    },
+    {
+      "name": "VINOD SREEDHAR R",
+      "mobile": ""
+    },
+    {
+      "name": "DEBARGHA BANERJEE",
+      "mobile": "9123839910"
+    },
+    {
+      "name": "MOIRANGTHEM ALBERT SINGH",
+      "mobile": ""
+    },
+    {
+      "name": "JAGRUTHI M A",
+      "mobile": ""
+    },
+    {
+      "name": "SAANVI A",
+      "mobile": "8431608197"
+    },
+    {
+      "name": "SWARNA VENKATESH",
+      "mobile": ""
+    },
+    {
+      "name": "ANOUSHKA",
+      "mobile": ""
+    },
+    {
+      "name": "DEEPA J R",
+      "mobile": ""
+    },
+    {
+      "name": "DURNAIB AFSHAN",
+      "mobile": "7022142473"
+    },
+    {
+      "name": "SAYYED AZHAR HUSSAIN",
+      "mobile": "9004504263"
+    },
+    {
+      "name": "FOUZIYA",
+      "mobile": "6309758683"
+    },
+    {
+      "name": "M R S KANISHK",
+      "mobile": ""
+    },
+    {
+      "name": "MAITHREYI VISWANATHAN",
+      "mobile": ""
+    },
+    {
+      "name": "SHRAVYA PRASANNA",
+      "mobile": ""
+    },
+    {
+      "name": "MANASVINI S KUMAR",
+      "mobile": ""
+    },
+    {
+      "name": "ANURIMAA BHARATH",
+      "mobile": ""
+    },
+    {
+      "name": "JANVI KANKARIYA",
+      "mobile": ""
+    },
+    {
+      "name": "T A RASHMI",
+      "mobile": "9731566275"
+    },
+    {
+      "name": "MRS MAMATHA",
+      "mobile": "8792601449"
+    },
+    {
+      "name": "R VIJAYASHREE",
+      "mobile": ""
+    },
+    {
+      "name": "RUJULA KALA",
+      "mobile": "9972581800"
+    },
+    {
+      "name": "SHREYA KAKRIA",
+      "mobile": ""
+    },
+    {
+      "name": "PRANAV SRIRAMAN",
+      "mobile": "7893699417"
+    },
+    {
+      "name": "DEEPANKAR K G",
+      "mobile": "9108099483"
+    },
+    {
+      "name": "ANKITA RAJASEKHARAN",
+      "mobile": ""
+    },
+    {
+      "name": "RAMGOPAL NARASIMHAN KONER",
+      "mobile": ""
+    },
+    {
+      "name": "BHAVANA M R",
+      "mobile": "6361776678"
+    },
+    {
+      "name": "SRI DEVI KULKARNI",
+      "mobile": ""
+    },
+    {
+      "name": "SUDHINDRA BHIMARAO MAGAN",
+      "mobile": ""
+    },
+    {
+      "name": "GADDAM BALA KALKIN REDDY",
+      "mobile": "7483405960"
+    },
+    {
+      "name": "SOHSVI ARIN VIJAYA",
+      "mobile": ""
+    },
+    {
+      "name": "SHRIYA A",
+      "mobile": ""
+    },
+    {
+      "name": "UTUKURU SREE SARAYU MINOR",
+      "mobile": ""
+    },
+    {
+      "name": "SANAY ATHREYA",
+      "mobile": "9663903845"
+    },
+    {
+      "name": "PRITHIVIRAJ",
+      "mobile": ""
+    },
+    {
+      "name": "SANTOSHKUMAR PATIL",
+      "mobile": ""
+    },
+    {
+      "name": "JESHUA BIJU",
+      "mobile": ""
+    },
+    {
+      "name": "SOUHARDA UL",
+      "mobile": "8722704400"
+    },
+    {
+      "name": "SHEETAL DIWAKAR SHETTY",
+      "mobile": "9167764066"
+    },
+    {
+      "name": "GUNAPAL VITTAL SHETTY",
+      "mobile": ""
+    },
+    {
+      "name": "B TEJASWINI",
+      "mobile": ""
+    },
+    {
+      "name": "GONEKER SAIRAM",
+      "mobile": "9515525412"
+    },
+    {
+      "name": "MOHD KHAJA SALAHUDDIN",
+      "mobile": ""
+    },
+    {
+      "name": "JARI MAHESH",
+      "mobile": "9010677834"
+    },
+    {
+      "name": "NAJRAN FAISAL",
+      "mobile": "9959542590"
+    },
+    {
+      "name": "M S ANGARI GANGADHAR",
+      "mobile": ""
+    },
+    {
+      "name": "UPPALWAR BALAJI",
+      "mobile": "9553623252"
+    },
+    {
+      "name": "HRUDAY KUMAR S",
+      "mobile": "7204387676"
+    },
+    {
+      "name": "BATTALA LAKSHMI ANURADHA",
+      "mobile": "6300361438"
+    },
+    {
+      "name": "ADITYA KUMAR",
+      "mobile": "8860001891"
+    },
+    {
+      "name": "DEEPA BALKRISHNA NIKAM",
+      "mobile": "9113938815"
+    },
+    {
+      "name": "NEHA JAIN",
+      "mobile": "7566530203"
+    },
+    {
+      "name": "DEEPAKMA",
+      "mobile": "9731405585"
+    },
+    {
+      "name": "MANJUNATHA",
+      "mobile": ""
+    },
+    {
+      "name": "SAI NEHA REDDY D",
+      "mobile": ""
+    },
+    {
+      "name": "ROLVIN CASTALINO",
+      "mobile": "9035081530"
+    },
+    {
+      "name": "JOHANNES PHILLIPP MISSBACH",
+      "mobile": ""
+    },
+    {
+      "name": "TUSHAR CHOPRA MINOR",
+      "mobile": ""
+    },
+    {
+      "name": "ARAVIND K",
+      "mobile": ""
+    },
+    {
+      "name": "NEHA SATHISH",
+      "mobile": "9980546726"
+    },
+    {
+      "name": "YASHIKA SURTANI",
+      "mobile": ""
+    },
+    {
+      "name": "MADHURA MADHUKAR HEGDE",
+      "mobile": ""
+    },
+    {
+      "name": "NIRMA SEKAR",
+      "mobile": ""
+    },
+    {
+      "name": "CHANDANK J SIMHA",
+      "mobile": "9886661767"
+    },
+    {
+      "name": "DODLA ANANTH REDDY",
+      "mobile": ""
+    },
+    {
+      "name": "C MUKUND",
+      "mobile": "9611044150"
+    },
+    {
+      "name": "RONODEEP SINGHA",
+      "mobile": "8197999977"
+    },
+    {
+      "name": "T R POTHIKAN SURESH",
+      "mobile": ""
+    },
+    {
+      "name": "SHIVAPRAKASH R",
+      "mobile": "9986297689"
+    },
+    {
+      "name": "KAIRAV SUJIT KADAKIA",
+      "mobile": "8110018866"
+    },
+    {
+      "name": "SAPNA TANEJA",
+      "mobile": ""
+    },
+    {
+      "name": "RAJ ROY",
+      "mobile": ""
+    },
+    {
+      "name": "MANALI DATTA ROY",
+      "mobile": "9561922954"
+    },
+    {
+      "name": "MS PRIYESHA JAIN",
+      "mobile": "9871671681"
+    },
+    {
+      "name": "KRUPA NITIN SHAH",
+      "mobile": ""
+    },
+    {
+      "name": "NISHITA JAIDEV SACHDEV",
+      "mobile": ""
+    },
+    {
+      "name": "MITHUN BANERJEE",
+      "mobile": ""
+    },
+    {
+      "name": "RAHUL ARORA",
+      "mobile": ""
+    },
+    {
+      "name": "NAMAN DOSI",
+      "mobile": "8962853668"
+    },
+    {
+      "name": "PRERNA GUPTA",
+      "mobile": ""
+    },
+    {
+      "name": "VAIBHAV S KULKARNI",
+      "mobile": "9845261980"
+    },
+    {
+      "name": "SNEHA SUNDAR",
+      "mobile": ""
+    },
+    {
+      "name": "KAUSHAL KAYAL",
+      "mobile": ""
+    },
+    {
+      "name": "ARIF KHAN",
+      "mobile": "8145647122"
+    },
+    {
+      "name": "SHWETA KHARE",
+      "mobile": ""
+    },
+    {
+      "name": "BHAVNA SHARMA",
+      "mobile": "8884573126"
+    },
+    {
+      "name": "MILAN JEETENDRA JOLLY",
+      "mobile": "9867794441"
+    },
+    {
+      "name": "JAYSHREE JENA",
+      "mobile": "6370595693"
+    },
+    {
+      "name": "RAJINI KAMATH",
+      "mobile": ""
+    },
+    {
+      "name": "MALAVIKA RAMANUJAN",
+      "mobile": ""
+    },
+    {
+      "name": "RICHA GAUBA",
+      "mobile": "7506168933"
+    },
+    {
+      "name": "MOHAN KUMAR R K",
+      "mobile": ""
+    },
+    {
+      "name": "ASHWIN DINESH",
+      "mobile": ""
+    },
+    {
+      "name": "TANUJA YOGESHWARA",
+      "mobile": ""
+    },
+    {
+      "name": "ANISH .C",
+      "mobile": ""
+    },
+    {
+      "name": "ANVEER",
+      "mobile": "9822162863"
+    },
+    {
+      "name": "M GURUPRATHAP GANDHI",
+      "mobile": "8123836393"
+    },
+    {
+      "name": "DEEPTI MARTHA ABRAHAM",
+      "mobile": ""
+    },
+    {
+      "name": "SEEMA RAO",
+      "mobile": ""
+    },
+    {
+      "name": "PRANOTI NAGARKAR ISRANI",
+      "mobile": "9353344018"
+    },
+    {
+      "name": "SWATI DHAWAN BHARGAVA",
+      "mobile": "9560073913"
+    },
+    {
+      "name": "AJAY BHAT",
+      "mobile": ""
+    },
+    {
+      "name": "KONREEDY GARU HARISH K",
+      "mobile": "8328521391"
+    },
+    {
+      "name": "JEDIDIYAH ALFRED",
+      "mobile": "9096658321"
+    },
+    {
+      "name": "DAYAPRASAD GURUNATAH K",
+      "mobile": "7204841257"
+    },
+    {
+      "name": "Aravind Padmanabhan",
+      "mobile": ""
+    },
+    {
+      "name": "DEEPTI",
+      "mobile": "9845653212"
+    },
+    {
+      "name": "JERIN S LUKE",
+      "mobile": ""
+    },
+    {
+      "name": "SAMEER MOHAN",
+      "mobile": ""
+    },
+    {
+      "name": "BOLLOJU VIJAY",
+      "mobile": "8897599145"
+    },
+    {
+      "name": "KHYATI",
+      "mobile": ""
+    },
+    {
+      "name": "MANOJ JOHAR",
+      "mobile": "9514816470"
+    },
+    {
+      "name": "KHADEER",
+      "mobile": "9912007659"
+    },
+    {
+      "name": "GALLA SNEHITH",
+      "mobile": "9629894531"
+    },
+    {
+      "name": "BANDARU LAVANYA",
+      "mobile": "9008298010"
+    },
+    {
+      "name": "NARASIMHA REDDY",
+      "mobile": "6302720105"
+    },
+    {
+      "name": "CHINMAI",
+      "mobile": "9014008445"
+    },
+    {
+      "name": "NITIN DHARMARAJ PATIL",
+      "mobile": "9505990209"
+    },
+    {
+      "name": "PHANI KRISHNA SOMAYAJULU",
+      "mobile": "9553929510"
+    },
+    {
+      "name": "NARASIMHA REDDY",
+      "mobile": ""
+    },
+    {
+      "name": "NEERAJ T",
+      "mobile": "9846734110"
+    },
+    {
+      "name": "S N DEEKSHITH KUMAR",
+      "mobile": ""
+    },
+    {
+      "name": "M S SURABHI PRATAP",
+      "mobile": ""
+    },
+    {
+      "name": "Veena Srinivasan",
+      "mobile": "9972399879"
+    },
+    {
+      "name": "Shreedevi Puri",
+      "mobile": "+919845175463"
+    },
+    {
+      "name": "Tadisetti Sravya",
+      "mobile": "9494888750"
+    },
+    {
+      "name": "JERIN S LUKE",
+      "mobile": "9995794772"
+    },
+    {
+      "name": "R Malli Reddy",
+      "mobile": "9491847169"
+    },
+    {
+      "name": "Tadisetti Venu",
+      "mobile": ""
+    },
+    {
+      "name": "Gagan",
+      "mobile": ""
+    },
+    {
+      "name": "NISHA BIHANI",
+      "mobile": "9886019076"
+    },
+    {
+      "name": "JATIN CHOWDHARY",
+      "mobile": "7415027330"
+    },
+    {
+      "name": "VISMAYA MYSORE NAGANNA",
+      "mobile": "9916267851"
+    },
+    {
+      "name": "Vasudeva Reddy",
+      "mobile": "9849733483"
+    },
+    {
+      "name": "NIVEDITHA BANSAL",
+      "mobile": ""
+    }
+  ],
+  "b2cSales": [
+    {
+      "invoice": "POS26270025-31-May-2026",
+      "date": "31-May-2026",
+      "name": "Umariyam Shiek",
+      "mobile": "8977582817"
+    },
+    {
+      "invoice": "POS26270024-26-May-2026",
+      "date": "26-May-2026",
+      "name": "Ravi",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270023-25-May-2026",
+      "date": "25-May-2026",
+      "name": "Tadisetti Lakshmi",
+      "mobile": "9494888751"
+    },
+    {
+      "invoice": "POS26270022-23-May-2026",
+      "date": "23-May-2026",
+      "name": "Ananda Kumar",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270021-23-May-2026",
+      "date": "23-May-2026",
+      "name": "Shiva Kumar",
+      "mobile": "7386939217"
+    },
+    {
+      "invoice": "POS26270020-23-May-2026",
+      "date": "23-May-2026",
+      "name": "KS Rao",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270019-23-May-2026",
+      "date": "23-May-2026",
+      "name": "Saloni",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270018-23-May-2026",
+      "date": "23-May-2026",
+      "name": "Saloni",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270017-23-May-2026",
+      "date": "23-May-2026",
+      "name": "Saloni",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270016-23-May-2026",
+      "date": "23-May-2026",
+      "name": "Saloni",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270015-23-May-2026",
+      "date": "23-May-2026",
+      "name": "Saloni",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270014-20-May-2026",
+      "date": "20-May-2026",
+      "name": "Ranga",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270013-12-May-2026",
+      "date": "12-May-2026",
+      "name": "Harinath Reddy",
+      "mobile": "9963790366"
+    },
+    {
+      "invoice": "POS26270012-01-May-2026",
+      "date": "01-May-2026",
+      "name": "Anji Reddy",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270011-30-Apr-2026",
+      "date": "30-Apr-2026",
+      "name": "V ANANDA KUMAR",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270010-29-Apr-2026",
+      "date": "29-Apr-2026",
+      "name": "S FOUZIYA",
+      "mobile": "9963790366"
+    },
+    {
+      "invoice": "POS26270009-18-Apr-2026",
+      "date": "18-Apr-2026",
+      "name": "SONAL KUSHWAHA",
+      "mobile": "8726902237"
+    },
+    {
+      "invoice": "POS26270008-10-Apr-2026",
+      "date": "10-Apr-2026",
+      "name": "V ANANDA KUMAR",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270007-10-Apr-2026",
+      "date": "10-Apr-2026",
+      "name": "V ANANDA KUMAR",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270006-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "B MUBEENA",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270005-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "BHAJANTHRI LAVANYA",
+      "mobile": "8096747307"
+    },
+    {
+      "invoice": "POS26270004-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "SHAMEERA",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270003-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "MS NANDHINI RAMADASS",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270002-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "B MUBEENA",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS26270001-02-Apr-2026",
+      "date": "02-Apr-2026",
+      "name": "BHARAT M",
+      "mobile": "8247463532"
+    },
+    {
+      "invoice": "POS25260234-30-Apr-2026",
+      "date": "30-Apr-2026",
+      "name": "V ANANDA KUMAR",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS25260233-29-Apr-2026",
+      "date": "29-Apr-2026",
+      "name": "S FOUZIYA",
+      "mobile": "9963790366"
+    },
+    {
+      "invoice": "POS25260232-18-Apr-2026",
+      "date": "18-Apr-2026",
+      "name": "SONAL KUSHWAHA",
+      "mobile": "8726902237"
+    },
+    {
+      "invoice": "POS25260231-10-Apr-2026",
+      "date": "10-Apr-2026",
+      "name": "V ANANDA KUMAR",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS25260230-10-Apr-2026",
+      "date": "10-Apr-2026",
+      "name": "V ANANDA KUMAR",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS25260229-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "B MUBEENA",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS25260228-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "BHAJANTHRI LAVANYA",
+      "mobile": "8096747307"
+    },
+    {
+      "invoice": "POS25260227-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "SHAMEERA",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS25260226-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "Ms Nandhini Ramadass",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS25260225-04-Apr-2026",
+      "date": "04-Apr-2026",
+      "name": "B Mubeena",
+      "mobile": ""
+    },
+    {
+      "invoice": "POS25260224-02-Apr-2026",
+      "date": "02-Apr-2026",
+      "name": "Bharat M",
+      "mobile": "8247463532"
+    }
+  ],
+  "generatedFor": "FY2026-27",
+  "recipes": [
+    {
+      "category": "Crispies",
+      "name": "Classic",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 41,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 219,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 44,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 25,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 7,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 144,
+          "costPerKg": 40
+        },
+        {
+          "item": "Garlic",
+          "qty": 25,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 19,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Corriander",
+          "qty": 10,
+          "costPerKg": 80
+        },
+        {
+          "item": "Ginger",
+          "qty": 20,
+          "costPerKg": 140
+        },
+        {
+          "item": "Bajra",
+          "qty": 219,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 219,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R001"
+    },
+    {
+      "category": "Crispies",
+      "name": "Garlic",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 41,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 203,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 43,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 25,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 7,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 113,
+          "costPerKg": 40
+        },
+        {
+          "item": "Garlic",
+          "qty": 73,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 19,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Corriander",
+          "qty": 10,
+          "costPerKg": 80
+        },
+        {
+          "item": "Ginger",
+          "qty": 20,
+          "costPerKg": 140
+        },
+        {
+          "item": "Bajra",
+          "qty": 219,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 219,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R002"
+    },
+    {
+      "category": "Crispies",
+      "name": "Curry leaf",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 41,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 203,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 43,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 25,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 7,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 112,
+          "costPerKg": 40
+        },
+        {
+          "item": "Garlic",
+          "qty": 20,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 19,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Curry Leaf powder",
+          "qty": 52,
+          "costPerKg": 120
+        },
+        {
+          "item": "Corriander",
+          "qty": 10,
+          "costPerKg": 80
+        },
+        {
+          "item": "Ginger",
+          "qty": 20,
+          "costPerKg": 140
+        },
+        {
+          "item": "Bajra",
+          "qty": 220,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 220,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R003"
+    },
+    {
+      "category": "Crispies",
+      "name": "Mint",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 42,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 203,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 44,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 25,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 7,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 111,
+          "costPerKg": 40
+        },
+        {
+          "item": "Garlic",
+          "qty": 20,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 19,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Corriander",
+          "qty": 10,
+          "costPerKg": 80
+        },
+        {
+          "item": "Ginger",
+          "qty": 20,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mint",
+          "qty": 53,
+          "costPerKg": 80
+        },
+        {
+          "item": "Bajra",
+          "qty": 219,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 219,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R004"
+    },
+    {
+      "category": "Crispies",
+      "name": "Ginger",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 41,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 203,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 44,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 25,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 7,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 128,
+          "costPerKg": 40
+        },
+        {
+          "item": "Garlic",
+          "qty": 22,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 19,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Corriander",
+          "qty": 10,
+          "costPerKg": 80
+        },
+        {
+          "item": "Ginger",
+          "qty": 55,
+          "costPerKg": 140
+        },
+        {
+          "item": "Bajra",
+          "qty": 219,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 219,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R005"
+    },
+    {
+      "category": "Crispies",
+      "name": "Corriander",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 42,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 203,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 44,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 25,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 7,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 111,
+          "costPerKg": 40
+        },
+        {
+          "item": "Garlic",
+          "qty": 20,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 19,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Corriander",
+          "qty": 63,
+          "costPerKg": 80
+        },
+        {
+          "item": "Ginger",
+          "qty": 20,
+          "costPerKg": 140
+        },
+        {
+          "item": "Bajra",
+          "qty": 219,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 219,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R006"
+    },
+    {
+      "category": "Crispies",
+      "name": "Sweet",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 41,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 219,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 41,
+          "costPerKg": 210
+        },
+        {
+          "item": "Jaggery",
+          "qty": 125,
+          "costPerKg": 80
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 20,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 1,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 80,
+          "costPerKg": 40
+        },
+        {
+          "item": "Salt",
+          "qty": 16,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Ginger",
+          "qty": 11,
+          "costPerKg": 140
+        },
+        {
+          "item": "Bajra",
+          "qty": 219,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 219,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R007"
+    },
+    {
+      "category": "Crispies",
+      "name": "Moringa",
+      "conversion": 0.56,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 41,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 203,
+          "costPerKg": 160
+        },
+        {
+          "item": "Sesame",
+          "qty": 43,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 25,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 7,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 112,
+          "costPerKg": 40
+        },
+        {
+          "item": "Garlic",
+          "qty": 20,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 19,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8,
+          "costPerKg": 300
+        },
+        {
+          "item": "Corriander",
+          "qty": 10,
+          "costPerKg": 80
+        },
+        {
+          "item": "Ginger",
+          "qty": 20,
+          "costPerKg": 140
+        },
+        {
+          "item": "Moringa",
+          "qty": 54,
+          "costPerKg": 80
+        },
+        {
+          "item": "Bajra",
+          "qty": 219,
+          "costPerKg": 50
+        },
+        {
+          "item": "Chiroti",
+          "qty": 219,
+          "costPerKg": 55
+        }
+      ],
+      "id": "R008"
+    },
+    {
+      "category": "Powders",
+      "name": "Ground Nut",
+      "conversion": 0.9,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 122.85,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 614.25,
+          "costPerKg": 160
+        },
+        {
+          "item": "Red Chilli Powder",
+          "qty": 122.85,
+          "costPerKg": 330
+        },
+        {
+          "item": "Garlic",
+          "qty": 29.48,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 36.86,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 12.29,
+          "costPerKg": 300
+        },
+        {
+          "item": "Fried Gram",
+          "qty": 61.43,
+          "costPerKg": 130
+        }
+      ],
+      "id": "R009"
+    },
+    {
+      "category": "Powders",
+      "name": "Sesame",
+      "conversion": 0.8,
+      "batchOutput": 500,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 853.89,
+          "costPerKg": 210
+        },
+        {
+          "item": "Red Chilli Powder",
+          "qty": 94.88,
+          "costPerKg": 330
+        },
+        {
+          "item": "Garlic",
+          "qty": 13.28,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 28.46,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 9.49,
+          "costPerKg": 300
+        }
+      ],
+      "id": "R010"
+    },
+    {
+      "category": "Powders",
+      "name": "Currey Leaf",
+      "conversion": 0.9,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 74.07,
+          "costPerKg": 450
+        },
+        {
+          "item": "Sesame",
+          "qty": 59.26,
+          "costPerKg": 210
+        },
+        {
+          "item": "Jaggery",
+          "qty": 88.89,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 59.26,
+          "costPerKg": 180
+        },
+        {
+          "item": "Red Chilli Powder",
+          "qty": 133.33,
+          "costPerKg": 330
+        },
+        {
+          "item": "Garlic",
+          "qty": 51.85,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 59.26,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 29.63,
+          "costPerKg": 180
+        },
+        {
+          "item": "Jeera",
+          "qty": 29.63,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 148.15,
+          "costPerKg": 100
+        },
+        {
+          "item": "Curry Leaf",
+          "qty": 148.15,
+          "costPerKg": 120
+        },
+        {
+          "item": "Urad",
+          "qty": 118.52,
+          "costPerKg": 140
+        }
+      ],
+      "id": "R011"
+    },
+    {
+      "category": "Powders",
+      "name": "Moringa",
+      "conversion": 0.9,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 75.76,
+          "costPerKg": 450
+        },
+        {
+          "item": "Sesame",
+          "qty": 60.61,
+          "costPerKg": 210
+        },
+        {
+          "item": "Jaggery",
+          "qty": 90.91,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 60.61,
+          "costPerKg": 180
+        },
+        {
+          "item": "Red Chilli Powder",
+          "qty": 136.36,
+          "costPerKg": 330
+        },
+        {
+          "item": "Garlic",
+          "qty": 30.3,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 60.61,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 30.3,
+          "costPerKg": 180
+        },
+        {
+          "item": "Jeera",
+          "qty": 30.3,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 151.52,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 121.21,
+          "costPerKg": 140
+        },
+        {
+          "item": "Moringa",
+          "qty": 151.52,
+          "costPerKg": 160
+        }
+      ],
+      "id": "R012"
+    },
+    {
+      "category": "Powders",
+      "name": "Amla",
+      "conversion": 0.9,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 50.76,
+          "costPerKg": 450
+        },
+        {
+          "item": "Sesame",
+          "qty": 81.22,
+          "costPerKg": 210
+        },
+        {
+          "item": "Jaggery",
+          "qty": 50.76,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 253.81,
+          "costPerKg": 180
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 101.52,
+          "costPerKg": null
+        },
+        {
+          "item": "Salt",
+          "qty": 86.29,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 20.3,
+          "costPerKg": 180
+        },
+        {
+          "item": "Jeera",
+          "qty": 50.76,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 203.05,
+          "costPerKg": 100
+        },
+        {
+          "item": "Dry Amla Powder",
+          "qty": 101.52,
+          "costPerKg": 400
+        }
+      ],
+      "id": "R013"
+    },
+    {
+      "category": "Pickles",
+      "name": "Spicy Gongura pickle",
+      "conversion": 0.8,
+      "batchOutput": 838,
+      "ingredients": [
+        {
+          "item": "Dhaniya powder",
+          "qty": 13.88,
+          "costPerKg": 180
+        },
+        {
+          "item": "Hinge",
+          "qty": 4.96,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 5.95,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 3.96,
+          "costPerKg": 330
+        },
+        {
+          "item": "Red Chilli Powder/flakes",
+          "qty": 114.97,
+          "costPerKg": 330
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 495.54,
+          "costPerKg": 440
+        },
+        {
+          "item": "Garlic",
+          "qty": 31.71,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 63.43,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 23.79,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 3.96,
+          "costPerKg": 230
+        },
+        {
+          "item": "Bengal Gram",
+          "qty": 14.87,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 11.89,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 12.88,
+          "costPerKg": 110
+        },
+        {
+          "item": "Gongura",
+          "qty": 198.22,
+          "costPerKg": 300
+        }
+      ],
+      "id": "R014"
+    },
+    {
+      "category": "Pickles",
+      "name": "Sweet and Tangy Gongura pickle",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 89.37,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 12.51,
+          "costPerKg": 180
+        },
+        {
+          "item": "Hinge",
+          "qty": 4.47,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 5.36,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 3.57,
+          "costPerKg": 330
+        },
+        {
+          "item": "Red Chilli Powder/flakes",
+          "qty": 107.24,
+          "costPerKg": 330
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 446.83,
+          "costPerKg": 440
+        },
+        {
+          "item": "Garlic",
+          "qty": 28.6,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 62.56,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 21.45,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 3.57,
+          "costPerKg": 230
+        },
+        {
+          "item": "Bengal Gram",
+          "qty": 13.4,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 10.72,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 11.62,
+          "costPerKg": 110
+        },
+        {
+          "item": "Gongura",
+          "qty": 178.73,
+          "costPerKg": 300
+        }
+      ],
+      "id": "R015"
+    },
+    {
+      "category": "Pickles",
+      "name": "Coriander pickle",
+      "conversion": 0.8,
+      "batchOutput": 4550,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 93.02,
+          "costPerKg": 80
+        },
+        {
+          "item": "Hinge",
+          "qty": 4.65,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 9.3,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 3.72,
+          "costPerKg": 330
+        },
+        {
+          "item": "Red Chilli Powder/flakes",
+          "qty": 65.12,
+          "costPerKg": 330
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 465.12,
+          "costPerKg": 440
+        },
+        {
+          "item": "Salt",
+          "qty": 59.53,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 65.12,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 3.72,
+          "costPerKg": 230
+        },
+        {
+          "item": "Bengal Gram",
+          "qty": 13.95,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 11.16,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 12.09,
+          "costPerKg": 110
+        },
+        {
+          "item": "Coriander",
+          "qty": 186.05,
+          "costPerKg": 120
+        }
+      ],
+      "id": "R016"
+    },
+    {
+      "category": "Pickles",
+      "name": "Ginger pickle",
+      "conversion": 0.8,
+      "batchOutput": 541,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 254.29,
+          "costPerKg": 80
+        },
+        {
+          "item": "Hinge",
+          "qty": 3.18,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 6.36,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 2.54,
+          "costPerKg": 330
+        },
+        {
+          "item": "Red Chilli Powder/flakes",
+          "qty": 63.57,
+          "costPerKg": 330
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 317.86,
+          "costPerKg": 440
+        },
+        {
+          "item": "Salt",
+          "qty": 44.5,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 152.57,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 2.54,
+          "costPerKg": 230
+        },
+        {
+          "item": "Bengal Gram",
+          "qty": 9.54,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 7.63,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 8.26,
+          "costPerKg": 110
+        },
+        {
+          "item": "Ginger",
+          "qty": 127.15,
+          "costPerKg": 160
+        }
+      ],
+      "id": "R017"
+    },
+    {
+      "category": "Pickles",
+      "name": "Tomato",
+      "conversion": 0.8,
+      "batchOutput": 2000,
+      "ingredients": [
+        {
+          "item": "Hinge",
+          "qty": 10.37,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 16.6,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 8.3,
+          "costPerKg": 330
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 414.94,
+          "costPerKg": 440
+        },
+        {
+          "item": "Salt",
+          "qty": 41.49,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 41.49,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 14.52,
+          "costPerKg": 230
+        },
+        {
+          "item": "Bengal Gram",
+          "qty": 14.52,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 10.37,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 12.45,
+          "costPerKg": 110
+        },
+        {
+          "item": "Tomato",
+          "qty": 414.94,
+          "costPerKg": 50
+        }
+      ],
+      "id": "R018"
+    },
+    {
+      "category": "Pickles",
+      "name": "Moringa pickle",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dhaniya powder",
+          "qty": 8.61,
+          "costPerKg": 180
+        },
+        {
+          "item": "Hinge",
+          "qty": 4.31,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 5.17,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 3.45,
+          "costPerKg": 330
+        },
+        {
+          "item": "Red Chilli Powder/flakes",
+          "qty": 111.97,
+          "costPerKg": 330
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 430.66,
+          "costPerKg": 440
+        },
+        {
+          "item": "Garlic",
+          "qty": 27.56,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 86.13,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 111.97,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 3.45,
+          "costPerKg": 230
+        },
+        {
+          "item": "Bengal Gram",
+          "qty": 12.92,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 10.34,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 11.2,
+          "costPerKg": 110
+        },
+        {
+          "item": "Moringa",
+          "qty": 172.27,
+          "costPerKg": 300
+        }
+      ],
+      "id": "R019"
+    },
+    {
+      "category": "Pickles",
+      "name": "Amla Thokku Pickle",
+      "conversion": 0.8,
+      "batchOutput": 100,
+      "ingredients": [
+        {
+          "item": "Hinge",
+          "qty": 9.73,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 48.66,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 9.73,
+          "costPerKg": 330
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 145.99,
+          "costPerKg": 60
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 121.65,
+          "costPerKg": 440
+        },
+        {
+          "item": "Salt",
+          "qty": 121.65,
+          "costPerKg": 10
+        },
+        {
+          "item": "Turmeric",
+          "qty": 12.17,
+          "costPerKg": 230
+        },
+        {
+          "item": "Lemon",
+          "qty": 19.46,
+          "costPerKg": 600
+        },
+        {
+          "item": "Mustard",
+          "qty": 24.33,
+          "costPerKg": 110
+        },
+        {
+          "item": "Amla (Deseeded)",
+          "qty": 486.62,
+          "costPerKg": 180
+        }
+      ],
+      "id": "R020"
+    },
+    {
+      "category": "Pickles",
+      "name": "Spicy Amla",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Hinge",
+          "qty": 2.6,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 26.04,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli Powder/flakes",
+          "qty": 67.71,
+          "costPerKg": 330
+        },
+        {
+          "item": "Mustard Podi",
+          "qty": 41.67,
+          "costPerKg": 120
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 520.83,
+          "costPerKg": 440
+        },
+        {
+          "item": "Salt",
+          "qty": 65.1,
+          "costPerKg": 10
+        },
+        {
+          "item": "Lemon",
+          "qty": 15.62,
+          "costPerKg": 600
+        },
+        {
+          "item": "Amla (Deseeded)",
+          "qty": 260.42,
+          "costPerKg": 180
+        }
+      ],
+      "id": "R021"
+    },
+    {
+      "category": "Pickles",
+      "name": "Tomato Drumstick",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Hinge",
+          "qty": 5.52,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 5.52,
+          "costPerKg": 110
+        },
+        {
+          "item": "Red Chilli",
+          "qty": 88.28,
+          "costPerKg": 330
+        },
+        {
+          "item": "Mustard Podi",
+          "qty": 11.03,
+          "costPerKg": 120
+        },
+        {
+          "item": "Sesame Oil",
+          "qty": 206.9,
+          "costPerKg": 440
+        },
+        {
+          "item": "Garlic",
+          "qty": 22.07,
+          "costPerKg": 200
+        },
+        {
+          "item": "Tamarind",
+          "qty": 82.76,
+          "costPerKg": 180
+        },
+        {
+          "item": "Chenna",
+          "qty": 9.66,
+          "costPerKg": 110
+        },
+        {
+          "item": "Urad",
+          "qty": 8.28,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 8.28,
+          "costPerKg": 110
+        },
+        {
+          "item": "Tomato",
+          "qty": 275.86,
+          "costPerKg": 50
+        },
+        {
+          "item": "Drum Stick",
+          "qty": 275.86,
+          "costPerKg": 80
+        }
+      ],
+      "id": "R022"
+    },
+    {
+      "category": "Papad",
+      "name": "Poha",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 37.61,
+          "costPerKg": 210
+        },
+        {
+          "item": "Hinge",
+          "qty": 1,
+          "costPerKg": 7.49
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 27.35,
+          "costPerKg": 60
+        },
+        {
+          "item": "Salt",
+          "qty": 47.86,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 20.51,
+          "costPerKg": 320
+        },
+        {
+          "item": "Lemon",
+          "qty": 11.97,
+          "costPerKg": 600
+        }
+      ],
+      "id": "R023"
+    },
+    {
+      "category": "Papad",
+      "name": "Rice",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 16.47,
+          "costPerKg": 210
+        },
+        {
+          "item": "Hinge",
+          "qty": 1,
+          "costPerKg": 7.49
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 7.49,
+          "costPerKg": 60
+        },
+        {
+          "item": "Salt",
+          "qty": 20.96,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 8.98,
+          "costPerKg": 320
+        },
+        {
+          "item": "Lemon",
+          "qty": 10.48,
+          "costPerKg": 600
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 748.5,
+          "costPerKg": 60
+        }
+      ],
+      "id": "R024"
+    },
+    {
+      "category": "Papad",
+      "name": "Ragi",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 16.54,
+          "costPerKg": 210
+        },
+        {
+          "item": "Hinge",
+          "qty": 1,
+          "costPerKg": 7.49
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 7.52,
+          "costPerKg": 60
+        },
+        {
+          "item": "Salt",
+          "qty": 21.05,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 4.51,
+          "costPerKg": 320
+        },
+        {
+          "item": "Lemon",
+          "qty": 10.53,
+          "costPerKg": 600
+        },
+        {
+          "item": "Ragi Powder",
+          "qty": 751.88,
+          "costPerKg": 50
+        }
+      ],
+      "id": "R025"
+    },
+    {
+      "category": "Papad",
+      "name": "Sabudhana",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 12.39,
+          "costPerKg": 210
+        },
+        {
+          "item": "Hinge",
+          "qty": 1,
+          "costPerKg": 7.49
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 7.51,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 1.31,
+          "costPerKg": 330
+        },
+        {
+          "item": "Salt",
+          "qty": 21.02,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 9.01,
+          "costPerKg": 320
+        },
+        {
+          "item": "Lemon",
+          "qty": 10.51,
+          "costPerKg": 600
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 187.65,
+          "costPerKg": 60
+        }
+      ],
+      "id": "R026"
+    },
+    {
+      "category": "Papad",
+      "name": "Suji Ravva",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 12.39,
+          "costPerKg": 210
+        },
+        {
+          "item": "Hinge",
+          "qty": 1,
+          "costPerKg": 7.49
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 7.51,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 1.31,
+          "costPerKg": 330
+        },
+        {
+          "item": "Salt",
+          "qty": 21.02,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 9.01,
+          "costPerKg": 320
+        },
+        {
+          "item": "Lemon",
+          "qty": 10.51,
+          "costPerKg": 600
+        }
+      ],
+      "id": "R027"
+    },
+    {
+      "category": "Papad",
+      "name": "Corriender",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 10.23,
+          "costPerKg": 210
+        },
+        {
+          "item": "Hinge",
+          "qty": 1,
+          "costPerKg": 7.49
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 24.81,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 1.09,
+          "costPerKg": 330
+        },
+        {
+          "item": "Salt",
+          "qty": 17.37,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 7.44,
+          "costPerKg": 320
+        },
+        {
+          "item": "Lemon",
+          "qty": 8.68,
+          "costPerKg": 600
+        },
+        {
+          "item": "Corrionder",
+          "qty": 155.06,
+          "costPerKg": 80
+        }
+      ],
+      "id": "R028"
+    },
+    {
+      "category": "Papad",
+      "name": "Curd Chilli",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Methi",
+          "qty": 11.58,
+          "costPerKg": 120
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 602.27,
+          "costPerKg": 60
+        },
+        {
+          "item": "Salt",
+          "qty": 23.16,
+          "costPerKg": 10
+        },
+        {
+          "item": "Lemon",
+          "qty": 1.62,
+          "costPerKg": 600
+        },
+        {
+          "item": "Curd",
+          "qty": 347.46,
+          "costPerKg": 78
+        },
+        {
+          "item": "Ajwain",
+          "qty": 13.9,
+          "costPerKg": 680
+        }
+      ],
+      "id": "R029"
+    },
+    {
+      "category": "Papad",
+      "name": "Ragi Murukulu",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 7.14,
+          "costPerKg": 210
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 4.28,
+          "costPerKg": 330
+        },
+        {
+          "item": "Oil",
+          "qty": 178.44,
+          "costPerKg": 420
+        },
+        {
+          "item": "Salt",
+          "qty": 3.57,
+          "costPerKg": 10
+        },
+        {
+          "item": "Green Gram",
+          "qty": 178.44,
+          "costPerKg": 120
+        },
+        {
+          "item": "Ajwain",
+          "qty": 3.57,
+          "costPerKg": 680
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 178.44,
+          "costPerKg": 60
+        },
+        {
+          "item": "Ragi Powder",
+          "qty": 356.89,
+          "costPerKg": 50
+        }
+      ],
+      "id": "R030"
+    },
+    {
+      "category": "Papad",
+      "name": "Poha Murukulu",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 5.8,
+          "costPerKg": 210
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 5.8,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 3.48,
+          "costPerKg": 330
+        },
+        {
+          "item": "Oil",
+          "qty": 145.05,
+          "costPerKg": 420
+        },
+        {
+          "item": "Salt",
+          "qty": 2.9,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 4.35,
+          "costPerKg": 320
+        },
+        {
+          "item": "Curry Leaf",
+          "qty": 5.8,
+          "costPerKg": 60
+        },
+        {
+          "item": "Chenna",
+          "qty": 94.28,
+          "costPerKg": 100
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 435.16,
+          "costPerKg": 60
+        }
+      ],
+      "id": "R031"
+    },
+    {
+      "category": "Papad",
+      "name": "Masala Papad",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 31.39,
+          "costPerKg": 210
+        },
+        {
+          "item": "Hinge",
+          "qty": 0.31,
+          "costPerKg": 7.49
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 31.39,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder/Flakes",
+          "qty": 1.57,
+          "costPerKg": 330
+        },
+        {
+          "item": "Onions",
+          "qty": 235.4,
+          "costPerKg": 80
+        },
+        {
+          "item": "Salt",
+          "qty": 31.39,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 9.42,
+          "costPerKg": 320
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 470.81,
+          "costPerKg": 60
+        }
+      ],
+      "id": "R032"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Instant Pulihora Podi",
+      "conversion": 0.95,
+      "batchOutput": 2000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 40.16,
+          "costPerKg": 450
+        },
+        {
+          "item": "Sesame",
+          "qty": 60.24,
+          "costPerKg": 210
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 70.28,
+          "costPerKg": 180
+        },
+        {
+          "item": "Hinge",
+          "qty": 8.03,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 20.08,
+          "costPerKg": 120
+        },
+        {
+          "item": "Red Chilli Powder",
+          "qty": 64.26,
+          "costPerKg": 330
+        },
+        {
+          "item": "Tamarind",
+          "qty": 602.41,
+          "costPerKg": 180
+        },
+        {
+          "item": "Jeera",
+          "qty": 14.06,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 60.24,
+          "costPerKg": 100
+        },
+        {
+          "item": "Pepper",
+          "qty": 12.05,
+          "costPerKg": 780
+        },
+        {
+          "item": "Urad",
+          "qty": 48.19,
+          "costPerKg": 140
+        }
+      ],
+      "id": "R033"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Instant Pulihogare Gojju",
+      "conversion": 0.95,
+      "batchOutput": 2000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 47.39,
+          "costPerKg": 210
+        },
+        {
+          "item": "Jaggery",
+          "qty": 59.24,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 35.55,
+          "costPerKg": 180
+        },
+        {
+          "item": "Methi",
+          "qty": 4.74,
+          "costPerKg": 120
+        },
+        {
+          "item": "Red Chilli - Badige",
+          "qty": 4.74,
+          "costPerKg": 350
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 18.96,
+          "costPerKg": 60
+        },
+        {
+          "item": "Red Chilli Powder",
+          "qty": 28.44,
+          "costPerKg": 330
+        },
+        {
+          "item": "Oil",
+          "qty": 355.45,
+          "costPerKg": 420
+        },
+        {
+          "item": "Salt",
+          "qty": 106.64,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 236.97,
+          "costPerKg": 180
+        },
+        {
+          "item": "Jeera",
+          "qty": 4.74,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 35.55,
+          "costPerKg": 100
+        },
+        {
+          "item": "Curry Leaf",
+          "qty": 2.37,
+          "costPerKg": 80
+        },
+        {
+          "item": "Pepper",
+          "qty": 11.85,
+          "costPerKg": 780
+        },
+        {
+          "item": "Urad",
+          "qty": 28.44,
+          "costPerKg": 140
+        },
+        {
+          "item": "Mustard",
+          "qty": 18.96,
+          "costPerKg": 110
+        }
+      ],
+      "id": "R034"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Sambar Masala",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 19.4,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 538.79,
+          "costPerKg": 180
+        },
+        {
+          "item": "Hinge",
+          "qty": 5.39,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 21.55,
+          "costPerKg": 120
+        },
+        {
+          "item": "Red Chilli Powder",
+          "qty": 215.52,
+          "costPerKg": 330
+        },
+        {
+          "item": "Jeera",
+          "qty": 10.78,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 53.88,
+          "costPerKg": 100
+        },
+        {
+          "item": "Curry Leaf",
+          "qty": 5.39,
+          "costPerKg": 80
+        },
+        {
+          "item": "Pepper",
+          "qty": 10.78,
+          "costPerKg": 780
+        },
+        {
+          "item": "Thur dal",
+          "qty": 53.88,
+          "costPerKg": 125
+        },
+        {
+          "item": "Urad",
+          "qty": 43.1,
+          "costPerKg": 140
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 21.55,
+          "costPerKg": 60
+        }
+      ],
+      "id": "R035"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Sambar Instant",
+      "conversion": 0.95,
+      "batchOutput": 5000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 19.26,
+          "costPerKg": 450
+        },
+        {
+          "item": "Jaggery",
+          "qty": 25.67,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 89.86,
+          "costPerKg": 180
+        },
+        {
+          "item": "Hinge",
+          "qty": 6.42,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 3.85,
+          "costPerKg": 120
+        },
+        {
+          "item": "Red Chilli - Badige",
+          "qty": 64.18,
+          "costPerKg": 350
+        },
+        {
+          "item": "Tamarind",
+          "qty": 44.93,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 5.13,
+          "costPerKg": 230
+        },
+        {
+          "item": "Jeera",
+          "qty": 6.42,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 25.67,
+          "costPerKg": 100
+        },
+        {
+          "item": "Curry Leaf",
+          "qty": 3.85,
+          "costPerKg": 80
+        },
+        {
+          "item": "Pepper",
+          "qty": 2.57,
+          "costPerKg": 780
+        },
+        {
+          "item": "Thur dal",
+          "qty": 641.85,
+          "costPerKg": 125
+        },
+        {
+          "item": "Green Gram",
+          "qty": 25.67,
+          "costPerKg": 120
+        },
+        {
+          "item": "cinnamon",
+          "qty": 2.57,
+          "costPerKg": 380
+        },
+        {
+          "item": "Urad",
+          "qty": 19.26,
+          "costPerKg": 140
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 12.84,
+          "costPerKg": 60
+        }
+      ],
+      "id": "R036"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Instant Sprouted horse gram",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 72.99,
+          "costPerKg": 210
+        },
+        {
+          "item": "Jaggery",
+          "qty": 109.49,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 18.25,
+          "costPerKg": 180
+        },
+        {
+          "item": "Hinge",
+          "qty": 1.82,
+          "costPerKg": 1700
+        },
+        {
+          "item": "Methi",
+          "qty": 5.47,
+          "costPerKg": 120
+        },
+        {
+          "item": "Red Chilli - Guntur",
+          "qty": 47.45,
+          "costPerKg": 250
+        },
+        {
+          "item": "Red Chilli - Badige",
+          "qty": 43.8,
+          "costPerKg": 350
+        },
+        {
+          "item": "Garlic",
+          "qty": 5.47,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 218.98,
+          "costPerKg": 10
+        },
+        {
+          "item": "Tamarind",
+          "qty": 91.24,
+          "costPerKg": 180
+        },
+        {
+          "item": "Jeera",
+          "qty": 3.65,
+          "costPerKg": 300
+        },
+        {
+          "item": "Curry Leaf",
+          "qty": 3.65,
+          "costPerKg": 80
+        },
+        {
+          "item": "Pepper",
+          "qty": 3.65,
+          "costPerKg": 780
+        },
+        {
+          "item": "Ajwain",
+          "qty": 9.12,
+          "costPerKg": 680
+        }
+      ],
+      "id": "R037"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Masala Karam",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dhaniya powder",
+          "qty": 110.38,
+          "costPerKg": 180
+        },
+        {
+          "item": "Methi",
+          "qty": 13.25,
+          "costPerKg": 120
+        },
+        {
+          "item": "Red Chilli - Guntur",
+          "qty": 264.9,
+          "costPerKg": 250
+        },
+        {
+          "item": "Red Chilli - Badige",
+          "qty": 176.6,
+          "costPerKg": 350
+        },
+        {
+          "item": "Garlic",
+          "qty": 132.45,
+          "costPerKg": 200
+        },
+        {
+          "item": "Salt",
+          "qty": 110.38,
+          "costPerKg": 10
+        },
+        {
+          "item": "Jeera",
+          "qty": 44.15,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 66.23,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 81.68,
+          "costPerKg": 140
+        }
+      ],
+      "id": "R038"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Kura Karam",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 106.38,
+          "costPerKg": 450
+        },
+        {
+          "item": "Groundnut",
+          "qty": 79.79,
+          "costPerKg": 150
+        },
+        {
+          "item": "Sesame",
+          "qty": 79.79,
+          "costPerKg": 210
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 79.79,
+          "costPerKg": 180
+        },
+        {
+          "item": "Red Chilli - Guntur",
+          "qty": 79.79,
+          "costPerKg": 250
+        },
+        {
+          "item": "Red Chilli - Badige",
+          "qty": 69.15,
+          "costPerKg": 350
+        },
+        {
+          "item": "Jeera",
+          "qty": 53.19,
+          "costPerKg": 300
+        },
+        {
+          "item": "Bengal Gram/Chenna Dal",
+          "qty": 265.96,
+          "costPerKg": 100
+        },
+        {
+          "item": "Urad",
+          "qty": 186.17,
+          "costPerKg": 140
+        }
+      ],
+      "id": "R039"
+    },
+    {
+      "category": "Masala and Instant Mix",
+      "name": "Herbal Tea (10kg perday)",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 100,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 100,
+          "costPerKg": 180
+        },
+        {
+          "item": "Turmeric",
+          "qty": 100,
+          "costPerKg": 230
+        },
+        {
+          "item": "Pepper",
+          "qty": 100,
+          "costPerKg": 780
+        },
+        {
+          "item": "cinnamon",
+          "qty": 100,
+          "costPerKg": 380
+        },
+        {
+          "item": "Eilachi",
+          "qty": 100,
+          "costPerKg": 1600
+        },
+        {
+          "item": "Clove",
+          "qty": 100,
+          "costPerKg": 750
+        },
+        {
+          "item": "Fennel",
+          "qty": 100,
+          "costPerKg": 350
+        },
+        {
+          "item": "Sonti",
+          "qty": 100,
+          "costPerKg": 325
+        },
+        {
+          "item": "Tulasi",
+          "qty": 100,
+          "costPerKg": 160
+        }
+      ],
+      "id": "R040"
+    },
+    {
+      "category": "Soups",
+      "name": "Spinach Soup",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 25,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 112,
+          "costPerKg": 180
+        },
+        {
+          "item": "Salt",
+          "qty": 112,
+          "costPerKg": 10
+        },
+        {
+          "item": "Turmeric",
+          "qty": 12,
+          "costPerKg": 230
+        },
+        {
+          "item": "Pepper",
+          "qty": 100,
+          "costPerKg": 800
+        },
+        {
+          "item": "cinnamon",
+          "qty": 8,
+          "costPerKg": 380
+        }
+      ],
+      "id": "R041"
+    },
+    {
+      "category": "Soups",
+      "name": "Moring Soup",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 25,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 112,
+          "costPerKg": 180
+        },
+        {
+          "item": "Salt",
+          "qty": 112,
+          "costPerKg": 10
+        },
+        {
+          "item": "Turmeric",
+          "qty": 12,
+          "costPerKg": 230
+        },
+        {
+          "item": "Pepper",
+          "qty": 100,
+          "costPerKg": 800
+        },
+        {
+          "item": "cinnamon",
+          "qty": 8,
+          "costPerKg": 380
+        }
+      ],
+      "id": "R042"
+    },
+    {
+      "category": "Soups",
+      "name": "Moring Seed Soup",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 25,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 112,
+          "costPerKg": 180
+        },
+        {
+          "item": "Salt",
+          "qty": 112,
+          "costPerKg": 10
+        },
+        {
+          "item": "Turmeric",
+          "qty": 12,
+          "costPerKg": 230
+        },
+        {
+          "item": "Pepper",
+          "qty": 100,
+          "costPerKg": 800
+        },
+        {
+          "item": "cinnamon",
+          "qty": 8,
+          "costPerKg": 380
+        }
+      ],
+      "id": "R043"
+    },
+    {
+      "category": "Soups",
+      "name": "Amla Soup",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 25,
+          "costPerKg": 80
+        },
+        {
+          "item": "Dhaniya powder",
+          "qty": 112,
+          "costPerKg": 180
+        },
+        {
+          "item": "Salt",
+          "qty": 112,
+          "costPerKg": 10
+        },
+        {
+          "item": "Turmeric",
+          "qty": 12,
+          "costPerKg": 230
+        },
+        {
+          "item": "Pepper",
+          "qty": 100,
+          "costPerKg": 800
+        },
+        {
+          "item": "cinnamon",
+          "qty": 8,
+          "costPerKg": 380
+        }
+      ],
+      "id": "R044"
+    },
+    {
+      "category": "Jams",
+      "name": "Rosella Jam",
+      "conversion": 0.8,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 575.1,
+          "costPerKg": 80
+        },
+        {
+          "item": "cinnamon",
+          "qty": 2.71,
+          "costPerKg": 380
+        },
+        {
+          "item": "Lemon",
+          "qty": 3.38,
+          "costPerKg": 600
+        },
+        {
+          "item": "Ginger",
+          "qty": 2.71,
+          "costPerKg": 140
+        }
+      ],
+      "id": "R045"
+    },
+    {
+      "category": "Sweets",
+      "name": "Little Millet payasam",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Jaggery",
+          "qty": 409.96,
+          "costPerKg": 80
+        },
+        {
+          "item": "Little Millet",
+          "qty": 235.32,
+          "costPerKg": 160
+        }
+      ],
+      "id": "R046"
+    },
+    {
+      "category": "Sweets",
+      "name": "Rice payasam",
+      "conversion": 0.95,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Dry Coconut",
+          "qty": 39.15,
+          "costPerKg": 450
+        },
+        {
+          "item": "Jaggery",
+          "qty": 469.85,
+          "costPerKg": 80
+        },
+        {
+          "item": "cardamom",
+          "qty": 1.57,
+          "costPerKg": 1600
+        },
+        {
+          "item": "Brown Rice",
+          "qty": 195.77,
+          "costPerKg": 60
+        }
+      ],
+      "id": "R047"
+    }
+  ],
+  "rawMaterials": [
+    {
+      "name": "Ajwain",
+      "costPerKg": 680
+    },
+    {
+      "name": "Amla (Deseeded)",
+      "costPerKg": 180
+    },
+    {
+      "name": "Bajra",
+      "costPerKg": 50
+    },
+    {
+      "name": "Bengal Gram",
+      "costPerKg": 100
+    },
+    {
+      "name": "Bengal Gram/Chenna Dal",
+      "costPerKg": 100
+    },
+    {
+      "name": "Brown Rice",
+      "costPerKg": 60
+    },
+    {
+      "name": "cardamom",
+      "costPerKg": 1600
+    },
+    {
+      "name": "Chenna",
+      "costPerKg": 110
+    },
+    {
+      "name": "Chiroti",
+      "costPerKg": 55
+    },
+    {
+      "name": "cinnamon",
+      "costPerKg": 380
+    },
+    {
+      "name": "Clove",
+      "costPerKg": 750
+    },
+    {
+      "name": "Coriander",
+      "costPerKg": 120
+    },
+    {
+      "name": "Corriander",
+      "costPerKg": 80
+    },
+    {
+      "name": "Corrionder",
+      "costPerKg": 80
+    },
+    {
+      "name": "Curd",
+      "costPerKg": 78
+    },
+    {
+      "name": "Curry Leaf",
+      "costPerKg": 120
+    },
+    {
+      "name": "Curry Leaf powder",
+      "costPerKg": 120
+    },
+    {
+      "name": "Dhaniya powder",
+      "costPerKg": 180
+    },
+    {
+      "name": "Drum Stick",
+      "costPerKg": 80
+    },
+    {
+      "name": "Dry Amla Powder",
+      "costPerKg": 400
+    },
+    {
+      "name": "Dry Coconut",
+      "costPerKg": 450
+    },
+    {
+      "name": "Eilachi",
+      "costPerKg": 1600
+    },
+    {
+      "name": "Fennel",
+      "costPerKg": 350
+    },
+    {
+      "name": "Fried Gram",
+      "costPerKg": 130
+    },
+    {
+      "name": "Garlic",
+      "costPerKg": 200
+    },
+    {
+      "name": "Ginger",
+      "costPerKg": 160
+    },
+    {
+      "name": "Gongura",
+      "costPerKg": 300
+    },
+    {
+      "name": "Green Chilli",
+      "costPerKg": 60
+    },
+    {
+      "name": "Green Gram",
+      "costPerKg": 120
+    },
+    {
+      "name": "Groundnut",
+      "costPerKg": 160
+    },
+    {
+      "name": "Hinge",
+      "costPerKg": 1700
+    },
+    {
+      "name": "Jaggery",
+      "costPerKg": 80
+    },
+    {
+      "name": "Jeera",
+      "costPerKg": 320
+    },
+    {
+      "name": "Lemon",
+      "costPerKg": 600
+    },
+    {
+      "name": "Little Millet",
+      "costPerKg": 160
+    },
+    {
+      "name": "Methi",
+      "costPerKg": 120
+    },
+    {
+      "name": "Mint",
+      "costPerKg": 80
+    },
+    {
+      "name": "Moringa",
+      "costPerKg": 300
+    },
+    {
+      "name": "Mustard",
+      "costPerKg": 110
+    },
+    {
+      "name": "Mustard Podi",
+      "costPerKg": 120
+    },
+    {
+      "name": "Oil",
+      "costPerKg": 420
+    },
+    {
+      "name": "Onions",
+      "costPerKg": 80
+    },
+    {
+      "name": "Pepper",
+      "costPerKg": 800
+    },
+    {
+      "name": "Ragi Powder",
+      "costPerKg": 50
+    },
+    {
+      "name": "Red Chilli",
+      "costPerKg": 330
+    },
+    {
+      "name": "Red Chilli - Badige",
+      "costPerKg": 350
+    },
+    {
+      "name": "Red Chilli - Guntur",
+      "costPerKg": 250
+    },
+    {
+      "name": "Red Chilli Powder",
+      "costPerKg": 330
+    },
+    {
+      "name": "Red Chilli Powder/Flakes",
+      "costPerKg": 330
+    },
+    {
+      "name": "Salt",
+      "costPerKg": 10
+    },
+    {
+      "name": "Sesame",
+      "costPerKg": 210
+    },
+    {
+      "name": "Sesame Oil",
+      "costPerKg": 440
+    },
+    {
+      "name": "Sonti",
+      "costPerKg": 325
+    },
+    {
+      "name": "Tamarind",
+      "costPerKg": 180
+    },
+    {
+      "name": "Thur dal",
+      "costPerKg": 125
+    },
+    {
+      "name": "Tomato",
+      "costPerKg": 50
+    },
+    {
+      "name": "Tulasi",
+      "costPerKg": 160
+    },
+    {
+      "name": "Turmeric",
+      "costPerKg": 230
+    },
+    {
+      "name": "Urad",
+      "costPerKg": 140
+    }
+  ]
+}
