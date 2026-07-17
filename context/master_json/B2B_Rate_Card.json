@@ -1,0 +1,2407 @@
+[
+  {
+    "Customer": "Beruru Pvt. Ltd",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 92.63
+  },
+  {
+    "Customer": "Beruru Pvt. Ltd",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "Beruru Pvt. Ltd",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "Beruru Pvt. Ltd",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "Beruru Pvt. Ltd",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "Beruru Pvt. Ltd",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "Beruru Pvt. Ltd",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 205.36
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 205.36
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 205.36
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 205.36
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 205.36
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 87.62
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 87.62
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 87.62
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Simhapuri Organic Products",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Pickle - Coriander - Loose",
+    "Rate": 156.25
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Pickle - Ginger - Loose",
+    "Rate": 156.25
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Pickle - Spicy Gongura - Loose",
+    "Rate": 156.25
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Pickle - Sweet and Tangy Gongura - Loose",
+    "Rate": 156.25
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Pickle - Moringa - Loose",
+    "Rate": 156.25
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 92.63
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 99.73
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Classic Loose",
+    "Rate": 95
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Classic Sweet Loose",
+    "Rate": 95
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Coriander Loose",
+    "Rate": 95
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Curry leaf Loose",
+    "Rate": 95
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Ginger Loose",
+    "Rate": 95
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Mint Loose",
+    "Rate": 95
+  },
+  {
+    "Customer": "DoctorsForSeva Arogya Foundation - AarogyaSeva",
+    "Product": "Millet Crispies - Moringa Loose",
+    "Rate": 95
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 230
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Pickle - Coriander - Loose",
+    "Rate": 230
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Pickle - Ginger - Loose",
+    "Rate": 230
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Pickle - Spicy Gongura - Loose",
+    "Rate": 230
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Pickle - Sweet and Tangy Gongura - Loose",
+    "Rate": 230
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Pickle - Moringa - Loose",
+    "Rate": 230
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 100
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 100
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 100
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 100
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 100
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 100
+  },
+  {
+    "Customer": "Petrichor Agri ventures",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 100
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 267.86
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 267.86
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 267.86
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 267.86
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 267.86
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 85.71
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 85.71
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 85.71
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 85.71
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 85.71
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 85.71
+  },
+  {
+    "Customer": "BANGALORE AIRPORT HOTEL LIMITED",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 85.71
+  },
+  {
+    "Customer": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 100
+  },
+  {
+    "Customer": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 100
+  },
+  {
+    "Customer": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 100
+  },
+  {
+    "Customer": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 100
+  },
+  {
+    "Customer": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 100
+  },
+  {
+    "Customer": "Foodlink F&B Holdings (India) Pvt. Ltd.",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 100
+  },
+  {
+    "Customer": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 123.81
+  },
+  {
+    "Customer": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 133.33
+  },
+  {
+    "Customer": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 133.33
+  },
+  {
+    "Customer": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 133.33
+  },
+  {
+    "Customer": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 133.33
+  },
+  {
+    "Customer": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 133.33
+  },
+  {
+    "Customer": "Mulberry Shades \u2013 Tribute Portfolio \u2013 Bangalore",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 133.33
+  },
+  {
+    "Customer": "Sheraton Grand Bengaluru Whitefield",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 119.05
+  },
+  {
+    "Customer": "Sheraton Grand Bengaluru Whitefield",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 119.05
+  },
+  {
+    "Customer": "Sheraton Grand Bengaluru Whitefield",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 119.05
+  },
+  {
+    "Customer": "Sheraton Grand Bengaluru Whitefield",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 119.05
+  },
+  {
+    "Customer": "Sheraton Grand Bengaluru Whitefield",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 119.05
+  },
+  {
+    "Customer": "Sheraton Grand Bengaluru Whitefield",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 119.05
+  },
+  {
+    "Customer": "Sheraton Grand Bengaluru Whitefield",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 119.05
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Pickle - Coriander - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Pickle - Ginger - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Pickle - Spicy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Pickle - Sweet and Tangy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Pickle - Moringa - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "200gm Powder - Moringa leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 110
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 110
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 110
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 110
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 110
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 110
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 110
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Classic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Classic Sweet Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Coriander Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Curry leaf Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Garlic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Ginger Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Mint Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Millet Crispies - Moringa Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Sambhar Readymix Powder 250",
+    "Rate": 122
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "300gm Puliogre Mix",
+    "Rate": 169.5
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Amla Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Palak Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Moringa Pulp Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Moringa Leaf Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Amla Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Palak Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Moringa Pulp Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "Prestige Hospitality Ventures Limited (Unit: CONRAD Bengaluru)",
+    "Product": "Moringa Leaf Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "Atta Galatta Books and Publishers Private Limited",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 95.24
+  },
+  {
+    "Customer": "Atta Galatta Books and Publishers Private Limited",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 102.56
+  },
+  {
+    "Customer": "Atta Galatta Books and Publishers Private Limited",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 102.56
+  },
+  {
+    "Customer": "Atta Galatta Books and Publishers Private Limited",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 102.56
+  },
+  {
+    "Customer": "Atta Galatta Books and Publishers Private Limited",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 102.56
+  },
+  {
+    "Customer": "Atta Galatta Books and Publishers Private Limited",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 102.56
+  },
+  {
+    "Customer": "Atta Galatta Books and Publishers Private Limited",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 102.56
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Tomato",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Spicy Avakaya",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "300gm Pickle - Pesara Avakaya",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "Schloss Bengalore Limited",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "200gm Powder - Moringa leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 99.05
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 106.67
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 106.67
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 106.67
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 106.67
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 106.67
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 106.67
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Sambhar Readymix Powder 250",
+    "Rate": 129.94
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "300gm Puliogre Mix",
+    "Rate": 194.92
+  },
+  {
+    "Customer": "N R FOODS AND TECHNOLOGY PRIVATE LIMITED",
+    "Product": "Amla Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "SV Enterprises",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "SV Enterprises",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "SV Enterprises",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "SV Enterprises",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "SV Enterprises",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "SV Enterprises",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "SV Enterprises",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 114.29
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Pesara Avakaya",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Pickle - Coriander - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Pickle - Ginger - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Pickle - Spicy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Pickle - Sweet and Tangy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Pickle - Moringa - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "30gm Pickle - Coriander",
+    "Rate": 40
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "30gm Pickle - Ginger",
+    "Rate": 40
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "30gm Pickle - Spicy Gongura",
+    "Rate": 40
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "30gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 40
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "30gm Pickle - Amla",
+    "Rate": 40
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "200gm Powder - Moringa leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Classic Sweet",
+    "Rate": 110
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 110
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Classic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Classic Sweet Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Coriander Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Curry leaf Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Garlic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Ginger Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Mint Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Crispies - Moringa Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Sambhar Readymix Powder 250",
+    "Rate": 122
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Puliogre Mix",
+    "Rate": 169.5
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Amla Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Palak Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Moringa Pulp Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Moringa Leaf Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Amla Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Palak Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Moringa Pulp Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Moringa Leaf Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Khichdi Mix",
+    "Rate": 714.29
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Kodo Millet Rava",
+    "Rate": 333.33
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Dosa Mix",
+    "Rate": 524
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Nutri Mix Unsprouted",
+    "Rate": 429
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Millet Nutri Mix Sprouted",
+    "Rate": 523.81
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Artisanal Rice Paper Wrap",
+    "Rate": 1810
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Artisanal Boondi Laddoo",
+    "Rate": 942.86
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Kaanthi Herbal Face Ubtan",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Kaanthi Ayurvedic hair Spa",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "250gm Kura Karam",
+    "Rate": 198.41
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Masala Karam",
+    "Rate": 79.37
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "250gm Fresh Moringa Leaves",
+    "Rate": 110
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "1kg Wood Apple Pulp",
+    "Rate": 400
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Spicy Amla",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Sundried Curd Chilli",
+    "Rate": 79.37
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Little Millet Payasam Instant Mix 100",
+    "Rate": 105.93
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Rice Papad - Masala",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Rava Papad",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Sabudana Papad",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100gm Rice Papad - Coriander",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "200gm Sprouted Ulavachaaru Readymix Powder",
+    "Rate": 122
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Tender Tamarind Gojju",
+    "Rate": 300
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Magaya (Mango)",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Rice Payasam Instant Mix 100",
+    "Rate": 105.93
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Artisanal Poha Murukulu",
+    "Rate": 76.27
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "300gm Pickle - Amla Thokku Pickle",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "1kg - Chiroti Ravva Dough",
+    "Rate": 127.12
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "1kg - Poornam for Bobbattu",
+    "Rate": 571.43
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "100g - Fresh Gongura Leaves",
+    "Rate": 60
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "200g Puliyogare masala powder mix",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "1lit - Holige Rasam",
+    "Rate": 84.75
+  },
+  {
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Product": "Chefs",
+    "Rate": 2500
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Tomato",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Spicy Avakaya",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "300gm Pickle - Pesara Avakaya",
+    "Rate": 179.46
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 111.67
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 111.67
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 111.67
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 111.67
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 111.67
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 111.67
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 111.67
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Amla Soup 50",
+    "Rate": 85.17
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Palak Soup 50",
+    "Rate": 85.17
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Moringa Pulp Soup 50",
+    "Rate": 85.17
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Moringa Leaf Soup 50",
+    "Rate": 85.17
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Amla Soup 100",
+    "Rate": 156.14
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Palak Soup 100",
+    "Rate": 156.14
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Moringa Pulp Soup 100",
+    "Rate": 156.14
+  },
+  {
+    "Customer": "AAAS FOODS AND NATURE'S SOUL PVT LTD",
+    "Product": "Moringa Leaf Soup 100",
+    "Rate": 156.14
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Pickle - Coriander - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Pickle - Ginger - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Pickle - Spicy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Pickle - Sweet and Tangy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Pickle - Moringa - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "200gm Powder - Moringa leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Classic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Classic Sweet Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Coriander Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Curry leaf Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Garlic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Ginger Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Mint Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Millet Crispies - Moringa Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Sambhar Readymix Powder 250",
+    "Rate": 122
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "300gm Puliogre Mix",
+    "Rate": 169.5
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Amla Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Palak Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Moringa Pulp Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Moringa Leaf Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Amla Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Palak Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Moringa Pulp Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "Moringa Leaf Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "100gm Kaanthi Herbal Face Ubtan",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "100gm Kaanthi Ayurvedic hair Spa",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "DoubleTree by Hilton Gurgaon\nUnit of Balprada Hotels & Hospitality P Ltd",
+    "Product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Pickle - Coriander - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Pickle - Ginger - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Pickle - Spicy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Pickle - Sweet and Tangy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Pickle - Moringa - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "200gm Powder - Moringa leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Classic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Classic Sweet Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Coriander Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Curry leaf Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Garlic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Ginger Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Mint Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Millet Crispies - Moringa Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Sambhar Readymix Powder 250",
+    "Rate": 122
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "300gm Puliogre Mix",
+    "Rate": 169.5
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Amla Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Palak Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Moringa Pulp Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Moringa Leaf Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Amla Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Palak Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Moringa Pulp Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "Moringa Leaf Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "100gm Kaanthi Herbal Face Ubtan",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "100gm Kaanthi Ayurvedic hair Spa",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "KALYANI HOSPITALITY SERVICES PRIVATE LIMITED (A unit of DoubleTree by Hilton)",
+    "Product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "Earthbound Expressions Private Limited",
+    "Product": "Cotton WA (40/2) + Linen WE (50), GSM 240",
+    "Rate": 1150
+  },
+  {
+    "Customer": "Sonal Kushwaha",
+    "Product": "Handloom Fabric - Cotton + Cotton",
+    "Rate": 589.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Tomato",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Spicy Avakaya",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Pesara Avakaya",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "30gm Pickle - Coriander",
+    "Rate": 47.62
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "30gm Pickle - Ginger",
+    "Rate": 47.62
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "30gm Pickle - Spicy Gongura",
+    "Rate": 47.62
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "30gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 47.62
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "30gm Pickle - Amla",
+    "Rate": 47.62
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "200gm Powder - Moringa leaf",
+    "Rate": 171.43
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 171.43
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 171.43
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 171.43
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 166.67
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 166.67
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 166.67
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 166.67
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 166.67
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 166.67
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 166.67
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Amla Soup 50",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Palak Soup 50",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Moringa Pulp Soup 50",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Moringa Leaf Soup 50",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "300gm Pickle - Spicy Amla",
+    "Rate": 285.71
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "30gm Pickle - Moringa",
+    "Rate": 47.62
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Hamper Bags (hand woven)",
+    "Rate": 423.73
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "50gm Powder - Curry leaf",
+    "Rate": 52.38
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "50gm Powder - Spicy Ground nut",
+    "Rate": 52.38
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "50gm Powder - Spicy Sesame",
+    "Rate": 52.38
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "50gm Powder - Moringa leaf",
+    "Rate": 52.38
+  },
+  {
+    "Customer": "Nisha Bihani",
+    "Product": "Sambhar Readymix Powder 50",
+    "Rate": 71.43
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Pickle - Coriander",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Pickle - Ginger",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Pickle - Spicy Gongura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Pickle - Moringa",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Pickle - Pesara Avakaya",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Pickle - Coriander - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Pickle - Ginger - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Pickle - Spicy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Pickle - Sweet and Tangy Gongura - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Pickle - Moringa - Loose",
+    "Rate": 750
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "30gm Pickle - Coriander",
+    "Rate": 40
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "30gm Pickle - Ginger",
+    "Rate": 40
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "30gm Pickle - Spicy Gongura",
+    "Rate": 40
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "30gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 40
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "30gm Pickle - Amla",
+    "Rate": 40
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "200gm Powder - Moringa leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "200gm Powder - Curry leaf",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "200gm Powder - Spicy Ground nut",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "200gm Powder - Spicy Sesame",
+    "Rate": 142.86
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Classic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Coriander",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Curry leaf",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Garlic",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Ginger",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Mint",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Moringa",
+    "Rate": 109.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Classic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Classic Sweet Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Coriander Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Curry leaf Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Garlic Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Ginger Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Mint Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Crispies - Moringa Loose",
+    "Rate": 840
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Sambhar Readymix Powder 250",
+    "Rate": 122
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Puliogre Mix",
+    "Rate": 169.5
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Amla Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Palak Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Moringa Pulp Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Moringa Leaf Soup 50",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Amla Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Palak Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Moringa Pulp Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Moringa Leaf Soup 100",
+    "Rate": 194.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Khichdi Mix",
+    "Rate": 714.29
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Kodo Millet Rava",
+    "Rate": 333.33
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Dosa Mix",
+    "Rate": 523.81
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Nutri Mix Unsprouted",
+    "Rate": 428.57
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Millet Nutri Mix Sprouted",
+    "Rate": 523.81
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Artisanal Rice Paper Wrap",
+    "Rate": 1809.52
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Artisanal Boondi Laddoo",
+    "Rate": 942.86
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Kaanthi Herbal Face Ubtan",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Kaanthi Ayurvedic hair Spa",
+    "Rate": 91.81
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Kaanthi Carrot Oil Face & Body Cream",
+    "Rate": 81.92
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "250gm Kura Karam",
+    "Rate": 198.41
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Masala Karam",
+    "Rate": 79.37
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "250gm Fresh Moringa Leaves",
+    "Rate": 110
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "1kg Wood Apple Pulp",
+    "Rate": 400
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "300gm Pickle - Spicy Amla",
+    "Rate": 223.21
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Sundried Curd Chilli",
+    "Rate": 79.37
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Little Millet Payasam Instant Mix 100",
+    "Rate": 105.93
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Rice Papad - Masala",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Rava Papad",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Sabudana Papad",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "100gm Rice Papad - Coriander",
+    "Rate": 83.33
+  },
+  {
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Product": "Chefs",
+    "Rate": 2500
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Pickle - Coriander",
+    "Rate": 49
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Pickle - Ginger",
+    "Rate": 49
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Pickle - Spicy Gongura",
+    "Rate": 49
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Pickle - Sweet and Tangy Gungura",
+    "Rate": 49
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Pickle - Amla",
+    "Rate": 49
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Pickle - Moringa",
+    "Rate": 49
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Pickle - Tomato",
+    "Rate": 49
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Classic",
+    "Rate": 67
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Classic Sweet",
+    "Rate": 67
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Coriander",
+    "Rate": 67
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Curry leaf",
+    "Rate": 67
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Garlic",
+    "Rate": 67
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Ginger",
+    "Rate": 67
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Mint",
+    "Rate": 67
+  },
+  {
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Product": "30gm Millet Crispies - Moringa",
+    "Rate": 67
+  },
+  {
+    "Customer": "Indigowares Ltd",
+    "Product": "Hand Loom Band - \n(Sample)\n100% Cotton 10/2 Indigo-Dyed Yarn",
+    "Rate": 2000
+  }
+]

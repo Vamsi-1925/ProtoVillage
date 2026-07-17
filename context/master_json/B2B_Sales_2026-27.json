@@ -1,0 +1,58 @@
+[
+  {
+    "Invoice #": "B2B26270005-09-Jun-2026",
+    "Date": "2026-06-09 00:00:00",
+    "Customer": "Indigowares Ltd",
+    "Status": "Paid",
+    "Amount": 2100
+  },
+  {
+    "Invoice #": "B2B26270004-05-Jun-2026",
+    "Date": "2026-06-05 00:00:00",
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Status": "Paid",
+    "Amount": 20640
+  },
+  {
+    "Invoice #": "B2B26270003-27-Apr-2026",
+    "Date": "2026-04-27 00:00:00",
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Status": "Paid",
+    "Amount": 7137.5
+  },
+  {
+    "Invoice #": "B2B26270002-24-Apr-2026",
+    "Date": "2026-04-24 00:00:00",
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Status": "Paid",
+    "Amount": 10820
+  },
+  {
+    "Invoice #": "B2B26270001-13-Apr-2026",
+    "Date": "2026-04-13 00:00:00",
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Status": "Paid",
+    "Amount": 184700
+  },
+  {
+    "Invoice #": "B2B25260075-27-Apr-2026",
+    "Date": "2026-04-27 00:00:00",
+    "Customer": "MANYATA PROMOTERS PVT LTD.",
+    "Status": "Paid",
+    "Amount": 7137.5
+  },
+  {
+    "Invoice #": "B2B25260074-24-Apr-2026",
+    "Date": "2026-04-24 00:00:00",
+    "Customer": "HILTON HYDERABAD GENOME VALLEY RESORT & SPA",
+    "Status": "Paid",
+    "Amount": 10820
+  },
+  {
+    "Invoice #": "B2B25260073-13-Apr-2026",
+    "Date": "2026-04-13 00:00:00",
+    "Customer": "JW MARRIOTT BENGLURU U/O GSTAAD HOTELS PVT LTD",
+    "Status": "Paid",
+    "Amount": 184700
+  }
+]
