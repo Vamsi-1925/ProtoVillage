@@ -8,14 +8,17 @@ orders with per-line finished-goods availability (reusing
 warehouse team either mark the order Ready for Dispatch (stock is
 sufficient for every line) or Raise Production (stock is short) —
 generating a PROD-<FY>-#### token in the latter case.
+
+FIX 2: the action endpoints below are keyed on the WH token, not
+order_id — order_id is a human-readable label but the WH token is the
+actual unique handle for "this specific stock-check", exactly like
+graamam_v2's warehouseReady(whId)/warehouseRaiseProd(whId).
 """
 from __future__ import annotations
 
-from typing import Optional
 from fastapi import APIRouter, HTTPException
 
-from ._shared import get_db, gen_id, serialize, now_ist
-from .graamam_orders import _next_fy_token
+from ._shared import get_db, gen_id, serialize, now_ist, next_fy_token, finished_qty, order_availability
 
 router = APIRouter(prefix="/graamam/warehouse", tags=["graamam-warehouse"])
 
@@ -27,43 +30,6 @@ PROCESSED_STATUSES = [
 ]
 
 
-async def _finished_qty(db, product_id: Optional[str]) -> float:
-    if not product_id:
-        return 0.0
-    doc = await db.graamam_inventory.find_one({"sku": product_id}, {"_id": 0, "qty_on_hand": 1})
-    return float(doc.get("qty_on_hand") or 0) if doc else 0.0
-
-
-async def _order_availability(db, order: dict) -> list:
-    """Mirrors v2's orderItemsAvailability(): [{...it, available, ok}]."""
-    items = order.get("items") or []
-    if not items:
-        # Legacy / lump-sum order with no real product lines — stock can't
-        # be verified, so route it to production rather than risk a false
-        # "Ready for Dispatch".
-        return [{
-            "product_id": None,
-            "product": order.get("items_summary") or "Unspecified items",
-            "unit": "",
-            "qty": float(order.get("items_count") or 1),
-            "available": 0.0,
-            "ok": False,
-        }]
-    out = []
-    for it in items:
-        qty = float(it.get("qty") or 0)
-        avail = await _finished_qty(db, it.get("product_id"))
-        out.append({
-            "product_id": it.get("product_id"),
-            "product": it.get("product") or "Item",
-            "unit": it.get("unit") or "",
-            "qty": qty,
-            "available": avail,
-            "ok": avail >= qty,
-        })
-    return out
-
-
 @router.get("/pending")
 async def list_pending():
     """§ Pending Stock Check — every order at status 'warehouse_check'."""
@@ -71,7 +37,7 @@ async def list_pending():
     docs = await db.graamam_orders.find({"status": "warehouse_check"}, {"_id": 0}).sort("created_at", 1).to_list(500)
     out = []
     for o in docs:
-        availability = await _order_availability(db, o)
+        availability = await order_availability(db, o)
         out.append({
             "order_id": o.get("order_id"),
             "order_type": o.get("order_type"),
@@ -106,13 +72,13 @@ async def list_processed():
 
 
 @router.get("/finished-goods")
-async def finished_goods():
+async def finished_goods_list():
     """§ Collapsible Finished Goods stock reference."""
     db = get_db()
     products = await db.graamam_products.find({}, {"_id": 0}).sort("product_id", 1).to_list(1000)
     out = []
     for p in products:
-        qty = await _finished_qty(db, p.get("product_id"))
+        qty = await finished_qty(db, p.get("product_id"))
         out.append({
             "product_id": p.get("product_id"),
             "name": p.get("name"),
@@ -123,22 +89,24 @@ async def finished_goods():
     return out
 
 
-@router.post("/{order_id}/ready")
-async def mark_ready(order_id: str):
-    """warehouseReady(whId) replica: stock sufficient -> ready_dispatch."""
+@router.post("/{wh_token}/ready")
+async def mark_ready(wh_token: str):
+    """warehouseReady(whId) replica: stock sufficient -> ready_dispatch.
+    Keyed on the unique wh_token (FIX 2), not order_id."""
     db = get_db()
-    order = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    order = await db.graamam_orders.find_one({"wh_token": wh_token}, {"_id": 0})
     if not order:
-        raise HTTPException(404, f"order {order_id} not found")
+        raise HTTPException(404, f"warehouse token {wh_token} not found")
     if order.get("status") != "warehouse_check":
         raise HTTPException(400, f"order is not pending stock check (status={order.get('status')})")
-    availability = await _order_availability(db, order)
+    availability = await order_availability(db, order)
     if not availability or not all(a["ok"] for a in availability):
         raise HTTPException(400, "Stock is no longer sufficient. Please raise production instead.")
 
+    order_id = order.get("order_id")
     now = now_ist().isoformat()
     await db.graamam_orders.update_one(
-        {"order_id": order_id},
+        {"wh_token": wh_token},
         {"$set": {
             "status": "ready_dispatch",
             "wh_outcome": "ready_for_dispatch",
@@ -148,28 +116,29 @@ async def mark_ready(order_id: str):
     )
     try:
         from .graamam_audit import log_action
-        await log_action(order_id, "Stock available — order marked Ready for Dispatch", None, sub_token=order.get("wh_token"))
+        await log_action(order_id, "Stock available — order marked Ready for Dispatch", None, sub_token=wh_token)
     except Exception:
         pass
-    doc = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    doc = await db.graamam_orders.find_one({"wh_token": wh_token}, {"_id": 0})
     return serialize(doc)
 
 
-@router.post("/{order_id}/raise-production")
-async def raise_production(order_id: str):
+@router.post("/{wh_token}/raise-production")
+async def raise_production(wh_token: str):
     """warehouseRaiseProd(whId) replica: stock short -> production_pending
-    + a new PROD-<FY>-#### token."""
+    + a new PROD-<FY>-#### token. Keyed on wh_token (FIX 2)."""
     db = get_db()
-    order = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    order = await db.graamam_orders.find_one({"wh_token": wh_token}, {"_id": 0})
     if not order:
-        raise HTTPException(404, f"order {order_id} not found")
+        raise HTTPException(404, f"warehouse token {wh_token} not found")
     if order.get("status") != "warehouse_check":
         raise HTTPException(400, f"order is not pending stock check (status={order.get('status')})")
 
-    prod_token = await _next_fy_token(db, "PROD")
+    order_id = order.get("order_id")
+    prod_token = await next_fy_token(db, "PROD")
     now = now_ist().isoformat()
     await db.graamam_orders.update_one(
-        {"order_id": order_id},
+        {"wh_token": wh_token},
         {"$set": {
             "status": "production_pending",
             "prod_token": prod_token,
@@ -209,5 +178,5 @@ async def raise_production(order_id: str):
         await log_action(order_id, f"Stock insufficient — Production Token {prod_token} raised", None, sub_token=prod_token)
     except Exception:
         pass
-    doc = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    doc = await db.graamam_orders.find_one({"wh_token": wh_token}, {"_id": 0})
     return serialize(doc)

@@ -63,7 +63,6 @@ export const GRAAMAM_ORDERS = {
   orderRowEdit: (oid) => `graamam-order-edit-${oid}`,
   orderRowCancel: (oid) => `graamam-order-cancel-${oid}`,
   orderRowDiscuss: (oid) => `graamam-order-discuss-${oid}`,
-  orderRowRaiseInvoice: (oid) => `graamam-orders-raise-invoice-${oid}`,
   orderHistoryDialog: "graamam-order-history-dialog",
 };
 
@@ -123,8 +122,16 @@ export const GRAAMAM_PROCUREMENT = {
 
 export const GRAAMAM_DISPATCH = {
   page: "graamam-dispatch-page",
+  queueSection: "graamam-dispatch-queue-section",
+  queueEmpty: "graamam-dispatch-queue-empty",
   queueCard: (oid) => `graamam-dispatch-queue-${oid}`,
+  dispatchFormButton: (oid) => `graamam-dispatch-form-${oid}`,
+  dispatchOrderButton: (oid) => `graamam-dispatch-order-${oid}`,
   markDispatched: (oid) => `graamam-dispatch-mark-${oid}`,
+  dispatchedSection: "graamam-dispatch-dispatched-section",
+  dispatchedRow: (oid) => `graamam-dispatch-dispatched-row-${oid}`,
+  printInvoiceButton: (oid) => `graamam-dispatch-print-invoice-${oid}`,
+  printFormButton: (oid) => `graamam-dispatch-print-form-${oid}`,
   recentCard: (sid) => `graamam-dispatch-recent-${sid}`,
 };
 

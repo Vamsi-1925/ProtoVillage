@@ -1,8 +1,10 @@
 """Graamam Connect — Dispatch operations.
 
-Drives from orders that are ready for dispatch (status = 'packing' or
-'ready_dispatch'). Marking dispatched flips the order status to 'dispatched'
-and records a shipment document.
+v2 parity (pgDispatch / dispatchOrder): orders sitting at status
+'ready_dispatch' (confirmed by the Warehouse stock-check) show up here.
+"Dispatch Order" re-verifies finished stock, deducts it, flips the order
+to 'dispatched', records who/when, and auto-generates the tax invoice —
+there is no manual "Raise Invoice" step anymore.
 """
 from __future__ import annotations
 
@@ -11,7 +13,7 @@ from typing import List, Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, ConfigDict, Field
 
-from ._shared import get_db, gen_id, serialize, now_ist
+from ._shared import get_db, gen_id, serialize, now_ist, order_availability
 
 router = APIRouter(prefix="/graamam/dispatch", tags=["graamam-dispatch"])
 
@@ -43,25 +45,129 @@ class MarkDispatchedPayload(BaseModel):
     speed: str = "standard"
 
 
+class DispatchOrderPayload(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    dispatched_by: Optional[str] = None
+
+
 @router.get("/queue")
 async def dispatch_queue():
-    """Orders currently in 'packing' status, ready to be dispatched."""
+    """§ Ready for Dispatch — orders at status 'ready_dispatch', each with
+    per-line qty + current finished stock (v2: `${it.product} × ${it.qty}
+    (stock ${finishedQty(it.productId)})`)."""
     db = get_db()
-    docs = await db.graamam_orders.find({"status": "ready_dispatch"}, {"_id": 0}).sort("created_at", -1).to_list(200)
+    docs = await db.graamam_orders.find({"status": "ready_dispatch"}, {"_id": 0}).sort("created_at", 1).to_list(200)
     out = []
     for d in docs:
-        d.pop("_id", None)
+        availability = await order_availability(db, d)
         out.append({
-            "order_id": d["order_id"],
+            "order_id": d.get("order_id"),
+            "order_type": d.get("order_type"),
             "customer": d.get("customer", {}),
-            "items_count": d.get("items_count", 1),
+            "wh_token": d.get("wh_token"),
             "items_summary": d.get("items_summary") or f"{d.get('items_count', 1)} items",
+            "items_count": d.get("items_count", 1),
+            "items": availability,
             "total": d.get("total", 0),
             "date": d.get("date"),
-            "address": d.get("delivery_address") or "Village Co-op Grocery, MG Road, Bengaluru",
-            "speed": d.get("speed") or "standard",
+            "address": d.get("delivery_address") or "",
         })
     return out
+
+
+@router.get("/dispatched")
+async def dispatched_orders(limit: int = 200):
+    """§ Dispatched — orders that have actually been dispatched, with the
+    auto-generated invoice # attached."""
+    db = get_db()
+    docs = await db.graamam_orders.find({"status": "dispatched"}, {"_id": 0}).sort("dispatched_at", -1).to_list(int(limit))
+    return [{
+        "order_id": d.get("order_id"),
+        "customer": d.get("customer", {}),
+        "items_summary": d.get("items_summary") or f"{d.get('items_count', 1)} items",
+        "items_count": d.get("items_count", 1),
+        "invoice_id": d.get("invoice_id"),
+        "dispatched_by": d.get("dispatched_by"),
+        "dispatched_at": d.get("dispatched_at"),
+    } for d in docs]
+
+
+@router.post("/{order_id}/dispatch", status_code=201)
+async def dispatch_order(order_id: str, payload: DispatchOrderPayload = DispatchOrderPayload()):
+    """dispatchOrder(orderId) replica:
+    1) order must be 'ready_dispatch'
+    2) re-verify finished stock is STILL sufficient (it may have moved)
+    3) deduct finished stock for every line
+    4) status -> dispatched, record dispatchedBy/dispatchedAt
+    5) auto-generate the tax invoice (GST-correct, B2B/B2C aware) — invoiceId stored on the order
+    """
+    db = get_db()
+    order = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    if not order:
+        raise HTTPException(404, f"order {order_id} not found")
+    if order.get("status") != "ready_dispatch":
+        raise HTTPException(400, f"order is not ready for dispatch (status={order.get('status')})")
+
+    availability = await order_availability(db, order)
+    if not availability or not all(a["ok"] for a in availability):
+        raise HTTPException(400, "Finished stock is no longer sufficient for this order.")
+
+    # Deduct finished stock for every real product line.
+    for it in availability:
+        pid = it.get("product_id")
+        if pid:
+            await db.graamam_inventory.update_one({"sku": pid}, {"$inc": {"qty_on_hand": -it["qty"]}})
+
+    now = now_ist().isoformat()
+    dispatched_by = (payload.dispatched_by or "Dispatch Team").strip() or "Dispatch Team"
+    await db.graamam_orders.update_one(
+        {"order_id": order_id},
+        {"$set": {"status": "dispatched", "dispatched_by": dispatched_by, "dispatched_at": now}},
+    )
+
+    # Auto-generate the tax invoice — no manual "Raise Invoice" step anymore.
+    invoice_id = None
+    try:
+        from .graamam_extras import create_invoice_from_order
+        inv = await create_invoice_from_order(order_id)
+        invoice_id = inv.get("invoice_id")
+    except Exception:
+        pass  # invoice may already exist for this order; not fatal
+
+    # Also record a shipment for courier/box tracking continuity.
+    try:
+        n = await db.graamam_shipments.count_documents({}) + 1
+        ship_doc = {
+            "id": gen_id(), "shipment_id": f"SHP-{now_ist().year}-{n:04d}", "order_id": order_id,
+            "customer_name": (order.get("customer") or {}).get("name", "Unknown"),
+            "address": order.get("delivery_address") or "",
+            "items_count": int(order.get("items_count", 1)), "box_count": 1,
+            "courier": "Delhivery", "speed": order.get("speed") or "standard",
+            "dispatched_at": now,
+        }
+        await db.graamam_shipments.insert_one(ship_doc)
+    except Exception:
+        pass
+
+    # Auto-close discussion threads linked to this order.
+    await db.graamam_threads.update_many(
+        {"$or": [
+            {"link_id": order_id, "status": "open"},
+            {"link_type": "order", "link_id": order_id, "status": "open"},
+        ]},
+        {"$set": {"status": "closed", "closed_reason": "order_dispatched", "closed_at": now}},
+    )
+
+    from .graamam_audit import log_action
+    inv_note = f" {order.get('order_type', 'b2b').upper()} Tax Invoice {invoice_id} auto-generated." if invoice_id else ""
+    await log_action(
+        order_id,
+        f"Order dispatched to {(order.get('customer') or {}).get('name', '?')} by {dispatched_by}.{inv_note} Finished stock reduced.",
+        None, sub_token=invoice_id,
+    )
+
+    doc = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    return serialize(doc)
 
 
 @router.get("/recent")
@@ -73,6 +179,9 @@ async def recent_dispatches(limit: int = 10):
 
 @router.post("/mark", status_code=201)
 async def mark_dispatched(payload: MarkDispatchedPayload):
+    """Legacy manual-courier dispatch path — kept for backward
+    compatibility. New UI uses POST /{order_id}/dispatch instead, which
+    also verifies + deducts finished stock."""
     db = get_db()
     order = await db.graamam_orders.find_one({"order_id": payload.order_id}, {"_id": 0})
     if not order:

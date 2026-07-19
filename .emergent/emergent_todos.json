@@ -1,30 +1,62 @@
 [
   {
-    "content": "Backend: create graamam_warehouse.py router (pending/processed/finished-goods/ready/raise-production)",
+    "content": "Backend: add fy_code/next_fy_token/finished_qty/order_availability/ensure_unique_indexes to _shared.py",
     "status": "completed"
   },
   {
-    "content": "Backend: register warehouse router in server.py",
+    "content": "Backend: graamam_orders.py use shared helpers + duplicate-key retry safety",
     "status": "completed"
   },
   {
-    "content": "Backend: adjust _seed_qty in graamam_master.py for scarce demo stock (2 SKUs stocked)",
+    "content": "Backfill: fix existing duplicate ORD-2627-0004, verify zero dupes",
     "status": "completed"
   },
   {
-    "content": "Frontend: rewrite WarehousePage.jsx (Pending Stock Check cards, Processed table, collapsible Finished Goods)",
+    "content": "Backend: graamam_warehouse.py rekey ready/raise-production on wh_token",
     "status": "completed"
   },
   {
-    "content": "Frontend: add warehouseRepository to firestoreClient.js",
+    "content": "Backend: graamam_extras.py fix GST intra/inter (state_code), atomic invoice numbering, B2B/POS series + doc_label",
     "status": "completed"
   },
   {
-    "content": "Frontend: DataTable.jsx - gate Raise Invoice action to status===dispatched",
+    "content": "Backend: graamam_dispatch.py new queue enrichment + dispatch action (verify/deduct/dispatch/auto-invoice) + dispatched list",
     "status": "completed"
   },
   {
-    "content": "Self-check: lint, restart services, curl tests for both warehouse paths + invoice gating",
+    "content": "Backend: server.py call ensure_unique_indexes at startup",
+    "status": "completed"
+  },
+  {
+    "content": "Frontend: firestoreClient.js warehouseRepository rekey + dispatchRepository new methods",
+    "status": "completed"
+  },
+  {
+    "content": "Frontend: WarehousePage.jsx pass wh_token to actions",
+    "status": "completed"
+  },
+  {
+    "content": "Frontend: rewrite DispatchPage.jsx (Ready for Dispatch cards, Dispatched table)",
+    "status": "completed"
+  },
+  {
+    "content": "Frontend: new DispatchFormPrintPage.jsx (A5 label, no phone numbers)",
+    "status": "completed"
+  },
+  {
+    "content": "Frontend: InvoicePrintPage.jsx use doc_label; DataTable.jsx remove Raise Invoice button",
+    "status": "completed"
+  },
+  {
+    "content": "Frontend: App.js route + testIds for dispatch form page",
+    "status": "completed"
+  },
+  {
+    "content": "Bugfix found in self-check: Order model missing dispatched_by/dispatched_at fields (response_model stripped them)",
+    "status": "completed"
+  },
+  {
+    "content": "Self-check: lint, restart, curl full pipeline (create->warehouse->dispatch->invoice GST both cases)",
     "status": "completed"
   }
 ]

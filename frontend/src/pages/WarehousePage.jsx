@@ -73,7 +73,7 @@ function PendingCard({ order, onReady, onRaiseProduction, busy }) {
           <button
             type="button"
             disabled={busy}
-            onClick={() => onReady(order.order_id)}
+            onClick={() => onReady(order.wh_token)}
             data-testid={GRAAMAM_WAREHOUSE.readyButton(order.order_id)}
             className="font-label font-bold text-body-sm px-4 py-2.5 rounded-lg bg-olive-success text-white shadow-warm-sm hover:shadow-warm disabled:opacity-60 inline-flex items-center gap-2 transition-all"
           >
@@ -83,7 +83,7 @@ function PendingCard({ order, onReady, onRaiseProduction, busy }) {
           <button
             type="button"
             disabled={busy}
-            onClick={() => onRaiseProduction(order.order_id)}
+            onClick={() => onRaiseProduction(order.wh_token)}
             data-testid={GRAAMAM_WAREHOUSE.raiseProdButton(order.order_id)}
             className="font-label font-bold text-body-sm px-4 py-2.5 rounded-lg bg-tertiary-fixed-dim text-on-tertiary-fixed shadow-warm-sm hover:shadow-warm disabled:opacity-60 inline-flex items-center gap-2 transition-all"
           >
@@ -124,10 +124,10 @@ export default function WarehousePage() {
 
   useEffect(() => { load(); }, [load]);
 
-  const handleReady = async (orderId) => {
-    setBusyId(orderId);
+  const handleReady = async (whToken) => {
+    setBusyId(whToken);
     try {
-      await warehouseRepository.markReady(orderId);
+      await warehouseRepository.markReady(whToken);
       await load();
     } catch (e) {
       alert(`Could not mark ready: ${e.message}`);
@@ -136,10 +136,10 @@ export default function WarehousePage() {
     }
   };
 
-  const handleRaiseProduction = async (orderId) => {
-    setBusyId(orderId);
+  const handleRaiseProduction = async (whToken) => {
+    setBusyId(whToken);
     try {
-      await warehouseRepository.raiseProduction(orderId);
+      await warehouseRepository.raiseProduction(whToken);
       await load();
     } catch (e) {
       alert(`Could not raise production: ${e.message}`);
@@ -174,7 +174,7 @@ export default function WarehousePage() {
           ) : (
             <div className="flex flex-col gap-3">
               {pending.map((o) => (
-                <PendingCard key={o.order_id} order={o} onReady={handleReady} onRaiseProduction={handleRaiseProduction} busy={busyId === o.order_id} />
+                <PendingCard key={o.order_id} order={o} onReady={handleReady} onRaiseProduction={handleRaiseProduction} busy={busyId === o.wh_token} />
               ))}
             </div>
           )}

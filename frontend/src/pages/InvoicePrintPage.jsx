@@ -43,6 +43,7 @@ export default function InvoicePrintPage() {
 
   const T = inv.totals || {};
   const isIntra = inv.tax_type === "intra";
+  const docLabel = inv.doc_label || (inv.order_type === "b2c" ? "TAX INVOICE" : "INVOICE");
 
   return (
     <div className="min-h-screen bg-surface dark:bg-black text-on-surface dark:text-white">
@@ -50,7 +51,7 @@ export default function InvoicePrintPage() {
       <div className="print:hidden sticky top-0 z-10 bg-inverse-surface text-inverse-on-surface">
         <div className="max-w-[900px] mx-auto flex items-center justify-between px-6 py-3">
           <button onClick={() => nav(-1)} className="text-outline-variant hover:text-white inline-flex items-center gap-2"><Icon name="arrow_back" className="text-[20px]" /> Back</button>
-          <div className="text-body-sm text-outline-variant">Tax Invoice · {inv.invoice_id}</div>
+          <div className="text-body-sm text-outline-variant">{docLabel} · {inv.invoice_id}</div>
           <button onClick={() => window.print()} className="font-label font-bold text-body-sm px-4 py-2 rounded-lg bg-primary-container text-on-primary inline-flex items-center gap-2"><Icon name="print" className="text-[18px]" /> Print / Save PDF</button>
         </div>
       </div>
@@ -61,7 +62,7 @@ export default function InvoicePrintPage() {
             <div>
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center"><Icon name="eco" className="text-[22px]" /></div>
-                <div className="font-headline font-bold text-2xl">{company.brand} <span className="text-outline">· Tax Invoice</span></div>
+                <div className="font-headline font-bold text-2xl">{company.brand} <span className="text-outline">· {docLabel}</span></div>
               </div>
               <div className="mt-2 text-sm leading-relaxed">
                 <div className="font-bold">{company.legal}</div>

@@ -17,9 +17,9 @@ from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from pymongo import ReturnDocument
+from pymongo.errors import DuplicateKeyError
 
-from ._shared import now_ist, gen_id
+from ._shared import now_ist, gen_id, fy_code as _fy_code, next_fy_token as _next_fy_token
 
 logger = logging.getLogger(__name__)
 
@@ -47,26 +47,6 @@ ORDER_STATUSES = {
     "closed",
     "cancelled",
 }
-
-
-# ---------- §"New Order" (graamam_v2 pgOrders/openNewOrder replica) ----------
-def _fy_code(dt: datetime) -> str:
-    """Indian financial year code, e.g. Jul-2026 -> '2627' (FY2026-27)."""
-    start = dt.year if dt.month >= 4 else dt.year - 1
-    return f"{start % 100:02d}{(start + 1) % 100:02d}"
-
-
-async def _next_fy_token(db, kind: str, pad: int = 4) -> str:
-    """FY-stamped, per-kind sequence — mirrors v2's fyId(type)."""
-    fy = _fy_code(now_ist())
-    doc = await db.graamam_counters.find_one_and_update(
-        {"_id": f"{kind}_{fy}"},
-        {"$inc": {"seq": 1}},
-        upsert=True,
-        return_document=ReturnDocument.AFTER,
-    )
-    seq = doc["seq"]
-    return f"{kind.upper()}-{fy}-{str(seq).zfill(pad)}"
 
 
 class Customer(BaseModel):
@@ -130,6 +110,11 @@ class Order(BaseModel):
     invoice_id: Optional[str] = None
     cancelled_at_stage: Optional[str] = None
     cancel_reason: Optional[str] = None
+    wh_outcome: Optional[str] = None
+    wh_processed_by: Optional[str] = None
+    wh_processed_at: Optional[str] = None
+    dispatched_by: Optional[str] = None
+    dispatched_at: Optional[str] = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     @field_validator("status")
@@ -307,6 +292,16 @@ async def status_counts():
     return counts
 
 
+@router.get("/{order_id}", response_model=Order)
+async def get_order(order_id: str):
+    """Single-order fetch — used by the Dispatch Form / print pages."""
+    db = _get_db()
+    doc = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    if not doc:
+        raise HTTPException(404, f"order {order_id} not found")
+    return _serialize(doc)
+
+
 @router.post("", response_model=Order, status_code=201)
 async def create_order(payload: OrderCreate):
     """New Order — replica of graamam_v2's createOrder(): validates name +
@@ -329,9 +324,6 @@ async def create_order(payload: OrderCreate):
 
     cust = await _upsert_customer(db, order_type, payload)
 
-    order_id = await _next_fy_token(db, "ORD")
-    wh_token = await _next_fy_token(db, "WH")
-
     initials = "".join(p[0] for p in name.split()[:2]).upper() or name[:2].upper()
     taxable_total = gross - disc_total
     grand_total = taxable_total + gst_total
@@ -349,30 +341,46 @@ async def create_order(payload: OrderCreate):
         sa = ship_to or bill_to or {}
         delivery_address = sa.get("address")
 
-    order = Order(
-        order_id=order_id,
-        order_type=order_type,
-        customer=Customer(name=name, initials=initials),
-        customer_id=cust.get("customer_id"),
-        bill_to=bill_to,
-        ship_to=ship_to,
-        pan=(payload.pan or "").strip() if order_type == "b2b" else None,
-        cust_info=cust_info,
-        items=line_items,
-        items_count=int(items_qty_total) or 1,
-        items_summary=items_summary,
-        notes=(payload.notes or "").strip() or None,
-        advance_paid=float(payload.advance_paid or 0),
-        payment_term_days=(int(payload.payment_term_days) if (order_type == "b2b" and payload.payment_term_days) else None),
-        date=datetime.now(timezone.utc).date().isoformat(),
-        total=round(grand_total, 2),
-        status="warehouse_check",
-        delivery_address=delivery_address,
-        wh_token=wh_token,
-    )
-    doc = order.model_dump()
-    doc["created_at"] = doc["created_at"].isoformat()
-    await db.graamam_orders.insert_one(doc)
+    # Atomic + unique: mint fresh ORD/WH tokens and retry on the (extremely
+    # unlikely, since both the counter and a DB unique index now guarantee
+    # this) chance of a collision, rather than trusting a single attempt.
+    order = None
+    order_id = wh_token = None
+    for _attempt in range(3):
+        order_id = await _next_fy_token(db, "ORD")
+        wh_token = await _next_fy_token(db, "WH")
+        order = Order(
+            order_id=order_id,
+            order_type=order_type,
+            customer=Customer(name=name, initials=initials),
+            customer_id=cust.get("customer_id"),
+            bill_to=bill_to,
+            ship_to=ship_to,
+            pan=(payload.pan or "").strip() if order_type == "b2b" else None,
+            cust_info=cust_info,
+            items=line_items,
+            items_count=int(items_qty_total) or 1,
+            items_summary=items_summary,
+            notes=(payload.notes or "").strip() or None,
+            advance_paid=float(payload.advance_paid or 0),
+            payment_term_days=(int(payload.payment_term_days) if (order_type == "b2b" and payload.payment_term_days) else None),
+            date=datetime.now(timezone.utc).date().isoformat(),
+            total=round(grand_total, 2),
+            status="warehouse_check",
+            delivery_address=delivery_address,
+            wh_token=wh_token,
+        )
+        doc = order.model_dump()
+        doc["created_at"] = doc["created_at"].isoformat()
+        try:
+            await db.graamam_orders.insert_one(doc)
+            break
+        except DuplicateKeyError:
+            logger.warning("[graamam.orders] token collision on %s — retrying with a fresh token", order_id)
+            order = None
+            continue
+    if order is None:
+        raise HTTPException(500, "Could not generate a unique order token. Please try again.")
     try:
         from .graamam_audit import log_action
         item_desc = ", ".join(f"{li['product']} x{li['qty']:g}" for li in line_items)

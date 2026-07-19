@@ -6,12 +6,12 @@ built out fully.
 """
 from __future__ import annotations
 
-from datetime import datetime
 from typing import Optional, List
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, ConfigDict, Field
 
-from ._shared import get_db, gen_id, serialize, now_ist
+from ._shared import get_db, gen_id, serialize, now_ist, fy_code, next_fy_token
+from .graamam_master import COMPANY
 
 app_router = APIRouter(prefix="/graamam", tags=["graamam-extra"])
 
@@ -120,15 +120,26 @@ async def close_thread(thread_id: str, reason: Optional[str] = None):
 class InvoicePayload(BaseModel):
     model_config = ConfigDict(extra="ignore")
     order_id: str
+    order_type: str = "b2b"  # 'b2b' | 'b2c' — drives doc label + invoice number series
     customer_name: str
     customer_gstin: Optional[str] = ""
-    customer_state: Optional[str] = ""
+    customer_state: Optional[str] = ""       # state NAME — display + legacy fallback
+    customer_state_code: Optional[str] = ""  # GST state code — the real intra/inter check
     line_items: List[dict]  # [{name, hsn, qty, rate, gst}]
     place_of_supply: Optional[str] = "Andhra Pradesh"
 
 
 def _compute_invoice(pl: InvoicePayload) -> dict:
-    intra = (pl.customer_state or "").strip().lower() in ("andhra pradesh", "ap")
+    # FIX: compare GST STATE CODES (customer vs company, e.g. '37'), not a
+    # fragile state-NAME string match. Same code -> CGST+SGST (half the GST
+    # rate each); different -> IGST (full rate). Falls back to the old
+    # name-based check only when a legacy order has no state code at all.
+    company_code = (COMPANY.get("state_code") or "37").strip()
+    customer_code = (pl.customer_state_code or "").strip()
+    if customer_code:
+        intra = customer_code == company_code
+    else:
+        intra = (pl.customer_state or "").strip().lower() in ("andhra pradesh", "ap")
     lines = []
     total_taxable = total_cgst = total_sgst = total_igst = 0.0
     for li in pl.line_items:
@@ -165,17 +176,26 @@ def _compute_invoice(pl: InvoicePayload) -> dict:
 @app_router.post("/invoices", status_code=201)
 async def create_invoice(payload: InvoicePayload):
     db = get_db()
-    fy = _fy_prefix(now_ist())
-    n = await db.graamam_invoices.count_documents({}) + 1
-    inv_id = f"B2B{fy}{n:04d}-{now_ist().strftime('%d-%b-%Y')}"
+    order_type = (payload.order_type or "b2b").lower().strip()
+    is_b2b = order_type != "b2c"
+    # Atomic, unique-per-(series,FY) invoice numbering (FIX 1) — separate
+    # series for B2B ("INVOICE") vs B2C/POS ("TAX INVOICE"), matching v2's
+    # invNumber(): B2B26270005-09-Jun-2026 / POS26270012-01-May-2026.
+    fy = fy_code(now_ist())
+    token = await next_fy_token(db, "INVB2B" if is_b2b else "INVPOS", pad=4)
+    seq_str = token.rsplit("-", 1)[-1]
+    inv_id = f"{'B2B' if is_b2b else 'POS'}{fy}{seq_str}-{now_ist().strftime('%d-%b-%Y')}"
     calc = _compute_invoice(payload)
     doc = {
         "id": gen_id(), "invoice_id": inv_id, "order_id": payload.order_id,
+        "order_type": order_type,
+        "doc_label": "INVOICE" if is_b2b else "TAX INVOICE",
         "customer_name": payload.customer_name, "customer_gstin": payload.customer_gstin,
-        "customer_state": payload.customer_state, "place_of_supply": payload.place_of_supply,
+        "customer_state": payload.customer_state, "customer_state_code": payload.customer_state_code,
+        "place_of_supply": payload.place_of_supply,
         **calc, "status": "raised", "created_at": now_ist().isoformat(),
         # §7.10 payment fields
-        "inv_type": "b2b",
+        "inv_type": order_type,
         "advance_paid": 0.0,
         "paid_amount": 0.0,
         "due_at": None,  # set when we know payment_term_days; else null
@@ -194,19 +214,26 @@ async def create_invoice_from_order(order_id: str):
     if not order:
         raise HTTPException(404, f"order {order_id} not found")
 
+    order_type = (order.get("order_type") or "b2b").lower()
     cust_name = (order.get("customer") or {}).get("name") or ""
-
-    # New-shape orders (from the "New Order" form) already snapshot
-    # bill_to (GSTIN/state) and priced line items directly on the order —
-    # prefer that over guessing from the B2B master + a lump total.
     bill_to = order.get("bill_to") or {}
-    customer_state = bill_to.get("state_name") or ""
-    customer_gstin = bill_to.get("gstin") or ""
+    cust_info = order.get("cust_info") or {}
     order_items = order.get("items") or []
 
-    if not customer_state and not customer_gstin:
-        # Legacy order — fall back to matching the customer against B2B master.
-        match = None
+    if order_type == "b2c":
+        customer_state = cust_info.get("state_name") or ""
+        customer_state_code = cust_info.get("state_code") or ""
+        customer_gstin = ""
+    else:
+        customer_state = bill_to.get("state_name") or ""
+        customer_state_code = bill_to.get("state_code") or ""
+        customer_gstin = bill_to.get("gstin") or ""
+    place_of_supply = customer_state or "Andhra Pradesh"
+
+    match = None
+    if not customer_state and not customer_state_code and not customer_gstin:
+        # Legacy order with no bill_to/cust_info snapshot — fall back to
+        # matching the customer against the B2B master by name.
         if cust_name:
             async for c in db.graamam_customers_b2b.find({}, {"_id": 0}):
                 if (c.get("name") or "").strip().lower() == cust_name.strip().lower():
@@ -214,8 +241,9 @@ async def create_invoice_from_order(order_id: str):
                     break
         customer_state = (match or {}).get("state") or ""
         customer_gstin = (match or {}).get("gstin") or ""
-    else:
-        match = None
+        if customer_gstin[:2].isdigit():
+            customer_state_code = customer_gstin[:2]
+        place_of_supply = customer_state or "Andhra Pradesh"
 
     total = float(order.get("total") or 0)
     items_count = int(order.get("items_count") or 1)
@@ -254,13 +282,18 @@ async def create_invoice_from_order(order_id: str):
 
     payload = InvoicePayload(
         order_id=order_id,
+        order_type=order_type,
         customer_name=cust_name,
         customer_gstin=customer_gstin,
         customer_state=customer_state,
+        customer_state_code=customer_state_code,
         line_items=line_items,
-        place_of_supply=customer_state or "Andhra Pradesh",
+        place_of_supply=place_of_supply,
     )
-    return await create_invoice(payload)
+    inv = await create_invoice(payload)
+    # Attach the invoice back onto the order for the Dispatched table / Print Invoice button.
+    await db.graamam_orders.update_one({"order_id": order_id}, {"$set": {"invoice_id": inv["invoice_id"]}})
+    return inv
 
 
 @app_router.get("/invoices/{invoice_id}")
@@ -333,15 +366,6 @@ async def accounts_summary():
         elif inv.get("status") == "paid":
             paid += f
     return {"total_billed_inr": total, "total_paid_inr": paid, "outstanding_inr": round(total - paid, 2)}
-
-
-def _fy_prefix(dt: datetime) -> str:
-    # Indian FY: Apr–Mar. FY2026-27 -> code 2627
-    y = dt.year
-    m = dt.month
-    start = y if m >= 4 else y - 1
-    end = start + 1
-    return f"{str(start)[-2:]}{str(end)[-2:]}"
 
 
 # ---------- ADMIN ----------

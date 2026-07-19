@@ -1,11 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import Icon from "@/components/graamam/Icon";
 import StatusPill from "@/components/graamam/StatusPill";
 import { formatOrderDate, formatQty } from "@/lib/formatters";
 import { GRAAMAM_ORDERS } from "@/constants/testIds";
-
-const API = ((typeof process !== "undefined" && process.env && process.env.REACT_APP_BACKEND_URL) || "") + "/api";
 
 const TERMINAL = ["dispatched", "closed", "cancelled"];
 
@@ -62,24 +59,6 @@ export default function DataTable({
   onHistory,
   emptyLabel = "No orders yet. Create one to start the pipeline.",
 }) {
-  const nav = useNavigate();
-
-  // Invoice timing rule: an invoice can only be raised once an order has
-  // actually been dispatched — earlier stages (warehouse_check,
-  // ready_dispatch, production_pending/active, procurement_pending) must
-  // not expose this action.
-  const raiseInvoice = async (e, orderId) => {
-    e.stopPropagation();
-    try {
-      const res = await fetch(`${API}/graamam/invoices/from-order/${orderId}`, { method: "POST" });
-      if (!res.ok) throw new Error(await res.text());
-      const inv = await res.json();
-      nav(`/invoice/${inv.invoice_id}`);
-    } catch (err) {
-      alert(`Could not raise invoice: ${err.message}`);
-    }
-  };
-
   return (
     <div
       data-testid={GRAAMAM_ORDERS.ordersTable}
@@ -200,17 +179,6 @@ export default function DataTable({
                             className="text-on-surface-variant dark:text-outline-variant hover:text-primary-container dark:hover:text-white p-1.5 rounded-full hover:bg-surface-variant/50 dark:hover:bg-white/10 transition-colors"
                           >
                             <Icon name="forum" className="text-[18px]" />
-                          </button>
-                        ) : null}
-                        {o.status === "dispatched" ? (
-                          <button
-                            type="button"
-                            onClick={(e) => raiseInvoice(e, o.order_id)}
-                            title="Raise B2B invoice for this order"
-                            data-testid={GRAAMAM_ORDERS.orderRowRaiseInvoice(o.order_id)}
-                            className="text-primary-container dark:text-primary-fixed-dim hover:bg-primary-fixed/50 dark:hover:bg-white/10 p-1.5 rounded-full transition-colors"
-                          >
-                            <Icon name="receipt_long" className="text-[18px]" />
                           </button>
                         ) : null}
                       </div>

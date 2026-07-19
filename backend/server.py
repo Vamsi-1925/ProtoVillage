@@ -26,6 +26,7 @@ from routers.graamam_extras import app_router as graamam_extras_router
 from routers.graamam_auth import router as graamam_auth_router
 from routers.graamam_audit import router as graamam_audit_router, log_action as _audit_log
 from routers.graamam_master import import_master_data
+from routers._shared import ensure_unique_indexes
 
 
 ROOT_DIR = Path(__file__).parent
@@ -155,6 +156,9 @@ async def seed_startup():
         await seed_procurement_if_empty()
         await seed_shipments_if_empty()
         await seed_store_if_empty()
+        # FIX 1: unique-index guarantee on top of the atomic FY counter —
+        # order_id/wh_token/prod_token/invoice_id can never collide.
+        await ensure_unique_indexes(db)
     except Exception as e:  # pragma: no cover
         logger.exception("[startup] seeding graamam collections failed: %s", e)
 

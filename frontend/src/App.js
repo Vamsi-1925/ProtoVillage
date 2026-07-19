@@ -22,6 +22,7 @@ import MasterDataPage from "@/pages/MasterDataPage";
 import AdminPage from "@/pages/AdminPage";
 import LoginPage from "@/pages/LoginPage";
 import InvoicePrintPage from "@/pages/InvoicePrintPage";
+import DispatchFormPrintPage from "@/pages/DispatchFormPrintPage";
 
 function Gate({ children }) {
   return <RequireAuth>{children}</RequireAuth>;
@@ -36,6 +37,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/invoice/:invoiceId" element={<Gate><InvoicePrintPage /></Gate>} />
+              <Route path="/dispatch-form/:orderId" element={<Gate><DispatchFormPrintPage /></Gate>} />
               <Route path="/" element={<Gate><DashboardPage /></Gate>} />
               <Route path="/orders" element={<Gate><OrdersPage /></Gate>} />
               <Route path="/inventory" element={<Gate><InventoryPage /></Gate>} />

@@ -38,6 +38,7 @@ function _qs(obj) {
 export const ordersRepository = {
   list: ({ status } = {}) => _fetchJson(`${API}/graamam/orders${_qs({ status })}`),
   counts: () => _fetchJson(`${API}/graamam/orders/counts`),
+  get: (orderId) => _fetchJson(`${API}/graamam/orders/${orderId}`),
   create: (payload) => _fetchJson(`${API}/graamam/orders`, { method: "POST", body: JSON.stringify(payload) }),
   update: (orderId, payload) => _fetchJson(`${API}/graamam/orders/${orderId}/edit`, { method: "POST", body: JSON.stringify(payload) }),
   cancel: (orderId, reason) => _fetchJson(`${API}/graamam/orders/${orderId}/cancel${reason ? _qs({ reason }) : ""}`, { method: "POST" }),
@@ -55,12 +56,14 @@ export const masterRepository = {
 };
 
 // ---------- WAREHOUSE (stock-check gate: warehouse_check -> ready_dispatch | production_pending) ----------
+// FIX 2: keyed on the unique WH token, not order_id (order_id is a label,
+// the WH token is the real unique handle for "this stock-check").
 export const warehouseRepository = {
   pending: () => _fetchJson(`${API}/graamam/warehouse/pending`),
   processed: () => _fetchJson(`${API}/graamam/warehouse/processed`),
   finishedGoods: () => _fetchJson(`${API}/graamam/warehouse/finished-goods`),
-  markReady: (orderId) => _fetchJson(`${API}/graamam/warehouse/${orderId}/ready`, { method: "POST" }),
-  raiseProduction: (orderId) => _fetchJson(`${API}/graamam/warehouse/${orderId}/raise-production`, { method: "POST" }),
+  markReady: (whToken) => _fetchJson(`${API}/graamam/warehouse/${whToken}/ready`, { method: "POST" }),
+  raiseProduction: (whToken) => _fetchJson(`${API}/graamam/warehouse/${whToken}/raise-production`, { method: "POST" }),
 };
 
 // ---------- DISCUSSIONS (threads) ----------
@@ -111,6 +114,8 @@ export const procurementRepository = {
 // ---------- DISPATCH ----------
 export const dispatchRepository = {
   queue: () => _fetchJson(`${API}/graamam/dispatch/queue`),
+  dispatched: (limit = 200) => _fetchJson(`${API}/graamam/dispatch/dispatched?limit=${limit}`),
+  dispatchOrder: (orderId, dispatchedBy) => _fetchJson(`${API}/graamam/dispatch/${orderId}/dispatch`, { method: "POST", body: JSON.stringify({ dispatched_by: dispatchedBy }) }),
   recent: (limit = 10) => _fetchJson(`${API}/graamam/dispatch/recent?limit=${limit}`),
   history: () => _fetchJson(`${API}/graamam/dispatch/history`),
   mark: (payload) => _fetchJson(`${API}/graamam/dispatch/mark`, { method: "POST", body: JSON.stringify(payload) }),
