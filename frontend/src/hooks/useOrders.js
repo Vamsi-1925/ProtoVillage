@@ -78,6 +78,25 @@ export function useOrders() {
     }
   }, []);
 
+  const updateOrder = useCallback(async (orderId, payload) => {
+    setCreating(true);
+    try {
+      const updated = await ordersRepository.update(orderId, payload);
+      if (mountedRef.current) {
+        setOrders((prev) => prev.map((o) => (o.order_id === orderId ? updated : o)));
+      }
+      return updated;
+    } finally {
+      if (mountedRef.current) setCreating(false);
+    }
+  }, []);
+
+  const cancelOrder = useCallback(async (orderId, reason) => {
+    const res = await ordersRepository.cancel(orderId, reason);
+    if (mountedRef.current) await refresh();
+    return res;
+  }, [refresh]);
+
   const toggleExpanded = useCallback((orderId) => {
     setExpandedId((cur) => (cur === orderId ? null : orderId));
   }, []);
@@ -91,6 +110,8 @@ export function useOrders() {
     activeStatus,
     setActiveStatus,
     createOrder,
+    updateOrder,
+    cancelOrder,
     creating,
     refresh,
     expandedId,

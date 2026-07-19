@@ -1,73 +1,64 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import Icon from "@/components/graamam/Icon";
 import StatusPill from "@/components/graamam/StatusPill";
-import { formatCurrency, formatOrderDate, initialsFrom } from "@/lib/formatters";
+import { formatOrderDate, formatQty } from "@/lib/formatters";
 import { GRAAMAM_ORDERS } from "@/constants/testIds";
 
-const API = ((typeof process !== "undefined" && process.env && process.env.REACT_APP_BACKEND_URL) || "") + "/api";
+const TERMINAL = ["dispatched", "closed", "cancelled"];
 
 const COLUMNS = [
-  { key: "order_id", label: "Order ID" },
+  { key: "order_id", label: "Order Token" },
+  { key: "type", label: "Type" },
   { key: "customer", label: "Customer" },
   { key: "items", label: "Items" },
-  { key: "date", label: "Date" },
-  { key: "total", label: "Total" },
+  { key: "qty", label: "Qty" },
   { key: "status", label: "Status" },
-  { key: "action", label: "Action", align: "right" },
+  { key: "tokens", label: "Tokens" },
+  { key: "date", label: "Date" },
+  { key: "actions", label: "Actions", align: "right" },
 ];
 
-function CustomerCell({ customer }) {
-  const name = customer?.name || "Unknown";
-  const url = customer?.avatar_url;
-  const inits = (customer?.initials || initialsFrom(name)).slice(0, 2).toUpperCase();
+function TypeBadge({ type }) {
+  if (!type) return <span className="text-outline">-</span>;
+  const isB2B = type === "b2b";
   return (
-    <div className="flex items-center gap-3 min-w-0">
-      <div className="w-8 h-8 rounded-full bg-surface-variant dark:bg-white/10 overflow-hidden flex items-center justify-center text-outline dark:text-outline-variant font-bold text-sm shrink-0">
-        {url ? (
-          <img
-            alt={name}
-            src={url}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
-        ) : (
-          <span>{inits}</span>
-        )}
-      </div>
-      <span className="font-body text-body-md font-semibold text-on-surface dark:text-white truncate">
-        {name}
-      </span>
+    <span className={["inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-label font-bold uppercase tracking-wide",
+      isB2B ? "bg-secondary-container text-on-secondary-container" : "bg-tertiary-fixed-dim text-on-tertiary-fixed"].join(" ")}>
+      {type.toUpperCase()}
+    </span>
+  );
+}
+
+function TokenChips({ order }) {
+  const tokens = [order.wh_token, order.prod_token, order.proc_token].filter(Boolean);
+  if (!tokens.length) return <span className="text-outline">-</span>;
+  return (
+    <div className="flex flex-wrap gap-1">
+      {tokens.map((t) => (
+        <span key={t} className="font-mono text-[11px] bg-surface-container dark:bg-white/10 px-2 py-0.5 rounded-md border border-outline-variant/30 dark:border-white/10 text-on-surface-variant dark:text-outline-variant">
+          {t}
+        </span>
+      ))}
     </div>
   );
 }
 
 /**
- * DataTable — the Orders table container + rows.
- * Rows are expandable (chevron rotates + a details drawer opens beneath).
+ * DataTable — Orders list, functional replica of graamam_v2 pgOrders():
+ * Order Token | Type | Customer | Items | Qty | Status | Tokens | Date | Actions
  */
 export default function DataTable({
   orders,
   loading,
   error,
-  expandedId,
-  onToggleExpand,
-  emptyLabel = "No orders yet",
+  canEditCancel,
+  isAdmin,
+  onEdit,
+  onCancel,
+  onDiscuss,
+  onHistory,
+  emptyLabel = "No orders yet. Create one to start the pipeline.",
 }) {
-  const nav = useNavigate();
-  const raiseInvoice = async (e, orderId) => {
-    e.stopPropagation();
-    try {
-      const res = await fetch(`${API}/graamam/invoices/from-order/${orderId}`, { method: "POST" });
-      if (!res.ok) throw new Error(await res.text());
-      const inv = await res.json();
-      nav(`/invoice/${inv.invoice_id}`);
-    } catch (err) {
-      alert(`Could not raise invoice: ${err.message}`);
-    }
-  };
   return (
     <div
       data-testid={GRAAMAM_ORDERS.ordersTable}
@@ -81,7 +72,7 @@ export default function DataTable({
                 <th
                   key={col.key}
                   className={[
-                    "py-5 px-6 font-label text-label-sm text-outline uppercase tracking-wider",
+                    "py-5 px-6 font-label text-label-sm text-outline uppercase tracking-wider whitespace-nowrap",
                     col.align === "right" ? "text-right" : "",
                   ].join(" ")}
                 >
@@ -117,95 +108,82 @@ export default function DataTable({
               </tr>
             ) : (
               orders.map((o) => {
-                const isOpen = expandedId === o.order_id;
+                const terminal = TERMINAL.includes(o.status);
+                const showEdit = canEditCancel && !terminal;
+                const showCancel = isAdmin && !terminal;
+                const showDiscuss = !["dispatched", "cancelled"].includes(o.status);
                 return (
-                  <React.Fragment key={o.order_id}>
-                    <tr
-                      data-testid={GRAAMAM_ORDERS.ordersTableRow(o.order_id)}
-                      className="hover:bg-surface-container-low dark:hover:bg-white/5 transition-colors group cursor-pointer"
-                      onClick={() => onToggleExpand && onToggleExpand(o.order_id)}
-                    >
-                      <td className="py-4 px-6">
-                        <span className="font-mono text-sm bg-surface-container dark:bg-white/5 px-3 py-1 rounded-md text-on-surface dark:text-white font-semibold border border-outline-variant/30 dark:border-white/10">
-                          #{o.order_id}
-                        </span>
-                      </td>
-                      <td className="py-4 px-6">
-                        <CustomerCell customer={o.customer} />
-                      </td>
-                      <td className="py-4 px-6 text-body-md text-on-surface-variant dark:text-outline-variant">
-                        {o.items_summary || `${o.items_count} items`}
-                      </td>
-                      <td className="py-4 px-6 text-body-md text-on-surface-variant dark:text-outline-variant whitespace-nowrap">
-                        {formatOrderDate(o.date)}
-                      </td>
-                      <td className="py-4 px-6 font-body font-semibold text-on-surface dark:text-white whitespace-nowrap">
-                        {formatCurrency(o.total)}
-                      </td>
-                      <td className="py-4 px-6">
-                        <StatusPill status={o.status} />
-                      </td>
-                      <td className="py-4 px-6 text-right">
-                        <div className="inline-flex items-center gap-1">
+                  <tr
+                    key={o.order_id}
+                    data-testid={GRAAMAM_ORDERS.ordersTableRow(o.order_id)}
+                    className="hover:bg-surface-container-low dark:hover:bg-white/5 transition-colors"
+                  >
+                    <td className="py-4 px-6">
+                      <span className="font-mono text-sm bg-surface-container dark:bg-white/5 px-3 py-1 rounded-md text-on-surface dark:text-white font-semibold border border-outline-variant/30 dark:border-white/10 whitespace-nowrap">
+                        {o.order_id}
+                      </span>
+                    </td>
+                    <td className="py-4 px-6"><TypeBadge type={o.order_type} /></td>
+                    <td className="py-4 px-6">
+                      <span className="font-body font-semibold text-on-surface dark:text-white">{o.customer?.name || "Unknown"}</span>
+                    </td>
+                    <td className="py-4 px-6 text-body-md text-on-surface-variant dark:text-outline-variant max-w-[220px] truncate">
+                      {o.items_summary || `${o.items_count} items`}
+                    </td>
+                    <td className="py-4 px-6 text-body-md text-on-surface-variant dark:text-outline-variant whitespace-nowrap">
+                      {formatQty(o.items_count)}
+                    </td>
+                    <td className="py-4 px-6">
+                      <StatusPill status={o.status} />
+                    </td>
+                    <td className="py-4 px-6"><TokenChips order={o} /></td>
+                    <td className="py-4 px-6 text-body-md text-on-surface-variant dark:text-outline-variant whitespace-nowrap">
+                      {formatOrderDate(o.date)}
+                    </td>
+                    <td className="py-4 px-6 text-right">
+                      <div className="inline-flex items-center gap-1 flex-wrap justify-end">
+                        <button
+                          type="button"
+                          onClick={() => onHistory && onHistory(o)}
+                          data-testid={GRAAMAM_ORDERS.orderRowHistory(o.order_id)}
+                          className="font-label font-bold text-[12px] px-2.5 py-1.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-white/10 transition-colors"
+                        >
+                          History
+                        </button>
+                        {showEdit ? (
                           <button
                             type="button"
-                            onClick={(e) => raiseInvoice(e, o.order_id)}
-                            title="Raise B2B invoice for this order"
-                            data-testid={`graamam-orders-raise-invoice-${o.order_id}`}
-                            className="text-primary-container dark:text-primary-fixed-dim hover:bg-primary-fixed/50 dark:hover:bg-white/10 p-2 rounded-full transition-colors"
+                            onClick={() => onEdit && onEdit(o)}
+                            data-testid={GRAAMAM_ORDERS.orderRowEdit(o.order_id)}
+                            className="font-label font-bold text-[12px] px-2.5 py-1.5 rounded-lg text-primary-container dark:text-primary-fixed-dim hover:bg-primary-fixed/40 dark:hover:bg-white/10 transition-colors"
                           >
-                            <Icon name="receipt_long" className="text-[18px]" />
+                            Edit
                           </button>
+                        ) : null}
+                        {showCancel ? (
                           <button
                             type="button"
-                            aria-label={isOpen ? "Collapse row" : "Expand row"}
-                            data-testid={GRAAMAM_ORDERS.ordersTableRowExpand(o.order_id)}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onToggleExpand && onToggleExpand(o.order_id);
-                            }}
-                            className="text-outline hover:text-primary-container dark:hover:text-white p-2 rounded-full hover:bg-surface-variant/50 dark:hover:bg-white/10 transition-colors"
+                            onClick={() => onCancel && onCancel(o)}
+                            data-testid={GRAAMAM_ORDERS.orderRowCancel(o.order_id)}
+                            className="font-label font-bold text-[12px] px-2.5 py-1.5 rounded-lg text-error hover:bg-error-container/40 transition-colors"
                           >
-                            <Icon
-                              name="expand_more"
-                              className={`text-[20px] transition-transform ${isOpen ? "rotate-180" : ""}`}
-                            />
+                            Cancel
                           </button>
-                        </div>
-                      </td>
-                    </tr>
-                    {isOpen ? (
-                      <tr className="bg-surface-container-low dark:bg-white/5">
-                        <td colSpan={COLUMNS.length} className="px-6 py-5">
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                            <div>
-                              <div className="text-outline uppercase text-label-sm tracking-wider mb-1">Order</div>
-                              <div className="font-semibold text-on-surface dark:text-white">#{o.order_id}</div>
-                              <div className="text-on-surface-variant dark:text-outline-variant mt-1">
-                                Placed {formatOrderDate(o.date)}
-                              </div>
-                            </div>
-                            <div>
-                              <div className="text-outline uppercase text-label-sm tracking-wider mb-1">Customer</div>
-                              <div className="font-semibold text-on-surface dark:text-white">{o.customer?.name}</div>
-                              <div className="text-on-surface-variant dark:text-outline-variant mt-1">
-                                {o.items_summary || `${o.items_count} items`} · {formatCurrency(o.total)}
-                              </div>
-                            </div>
-                            <div>
-                              <div className="text-outline uppercase text-label-sm tracking-wider mb-1">Fulfillment</div>
-                              <div className="mt-1">
-                                <StatusPill status={o.status} />
-                              </div>
-                              <div className="text-on-surface-variant dark:text-outline-variant mt-2 text-xs">
-                                Producer operations queue.
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : null}
-                  </React.Fragment>
+                        ) : null}
+                        {showDiscuss ? (
+                          <button
+                            type="button"
+                            onClick={() => onDiscuss && onDiscuss(o)}
+                            data-testid={GRAAMAM_ORDERS.orderRowDiscuss(o.order_id)}
+                            title="Discuss this order"
+                            className="text-on-surface-variant dark:text-outline-variant hover:text-primary-container dark:hover:text-white p-1.5 rounded-full hover:bg-surface-variant/50 dark:hover:bg-white/10 transition-colors"
+                          >
+                            <Icon name="forum" className="text-[18px]" />
+                          </button>
+                        ) : null}
+                      </div>
+                    </td>
+                  </tr>
                 );
               })
             )}

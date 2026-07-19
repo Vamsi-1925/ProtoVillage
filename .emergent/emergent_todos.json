@@ -1,22 +1,38 @@
 [
   {
-    "content": "Backend: 8-status order flow + migration + auth endpoint + raise-invoice-from-order",
+    "content": "Backend: extend graamam_orders.py with FY token generator, richer OrderCreate model, customer upsert, totals calc, new create endpoint, edit endpoint",
     "status": "completed"
   },
   {
-    "content": "Frontend: AuthContext + LoginPage + RequireAuth gate + user-aware TopBar",
+    "content": "Backend: improve create_invoice_from_order in graamam_extras.py to use order.items when present",
     "status": "completed"
   },
   {
-    "content": "Frontend: Role-filtered Sidebar (7 role-nav profiles)",
-    "status": "completed"
+    "content": "Frontend: create indianStates.js lib matching graamam_v2 STATES list",
+    "status": "in_progress"
   },
   {
-    "content": "Frontend: 8-status Orders (pill tabs + status mapper + Raise Invoice per row)",
-    "status": "completed"
+    "content": "Frontend: rewrite CreateOrderDialog.jsx (type toggle, customer autofill, items grid, totals, notes, submit)",
+    "status": "pending"
   },
   {
-    "content": "Frontend: InvoicePrintPage — ProtoVillage GST invoice with CGST/SGST/IGST + print",
-    "status": "completed"
+    "content": "Frontend: rewrite DataTable.jsx orders list columns + row actions (History/Edit/Cancel/Discuss)",
+    "status": "pending"
+  },
+  {
+    "content": "Frontend: add OrderHistoryModal for audit trail",
+    "status": "pending"
+  },
+  {
+    "content": "Frontend: extend firestoreClient.js ordersRepository (update/cancel/history) + useOrders hook",
+    "status": "pending"
+  },
+  {
+    "content": "Frontend: wire OrdersPage.jsx with edit/cancel/discuss/history + role checks",
+    "status": "pending"
+  },
+  {
+    "content": "Self-check: lint backend/frontend, curl test order creation + GST/token logic, screenshot",
+    "status": "pending"
   }
 ]

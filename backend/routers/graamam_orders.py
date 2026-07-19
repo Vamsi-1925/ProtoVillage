@@ -17,6 +17,9 @@ from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pymongo import ReturnDocument
+
+from ._shared import now_ist, gen_id
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +45,28 @@ ORDER_STATUSES = {
     "procurement_pending",
     "dispatched",
     "closed",
+    "cancelled",
 }
+
+
+# ---------- §"New Order" (graamam_v2 pgOrders/openNewOrder replica) ----------
+def _fy_code(dt: datetime) -> str:
+    """Indian financial year code, e.g. Jul-2026 -> '2627' (FY2026-27)."""
+    start = dt.year if dt.month >= 4 else dt.year - 1
+    return f"{start % 100:02d}{(start + 1) % 100:02d}"
+
+
+async def _next_fy_token(db, kind: str, pad: int = 4) -> str:
+    """FY-stamped, per-kind sequence — mirrors v2's fyId(type)."""
+    fy = _fy_code(now_ist())
+    doc = await db.graamam_counters.find_one_and_update(
+        {"_id": f"{kind}_{fy}"},
+        {"$inc": {"seq": 1}},
+        upsert=True,
+        return_document=ReturnDocument.AFTER,
+    )
+    seq = doc["seq"]
+    return f"{kind.upper()}-{fy}-{str(seq).zfill(pad)}"
 
 
 class Customer(BaseModel):
@@ -53,20 +77,59 @@ class Customer(BaseModel):
     avatar_url: Optional[str] = None
 
 
+class PartyInfo(BaseModel):
+    """Bill-to / Ship-to party snapshot on a B2B order."""
+    model_config = ConfigDict(extra="ignore")
+    address: Optional[str] = ""
+    city: Optional[str] = ""
+    pin: Optional[str] = ""
+    state_code: Optional[str] = ""
+    state_name: Optional[str] = ""
+    gstin: Optional[str] = ""
+    attn: Optional[str] = ""
+    phone: Optional[str] = ""
+    contact: Optional[str] = ""
+
+
+class CustInfo(BaseModel):
+    """B2C customer snapshot on an order."""
+    model_config = ConfigDict(extra="ignore")
+    mobile: Optional[str] = ""
+    city: Optional[str] = ""
+    state_code: Optional[str] = ""
+    state_name: Optional[str] = ""
+
+
 class Order(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    order_id: str  # human-readable e.g., GC-8902
+    order_id: str  # human-readable e.g., ORD-2627-0001 (legacy: GC-8902)
+    order_type: Optional[str] = None  # 'b2b' | 'b2c' | None (legacy orders)
     customer: Customer
+    customer_id: Optional[str] = None
+    bill_to: Optional[dict] = None
+    ship_to: Optional[dict] = None
+    pan: Optional[str] = None
+    cust_info: Optional[dict] = None
+    items: List[dict] = Field(default_factory=list)
     items_count: int = 1
     items_summary: Optional[str] = None  # "3 items" or a specific description
+    notes: Optional[str] = None
+    advance_paid: float = 0.0
+    payment_term_days: Optional[int] = None
     date: str  # ISO date (yyyy-mm-dd)
     total: float = 0.0
     status: str = "received"
     delivery_address: Optional[str] = None
     producer: Optional[str] = None
     speed: Optional[str] = "standard"
+    wh_token: Optional[str] = None
+    prod_token: Optional[str] = None
+    proc_token: Optional[str] = None
+    invoice_id: Optional[str] = None
+    cancelled_at_stage: Optional[str] = None
+    cancel_reason: Optional[str] = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     @field_validator("status")
@@ -78,25 +141,123 @@ class Order(BaseModel):
         return v
 
 
+class OrderLineIn(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    product_id: str
+    qty: float = 0
+    rate: Optional[float] = None
+    disc: Optional[float] = 0
+
+
 class OrderCreate(BaseModel):
+    """New Order form payload — mirrors graamam_v2 createOrder()."""
     model_config = ConfigDict(extra="ignore")
 
-    order_id: Optional[str] = None  # auto-generated if omitted
-    customer_name: str
-    customer_initials: Optional[str] = None
-    customer_avatar_url: Optional[str] = None
-    items_count: int = 1
-    items_summary: Optional[str] = None
-    date: Optional[str] = None  # defaults to today
-    total: float = 0.0
-    status: str = "received"
-    delivery_address: Optional[str] = None
-    producer: Optional[str] = None
-    speed: Optional[str] = "standard"
+    order_type: str = "b2b"  # 'b2b' | 'b2c'
+    customer_id: Optional[str] = None  # existing customer picked from dropdown
+    name: str  # customer / company name
+    bill_to: Optional[PartyInfo] = None
+    ship_to: Optional[PartyInfo] = None
+    pan: Optional[str] = ""
+    cust_info: Optional[CustInfo] = None
+    items: List[OrderLineIn] = Field(default_factory=list)
+    notes: Optional[str] = ""
+    advance_paid: float = 0.0
+    payment_term_days: Optional[int] = None
+
+
+class OrderEditPayload(BaseModel):
+    """Edit form payload — order_type cannot change on edit (matches v2)."""
+    model_config = ConfigDict(extra="ignore")
+    name: str
+    bill_to: Optional[PartyInfo] = None
+    ship_to: Optional[PartyInfo] = None
+    pan: Optional[str] = ""
+    cust_info: Optional[CustInfo] = None
+    items: List[OrderLineIn] = Field(default_factory=list)
+    notes: Optional[str] = ""
+    advance_paid: Optional[float] = None
+    payment_term_days: Optional[int] = None
 
 
 class OrderStatusUpdate(BaseModel):
     status: str
+
+
+async def _upsert_customer(db, order_type: str, payload) -> dict:
+    """Create-or-update the B2B/B2C master customer record (mirrors v2's
+    createOrder(): 'cust=selId?customers.find(...):null; ... else create')."""
+    name = (payload.name or "").strip()
+    if order_type == "b2b":
+        coll = db.graamam_customers_b2b
+        bill = payload.bill_to or PartyInfo()
+        fields = {
+            "name": name,
+            "type": "b2b",
+            "contact_person": bill.attn or "",
+            "mobile": bill.phone or "",
+            "address": bill.address or "",
+            "city": bill.city or "",
+            "pincode": bill.pin or "",
+            "state": bill.state_name or "",
+            "gstin": bill.gstin or "",
+        }
+    else:
+        coll = db.graamam_customers_b2c
+        ci = payload.cust_info or CustInfo()
+        fields = {
+            "name": name,
+            "type": "b2c",
+            "mobile": ci.mobile or "",
+            "city": ci.city or "",
+        }
+    if payload.customer_id:
+        existing = await coll.find_one({"customer_id": payload.customer_id}, {"_id": 0})
+        if existing:
+            await coll.update_one({"customer_id": payload.customer_id}, {"$set": fields})
+            existing.update(fields)
+            return existing
+    prefix = "CB" if order_type == "b2b" else "CC"
+    pad = 3 if order_type == "b2b" else 4
+    n = await coll.count_documents({}) + 1
+    cust_id = f"{prefix}{str(n).zfill(pad)}"
+    doc = {"id": gen_id(), "customer_id": cust_id, **fields}
+    if order_type == "b2b":
+        doc["rate_card"] = []
+    await coll.insert_one(doc)
+    return doc
+
+
+async def _price_line_items(db, items: List[OrderLineIn], order_type: str):
+    """Snapshot product name/unit/GST% + compute gross/disc/gst — mirrors
+    v2's updateOrderTotals() per-line math (gross, disc%, taxable, GST)."""
+    valid = [it for it in items if it.product_id and it.qty and it.qty > 0]
+    if not valid:
+        return [], 0.0, 0.0, 0.0
+    products = await db.graamam_products.find({}, {"_id": 0}).to_list(1000)
+    prod_map = {p.get("product_id"): p for p in products}
+    line_items = []
+    gross = disc_total = gst_total = 0.0
+    for it in valid:
+        p = prod_map.get(it.product_id)
+        if not p:
+            continue
+        rate = float(it.rate) if it.rate is not None else float(p.get("mrp_inr") or 0)
+        qty = float(it.qty)
+        disc_pct = float(it.disc or 0)
+        g = rate * qty
+        d = g * disc_pct / 100
+        taxable = max(0.0, g - d)
+        gst_pct = float(p.get("gst_rate") if p.get("gst_rate") is not None else 5)
+        gst = taxable * gst_pct / 100
+        gross += g
+        disc_total += d
+        gst_total += gst
+        line_items.append({
+            "product_id": it.product_id, "product": p.get("name"), "unit": p.get("pack") or "",
+            "qty": qty, "rate": rate, "disc": disc_pct, "gst": gst_pct,
+        })
+    return line_items, gross, disc_total, gst_total
 
 
 router = APIRouter(prefix="/graamam/orders", tags=["graamam-orders"])
@@ -111,18 +272,6 @@ def _serialize(doc: dict) -> dict:
         except Exception:
             pass
     return doc
-
-
-def _next_order_id_seed(existing: List[dict]) -> str:
-    numeric = []
-    for o in existing:
-        oid = (o.get("order_id") or "").split("-")[-1]
-        try:
-            numeric.append(int(oid))
-        except Exception:
-            continue
-    n = max(numeric) + 1 if numeric else 8900
-    return f"GC-{n}"
 
 
 @router.get("", response_model=List[Order])
@@ -160,59 +309,141 @@ async def status_counts():
 
 @router.post("", response_model=Order, status_code=201)
 async def create_order(payload: OrderCreate):
+    """New Order — replica of graamam_v2's createOrder(): validates name +
+    at least one priced line item, creates/updates the customer record,
+    generates FY-stamped ORD/WH tokens, and starts the order at
+    'warehouse_check'."""
     db = _get_db()
 
-    if not payload.customer_name or not payload.customer_name.strip():
-        raise HTTPException(400, "customer_name is required")
-    status_l = (payload.status or "received").lower().strip()
-    if status_l not in ORDER_STATUSES:
-        raise HTTPException(400, f"status must be one of {sorted(ORDER_STATUSES)}")
+    order_type = (payload.order_type or "b2b").lower().strip()
+    if order_type not in ("b2b", "b2c"):
+        raise HTTPException(400, "order_type must be 'b2b' or 'b2c'")
 
-    order_id = (payload.order_id or "").strip()
-    if not order_id:
-        existing = await db.graamam_orders.find({}, {"_id": 0, "order_id": 1}).to_list(length=5000)
-        order_id = _next_order_id_seed(existing)
+    name = (payload.name or "").strip()
+    if not name:
+        raise HTTPException(400, "Customer name is required.")
 
-    # de-dupe by order_id
-    if await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 1}):
-        raise HTTPException(409, f"Order {order_id} already exists")
+    line_items, gross, disc_total, gst_total = await _price_line_items(db, payload.items, order_type)
+    if not line_items:
+        raise HTTPException(400, "Add at least one item with a product and quantity.")
 
-    name = payload.customer_name.strip()
-    initials = (payload.customer_initials or "").strip()
-    if not initials:
-        parts = [p for p in name.split() if p]
-        initials = "".join(p[0] for p in parts[:2]).upper() or name[:2].upper()
+    cust = await _upsert_customer(db, order_type, payload)
+
+    order_id = await _next_fy_token(db, "ORD")
+    wh_token = await _next_fy_token(db, "WH")
+
+    initials = "".join(p[0] for p in name.split()[:2]).upper() or name[:2].upper()
+    taxable_total = gross - disc_total
+    grand_total = taxable_total + gst_total
+    items_qty_total = sum(li["qty"] for li in line_items)
+    items_summary = (
+        line_items[0]["product"] if len(line_items) == 1
+        else f"{line_items[0]['product']} +{len(line_items) - 1} more"
+    )
+
+    bill_to = payload.bill_to.model_dump() if (order_type == "b2b" and payload.bill_to) else None
+    ship_to = payload.ship_to.model_dump() if (order_type == "b2b" and payload.ship_to) else None
+    cust_info = payload.cust_info.model_dump() if (order_type == "b2c" and payload.cust_info) else None
+    delivery_address = None
+    if order_type == "b2b":
+        sa = ship_to or bill_to or {}
+        delivery_address = sa.get("address")
 
     order = Order(
         order_id=order_id,
-        customer=Customer(
-            name=name,
-            initials=initials,
-            avatar_url=payload.customer_avatar_url or None,
-        ),
-        items_count=max(1, int(payload.items_count or 1)),
-        items_summary=payload.items_summary
-        or (f"{max(1, int(payload.items_count or 1))} items"),
-        date=payload.date or datetime.now(timezone.utc).date().isoformat(),
-        total=float(payload.total or 0.0),
-        status=status_l,
-        delivery_address=payload.delivery_address,
-        producer=payload.producer,
-        speed=payload.speed or "standard",
+        order_type=order_type,
+        customer=Customer(name=name, initials=initials),
+        customer_id=cust.get("customer_id"),
+        bill_to=bill_to,
+        ship_to=ship_to,
+        pan=(payload.pan or "").strip() if order_type == "b2b" else None,
+        cust_info=cust_info,
+        items=line_items,
+        items_count=int(items_qty_total) or 1,
+        items_summary=items_summary,
+        notes=(payload.notes or "").strip() or None,
+        advance_paid=float(payload.advance_paid or 0),
+        payment_term_days=(int(payload.payment_term_days) if (order_type == "b2b" and payload.payment_term_days) else None),
+        date=datetime.now(timezone.utc).date().isoformat(),
+        total=round(grand_total, 2),
+        status="warehouse_check",
+        delivery_address=delivery_address,
+        wh_token=wh_token,
     )
     doc = order.model_dump()
     doc["created_at"] = doc["created_at"].isoformat()
     await db.graamam_orders.insert_one(doc)
     try:
         from .graamam_audit import log_action
+        item_desc = ", ".join(f"{li['product']} x{li['qty']:g}" for li in line_items)
         await log_action(
-            order.order_id,
-            f"Order {order.order_id} created for {name} — {order.items_count} items, \u20b9{order.total} ({status_l})",
-            None,
+            order_id,
+            f"{order_type.upper()} order created for {name} — {len(line_items)} item(s): {item_desc}",
+            None, sub_token=wh_token,
         )
+        await log_action(order_id, f"Warehouse Token {wh_token} raised", None, sub_token=wh_token)
     except Exception:
         pass
     return order
+
+
+@router.post("/{order_id}/edit", response_model=Order)
+async def edit_order(order_id: str, payload: OrderEditPayload):
+    """Edit an existing order — order type can't change (matches v2).
+    Direct save (no admin-approval routing in this cut)."""
+    db = _get_db()
+    order = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    if not order:
+        raise HTTPException(404, f"order {order_id} not found")
+    if order.get("status") in ("dispatched", "closed", "cancelled"):
+        raise HTTPException(400, f"This order can no longer be edited (already {order.get('status')}).")
+
+    order_type = order.get("order_type") or "b2b"
+    name = (payload.name or "").strip()
+    if not name:
+        raise HTTPException(400, "Customer name is required.")
+
+    line_items, gross, disc_total, gst_total = await _price_line_items(db, payload.items, order_type)
+    if not line_items:
+        raise HTTPException(400, "Add at least one item with a product and quantity.")
+
+    grand_total = (gross - disc_total) + gst_total
+    items_qty_total = sum(li["qty"] for li in line_items)
+    items_summary = (
+        line_items[0]["product"] if len(line_items) == 1
+        else f"{line_items[0]['product']} +{len(line_items) - 1} more"
+    )
+
+    prev_customer = order.get("customer") or {}
+    update = {
+        "customer": {"name": name, "initials": prev_customer.get("initials"), "avatar_url": prev_customer.get("avatar_url")},
+        "items": line_items,
+        "items_count": int(items_qty_total) or 1,
+        "items_summary": items_summary,
+        "notes": (payload.notes or "").strip() or None,
+        "total": round(grand_total, 2),
+    }
+    if order_type == "b2b":
+        update["bill_to"] = payload.bill_to.model_dump() if payload.bill_to else order.get("bill_to")
+        update["ship_to"] = payload.ship_to.model_dump() if payload.ship_to else order.get("ship_to")
+        update["pan"] = (payload.pan or "").strip()
+        if payload.advance_paid is not None:
+            update["advance_paid"] = float(payload.advance_paid)
+        if payload.payment_term_days is not None:
+            update["payment_term_days"] = int(payload.payment_term_days)
+        sa = update.get("ship_to") or update.get("bill_to") or {}
+        update["delivery_address"] = sa.get("address")
+    else:
+        update["cust_info"] = payload.cust_info.model_dump() if payload.cust_info else order.get("cust_info")
+
+    await db.graamam_orders.update_one({"order_id": order_id}, {"$set": update})
+    try:
+        from .graamam_audit import log_action
+        await log_action(order_id, f"Order {order_id} updated — {name}, {len(line_items)} item(s)", None)
+    except Exception:
+        pass
+    doc = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    return _serialize(doc)
 
 
 @router.post("/{order_id}/cancel")

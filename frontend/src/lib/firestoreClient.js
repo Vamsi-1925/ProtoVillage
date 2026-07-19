@@ -39,8 +39,26 @@ export const ordersRepository = {
   list: ({ status } = {}) => _fetchJson(`${API}/graamam/orders${_qs({ status })}`),
   counts: () => _fetchJson(`${API}/graamam/orders/counts`),
   create: (payload) => _fetchJson(`${API}/graamam/orders`, { method: "POST", body: JSON.stringify(payload) }),
+  update: (orderId, payload) => _fetchJson(`${API}/graamam/orders/${orderId}/edit`, { method: "POST", body: JSON.stringify(payload) }),
+  cancel: (orderId, reason) => _fetchJson(`${API}/graamam/orders/${orderId}/cancel${reason ? _qs({ reason }) : ""}`, { method: "POST" }),
+  history: (orderId) => _fetchJson(`${API}/graamam/audit/order/${orderId}/trail`),
   updateStatus: (orderId, status) => _fetchJson(`${API}/graamam/orders/${orderId}/status`, { method: "POST", body: JSON.stringify({ status }) }),
   onSnapshot: makePoller((args) => _fetchJson(`${API}/graamam/orders${_qs({ status: args?.status })}`)),
+};
+
+// ---------- MASTER (Products, B2B/B2C Customers) — feeds the New Order form ----------
+export const masterRepository = {
+  company: () => _fetchJson(`${API}/graamam/master/company`),
+  products: () => _fetchJson(`${API}/graamam/master/products`),
+  b2bCustomers: () => _fetchJson(`${API}/graamam/master/customers/b2b`),
+  b2cCustomers: () => _fetchJson(`${API}/graamam/master/customers/b2c`),
+};
+
+// ---------- DISCUSSIONS (threads) ----------
+export const threadsRepository = {
+  list: ({ status } = {}) => _fetchJson(`${API}/graamam/threads${_qs({ status })}`),
+  create: (payload) => _fetchJson(`${API}/graamam/threads`, { method: "POST", body: JSON.stringify(payload) }),
+  messages: (threadId) => _fetchJson(`${API}/graamam/threads/${threadId}/messages`),
 };
 
 // ---------- PRODUCERS ----------

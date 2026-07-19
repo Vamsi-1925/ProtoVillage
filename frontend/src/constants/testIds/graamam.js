@@ -40,6 +40,30 @@ export const GRAAMAM_ORDERS = {
   createOrderInputAddress: "graamam-create-order-input-address",
   createOrderSubmit: "graamam-create-order-submit",
   createOrderCancel: "graamam-create-order-cancel",
+
+  // New Order form (graamam_v2 replica)
+  orderTypeToggleB2B: "graamam-order-type-b2b",
+  orderTypeToggleB2C: "graamam-order-type-b2c",
+  orderCustomerSelect: "graamam-order-customer-select",
+  orderCustomerName: "graamam-order-customer-name",
+  orderShipSameCheckbox: "graamam-order-ship-same",
+  orderAddItemButton: "graamam-order-add-item",
+  orderItemRow: (i) => `graamam-order-item-row-${i}`,
+  orderItemProduct: (i) => `graamam-order-item-product-${i}`,
+  orderItemQty: (i) => `graamam-order-item-qty-${i}`,
+  orderItemRate: (i) => `graamam-order-item-rate-${i}`,
+  orderItemDisc: (i) => `graamam-order-item-disc-${i}`,
+  orderItemRemove: (i) => `graamam-order-item-remove-${i}`,
+  orderTotalsBox: "graamam-order-totals-box",
+  orderNotesInput: "graamam-order-notes",
+  orderFormError: "graamam-order-form-error",
+
+  // Orders list row actions
+  orderRowHistory: (oid) => `graamam-order-history-${oid}`,
+  orderRowEdit: (oid) => `graamam-order-edit-${oid}`,
+  orderRowCancel: (oid) => `graamam-order-cancel-${oid}`,
+  orderRowDiscuss: (oid) => `graamam-order-discuss-${oid}`,
+  orderHistoryDialog: "graamam-order-history-dialog",
 };
 
 export const GRAAMAM_DASHBOARD = {

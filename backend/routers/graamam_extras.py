@@ -194,44 +194,63 @@ async def create_invoice_from_order(order_id: str):
     if not order:
         raise HTTPException(404, f"order {order_id} not found")
 
-    # Try to match the customer against B2B master to pull GSTIN + state + rate card.
     cust_name = (order.get("customer") or {}).get("name") or ""
-    match = None
-    if cust_name:
-        # loose match on trimmed lowercase
-        async for c in db.graamam_customers_b2b.find({}, {"_id": 0}):
-            if (c.get("name") or "").strip().lower() == cust_name.strip().lower():
-                match = c
-                break
 
-    customer_state = (match or {}).get("state") or ""
-    customer_gstin = (match or {}).get("gstin") or ""
-    line_items = []
+    # New-shape orders (from the "New Order" form) already snapshot
+    # bill_to (GSTIN/state) and priced line items directly on the order —
+    # prefer that over guessing from the B2B master + a lump total.
+    bill_to = order.get("bill_to") or {}
+    customer_state = bill_to.get("state_name") or ""
+    customer_gstin = bill_to.get("gstin") or ""
+    order_items = order.get("items") or []
+
+    if not customer_state and not customer_gstin:
+        # Legacy order — fall back to matching the customer against B2B master.
+        match = None
+        if cust_name:
+            async for c in db.graamam_customers_b2b.find({}, {"_id": 0}):
+                if (c.get("name") or "").strip().lower() == cust_name.strip().lower():
+                    match = c
+                    break
+        customer_state = (match or {}).get("state") or ""
+        customer_gstin = (match or {}).get("gstin") or ""
+    else:
+        match = None
+
     total = float(order.get("total") or 0)
     items_count = int(order.get("items_count") or 1)
     items_summary = order.get("items_summary") or f"{items_count} items"
-    # If rate card present + we can identify a product, build proper lines. Else, one lump line.
-    rate_card = (match or {}).get("rate_card") or []
-    if rate_card and items_count == 1:
-        # single-line B2B order — best effort: use first rate-card row as anchor
-        entry = rate_card[0]
+
+    if order_items:
+        # Rich line items captured at order time — use them as-is.
         line_items = [{
-            "name": entry.get("product") or items_summary,
+            "name": it.get("product") or "Item",
             "hsn": "2106",
-            "qty": items_count,
-            "rate": float(entry.get("rate") or (total / items_count if items_count else total)),
-            "gst": 5,
-        }]
+            "qty": float(it.get("qty") or 0),
+            "rate": float(it.get("rate") or 0),
+            "gst": float(it.get("gst") if it.get("gst") is not None else 5),
+        } for it in order_items]
     else:
-        # Split total across items evenly
-        rate = round(total / max(items_count, 1), 2)
-        line_items = [{
-            "name": items_summary,
-            "hsn": "2106",
-            "qty": items_count,
-            "rate": rate,
-            "gst": 5,
-        }]
+        # Legacy lump-sum order (no line items) — best-effort single line.
+        rate_card = (match or {}).get("rate_card") or []
+        if rate_card and items_count == 1:
+            entry = rate_card[0]
+            line_items = [{
+                "name": entry.get("product") or items_summary,
+                "hsn": "2106",
+                "qty": items_count,
+                "rate": float(entry.get("rate") or (total / items_count if items_count else total)),
+                "gst": 5,
+            }]
+        else:
+            rate = round(total / max(items_count, 1), 2)
+            line_items = [{
+                "name": items_summary,
+                "hsn": "2106",
+                "qty": items_count,
+                "rate": rate,
+                "gst": 5,
+            }]
 
     payload = InvoicePayload(
         order_id=order_id,
