@@ -63,7 +63,7 @@ class Order(BaseModel):
     items_summary: Optional[str] = None  # "3 items" or a specific description
     date: str  # ISO date (yyyy-mm-dd)
     total: float = 0.0
-    status: str = "new"
+    status: str = "received"
     delivery_address: Optional[str] = None
     producer: Optional[str] = None
     speed: Optional[str] = "standard"
@@ -89,7 +89,7 @@ class OrderCreate(BaseModel):
     items_summary: Optional[str] = None
     date: Optional[str] = None  # defaults to today
     total: float = 0.0
-    status: str = "new"
+    status: str = "received"
     delivery_address: Optional[str] = None
     producer: Optional[str] = None
     speed: Optional[str] = "standard"
@@ -164,7 +164,7 @@ async def create_order(payload: OrderCreate):
 
     if not payload.customer_name or not payload.customer_name.strip():
         raise HTTPException(400, "customer_name is required")
-    status_l = (payload.status or "new").lower().strip()
+    status_l = (payload.status or "received").lower().strip()
     if status_l not in ORDER_STATUSES:
         raise HTTPException(400, f"status must be one of {sorted(ORDER_STATUSES)}")
 
@@ -203,7 +203,40 @@ async def create_order(payload: OrderCreate):
     doc = order.model_dump()
     doc["created_at"] = doc["created_at"].isoformat()
     await db.graamam_orders.insert_one(doc)
+    try:
+        from .graamam_audit import log_action
+        await log_action(
+            order.order_id,
+            f"Order {order.order_id} created for {name} — {order.items_count} items, \u20b9{order.total} ({status_l})",
+            None,
+        )
+    except Exception:
+        pass
     return order
+
+
+@router.post("/{order_id}/cancel")
+async def cancel_order(order_id: str, reason: Optional[str] = None):
+    """§7.3 cancellation (basic form): flip to cancelled, auto-close threads."""
+    db = _get_db()
+    order = await db.graamam_orders.find_one({"order_id": order_id}, {"_id": 0})
+    if not order:
+        raise HTTPException(404, f"order {order_id} not found")
+    if order.get("status") in ("dispatched", "closed", "cancelled"):
+        raise HTTPException(400, f"order already terminal: {order.get('status')}")
+    prev = order.get("status")
+    await db.graamam_orders.update_one({"order_id": order_id}, {"$set": {"status": "cancelled", "cancelled_at_stage": prev, "cancel_reason": reason}})
+    now = datetime.now(timezone.utc).isoformat()
+    await db.graamam_orders.database.graamam_threads.update_many(
+        {"$or": [{"link_id": order_id, "status": "open"}, {"link_type": "order", "link_id": order_id, "status": "open"}]},
+        {"$set": {"status": "closed", "closed_reason": "order_cancelled", "closed_at": now}},
+    )
+    try:
+        from .graamam_audit import log_action
+        await log_action(order_id, f"Order {order_id} cancelled at stage '{prev}'" + (f" — reason: {reason}" if reason else ""), None)
+    except Exception:
+        pass
+    return {"ok": True, "cancelled_at_stage": prev}
 
 
 @router.post("/{order_id}/status", response_model=Order)

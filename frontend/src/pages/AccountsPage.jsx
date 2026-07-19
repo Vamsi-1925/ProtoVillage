@@ -58,7 +58,16 @@ export default function AccountsPage() {
                   <td className="py-3 px-6"><StatusPill status={inv.status === "paid" ? "delivered" : "new"} /></td>
                   <td className="py-3 px-6 text-right">
                     {inv.status !== "paid" ? (
-                      <button onClick={async () => { await fetch(`${API}/graamam/invoices/${inv.invoice_id}/mark-paid`, { method: "POST" }); load(); }} className="font-label font-bold text-body-sm px-4 py-2 rounded-lg bg-olive-success text-white shadow-warm-sm">Mark Paid</button>
+                      <div className="inline-flex items-center gap-2">
+                        <span className="text-body-sm text-outline">o/s {formatCurrency(inv.outstanding ?? (inv.totals?.final || 0))}</span>
+                        <button onClick={async () => {
+                          const amt = Number(window.prompt(`Record payment for ${inv.invoice_id}. Outstanding: ₹${inv.outstanding ?? inv.totals?.final ?? 0}. Amount received (₹):`, String(inv.outstanding ?? inv.totals?.final ?? 0)) || 0);
+                          if (!amt) return;
+                          await fetch(`${API}/graamam/invoices/${inv.invoice_id}/pay`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ amount: amt, recorded_by: "Accounts" }) });
+                          load();
+                        }} className="font-label font-bold text-body-sm px-3 py-2 rounded-lg bg-secondary-container text-on-secondary-container">Record Payment</button>
+                        <button onClick={async () => { await fetch(`${API}/graamam/invoices/${inv.invoice_id}/mark-paid`, { method: "POST" }); load(); }} className="font-label font-bold text-body-sm px-3 py-2 rounded-lg bg-olive-success text-white shadow-warm-sm">Mark Fully Paid</button>
+                      </div>
                     ) : <span className="text-body-sm text-outline">{formatDateTimeIST(inv.paid_at)}</span>}
                   </td>
                 </tr>

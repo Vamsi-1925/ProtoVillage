@@ -93,6 +93,33 @@ async def mark_dispatched(payload: MarkDispatchedPayload):
     doc["dispatched_at"] = doc["dispatched_at"].isoformat()
     await db.graamam_shipments.insert_one(doc)
     await db.graamam_orders.update_one({"order_id": payload.order_id}, {"$set": {"status": "dispatched"}})
+
+    # §7.9 auto-generate invoice at dispatch (best-effort — inline import to
+    # avoid cycles). B2C would auto-mark paid; here we treat as B2B by default.
+    try:
+        from .graamam_extras import create_invoice_from_order
+        await create_invoice_from_order(payload.order_id)
+    except Exception:
+        pass  # invoice may already exist for this order; not fatal
+
+    # §7.19 auto-close discussion threads linked to this order.
+    now = now_ist().isoformat()
+    await db.graamam_threads.update_many(
+        {"$or": [
+            {"link_id": payload.order_id, "status": "open"},
+            {"link_type": "order", "link_id": payload.order_id, "status": "open"},
+        ]},
+        {"$set": {"status": "closed", "closed_reason": "order_dispatched", "closed_at": now}},
+    )
+
+    # §10 audit
+    from .graamam_audit import log_action
+    await log_action(
+        payload.order_id,
+        f"Order dispatched via {payload.courier} ({payload.speed}), shipment {ship.shipment_id} to {order.get('customer',{}).get('name','?')}",
+        None, sub_token=ship.shipment_id,
+    )
+
     return ship
 
 

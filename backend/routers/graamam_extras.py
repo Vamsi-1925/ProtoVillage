@@ -174,8 +174,16 @@ async def create_invoice(payload: InvoicePayload):
         "customer_name": payload.customer_name, "customer_gstin": payload.customer_gstin,
         "customer_state": payload.customer_state, "place_of_supply": payload.place_of_supply,
         **calc, "status": "raised", "created_at": now_ist().isoformat(),
+        # §7.10 payment fields
+        "inv_type": "b2b",
+        "advance_paid": 0.0,
+        "paid_amount": 0.0,
+        "due_at": None,  # set when we know payment_term_days; else null
     }
+    doc["outstanding"] = max(0.0, float(calc["totals"]["final"]) - doc["advance_paid"] - doc["paid_amount"])
     await db.graamam_invoices.insert_one(doc)
+    from .graamam_audit import log_action  # local import to avoid cycle
+    await log_action(payload.order_id, f"Invoice {inv_id} raised for {payload.customer_name} — {calc['totals']['final']}", None)
     return {k: v for k, v in doc.items() if k != "_id"}
 
 
@@ -252,6 +260,36 @@ async def list_invoices(status: Optional[str] = None):
     return [serialize(d) async for d in db.graamam_invoices.find(q, {"_id": 0}).sort("created_at", -1).limit(500)]
 
 
+class PaymentPayload(BaseModel):
+    amount: float
+    recorded_by: Optional[str] = "Accounts"
+
+
+@app_router.post("/invoices/{invoice_id}/pay")
+async def record_payment(invoice_id: str, payload: PaymentPayload):
+    """§7.11 partial payment: reduce outstanding; auto-flip to 'paid' at zero."""
+    db = get_db()
+    inv = await db.graamam_invoices.find_one({"invoice_id": invoice_id}, {"_id": 0})
+    if not inv:
+        raise HTTPException(404, "invoice not found")
+    if inv.get("status") == "paid":
+        return inv
+    amt = max(0.0, float(payload.amount or 0))
+    grand = float(inv.get("totals", {}).get("final") or 0)
+    already = float(inv.get("advance_paid", 0)) + float(inv.get("paid_amount", 0))
+    to_pay = min(amt, max(0.0, grand - already))
+    new_paid = float(inv.get("paid_amount", 0)) + to_pay
+    new_outstanding = max(0.0, grand - float(inv.get("advance_paid", 0)) - new_paid)
+    status = "paid" if new_outstanding <= 0.01 else inv.get("status", "raised")
+    upd = {"paid_amount": new_paid, "outstanding": new_outstanding, "status": status}
+    if status == "paid":
+        upd["paid_at"] = now_ist().isoformat()
+    await db.graamam_invoices.update_one({"invoice_id": invoice_id}, {"$set": upd})
+    from .graamam_audit import log_action
+    await log_action(inv.get("order_id"), f"Payment of \u20b9{to_pay:.2f} recorded on {invoice_id} by {payload.recorded_by} (outstanding \u20b9{new_outstanding:.2f})", None)
+    return await db.graamam_invoices.find_one({"invoice_id": invoice_id}, {"_id": 0})
+
+
 @app_router.post("/invoices/{invoice_id}/mark-paid")
 async def mark_invoice_paid(invoice_id: str):
     db = get_db()
@@ -266,10 +304,14 @@ async def accounts_summary():
     db = get_db()
     total = 0.0
     paid = 0.0
-    async for inv in db.graamam_invoices.find({}, {"_id": 0, "status": 1, "totals": 1}):
+    async for inv in db.graamam_invoices.find({}, {"_id": 0, "status": 1, "totals": 1, "paid_amount": 1, "advance_paid": 1}):
         f = float(inv.get("totals", {}).get("final") or 0)
         total += f
-        if inv.get("status") == "paid":
+        # Prefer explicit paid_amount + advance if present; else fall back to status flag.
+        p = float(inv.get("paid_amount", 0)) + float(inv.get("advance_paid", 0))
+        if p > 0:
+            paid += min(p, f)
+        elif inv.get("status") == "paid":
             paid += f
     return {"total_billed_inr": total, "total_paid_inr": paid, "outstanding_inr": round(total - paid, 2)}
 

@@ -23,6 +23,7 @@ from routers.graamam_dashboard import router as graamam_dashboard_router
 from routers.graamam_master_api import router as graamam_master_router
 from routers.graamam_extras import app_router as graamam_extras_router
 from routers.graamam_auth import router as graamam_auth_router
+from routers.graamam_audit import router as graamam_audit_router, log_action as _audit_log
 from routers.graamam_master import import_master_data
 
 
@@ -95,6 +96,7 @@ api_router.include_router(graamam_dashboard_router)
 api_router.include_router(graamam_master_router)
 api_router.include_router(graamam_extras_router)
 api_router.include_router(graamam_auth_router)
+api_router.include_router(graamam_audit_router)
 app.include_router(api_router)
 
 app.add_middleware(
