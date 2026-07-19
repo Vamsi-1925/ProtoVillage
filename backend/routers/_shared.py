@@ -140,4 +140,7 @@ async def ensure_unique_indexes(db) -> None:
         partialFilterExpression={"prod_token": {"$type": "string"}},
     )
     await db.graamam_invoices.create_index("invoice_id", unique=True)
+    await db.graamam_production.create_index("token_id", unique=True)
+    await db.graamam_prod_slips.create_index("slip_id", unique=True)
+    await db.graamam_proc_tokens.create_index("proc_id", unique=True)
 

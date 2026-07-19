@@ -81,12 +81,17 @@ export const producersRepository = {
   create: (payload) => _fetchJson(`${API}/graamam/producers`, { method: "POST", body: JSON.stringify(payload) }),
 };
 
-// ---------- INVENTORY ----------
+// ---------- INVENTORY (one shared collection: finished goods + raw materials) ----------
 export const inventoryRepository = {
   list: ({ status, category, q } = {}) => _fetchJson(`${API}/graamam/inventory${_qs({ status, category, q })}`),
   summary: () => _fetchJson(`${API}/graamam/inventory/summary`),
   create: (payload) => _fetchJson(`${API}/graamam/inventory`, { method: "POST", body: JSON.stringify(payload) }),
   adjust: (sku, delta) => _fetchJson(`${API}/graamam/inventory/${sku}/adjust`, { method: "POST", body: JSON.stringify({ delta }) }),
+  // Part C — category-block Inventory
+  groups: () => _fetchJson(`${API}/graamam/inventory/groups`),
+  groupItems: (group) => _fetchJson(`${API}/graamam/inventory/groups/${group}`),
+  priceHistory: (sku) => _fetchJson(`${API}/graamam/inventory/price-history${sku ? _qs({ sku }) : ""}`),
+  updateStock: (payload) => _fetchJson(`${API}/graamam/inventory/update-stock`, { method: "POST", body: JSON.stringify(payload) }),
 };
 
 // ---------- BATCHES ----------
@@ -96,14 +101,23 @@ export const batchesRepository = {
   create: (payload) => _fetchJson(`${API}/graamam/batches`, { method: "POST", body: JSON.stringify(payload) }),
 };
 
-// ---------- PRODUCTION ----------
+// ---------- PRODUCTION (tokens + slips — graamam_v2 parity) ----------
 export const productionRepository = {
   list: ({ status } = {}) => _fetchJson(`${API}/graamam/production${_qs({ status })}`),
-  create: (payload) => _fetchJson(`${API}/graamam/production`, { method: "POST", body: JSON.stringify(payload) }),
-  updateStatus: (tokenId, status) => _fetchJson(`${API}/graamam/production/${tokenId}/status`, { method: "POST", body: JSON.stringify({ status }) }),
+  slip: (tokenId) => _fetchJson(`${API}/graamam/production/${tokenId}/slip`),
+  createSlip: (tokenId) => _fetchJson(`${API}/graamam/production/${tokenId}/create-slip`, { method: "POST" }),
+  start: (tokenId) => _fetchJson(`${API}/graamam/production/${tokenId}/start`, { method: "POST" }),
+  complete: (tokenId) => _fetchJson(`${API}/graamam/production/${tokenId}/complete`, { method: "POST" }),
 };
 
-// ---------- PROCUREMENT ----------
+// ---------- PROCUREMENT (LEAN, order-pipeline-linked PROC tokens) ----------
+export const procTokensRepository = {
+  list: ({ status } = {}) => _fetchJson(`${API}/graamam/proc-tokens${_qs({ status })}`),
+  approve: (procId) => _fetchJson(`${API}/graamam/proc-tokens/${procId}/approve`, { method: "POST" }),
+  receive: (procId, payload) => _fetchJson(`${API}/graamam/proc-tokens/${procId}/receive`, { method: "POST", body: JSON.stringify(payload) }),
+};
+
+// ---------- PROCUREMENT (legacy PR-#### requests — feeds the Approvals page) ----------
 export const procurementRepository = {
   list: ({ status } = {}) => _fetchJson(`${API}/graamam/procurement${_qs({ status })}`),
   summary: () => _fetchJson(`${API}/graamam/procurement/summary`),
@@ -138,13 +152,11 @@ export const reportsRepository = {
   sales: ({ start, end } = {}) => _fetchJson(`${API}/graamam/reports/sales${_qs({ start, end })}`),
 };
 
-// ---------- DASHBOARD ----------
+// ---------- DASHBOARD (graamam_v2 pgDashboard parity) ----------
 export const dashboardRepository = {
   kpis: () => _fetchJson(`${API}/graamam/dashboard/kpis`),
-  productionOverview: (filter = "all") => _fetchJson(`${API}/graamam/dashboard/production-overview?filter=${filter}`),
-  activity: (limit = 8) => _fetchJson(`${API}/graamam/dashboard/activity?limit=${limit}`),
-  alerts: () => _fetchJson(`${API}/graamam/dashboard/alerts`),
-  warehouse: () => _fetchJson(`${API}/graamam/dashboard/warehouse`),
+  recentOrders: (limit = 6) => _fetchJson(`${API}/graamam/dashboard/recent-orders?limit=${limit}`),
+  activity: (limit = 10) => _fetchJson(`${API}/graamam/dashboard/activity?limit=${limit}`),
 };
 
 // ---------- Polling onSnapshot factory ----------

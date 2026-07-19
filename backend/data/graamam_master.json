@@ -239,7 +239,7 @@
   "recipes": [
     {
       "category": "Crispies",
-      "name": "Demo Mix A",
+      "name": "Demo Crispies - One",
       "conversion": 0.6,
       "batchOutput": 1000,
       "ingredients": [
@@ -261,9 +261,50 @@
       ]
     },
     {
-      "category": "Snacks",
-      "name": "Demo Mix B",
+      "category": "Crispies",
+      "name": "Demo Crispies - Two",
+      "conversion": 0.6,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Millet",
+          "qty": 150,
+          "costPerKg": 50
+        },
+        {
+          "item": "Salt",
+          "qty": 20,
+          "costPerKg": 10
+        }
+      ]
+    },
+    {
+      "category": "Crispies",
+      "name": "Demo Crispies - Three",
       "conversion": 0.55,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 40,
+          "costPerKg": 210
+        },
+        {
+          "item": "Millet",
+          "qty": 150,
+          "costPerKg": 50
+        },
+        {
+          "item": "Green Chilli",
+          "qty": 10,
+          "costPerKg": 60
+        }
+      ]
+    },
+    {
+      "category": "Powder",
+      "name": "Demo Powder - Alpha",
+      "conversion": 0.65,
       "batchOutput": 500,
       "ingredients": [
         {
@@ -272,9 +313,27 @@
           "costPerKg": 50
         },
         {
+          "item": "Salt",
+          "qty": 10,
+          "costPerKg": 10
+        }
+      ]
+    },
+    {
+      "category": "Powder",
+      "name": "Demo Powder - Gamma",
+      "conversion": 0.65,
+      "batchOutput": 500,
+      "ingredients": [
+        {
           "item": "Sesame",
           "qty": 40,
           "costPerKg": 210
+        },
+        {
+          "item": "Groundnut",
+          "qty": 100,
+          "costPerKg": 160
         }
       ]
     }

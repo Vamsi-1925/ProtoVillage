@@ -68,29 +68,28 @@ export const GRAAMAM_ORDERS = {
 
 export const GRAAMAM_DASHBOARD = {
   page: "graamam-dashboard-page",
+  greeting: "graamam-dashboard-greeting",
   kpiCard: (key) => `graamam-kpi-${key}`,
   activityFeed: "graamam-activity-feed",
-  productionOverview: "graamam-production-overview",
-  weatherAdvisory: "graamam-weather-advisory",
-  overviewTab: (key) => `graamam-overview-tab-${key}`,
+  recentOrders: "graamam-dashboard-recent-orders",
+  recentOrderRow: (oid) => `graamam-dashboard-recent-order-${oid}`,
 };
 
 export const GRAAMAM_INVENTORY = {
   page: "graamam-inventory-page",
-  addItemButton: "graamam-inventory-add",
-  exportButton: "graamam-inventory-export",
-  statusPill: (s) => `graamam-inventory-status-${s}`,
-  categoryToggle: (c) => `graamam-inventory-category-${c}`,
-  searchInput: "graamam-inventory-search",
-  row: (sku) => `graamam-inventory-row-${sku}`,
-  batchDrawer: "graamam-batch-drawer",
-  batchProduct: "graamam-batch-product",
-  batchProducer: "graamam-batch-producer",
-  batchQty: "graamam-batch-qty",
-  batchDate: "graamam-batch-date",
-  batchNotes: "graamam-batch-notes",
-  batchSave: "graamam-batch-save",
-  batchCancel: "graamam-batch-cancel",
+  groupBlock: (g) => `graamam-inventory-group-${g}`,
+  backToGroups: "graamam-inventory-back",
+  groupTable: "graamam-inventory-group-table",
+  groupRow: (sku) => `graamam-inventory-row-${sku}`,
+  updateStockButton: "graamam-inventory-update-stock",
+  reconcileButton: "graamam-inventory-reconcile",
+  priceHistoryButton: (sku) => `graamam-inventory-price-history-${sku}`,
+  priceHistoryTable: "graamam-inventory-price-history-table",
+  updateStockDialog: "graamam-inventory-update-stock-dialog",
+  updateStockSku: "graamam-inventory-update-stock-sku",
+  updateStockQty: "graamam-inventory-update-stock-qty",
+  updateStockPrice: "graamam-inventory-update-stock-price",
+  updateStockSubmit: "graamam-inventory-update-stock-submit",
 };
 
 export const GRAAMAM_PRODUCERS = {
@@ -103,21 +102,28 @@ export const GRAAMAM_PRODUCERS = {
 
 export const GRAAMAM_PRODUCTION = {
   page: "graamam-production-page",
-  createSlip: "graamam-production-create-slip",
+  activeSection: "graamam-production-active-section",
+  activeEmpty: "graamam-production-active-empty",
+  completedSection: "graamam-production-completed-section",
   tokenCard: (tid) => `graamam-token-${tid}`,
-  startButton: "graamam-production-start",
-  completeButton: "graamam-production-complete",
-  cancelButton: "graamam-production-cancel",
+  createSlipButton: (tid) => `graamam-production-create-slip-${tid}`,
+  viewSlipButton: (tid) => `graamam-production-view-slip-${tid}`,
+  startButton: (tid) => `graamam-production-start-${tid}`,
+  sendToProcButton: (tid) => `graamam-production-send-proc-${tid}`,
+  completeButton: (tid) => `graamam-production-complete-${tid}`,
+  slipDialog: "graamam-production-slip-dialog",
 };
 
 export const GRAAMAM_PROCUREMENT = {
   page: "graamam-procurement-page",
   column: (s) => `graamam-procurement-col-${s}`,
-  card: (rid) => `graamam-procurement-card-${rid}`,
-  newRequest: "graamam-procurement-new",
-  approve: (rid) => `graamam-procurement-approve-${rid}`,
-  markPurchased: (rid) => `graamam-procurement-mark-purchased-${rid}`,
-  finalize: (rid) => `graamam-procurement-finalize-${rid}`,
+  card: (pid) => `graamam-procurement-card-${pid}`,
+  approve: (pid) => `graamam-procurement-approve-${pid}`,
+  receiveButton: (pid) => `graamam-procurement-receive-btn-${pid}`,
+  receiveDialog: "graamam-procurement-receive-dialog",
+  receiveVendor: "graamam-procurement-receive-vendor",
+  receiveCostInput: (mat) => `graamam-procurement-receive-cost-${mat}`,
+  receiveSubmit: "graamam-procurement-receive-submit",
 };
 
 export const GRAAMAM_DISPATCH = {

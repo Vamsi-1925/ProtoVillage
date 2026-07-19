@@ -1,281 +1,292 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import AppShell from "@/components/graamam/AppShell";
 import PageHeader from "@/components/graamam/PageHeader";
-import SearchInput from "@/components/graamam/SearchInput";
-import SlideOver from "@/components/graamam/SlideOver";
-import StatusPill from "@/components/graamam/StatusPill";
 import Icon from "@/components/graamam/Icon";
-import { inventoryRepository, batchesRepository, producersRepository, ordersRepository } from "@/lib/firestoreClient";
+import { inventoryRepository } from "@/lib/firestoreClient";
+import { useAuth } from "@/context/AuthContext";
 import { GRAAMAM_INVENTORY } from "@/constants/testIds";
-import { formatCurrency, formatOrderDate } from "@/lib/formatters";
+import { formatCurrency, formatDateTimeIST, formatQty } from "@/lib/formatters";
 
-const STATUS_FILTERS = [
-  { key: "all", label: "All" },
-  { key: "in_stock", label: "In Stock" },
-  { key: "adequate", label: "Adequate" },
-  { key: "low_stock", label: "Low Stock" },
-];
+/**
+ * InventoryPage — graamam_v2 pgInventory / pgInventoryGroup parity.
+ * Landing = category blocks (5 raw-material groups + Finished Goods).
+ * Click a block to drill into that group's table. Reads the SAME shared
+ * `graamam_inventory` collection Production deducts and Procurement
+ * restocks — one source of truth.
+ */
+const STATUS_STYLE = {
+  OK: "bg-olive-success/15 text-olive-success",
+  "Low Stock": "bg-tertiary-fixed-dim/60 text-on-tertiary-fixed",
+  "Out of Stock": "bg-terracotta-error/15 text-terracotta-error",
+};
 
-const CATEGORIES = ["Spices", "Oils", "Grains", "Preserves", "Herbs"];
-
-export default function InventoryPage() {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [activeStatus, setActiveStatus] = useState("all");
-  const [activeCats, setActiveCats] = useState(new Set(CATEGORIES));
-  const [query, setQuery] = useState("");
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [saving, setSaving] = useState(false);
-  const [producers, setProducers] = useState([]);
-  const [ordersCounts, setOrdersCounts] = useState({});
-
-  const load = () => {
-    setLoading(true);
-    inventoryRepository.list().then((data) => setItems(Array.isArray(data) ? data : [])).finally(() => setLoading(false));
-  };
-  useEffect(() => { load(); }, []);
-  useEffect(() => {
-    producersRepository.list().then(setProducers).catch(() => {});
-    ordersRepository.counts().then(setOrdersCounts).catch(() => {});
-  }, []);  const filtered = useMemo(() => {
-    return items.filter((it) => {
-      if (activeStatus !== "all") {
-        if (activeStatus === "low_stock" && !(it.status === "low_stock" || it.status === "critical")) return false;
-        if (activeStatus !== "low_stock" && it.status !== activeStatus) return false;
-      }
-      if (activeCats.size > 0 && !activeCats.has(it.category)) return false;
-      if (query) {
-        const q = query.toLowerCase();
-        if (!it.name.toLowerCase().includes(q) && !it.sku.toLowerCase().includes(q)) return false;
-      }
-      return true;
-    });
-  }, [items, activeStatus, activeCats, query]);
-
-  const toggleCat = (c) => {
-    setActiveCats((prev) => {
-      const next = new Set(prev);
-      if (next.has(c)) next.delete(c); else next.add(c);
-      return next;
-    });
-  };
-
+function StatusBadge({ label }) {
   return (
-    <AppShell badges={{ orders: ordersCounts.received || 0 }}>
-      <div data-testid={GRAAMAM_INVENTORY.page}>
-        <PageHeader
-          title="Inventory Management"
-          subtitle="Manage current stock levels, categories, and reorder alerts. Prices in ₹ INR."
-          actionLabel="Add item / New batch"
-          actionIcon="add"
-          actionTestId={GRAAMAM_INVENTORY.addItemButton}
-          onAction={() => setDrawerOpen(true)}
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
-          <div className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm-sm p-5">
-            <div className="text-label-sm text-outline uppercase tracking-wider mb-3">Status</div>
-            <div className="flex flex-wrap gap-2">
-              {STATUS_FILTERS.map((s) => (
-                <button
-                  key={s.key}
-                  data-testid={GRAAMAM_INVENTORY.statusPill(s.key)}
-                  onClick={() => setActiveStatus(s.key)}
-                  className={[
-                    "font-label text-body-sm px-4 py-1.5 rounded-full border transition-colors",
-                    activeStatus === s.key
-                      ? "bg-primary-container border-primary-container text-on-primary"
-                      : "bg-surface-container-lowest dark:bg-white/5 border-outline-variant/70 text-on-surface-variant dark:text-outline-variant hover:border-primary-container",
-                  ].join(" ")}
-                >
-                  {s.key === "low_stock" ? <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta-error mr-2 align-middle" /> : null}
-                  {s.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm-sm p-5">
-            <div className="text-label-sm text-outline uppercase tracking-wider mb-3">Category</div>
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
-              {CATEGORIES.map((c) => (
-                <label key={c} data-testid={GRAAMAM_INVENTORY.categoryToggle(c.toLowerCase())} className="inline-flex items-center gap-2 cursor-pointer text-body-md text-on-surface dark:text-white">
-                  <input type="checkbox" checked={activeCats.has(c)} onChange={() => toggleCat(c)} className="w-4 h-4 rounded-sm border-outline text-primary focus:ring-primary" />
-                  <span>{c}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-          <SearchInput
-            value={query}
-            onChange={setQuery}
-            placeholder="Search product name or SKU…"
-            testId={GRAAMAM_INVENTORY.searchInput}
-            className="self-stretch"
-          />
-        </div>
-
-        <div className="bg-surface-container-lowest dark:bg-[#121212] rounded-2xl border border-surface-variant/70 dark:border-white/5 shadow-warm overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-surface-variant dark:border-white/10 text-outline uppercase text-label-sm tracking-wider">
-                  <th className="py-4 px-6">Product</th>
-                  <th className="py-4 px-6">Category</th>
-                  <th className="py-4 px-6">Qty on Hand</th>
-                  <th className="py-4 px-6">Reorder Lvl</th>
-                  <th className="py-4 px-6">Unit Price</th>
-                  <th className="py-4 px-6">Status</th>
-                  <th className="py-4 px-6 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-surface-variant/70 dark:divide-white/5">
-                {loading ? (
-                  <tr><td colSpan={7} className="py-16 text-center text-outline">Loading inventory…</td></tr>
-                ) : filtered.length === 0 ? (
-                  <tr><td colSpan={7} className="py-16 text-center text-outline">No items match your filters.</td></tr>
-                ) : filtered.map((it) => (
-                  <tr key={it.sku} data-testid={GRAAMAM_INVENTORY.row(it.sku)} className="hover:bg-surface-container-low dark:hover:bg-white/5 transition-colors">
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-primary-fixed/40 dark:bg-white/10 flex items-center justify-center text-primary-container dark:text-primary-fixed-dim">
-                          <Icon name={it.icon || "eco"} className="text-[20px]" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-on-surface dark:text-white">{it.name}</div>
-                          <div className="text-body-sm text-outline">SKU: {it.sku}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6 text-body-md text-on-surface-variant dark:text-outline-variant">{it.category}</td>
-                    <td className={`py-4 px-6 font-bold ${it.status === "low_stock" || it.status === "critical" ? "text-terracotta-error" : "text-on-surface dark:text-white"}`}>
-                      {it.qty_on_hand} <span className="text-outline text-body-sm font-normal">{it.unit}</span>
-                    </td>
-                    <td className="py-4 px-6 text-on-surface-variant dark:text-outline-variant">{it.reorder_level} {it.unit}</td>
-                    <td className="py-4 px-6 text-on-surface dark:text-white">{formatCurrency(it.unit_price_inr)}</td>
-                    <td className="py-4 px-6"><StatusPill status={it.status} /></td>
-                    <td className="py-4 px-6 text-right">
-                      <button className="text-outline hover:text-primary-container dark:hover:text-white p-2 rounded-full hover:bg-surface-variant/50 dark:hover:bg-white/10 transition-colors">
-                        <Icon name="edit" className="text-[18px]" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="px-6 py-3 border-t border-surface-variant dark:border-white/10 text-body-sm text-on-surface-variant dark:text-outline-variant flex justify-between">
-            <span>Showing {filtered.length} of {items.length} entries</span>
-            <span className="text-outline">Data source: Firestore stand-in via /api/graamam/inventory</span>
-          </div>
-        </div>
-
-        <NewBatchDrawer
-          open={drawerOpen}
-          onClose={() => (saving ? null : setDrawerOpen(false))}
-          saving={saving}
-          producers={producers}
-          inventory={items}
-          onSubmit={async (payload) => {
-            setSaving(true);
-            try {
-              await batchesRepository.create(payload);
-              setDrawerOpen(false);
-              load();
-            } finally { setSaving(false); }
-          }}
-        />
-      </div>
-    </AppShell>
+    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label font-bold ${STATUS_STYLE[label] || STATUS_STYLE.OK}`}>
+      {label}
+    </span>
   );
 }
 
-function NewBatchDrawer({ open, onClose, onSubmit, saving, producers, inventory }) {
-  const [product, setProduct] = useState("");
-  const [producer, setProducer] = useState("");
-  const [qty, setQty] = useState("");
-  const [unit, setUnit] = useState("kg");
-  const [date, setDate] = useState("");
-  const [notes, setNotes] = useState("");
-  const [err, setErr] = useState(null);
+function GroupBlock({ block, onClick }) {
+  return (
+    <button
+      type="button"
+      data-testid={GRAAMAM_INVENTORY.groupBlock(block.group)}
+      onClick={() => onClick(block.group)}
+      className="text-left rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm-sm p-6 hover:shadow-warm hover:border-primary-container/50 transition-all"
+    >
+      <div className="flex items-start justify-between mb-4">
+        <div className="w-12 h-12 rounded-full bg-primary-fixed/40 dark:bg-white/10 flex items-center justify-center text-primary-container dark:text-primary-fixed-dim">
+          <Icon name={block.icon} className="text-[24px]" />
+        </div>
+        {block.low_count > 0 ? (
+          <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-1 rounded-full bg-terracotta-error/15 text-terracotta-error">
+            <Icon name="warning" className="text-[13px]" /> {block.low_count} low
+          </span>
+        ) : null}
+      </div>
+      <h3 className="font-headline font-bold text-headline-sm text-on-surface dark:text-white">{block.label}</h3>
+      <p className="text-body-sm text-on-surface-variant dark:text-outline-variant mt-1">{block.desc}</p>
+      <p className="mt-4 font-display font-bold text-headline-md text-on-surface dark:text-white">{block.item_count}<span className="text-body-sm font-body text-outline ml-1.5">items</span></p>
+    </button>
+  );
+}
 
-  useEffect(() => {
-    if (open) {
-      setProduct(""); setProducer(""); setQty(""); setUnit("kg"); setDate(""); setNotes(""); setErr(null);
-    }
-  }, [open]);
+function UpdateStockDialog({ open, items, onClose, onSubmit, saving, title, submitLabel, requirePrice }) {
+  const [sku, setSku] = useState("");
+  const [qty, setQty] = useState("");
+  const [price, setPrice] = useState("");
+  const [note, setNote] = useState("");
+
+  useEffect(() => { if (open) { setSku(items[0]?.sku || ""); setQty(""); setPrice(""); setNote(""); } }, [open, items]);
+
+  if (!open) return null;
+  const current = items.find((i) => i.sku === sku);
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!product) return setErr("Please pick a product");
-    if (!producer) return setErr("Please pick a producer");
-    const n = Number(qty);
-    if (!isFinite(n) || n <= 0) return setErr("Quantity must be greater than 0");
-    const p = producers.find((x) => x.producer_id === producer);
-    const inv = inventory.find((x) => x.sku === product);
-    await onSubmit({
-      product_name: inv?.name || product,
-      product_sku: inv?.sku,
-      producer_id: p?.producer_id,
-      producer_name: p?.name,
-      village: p?.village,
-      quantity: n,
-      unit,
-      collection_date: date || undefined,
-      notes,
-    });
+    await onSubmit({ sku, qty: Number(qty || 0), unit_price: Number(price || 0), note, current });
   };
 
   return (
-    <SlideOver
-      open={open}
-      onClose={onClose}
-      title="New Batch"
-      subtitle="Record fresh produce from our network partners."
-      footer={
-        <>
-          <button type="button" onClick={onClose} data-testid="graamam-batch-cancel" className="font-label font-bold text-body-md px-5 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-white/10">Cancel</button>
-          <button type="submit" form="batch-form" disabled={saving} data-testid="graamam-batch-save" className="font-label font-bold text-body-md px-6 py-2.5 rounded-lg bg-primary-container text-on-primary hover:shadow-warm shadow-warm-sm inline-flex items-center gap-2">
-            <Icon name="save" className="text-[18px]" />{saving ? "Saving…" : "Save Batch"}
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" data-testid={GRAAMAM_INVENTORY.updateStockDialog} role="dialog" aria-modal="true">
+      <div className="absolute inset-0 bg-inverse-surface/60 dark:bg-black/70 backdrop-blur-sm" onClick={() => (saving ? null : onClose())} />
+      <form onSubmit={submit} className="relative w-full max-w-md rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-outline-variant/60 dark:border-white/10 shadow-warm-lg p-8">
+        <div className="flex items-start justify-between mb-6 gap-4">
+          <h3 className="font-headline font-bold text-headline-md text-on-surface dark:text-white">{title}</h3>
+          <button type="button" aria-label="Close" onClick={onClose} className="text-outline hover:text-primary-container dark:hover:text-white p-2 -m-2 rounded-full transition-colors">
+            <Icon name="close" className="text-[22px]" />
           </button>
-        </>
-      }
-    >
-      <form id="batch-form" onSubmit={submit} className="flex flex-col gap-5">
-        <div className="flex flex-col gap-1">
-          <label className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">Product Selection</label>
-          <select data-testid="graamam-batch-product" value={product} onChange={(e) => setProduct(e.target.value)} className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary">
-            <option value="">Choose a variety…</option>
-            {inventory.map((i) => <option key={i.sku} value={i.sku}>{i.name}</option>)}
-          </select>
         </div>
-        <div className="flex flex-col gap-1">
-          <label className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">Village / Producer</label>
-          <select data-testid="graamam-batch-producer" value={producer} onChange={(e) => setProducer(e.target.value)} className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary">
-            <option value="">Select producer source…</option>
-            {producers.map((p) => <option key={p.producer_id} value={p.producer_id}>{p.name} · {p.village}</option>)}
-          </select>
+        <div className="flex flex-col gap-4">
+          <label className="flex flex-col gap-1.5">
+            <span className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">Item</span>
+            <select data-testid={GRAAMAM_INVENTORY.updateStockSku} value={sku} onChange={(e) => setSku(e.target.value)}
+              className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary">
+              {items.map((i) => <option key={i.sku} value={i.sku}>{i.name} (current: {i.qty_on_hand} {i.unit})</option>)}
+            </select>
+          </label>
+          <label className="flex flex-col gap-1.5">
+            <span className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">{requirePrice ? "Quantity to add" : "New counted quantity"}</span>
+            <input data-testid={GRAAMAM_INVENTORY.updateStockQty} type="number" min="0" step="0.01" value={qty} onChange={(e) => setQty(e.target.value)} required
+              placeholder={current ? `${requirePrice ? "e.g. 50" : `currently ${current.qty_on_hand}`}` : "0"}
+              className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary" />
+          </label>
+          {requirePrice ? (
+            <label className="flex flex-col gap-1.5">
+              <span className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">Unit Price ₹ (optional — records price history)</span>
+              <input data-testid={GRAAMAM_INVENTORY.updateStockPrice} type="number" min="0" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="0.00"
+                className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary" />
+            </label>
+          ) : null}
+          <label className="flex flex-col gap-1.5">
+            <span className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">Note (optional)</span>
+            <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Reason for adjustment"
+              className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary" />
+          </label>
+          <button type="submit" disabled={saving} data-testid={GRAAMAM_INVENTORY.updateStockSubmit}
+            className="w-full font-label font-bold text-label-md px-6 py-3 rounded-lg bg-primary-container text-on-primary hover:shadow-warm shadow-warm-sm disabled:opacity-70">
+            {saving ? "Saving…" : submitLabel}
+          </button>
         </div>
-        <div>
-          <label className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider block mb-1">Quantity Received</label>
-          <div className="flex items-stretch gap-3">
-            <input type="number" step="0.01" value={qty} onChange={(e) => setQty(e.target.value)} data-testid="graamam-batch-qty" placeholder="0.00" className="flex-1 font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary" />
-            <div className="inline-flex items-center gap-1 rounded-lg bg-surface-container dark:bg-white/5 p-1 border border-outline-variant/60 dark:border-white/10">
-              {["kg", "g", "L", "pcs"].map((u) => (
-                <button key={u} type="button" onClick={() => setUnit(u)} className={["px-3 py-1.5 rounded-md text-body-sm font-label font-bold", unit === u ? "bg-primary-container text-on-primary" : "text-on-surface-variant dark:text-outline-variant"].join(" ")}>{u}</button>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-1">
-          <label className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">Collection Date (IST)</label>
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} data-testid="graamam-batch-date" className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary" />
-        </div>
-        <div className="flex flex-col gap-1">
-          <label className="font-label text-label-sm text-on-surface dark:text-outline-variant uppercase tracking-wider">Notes & Observations</label>
-          <textarea rows={4} value={notes} onChange={(e) => setNotes(e.target.value)} data-testid="graamam-batch-notes" placeholder="Describe quality, packing condition, or special handling…" className="font-body text-body-md rounded-lg border border-outline-variant/70 dark:border-white/10 bg-white dark:bg-black text-on-surface dark:text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary" />
-        </div>
-        {err ? <div className="text-body-sm text-error">{err}</div> : null}
       </form>
-    </SlideOver>
+    </div>
+  );
+}
+
+export default function InventoryPage() {
+  const { user } = useAuth();
+  const [groups, setGroups] = useState([]);
+  const [priceHistory, setPriceHistory] = useState([]);
+  const [activeGroup, setActiveGroup] = useState(null);
+  const [groupItems, setGroupItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [dialog, setDialog] = useState(null); // 'update' | 'reconcile' | null
+  const [saving, setSaving] = useState(false);
+
+  const canManageStock = user?.role === "admin" || user?.role === "stock";
+
+  const loadGroups = useCallback(async () => {
+    setLoading(true);
+    try {
+      const [g, ph] = await Promise.all([inventoryRepository.groups(), inventoryRepository.priceHistory()]);
+      setGroups(Array.isArray(g) ? g : []);
+      setPriceHistory(Array.isArray(ph) ? ph : []);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { loadGroups(); }, [loadGroups]);
+
+  const openGroup = async (group) => {
+    setActiveGroup(group);
+    const items = await inventoryRepository.groupItems(group);
+    setGroupItems(Array.isArray(items) ? items : []);
+  };
+
+  const backToGroups = () => { setActiveGroup(null); setGroupItems([]); loadGroups(); };
+
+  const activeMeta = groups.find((g) => g.group === activeGroup);
+
+  const handleUpdateStock = async ({ sku, qty, unit_price, note }) => {
+    setSaving(true);
+    try {
+      await inventoryRepository.updateStock({ sku, qty, unit_price, note });
+      setDialog(null);
+      await openGroup(activeGroup);
+    } catch (e) {
+      alert(`Could not update stock: ${e.message}`);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleReconcile = async ({ sku, qty, current }) => {
+    setSaving(true);
+    try {
+      const delta = qty - (current?.qty_on_hand ?? 0);
+      await inventoryRepository.adjust(sku, delta);
+      setDialog(null);
+      await openGroup(activeGroup);
+    } catch (e) {
+      alert(`Could not reconcile stock: ${e.message}`);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <AppShell topBarTitle="Inventory">
+      <div data-testid={GRAAMAM_INVENTORY.page}>
+        <PageHeader title="Inventory" subtitle="Finished goods and raw materials — one shared stock ledger. Amounts in ₹ INR." />
+
+        {!activeGroup ? (
+          <>
+            {loading ? (
+              <div className="py-16 text-center text-on-surface-variant dark:text-outline-variant font-body text-body-md">Loading…</div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+                {groups.map((b) => <GroupBlock key={b.group} block={b} onClick={openGroup} />)}
+              </div>
+            )}
+
+            <div className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm overflow-hidden">
+              <div className="px-6 py-4 border-b border-surface-variant dark:border-white/10">
+                <h3 className="font-headline font-semibold text-headline-sm text-on-surface dark:text-white">Recent Price Records</h3>
+              </div>
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="text-outline uppercase text-label-sm tracking-wider">
+                    <th className="py-3 px-6">Material</th>
+                    <th className="py-3 px-6">Qty Received</th>
+                    <th className="py-3 px-6">Unit Price</th>
+                    <th className="py-3 px-6">Total</th>
+                    <th className="py-3 px-6">Vendor</th>
+                    <th className="py-3 px-6">Date</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-surface-variant/70 dark:divide-white/5">
+                  {priceHistory.length === 0 ? (
+                    <tr><td colSpan={6} className="py-10 text-center text-outline">No price records yet — appears here once Procurement receives a purchase.</td></tr>
+                  ) : priceHistory.map((p) => (
+                    <tr key={p.id}>
+                      <td className="py-3 px-6 font-semibold text-on-surface dark:text-white">{p.name}</td>
+                      <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant">{formatQty(p.qty)}</td>
+                      <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant">{formatCurrency(p.unit_price)}</td>
+                      <td className="py-3 px-6 font-semibold text-on-surface dark:text-white">{formatCurrency(p.total)}</td>
+                      <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant">{p.note || "-"}</td>
+                      <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant whitespace-nowrap">{formatDateTimeIST(p.date)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
+              <button type="button" data-testid={GRAAMAM_INVENTORY.backToGroups} onClick={backToGroups}
+                className="font-label font-bold text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-primary-container dark:hover:text-white inline-flex items-center gap-1.5">
+                <Icon name="arrow_back" className="text-[18px]" /> All Categories
+              </button>
+              <div className="flex items-center gap-2">
+                {canManageStock ? (
+                  <>
+                    <button type="button" data-testid={GRAAMAM_INVENTORY.updateStockButton} onClick={() => setDialog("update")}
+                      className="font-label font-bold text-body-sm px-4 py-2 rounded-lg bg-primary-container text-on-primary shadow-warm-sm inline-flex items-center gap-2">
+                      <Icon name="add" className="text-[16px]" /> Update Stock
+                    </button>
+                    <button type="button" data-testid={GRAAMAM_INVENTORY.reconcileButton} onClick={() => setDialog("reconcile")}
+                      className="font-label font-bold text-body-sm px-4 py-2 rounded-lg bg-surface-container dark:bg-white/5 border border-outline-variant/70 dark:border-white/10 text-on-surface dark:text-white hover:bg-surface-container-high inline-flex items-center gap-2">
+                      <Icon name="fact_check" className="text-[16px]" /> Stock Reconciliation
+                    </button>
+                  </>
+                ) : null}
+              </div>
+            </div>
+            <h3 className="font-headline font-bold text-headline-md text-on-surface dark:text-white mb-1">{activeMeta?.label || activeGroup}</h3>
+            <p className="text-body-sm text-on-surface-variant dark:text-outline-variant mb-5">{activeMeta?.desc}</p>
+
+            <div data-testid={GRAAMAM_INVENTORY.groupTable} className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm overflow-hidden">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="text-outline uppercase text-label-sm tracking-wider border-b border-surface-variant dark:border-white/10">
+                    <th className="py-4 px-6">Item</th>
+                    <th className="py-4 px-6">Qty</th>
+                    <th className="py-4 px-6">Unit</th>
+                    <th className="py-4 px-6">Min Stock</th>
+                    <th className="py-4 px-6">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-surface-variant/70 dark:divide-white/5">
+                  {groupItems.length === 0 ? (
+                    <tr><td colSpan={5} className="py-12 text-center text-outline">No items in this category.</td></tr>
+                  ) : groupItems.map((it) => (
+                    <tr key={it.sku} data-testid={GRAAMAM_INVENTORY.groupRow(it.sku)} className="hover:bg-surface-container-low dark:hover:bg-white/5 transition-colors">
+                      <td className="py-4 px-6 font-semibold text-on-surface dark:text-white">{it.name}</td>
+                      <td className={`py-4 px-6 font-bold ${it.status_label !== "OK" ? "text-terracotta-error" : "text-on-surface dark:text-white"}`}>{formatQty(it.qty_on_hand)}</td>
+                      <td className="py-4 px-6 text-on-surface-variant dark:text-outline-variant">{it.unit}</td>
+                      <td className="py-4 px-6 text-on-surface-variant dark:text-outline-variant">{formatQty(it.reorder_level)}</td>
+                      <td className="py-4 px-6"><StatusBadge label={it.status_label} /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+      </div>
+
+      <UpdateStockDialog
+        open={dialog === "update"} items={groupItems} onClose={() => setDialog(null)} onSubmit={handleUpdateStock} saving={saving}
+        title="+ Update Stock" submitLabel="Add Stock" requirePrice
+      />
+      <UpdateStockDialog
+        open={dialog === "reconcile"} items={groupItems} onClose={() => setDialog(null)} onSubmit={handleReconcile} saving={saving}
+        title="Stock Reconciliation" submitLabel="Save Corrected Count" requirePrice={false}
+      />
+    </AppShell>
   );
 }

@@ -103,10 +103,14 @@ async def import_master_data(force: bool = False) -> dict:
         stats["products"] = len(docs)
 
     # ---------- INVENTORY (finished-goods stock, derived from Products) ----------
+    # NOTE: this collection is shared with raw-material stock (item_type
+    # "raw_material", seeded separately by graamam_inventory.py) — only
+    # touch FINISHED-GOODS docs here, never delete_many({}) unscoped.
+    fg_filter = {"item_type": {"$ne": "raw_material"}}
     if force:
-        await db.graamam_inventory.delete_many({})
-    if await db.graamam_inventory.count_documents({}) < 40:  # was fake-seeded before
-        await db.graamam_inventory.delete_many({})  # wipe fictional seeds
+        await db.graamam_inventory.delete_many(fg_filter)
+    if await db.graamam_inventory.count_documents(fg_filter) < 40:  # was fake-seeded before
+        await db.graamam_inventory.delete_many(fg_filter)  # wipe fictional seeds
         docs = []
         for i, p in enumerate(master.get("products", [])):
             price = _price_for(p)
@@ -189,6 +193,27 @@ async def import_master_data(force: bool = False) -> dict:
         if docs:
             await db.graamam_costing.insert_many(docs)
         stats["costing"] = len(docs)
+
+    # ---------- RECIPES (recipe -> product auto-link, by name) ----------
+    if force:
+        await db.graamam_recipes.delete_many({})
+    if await db.graamam_recipes.count_documents({}) == 0:
+        docs = []
+        for r in master.get("recipes", []):
+            docs.append({
+                "id": gen_id(),
+                "name": r.get("name"),
+                "category": r.get("category") or "",
+                "conversion": float(r.get("conversion") or 1.0),
+                "batch_output": float(r.get("batchOutput") or 1),
+                "ingredients": [
+                    {"item": i.get("item"), "qty": float(i.get("qty") or 0), "cost_per_kg": float(i.get("costPerKg") or 0)}
+                    for i in r.get("ingredients", [])
+                ],
+            })
+        if docs:
+            await db.graamam_recipes.insert_many(docs)
+        stats["recipes"] = len(docs)
 
     logger.info("[master] imported %s", stats)
     return stats

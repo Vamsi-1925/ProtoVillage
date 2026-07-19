@@ -167,10 +167,8 @@ async def raise_production(wh_token: str):
         "product_qty": product_qty,
         "product_unit": product_unit,
         "order_id": order_id,
-        "due_date": None,
-        "producer_group": None,
-        "materials": [],
-        "status": "pending",
+        "slip_id": None,
+        "status": "open",
         "created_at": now,
     })
     try:

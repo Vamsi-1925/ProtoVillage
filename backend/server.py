@@ -12,10 +12,11 @@ from datetime import datetime, timezone
 
 from routers.graamam_orders import router as graamam_orders_router, seed_orders_if_empty
 from routers.graamam_producers import router as graamam_producers_router, seed_producers_if_empty
-from routers.graamam_inventory import router as graamam_inventory_router, seed_inventory_if_empty
+from routers.graamam_inventory import router as graamam_inventory_router, seed_inventory_if_empty, seed_raw_materials_if_empty
 from routers.graamam_batches import router as graamam_batches_router, seed_batches_if_empty
-from routers.graamam_production import router as graamam_production_router, seed_production_if_empty
+from routers.graamam_production import router as graamam_production_router
 from routers.graamam_procurement import router as graamam_procurement_router, seed_procurement_if_empty
+from routers.graamam_proc_tokens import router as graamam_proc_tokens_router
 from routers.graamam_dispatch import router as graamam_dispatch_router, seed_shipments_if_empty
 from routers.graamam_warehouse import router as graamam_warehouse_router
 from routers.graamam_store import router as graamam_store_router, seed_store_if_empty
@@ -93,6 +94,7 @@ api_router.include_router(graamam_production_router)
 api_router.include_router(graamam_procurement_router)
 api_router.include_router(graamam_dispatch_router)
 api_router.include_router(graamam_warehouse_router)
+api_router.include_router(graamam_proc_tokens_router)
 api_router.include_router(graamam_store_router)
 api_router.include_router(graamam_reports_router)
 api_router.include_router(graamam_dashboard_router)
@@ -149,10 +151,10 @@ async def seed_startup():
         await seed_producers_if_empty()
         await seed_inventory_if_empty()
         # Import ProtoVillage / Graamam master data (replaces fake inventory
-        # with real Products + brings in B2B/B2C customers + Costing).
+        # with real Products + brings in B2B/B2C customers + Costing + Recipes).
         await import_master_data()
         await seed_batches_if_empty()
-        await seed_production_if_empty()
+        await seed_raw_materials_if_empty()
         await seed_procurement_if_empty()
         await seed_shipments_if_empty()
         await seed_store_if_empty()

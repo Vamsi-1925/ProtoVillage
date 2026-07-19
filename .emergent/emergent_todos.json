@@ -1,62 +1,26 @@
 [
   {
-    "content": "Backend: add fy_code/next_fy_token/finished_qty/order_availability/ensure_unique_indexes to _shared.py",
+    "content": "Part 0: shared dummy data (recipes, raw materials, groups)",
     "status": "completed"
   },
   {
-    "content": "Backend: graamam_orders.py use shared helpers + duplicate-key retry safety",
+    "content": "Part A: Production backend + frontend (slips, start, complete)",
     "status": "completed"
   },
   {
-    "content": "Backfill: fix existing duplicate ORD-2627-0004, verify zero dupes",
+    "content": "Part B: Procurement backend + frontend (lean pending/approved/received)",
     "status": "completed"
   },
   {
-    "content": "Backend: graamam_warehouse.py rekey ready/raise-production on wh_token",
+    "content": "Part C: Inventory backend + frontend (category blocks, drill-in, price history)",
     "status": "completed"
   },
   {
-    "content": "Backend: graamam_extras.py fix GST intra/inter (state_code), atomic invoice numbering, B2B/POS series + doc_label",
+    "content": "Part D: Dashboard backend + frontend (6 KPIs, recent orders, activity)",
     "status": "completed"
   },
   {
-    "content": "Backend: graamam_dispatch.py new queue enrichment + dispatch action (verify/deduct/dispatch/auto-invoice) + dispatched list",
-    "status": "completed"
-  },
-  {
-    "content": "Backend: server.py call ensure_unique_indexes at startup",
-    "status": "completed"
-  },
-  {
-    "content": "Frontend: firestoreClient.js warehouseRepository rekey + dispatchRepository new methods",
-    "status": "completed"
-  },
-  {
-    "content": "Frontend: WarehousePage.jsx pass wh_token to actions",
-    "status": "completed"
-  },
-  {
-    "content": "Frontend: rewrite DispatchPage.jsx (Ready for Dispatch cards, Dispatched table)",
-    "status": "completed"
-  },
-  {
-    "content": "Frontend: new DispatchFormPrintPage.jsx (A5 label, no phone numbers)",
-    "status": "completed"
-  },
-  {
-    "content": "Frontend: InvoicePrintPage.jsx use doc_label; DataTable.jsx remove Raise Invoice button",
-    "status": "completed"
-  },
-  {
-    "content": "Frontend: App.js route + testIds for dispatch form page",
-    "status": "completed"
-  },
-  {
-    "content": "Bugfix found in self-check: Order model missing dispatched_by/dispatched_at fields (response_model stripped them)",
-    "status": "completed"
-  },
-  {
-    "content": "Self-check: lint, restart, curl full pipeline (create->warehouse->dispatch->invoice GST both cases)",
+    "content": "Self-check: lint, restart, curl full pipeline both paths, verify persistence across restart",
     "status": "completed"
   }
 ]
