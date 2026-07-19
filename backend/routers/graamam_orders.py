@@ -267,7 +267,7 @@ SEED_ORDERS: List[dict] = [
         "total": 14250.0,
         "status": "received",
         "delivery_address": "12, Indira Nagar 1st Stage, Bengaluru 560038",
-        "producer": "Coorg Valley Estates",
+        "producer": "Demo Village Two Estates",
     },
     {
         "order_id": "GC-8901",
@@ -278,7 +278,7 @@ SEED_ORDERS: List[dict] = [
         "total": 4500.0,
         "status": "received",
         "delivery_address": "Flat 3B, Adyar, Chennai 600020",
-        "producer": "Kandhamal Turmeric Co-op",
+        "producer": "Demo Village Six Turmeric Co-op",
     },
     {
         "order_id": "GC-8900",
@@ -293,7 +293,7 @@ SEED_ORDERS: List[dict] = [
         "total": 8800.0,
         "status": "received",
         "delivery_address": "18 Jubilee Hills, Hyderabad 500033",
-        "producer": "Sirsi Weavers Collective",
+        "producer": "Demo Village Four Weavers Collective",
     },
     {
         "order_id": "GC-8899",
@@ -308,7 +308,7 @@ SEED_ORDERS: List[dict] = [
         "total": 28000.0,
         "status": "warehouse_check",
         "delivery_address": "Ravi Villa, Panampilly Nagar, Kochi 682036",
-        "producer": "Kadalundi Apiary",
+        "producer": "Demo Village Seven Apiary",
     },
     {
         "order_id": "GC-8898",
@@ -322,7 +322,7 @@ SEED_ORDERS: List[dict] = [
         "date": "2024-11-23",
         "total": 19575.0,
         "status": "warehouse_check",
-        "delivery_address": "42 Kalyani Nagar, Pune 411006",
+        "delivery_address": "42 Sample Nagar, Pune 411006",
         "producer": "Coastal Artisans",
     },
     {
@@ -338,7 +338,7 @@ SEED_ORDERS: List[dict] = [
         "total": 31200.0,
         "status": "ready_dispatch",
         "delivery_address": "Marine Drive, Kochi 682011",
-        "producer": "Kandhamal Turmeric Co-op",
+        "producer": "Demo Village Six Turmeric Co-op",
     },
     {
         "order_id": "GC-8896",
@@ -353,7 +353,7 @@ SEED_ORDERS: List[dict] = [
         "total": 7450.0,
         "status": "closed",
         "delivery_address": "Bandra West, Mumbai 400050",
-        "producer": "Vypeen Herbal Co-op",
+        "producer": "Demo Village Eight Herbal Co-op",
     },
     {
         "order_id": "GC-8895",
@@ -368,7 +368,7 @@ SEED_ORDERS: List[dict] = [
         "total": 12890.0,
         "status": "closed",
         "delivery_address": "Vasant Vihar, New Delhi 110057",
-        "producer": "Hampi Weavers",
+        "producer": "Demo Village One Weavers",
     },
 ]
 

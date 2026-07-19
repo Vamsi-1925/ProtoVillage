@@ -39,8 +39,8 @@ SEEDS: List[dict] = [
     {"request_id": "PR-0042", "material_name": "Organic Cotton Yarn", "quantity": 50, "unit": "kg", "required_by": "2024-11-30", "status": "pending_approval"},
     {"request_id": "PR-0043", "material_name": "Natural Indigo Dye", "quantity": 10, "unit": "L", "required_by": "2024-12-02", "status": "pending_approval"},
     {"request_id": "PR-0044", "material_name": "Custom Labels", "quantity": 500, "unit": "units", "required_by": "2024-11-29", "status": "pending_approval"},
-    {"request_id": "PR-0041", "material_name": "Beeswax Blocks", "quantity": 20, "unit": "kg", "required_by": "2024-12-05", "status": "po_raised", "supplier_name": "Kadalundi Apiary Co.", "po_number": "PO-0891", "ordered_qty": 20, "est_delivery": "2024-12-04"},
-    {"request_id": "PR-0040", "material_name": "Terracotta Clay", "quantity": 100, "unit": "kg", "required_by": "2024-11-28", "status": "received_qc", "supplier_name": "Kumta Ceramics", "po_number": "PO-0885", "ordered_qty": 100, "est_delivery": "2024-11-25", "received_qty": 100, "quality_check": "passed"},
+    {"request_id": "PR-0041", "material_name": "Beeswax Blocks", "quantity": 20, "unit": "kg", "required_by": "2024-12-05", "status": "po_raised", "supplier_name": "Demo Village Seven Apiary Co.", "po_number": "PO-0891", "ordered_qty": 20, "est_delivery": "2024-12-04"},
+    {"request_id": "PR-0040", "material_name": "Terracotta Clay", "quantity": 100, "unit": "kg", "required_by": "2024-11-28", "status": "received_qc", "supplier_name": "Demo Village Three Ceramics", "po_number": "PO-0885", "ordered_qty": 100, "est_delivery": "2024-11-25", "received_qty": 100, "quality_check": "passed"},
     {"request_id": "PR-0039", "material_name": "Glass Bottles (1L)", "quantity": 300, "unit": "units", "required_by": "2024-11-25", "status": "closed", "supplier_name": "Bengaluru Packaging Ltd.", "po_number": "PO-0880", "ordered_qty": 300, "est_delivery": "2024-11-22", "received_qty": 300, "quality_check": "passed", "cost_inr": 21000},
 ]
 

@@ -61,7 +61,7 @@ export default function LoginPage() {
             ))}
           </div>
         </div>
-        <div className="relative text-body-sm text-outline-variant">GSTIN 37AAPCP6519D1Z5 · Hindupur, Andhra Pradesh</div>
+        <div className="relative text-body-sm text-outline-variant">GSTIN 37AAAAA0000A1Z5 · Sample Town, Andhra Pradesh</div>
       </div>
 
       <div className="flex-1 flex items-center justify-center p-6">

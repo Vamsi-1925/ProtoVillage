@@ -83,7 +83,7 @@ async def alerts():
             "type": "weather",
             "icon": "cloud",
             "title": "Weather Advisory: Ernakulam District",
-            "body": "Heavy rains expected over the next 48 hours. Batch collections from Kadalundi and Vypeen villages may experience slight delays. Ensure dry storage protocols are active.",
+            "body": "Heavy rains expected over the next 48 hours. Batch collections from Demo Village Seven and Demo Village Eight villages may experience slight delays. Ensure dry storage protocols are active.",
             "severity": "info",
         }
     ]

@@ -162,7 +162,7 @@ export default function InvoicePrintPage() {
             </div>
           </div>
 
-          <p className="mt-6 text-[11px] text-outline text-center">This is a system-generated tax invoice. Subject to Hindupur jurisdiction. Goods once sold will not be taken back.</p>
+          <p className="mt-6 text-[11px] text-outline text-center">This is a system-generated tax invoice. Subject to Sample Town jurisdiction. Goods once sold will not be taken back.</p>
         </div>
       </div>
 

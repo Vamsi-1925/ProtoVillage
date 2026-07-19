@@ -60,15 +60,15 @@ def status_of(qty: float, reorder: float) -> str:
 
 
 SEEDS: List[dict] = [
-    {"sku": "SP-TUR-001", "name": "Turmeric Powder (Kandhamal)", "category": "Spices", "unit": "kg", "qty_on_hand": 12, "reorder_level": 25, "unit_price_inr": 320, "icon": "eco"},
+    {"sku": "SP-TUR-001", "name": "Demo Powder - Alpha", "category": "Spices", "unit": "kg", "qty_on_hand": 12, "reorder_level": 25, "unit_price_inr": 320, "icon": "eco"},
     {"sku": "OL-MUS-100", "name": "Cold Pressed Mustard Oil", "category": "Oils", "unit": "L", "qty_on_hand": 145, "reorder_level": 50, "unit_price_inr": 280, "icon": "water_drop"},
     {"sku": "GR-BLK-050", "name": "Black Rice (Kala Namak)", "category": "Grains", "unit": "kg", "qty_on_hand": 55, "reorder_level": 50, "unit_price_inr": 240, "icon": "grain"},
     {"sku": "PR-HON-002", "name": "Wild Forest Honey", "category": "Preserves", "unit": "jars", "qty_on_hand": 80, "reorder_level": 30, "unit_price_inr": 420, "icon": "local_florist"},
     {"sku": "SP-CUM-003", "name": "Cumin Seeds (Jeera)", "category": "Spices", "unit": "kg", "qty_on_hand": 2, "reorder_level": 15, "unit_price_inr": 480, "icon": "eco"},
     {"sku": "OL-COC-500", "name": "Coconut Oil 500ml", "category": "Oils", "unit": "bottles", "qty_on_hand": 210, "reorder_level": 60, "unit_price_inr": 240, "icon": "water_drop"},
-    {"sku": "HR-MOR-200", "name": "Moringa Leaf Powder", "category": "Herbs", "unit": "kg", "qty_on_hand": 42, "reorder_level": 40, "unit_price_inr": 360, "icon": "eco"},
-    {"sku": "SP-COR-004", "name": "Coriander Powder", "category": "Spices", "unit": "kg", "qty_on_hand": 6, "reorder_level": 20, "unit_price_inr": 260, "icon": "eco"},
-    {"sku": "GR-MIL-060", "name": "Foxtail Millet", "category": "Grains", "unit": "kg", "qty_on_hand": 130, "reorder_level": 70, "unit_price_inr": 180, "icon": "grain"},
+    {"sku": "HR-MOR-200", "name": "Demo Herb Powder - Beta", "category": "Herbs", "unit": "kg", "qty_on_hand": 42, "reorder_level": 40, "unit_price_inr": 360, "icon": "eco"},
+    {"sku": "SP-COR-004", "name": "Demo Spice Powder", "category": "Spices", "unit": "kg", "qty_on_hand": 6, "reorder_level": 20, "unit_price_inr": 260, "icon": "eco"},
+    {"sku": "GR-MIL-060", "name": "Demo Grain - Millet Mix", "category": "Grains", "unit": "kg", "qty_on_hand": 130, "reorder_level": 70, "unit_price_inr": 180, "icon": "grain"},
     {"sku": "PR-JAG-050", "name": "Organic Jaggery (Bellam)", "category": "Preserves", "unit": "kg", "qty_on_hand": 48, "reorder_level": 40, "unit_price_inr": 160, "icon": "cake"},
     {"sku": "OL-GRO-500", "name": "Cold Pressed Groundnut Oil", "category": "Oils", "unit": "L", "qty_on_hand": 34, "reorder_level": 40, "unit_price_inr": 320, "icon": "water_drop"},
     {"sku": "HR-NEE-100", "name": "Neem Leaf Powder", "category": "Herbs", "unit": "kg", "qty_on_hand": 9, "reorder_level": 20, "unit_price_inr": 220, "icon": "eco"},

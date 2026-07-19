@@ -76,7 +76,7 @@ export default function AccountsPage() {
           </table>
         </div>
 
-        <p className="mt-6 text-body-sm text-outline">Invoices follow PROTOVILLAGE LIVELIHOOD SYSTEMS PVT LTD template (GSTIN 37AAPCP6519D1Z5, HDFC Bank Hindupur). Intra-state supply → CGST+SGST; inter-state → IGST.</p>
+        <p className="mt-6 text-body-sm text-outline">Invoices follow Graamam Foods Private Limited template (GSTIN 37AAAAA0000A1Z5, Demo Bank Sample Branch). Intra-state supply → CGST+SGST; inter-state → IGST.</p>
       </div>
     </AppShell>
   );

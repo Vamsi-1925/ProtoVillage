@@ -16,21 +16,21 @@ from ._shared import get_db, gen_id
 logger = logging.getLogger(__name__)
 
 COMPANY = {
-    "legal": "PROTOVILLAGE LIVELIHOOD SYSTEMS PVT LTD",
+    "legal": "Graamam Foods Private Limited",
     "brand": "Graamam",
-    "address": "5-5-1/1, Naneppa Nagar, Hindupur, 515201, Andhra Pradesh",
+    "address": "Plot 12, Demo Industrial Layout, Sample Town, 515001, Andhra Pradesh",
     "state_code": "37",
-    "gstin": "37AAPCP6519D1Z5",
-    "pan": "AAPCP6519D",
-    "email": "info@protovillage.org",
-    "web": "www.graamam.in",
-    "poc_b2b": {"name": "Vamsi Tadisetti", "phone": "9494888750"},
-    "poc_b2c": {"name": "Harinath Reddy"},
+    "gstin": "37AAAAA0000A1Z5",
+    "pan": "AAAAA0000A",
+    "email": "info@graamam.example",
+    "web": "www.graamam.example",
+    "poc_b2b": {"name": "Demo Contact", "phone": "9000000010"},
+    "poc_b2c": {"name": "Demo Contact Two"},
     "bank": {
-        "name": "HDFC BANK LTD, HINDUPUR",
-        "account_no": "50200110678161",
+        "name": "Demo Bank, Sample Branch",
+        "account_no": "0000111122223333",
         "account_type": "CURRENT",
-        "ifsc": "HDFC0005146",
+        "ifsc": "DEMO0000000",
     },
 }
 

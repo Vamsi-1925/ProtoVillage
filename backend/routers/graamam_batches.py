@@ -51,12 +51,12 @@ class BatchCreate(BaseModel):
 
 
 SEEDS: List[dict] = [
-    {"batch_id": "B-4920", "product_name": "Organic Turmeric Powder", "product_sku": "SP-TUR-001", "producer_id": "PRD-1047", "producer_name": "Bhagyalakshmi N.", "village": "Kandhamal Hills", "quantity": 250, "unit": "kg", "collection_date": "2024-11-27", "status": "in_production", "notes": "First harvest of the season, colour vibrant."},
-    {"batch_id": "B-4918", "product_name": "Cold Pressed Coconut Oil", "product_sku": "OL-COC-500", "producer_id": "PRD-1046", "producer_name": "Vasudev G.", "village": "Gokarna Coast", "quantity": 120, "unit": "L", "collection_date": "2024-11-26", "status": "qc_pending", "notes": ""},
-    {"batch_id": "B-4915", "product_name": "Dried Lemongrass", "product_sku": "HR-NEE-100", "producer_id": "PRD-1049", "producer_name": "Padmaja Rao", "village": "Vypeen Island", "quantity": 45, "unit": "kg", "collection_date": "2024-11-24", "status": "done", "notes": "QC passed. Ready for packaging."},
-    {"batch_id": "B-4912", "product_name": "Moringa Leaf Powder", "product_sku": "HR-MOR-200", "producer_id": "PRD-1049", "producer_name": "Padmaja Rao", "village": "Vypeen Island", "quantity": 80, "unit": "kg", "collection_date": "2024-11-23", "status": "in_production", "notes": ""},
-    {"batch_id": "B-4910", "product_name": "Foxtail Millet", "product_sku": "GR-MIL-060", "producer_id": "PRD-1043", "producer_name": "Manjunath K.", "village": "Coorg Valley", "quantity": 320, "unit": "kg", "collection_date": "2024-11-22", "status": "qc_pass", "notes": "Grade A."},
-    {"batch_id": "B-4908", "product_name": "Wild Forest Honey", "product_sku": "PR-HON-002", "producer_id": "PRD-1048", "producer_name": "Suresh Kumar", "village": "Kadalundi", "quantity": 90, "unit": "jars", "collection_date": "2024-11-20", "status": "done", "notes": ""},
+    {"batch_id": "B-4920", "product_name": "Demo Powder - Alpha", "product_sku": "SP-TUR-001", "producer_id": "PRD-1047", "producer_name": "Demo Producer Six", "village": "Demo Village Six", "quantity": 250, "unit": "kg", "collection_date": "2024-11-27", "status": "in_production", "notes": "First harvest of the season, colour vibrant."},
+    {"batch_id": "B-4918", "product_name": "Cold Pressed Coconut Oil", "product_sku": "OL-COC-500", "producer_id": "PRD-1046", "producer_name": "Demo Producer Five", "village": "Demo Village Five", "quantity": 120, "unit": "L", "collection_date": "2024-11-26", "status": "qc_pending", "notes": ""},
+    {"batch_id": "B-4915", "product_name": "Dried Lemongrass", "product_sku": "HR-NEE-100", "producer_id": "PRD-1049", "producer_name": "Demo Producer Eight", "village": "Demo Village Eight", "quantity": 45, "unit": "kg", "collection_date": "2024-11-24", "status": "done", "notes": "QC passed. Ready for packaging."},
+    {"batch_id": "B-4912", "product_name": "Demo Herb Powder - Beta", "product_sku": "HR-MOR-200", "producer_id": "PRD-1049", "producer_name": "Demo Producer Eight", "village": "Demo Village Eight", "quantity": 80, "unit": "kg", "collection_date": "2024-11-23", "status": "in_production", "notes": ""},
+    {"batch_id": "B-4910", "product_name": "Demo Grain - Millet Mix", "product_sku": "GR-MIL-060", "producer_id": "PRD-1043", "producer_name": "Demo Producer Two", "village": "Demo Village Two", "quantity": 320, "unit": "kg", "collection_date": "2024-11-22", "status": "qc_pass", "notes": "Grade A."},
+    {"batch_id": "B-4908", "product_name": "Wild Forest Honey", "product_sku": "PR-HON-002", "producer_id": "PRD-1048", "producer_name": "Demo Producer Seven", "village": "Demo Village Seven", "quantity": 90, "unit": "jars", "collection_date": "2024-11-20", "status": "done", "notes": ""},
 ]
 
 

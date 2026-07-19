@@ -83,7 +83,7 @@ SEEDS: List[dict] = [
         "product_unit": "units",
         "order_id": "GC-9910",
         "due_date": "2024-11-05",
-        "producer_group": "Hampi Weavers",
+        "producer_group": "Demo Village One Weavers",
         "status": "complete",
         "materials": [
             {"name": "Organic Cotton Yarn", "required": 80, "available": 90, "unit": "kg"},
