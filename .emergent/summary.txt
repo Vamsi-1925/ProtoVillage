@@ -1,0 +1,150 @@
+<analysis>Here is the handover summary based on the LLM message history:
+
+**original_problem_statement:**
+Build the Graamam Connect application for ProtoVillage. Initially requested as just the Orders screen (Phase 1) to validate the visual system (Stitch UI kit + Modern Humanist design system) and data wiring. The scope expanded to build all 14 Graamam Connect modules, localize to the Indian context (INR, IST, Indian names), import real master data from an Excel file, implement role-based access control, and enforce complex business logic from . The final phase will involve swapping the current database stand-in for real Firebase/Firestore and deploying.
+
+**PRODUCT REQUIREMENTS:**
+- Implement pixel-perfect UI matching the Stitch UI kit references (Light & OLED Dark modes).
+- Use  strictly (Tailwind tokens, fonts, spacing).
+- App must be localized to India (INR currency, IST dates, Indian placeholder data).
+- Real master data (Products, B2B/B2C Customers, Recipes) must be ingested and used.
+- Role-based login and role-filtered Sidebar navigation.
+- Implement strict business workflows as per  (audit logs, auto-invoicing, partial payments, stage-aware cancellations).
+- Defer final end-to-end testing and real Firebase wiring to the absolute last phase.
+
+**User's preferred language**: English
+**INSTRUCTION**: Next agent MUST respond in English.
+
+**what currently exists?** 
+A fully functional, 14-module Graamam Connect application backend and frontend. The app uses the Modern Humanist design system with working Light/Dark modes. It features a role-based login system (using dummy users like , ), a role-filtered sidebar, and data localized to INR/IST. Master data has been successfully ingested from Excel. The backend currently uses MongoDB as a structured stand-in for Firestore. Complex business logic (audit trails, 8-stage order statuses, auto-invoicing on dispatch, and partial/full invoice payments) has been implemented and verified via backend scripting.
+
+**Last working item**: 
+- **Last item agent was working:** Implementing the deep business logic from . The agent successfully implemented the highest-leverage items: append-only audit logging (§10), auto-invoicing and auto-thread closing on dispatch (§7.9/§7.19), and the invoice payment lifecycle with partial payments and outstanding balance tracking (§7.10/§7.11). Backend routers and  were updated.
+- **Status:** IN PROGRESS (Agent explicitly paused to pass the remaining logic rules to the next turn to prevent half-baked implementations due to token limits).
+- **Agent Testing Done:** Y (Backend tests via python/bash scripts).
+- **Which testing method agent to use?:** NA for current item. Note: User has explicitly requested to **DEFER** the comprehensive  run until all features are built.
+- **User Testing Done:** N
+
+**All Pending/In progress Issue list**: 
+There are currently no active broken bugs or errors, but there is significant incomplete logic that was explicitly parked for the next turn.
+
+**In progress Task List**:
+Task 1: Complete remaining logic from  (P0)
+- **Where to resume:** Implement the remaining sections outlined by the previous agent.
+- **What will be achieved:** Adherence to the full business logic spec.
+- **Status:** IN PROGRESS
+- **Should Test frontend/backend/both after fix?:** Backend (via script) and Frontend (screenshot).
+- **Pending Logic Items:**
+    - §7.3 Stage-aware cancellation rules.
+    - §8 Universal ID resolver.
+    - §4 Recipe auto-linking.
+    - §7.14 Stocktake logic.
+    - §7.6 Recipe-driven production slips.
+    - Backend API role-gating (currently roles only filter the frontend UI).
+
+**Upcoming and Future Tasks**:
+- **Task 1 (P0):** Fully flesh out the 5 new modules (, , , , ). Currently, they have UI shells and basic data rendering (Accounts has payment logic), but they need to match the specific UI behaviors outlined in .
+- **Task 2 (P1):** End-to-End Testing. Call  across the entire 14-module application. (Only do this when user gives the go-ahead).
+- **Task 3 (P2):** Firebase Swap. Swap the current MongoDB  stand-in with actual Firebase Auth and Firestore wiring.
+- **Task 4 (P2):** Hardening. Implement loading/empty/error states and validation across the app.
+
+**Completed work in this session**:
+- Created Phase 1 Orders screen POC & UI matching Stitch references (DONE)
+- Built backend/frontend for 11 Graamam modules (, , , , , , , , , , ) (DONE)
+- Localized application to India context (INR , IST , Indian mock data) (DONE)
+- Extracted and imported real  (132 products, customers, costing) (DONE)
+- Implemented  and frontend AuthContext/RequireAuth for Role-based UI (DONE)
+- Implemented InvoicePrintPage (DONE)
+- Implemented Audit trails, partial payments, and auto-invoicing on dispatch (DONE)
+
+**Earlier issues found/mentioned but not fixed**:
+None. The agent has been diligent about fixing double-mount React bugs and routing issues as they occurred.
+
+**Known issue recurrence from previous fork**:
+- Issue recurrence in previous fork: None (This is the first fork summary).
+- Recurrence count: 0
+- Status: NOT STARTED
+
+**Code Architecture**:
+
+
+**Key Technical Concepts**:
+- Frontend: React, TailwindCSS, custom components based on Shadcn/Stitch UI. ThemeProvider for Light/Dark mode.
+- Backend: FastAPI, Motor (MongoDB Async).
+- Auth: Custom JWT/Token-based dummy auth (roles: admin, accounts, procurement, etc.) to be replaced by Firebase Auth later.
+- Database: MongoDB is acting as a repository pattern stand-in.  is built so that migrating to real Firestore later requires only changing the adapter logic, not the UI.
+
+**key DB schema**:
+- : 
+- : 
+- : 
+-  (products, customers, etc. seeded from Excel).
+
+**changes in tech stack**:
+- MongoDB is explicitly used as a *temporary stand-in* for Firebase Firestore to allow rapid backend logic development.
+- Replaced initial dummy data with real master data from Excel.
+
+**All files of reference**:
+- : Contains the Firebase-swap note documentation.
+- : The critical abstraction layer that currently hits  but will be swapped to hit Firebase directly in the final phase.
+- : Handles the newly added append-only business logic logs.
+-  and  (in ): Source of truth for remaining data and module behaviors.
+- : Source of truth for upcoming business logic tasks.
+
+**Areas that need refactoring**:
+- The 5 new modules (, , , , ) need their UIs fleshed out to match .
+- Backend API endpoints currently lack hard role-based security gating (gating is currently only happening on the frontend UI sidebar).
+
+**key api endpoints**:
+-  (Supports 8 status filtering)
+- 
+-  (Expects dummy creds like / or /)
+- 
+- 
+
+**Critical Info for New Agent**:
+- **DO NOT run ** unless the user explicitly requests it. The user has asked to defer testing until the build is complete.
+- **DO NOT mock data.** The system has real master data ingested. Use it.
+- **DO NOT wire real Firebase yet.** We are using the MongoDB stand-in purposefully until the final phase.
+- Ensure all numbers use INR formatting and IST timezone calculations ().
+- Strict adherence to the  is required. The previous agent stopped halfway through to avoid token issues. Resume exactly from the pending logic list above.
+
+**documents and test reports created in this job**:
+-  (Passed 100% on Phase 1)
+-  (Continuously updated by agent)
+- 
+
+**Last 10 User Messages and any pending HUMAN messages**:
+1. *User*: do 1-4 (Agent implemented Role login, Sidebar, 8-status orders, Invoice print).
+2. *User*: Uploaded  and said: This file contains the complete work flow of the app, use the exact logic and update the app. Completely follow its conditions do not recreate. (Agent implemented audit logs, dispatch auto-invoicing, partial payments. Paused remaining items for next turn).
+*Pending Human Messages*: None. The agent finished its turn and is waiting for the next step.
+
+**Project Health Check:**
+- Broken: None.
+- Mocked: Database is currently MongoDB acting as a stand-in for Firebase. Auth is dummy accounts (e.g., , ). Both are intentional per user phase strategy.
+
+**3rd Party Integrations**:
+- None active yet. (Firebase Auth/Firestore planned for future phase).
+
+**Testing status**:
+- Testing agent used after significant changes: NO (Deferred per user request).
+- Troubleshoot agent used after agent stuck in loop: NO.
+- Test files created: None.
+- Known regressions: None.
+
+**Credentials to test flow:**
+- Admin:  / (any password or )
+- Accounts:  / 
+- Procurement:  / 
+- Warehouse:  / 
+
+**What agent forgot to execute**:
+The agent did not forget, but explicitly parked the remaining business logic from  (Stage-aware cancellation, ID resolver, Recipe auto-linking, Stocktake logic, Recipe-driven slips, Backend role-gating) due to token limits. The next agent must pick these up immediately.
+
+**Debugging checklist for current issue**
+    Issue: Implement remaining  rules.
+    Backend files to check: 
+    -  (for stage-aware cancellation logic)
+    -  (for recipe auto-linking and slips)
+    -  (for stocktake logic)
+    -  or  (for API role-gating middleware)</analysis>

@@ -7,7 +7,7 @@ import sys
 from datetime import datetime
 
 class GraamamOrdersAPITester:
-    def __init__(self, base_url="https://graamam-orders.preview.emergentagent.com"):
+    def __init__(self, base_url="https://connect-preview-12.preview.emergentagent.com"):
         self.base_url = base_url
         self.api_base = f"{base_url}/api/graamam/orders"
         self.tests_run = 0
