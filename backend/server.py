@@ -17,6 +17,7 @@ from routers.graamam_batches import router as graamam_batches_router, seed_batch
 from routers.graamam_production import router as graamam_production_router, seed_production_if_empty
 from routers.graamam_procurement import router as graamam_procurement_router, seed_procurement_if_empty
 from routers.graamam_dispatch import router as graamam_dispatch_router, seed_shipments_if_empty
+from routers.graamam_warehouse import router as graamam_warehouse_router
 from routers.graamam_store import router as graamam_store_router, seed_store_if_empty
 from routers.graamam_reports import router as graamam_reports_router
 from routers.graamam_dashboard import router as graamam_dashboard_router
@@ -90,6 +91,7 @@ api_router.include_router(graamam_batches_router)
 api_router.include_router(graamam_production_router)
 api_router.include_router(graamam_procurement_router)
 api_router.include_router(graamam_dispatch_router)
+api_router.include_router(graamam_warehouse_router)
 api_router.include_router(graamam_store_router)
 api_router.include_router(graamam_reports_router)
 api_router.include_router(graamam_dashboard_router)

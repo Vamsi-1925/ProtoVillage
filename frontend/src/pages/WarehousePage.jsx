@@ -1,97 +1,266 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import AppShell from "@/components/graamam/AppShell";
-import KPICard from "@/components/graamam/KPICard";
+import PageHeader from "@/components/graamam/PageHeader";
 import Icon from "@/components/graamam/Icon";
-import { useNavigate } from "react-router-dom";
-import { dashboardRepository, batchesRepository, ordersRepository } from "@/lib/firestoreClient";
-import { GRAAMAM_WAREHOUSE } from "@/constants/testIds";
 import StatusPill from "@/components/graamam/StatusPill";
-import { formatOrderDate } from "@/lib/formatters";
+import { warehouseRepository } from "@/lib/firestoreClient";
+import { formatOrderDate, formatQty } from "@/lib/formatters";
+import { GRAAMAM_WAREHOUSE } from "@/constants/testIds";
+
+/**
+ * WarehousePage — the stock-check gate, functional replica of graamam_v2's
+ * pgWarehouse(): every order created at status "warehouse_check" lands
+ * here. Per line item we show a ✓/✗ against finished-goods stock; if every
+ * line is available the warehouse can mark the order Ready for Dispatch,
+ * otherwise it raises a Production token instead.
+ */
+const OUTCOME_STATUS = {
+  ready_for_dispatch: "ready_dispatch",
+  production_raised: "production_pending",
+};
+const OUTCOME_LABEL = {
+  ready_for_dispatch: "Ready for Dispatch",
+  production_raised: "Production Raised",
+};
+
+function TypeBadge({ type }) {
+  if (!type) return null;
+  const isB2B = type === "b2b";
+  return (
+    <span className={["inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase tracking-wide",
+      isB2B ? "bg-secondary-container text-on-secondary-container" : "bg-tertiary-fixed-dim text-on-tertiary-fixed"].join(" ")}>
+      {type.toUpperCase()}
+    </span>
+  );
+}
+
+function AvailabilityRow({ item }) {
+  return (
+    <div className="flex items-center gap-2 text-body-sm">
+      {item.ok ? (
+        <Icon name="check_circle" className="text-[16px] text-olive-success shrink-0" />
+      ) : (
+        <Icon name="cancel" className="text-[16px] text-terracotta-error shrink-0" />
+      )}
+      <span className="text-on-surface-variant dark:text-outline-variant">
+        {item.product} — need {formatQty(item.qty, item.unit)}, {formatQty(item.available)} in stock
+      </span>
+    </div>
+  );
+}
+
+function PendingCard({ order, onReady, onRaiseProduction, busy }) {
+  return (
+    <div data-testid={GRAAMAM_WAREHOUSE.pendingCard(order.order_id)} className="rounded-xl border border-outline-variant/50 dark:border-white/10 bg-surface-container-lowest dark:bg-[#161616] p-5 flex flex-col md:flex-row md:items-start justify-between gap-4">
+      <div className="min-w-[260px] flex-1">
+        <div className="flex items-center gap-2 flex-wrap mb-1.5">
+          <span className="font-mono text-sm bg-surface-container dark:bg-white/10 px-2.5 py-1 rounded-md text-on-surface dark:text-white font-semibold border border-outline-variant/30 dark:border-white/10">
+            {order.wh_token || "—"}
+          </span>
+          <span className="text-outline text-[11px]">linked to</span>
+          <span className="font-mono text-sm text-on-surface-variant dark:text-outline-variant">{order.order_id}</span>
+          <TypeBadge type={order.order_type} />
+        </div>
+        <div className="font-label font-bold text-body-md text-on-surface dark:text-white">{order.customer?.name || "Unknown"}</div>
+        <div className="mt-2.5 flex flex-col gap-1.5">
+          {(order.availability || []).map((it, i) => (
+            <AvailabilityRow key={i} item={it} />
+          ))}
+        </div>
+      </div>
+      <div className="flex items-center gap-2 shrink-0">
+        {order.all_available ? (
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => onReady(order.order_id)}
+            data-testid={GRAAMAM_WAREHOUSE.readyButton(order.order_id)}
+            className="font-label font-bold text-body-sm px-4 py-2.5 rounded-lg bg-olive-success text-white shadow-warm-sm hover:shadow-warm disabled:opacity-60 inline-flex items-center gap-2 transition-all"
+          >
+            <Icon name="check_circle" className="text-[18px]" /> Mark Ready for Dispatch
+          </button>
+        ) : (
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => onRaiseProduction(order.order_id)}
+            data-testid={GRAAMAM_WAREHOUSE.raiseProdButton(order.order_id)}
+            className="font-label font-bold text-body-sm px-4 py-2.5 rounded-lg bg-tertiary-fixed-dim text-on-tertiary-fixed shadow-warm-sm hover:shadow-warm disabled:opacity-60 inline-flex items-center gap-2 transition-all"
+          >
+            <Icon name="settings" className="text-[18px]" /> Raise Production
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function WarehousePage() {
-  const [summary, setSummary] = useState({});
-  const [batches, setBatches] = useState([]);
-  const [ordersCounts, setOrdersCounts] = useState({});
-  const nav = useNavigate();
+  const [pending, setPending] = useState([]);
+  const [processed, setProcessed] = useState([]);
+  const [finishedGoods, setFinishedGoods] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [busyId, setBusyId] = useState(null);
+  const [fgOpen, setFgOpen] = useState(false);
 
-  useEffect(() => {
-    dashboardRepository.warehouse().then(setSummary).catch(() => {});
-    batchesRepository.list().then(setBatches).catch(() => {});
-    ordersRepository.counts().then(setOrdersCounts).catch(() => {});
+  const load = useCallback(async () => {
+    setError(null);
+    try {
+      const [p, d, fg] = await Promise.all([
+        warehouseRepository.pending(),
+        warehouseRepository.processed(),
+        warehouseRepository.finishedGoods(),
+      ]);
+      setPending(Array.isArray(p) ? p : []);
+      setProcessed(Array.isArray(d) ? d : []);
+      setFinishedGoods(Array.isArray(fg) ? fg : []);
+    } catch (e) {
+      setError(e);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
+  useEffect(() => { load(); }, [load]);
+
+  const handleReady = async (orderId) => {
+    setBusyId(orderId);
+    try {
+      await warehouseRepository.markReady(orderId);
+      await load();
+    } catch (e) {
+      alert(`Could not mark ready: ${e.message}`);
+    } finally {
+      setBusyId(null);
+    }
+  };
+
+  const handleRaiseProduction = async (orderId) => {
+    setBusyId(orderId);
+    try {
+      await warehouseRepository.raiseProduction(orderId);
+      await load();
+    } catch (e) {
+      alert(`Could not raise production: ${e.message}`);
+    } finally {
+      setBusyId(null);
+    }
+  };
+
   return (
-    <AppShell badges={{ orders: ordersCounts.received || 0 }} topBarTitle="Warehouse Overview">
+    <AppShell badges={{ warehouse: pending.length }} topBarTitle="Warehouse">
       <div data-testid={GRAAMAM_WAREHOUSE.page}>
-        <div className="flex items-end justify-between mb-8 gap-4 flex-wrap">
-          <div>
-            <h2 className="font-headline font-bold text-display-lg text-on-surface dark:text-white">Warehouse Overview</h2>
-            <p className="text-body-md text-on-surface-variant dark:text-outline-variant mt-1">Bengaluru main godown · Coimbatore hub · Ernakulam depot.</p>
+        <PageHeader title="Warehouse" subtitle="Stock is checked automatically — confirm dispatch or raise production." />
+
+        {error ? (
+          <div className="mb-6 rounded-xl border border-error/30 bg-error-container/30 px-4 py-3 text-body-sm text-error">
+            Could not load warehouse data. {error.message}
           </div>
+        ) : null}
+
+        {/* Pending Stock Check */}
+        <div data-testid={GRAAMAM_WAREHOUSE.pendingSection} className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm p-6 mb-8">
+          <h3 className="font-headline font-semibold text-headline-sm text-on-surface dark:text-white mb-4">
+            Pending Stock Check ({pending.length})
+          </h3>
+          {loading ? (
+            <div className="py-10 text-center text-on-surface-variant dark:text-outline-variant font-body text-body-md">Loading…</div>
+          ) : pending.length === 0 ? (
+            <div data-testid={GRAAMAM_WAREHOUSE.pendingEmpty} className="py-10 text-center text-outline flex flex-col items-center gap-2">
+              <Icon name="task_alt" className="text-[28px]" />
+              <span className="font-body text-body-md">No warehouse tokens pending</span>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-3">
+              {pending.map((o) => (
+                <PendingCard key={o.order_id} order={o} onReady={handleReady} onRaiseProduction={handleRaiseProduction} busy={busyId === o.order_id} />
+              ))}
+            </div>
+          )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          <div className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm-sm p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-body-md text-on-surface-variant dark:text-outline-variant">Total Finished Goods</p>
-                <p className="font-display font-bold text-headline-lg text-on-surface dark:text-white mt-2">{summary.total_finished_goods?.toLocaleString("en-IN") || "1,432"}</p>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-primary-fixed text-primary-container flex items-center justify-center"><Icon name="inventory_2" className="text-[24px]" /></div>
-            </div>
-            <div className="mt-4 pt-4 border-t border-surface-variant dark:border-white/10 flex justify-between">
-              <div><div className="text-label-sm text-outline uppercase tracking-wider">Warehouse</div><div className="font-bold text-on-surface dark:text-white">{summary.warehouse_units?.toLocaleString("en-IN") || "980"}</div></div>
-              <div><div className="text-label-sm text-outline uppercase tracking-wider">Store</div><div className="font-bold text-on-surface dark:text-white">{summary.store_units?.toLocaleString("en-IN") || "452"}</div></div>
-            </div>
+        {/* Processed */}
+        <div data-testid={GRAAMAM_WAREHOUSE.processedSection} className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm overflow-hidden mb-8">
+          <div className="px-6 py-4 border-b border-surface-variant dark:border-white/10">
+            <h3 className="font-headline font-semibold text-headline-sm text-on-surface dark:text-white">Processed ({processed.length})</h3>
           </div>
-          <div className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm-sm p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-body-md text-on-surface-variant dark:text-outline-variant">Pending QC Checks</p>
-                <p className="font-display font-bold text-headline-lg text-on-surface dark:text-white mt-2">{summary.pending_checks || 24}</p>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-tertiary-fixed-dim text-on-tertiary-fixed flex items-center justify-center"><Icon name="fact_check" className="text-[24px]" /></div>
-            </div>
-            <div className="mt-4 inline-flex items-center gap-2 bg-tertiary-fixed/60 text-on-tertiary-fixed font-label text-body-sm px-3 py-1 rounded-full"><span className="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed" /> Action Required</div>
-          </div>
-          <div className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-body-md text-on-surface-variant dark:text-outline-variant">Ready for Dispatch</p>
-                <p className="font-display font-bold text-headline-lg text-on-surface dark:text-white mt-2">{summary.ready_for_dispatch || 0}</p>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-olive-success/15 text-olive-success flex items-center justify-center"><Icon name="local_shipping" className="text-[24px]" /></div>
-            </div>
-            <button
-              data-testid={GRAAMAM_WAREHOUSE.processDispatches}
-              onClick={() => nav("/dispatch")}
-              className="mt-4 w-full font-label font-bold text-body-md px-4 py-2.5 rounded-lg bg-primary-container text-on-primary hover:shadow-warm shadow-warm-sm inline-flex items-center justify-center gap-2"
-            ><Icon name="local_shipping" className="text-[18px]" /> Process Dispatches</button>
-          </div>
-        </div>
-
-        <h3 className="font-headline font-semibold text-headline-sm text-on-surface dark:text-white mb-4">Latest Batches in Warehouse</h3>
-        <div className="bg-surface-container-lowest dark:bg-[#121212] rounded-2xl border border-surface-variant/70 dark:border-white/5 shadow-warm overflow-hidden">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-surface-variant dark:border-white/10 text-outline uppercase text-label-sm tracking-wider">
-                <th className="py-4 px-6">Batch</th><th className="py-4 px-6">Product</th><th className="py-4 px-6">Producer</th><th className="py-4 px-6">Qty</th><th className="py-4 px-6">Collected</th><th className="py-4 px-6">Status</th>
+              <tr className="text-outline uppercase text-label-sm tracking-wider">
+                <th className="py-3 px-6">WH Token</th>
+                <th className="py-3 px-6">Order Token</th>
+                <th className="py-3 px-6">Customer</th>
+                <th className="py-3 px-6">Product</th>
+                <th className="py-3 px-6">Outcome</th>
+                <th className="py-3 px-6">Processed By</th>
+                <th className="py-3 px-6">Date</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-surface-variant/70 dark:divide-white/5">
-              {batches.slice(0, 8).map((b) => (
-                <tr key={b.batch_id} className="hover:bg-surface-container-low dark:hover:bg-white/5 transition-colors">
-                  <td className="py-4 px-6"><span className="font-mono text-sm bg-surface-container dark:bg-white/5 px-3 py-1 rounded-md border border-outline-variant/30 text-on-surface dark:text-white font-semibold">{b.batch_id}</span></td>
-                  <td className="py-4 px-6 font-semibold text-on-surface dark:text-white">{b.product_name}</td>
-                  <td className="py-4 px-6 text-on-surface-variant dark:text-outline-variant">{b.producer_name} <span className="text-outline">· {b.village}</span></td>
-                  <td className="py-4 px-6 text-on-surface-variant dark:text-outline-variant">{b.quantity} {b.unit}</td>
-                  <td className="py-4 px-6 text-on-surface-variant dark:text-outline-variant">{formatOrderDate(b.collection_date)}</td>
-                  <td className="py-4 px-6"><StatusPill status={b.status} /></td>
+              {processed.length === 0 ? (
+                <tr><td colSpan={7} className="py-12 text-center text-outline">No processed tokens yet.</td></tr>
+              ) : processed.map((w) => (
+                <tr key={w.order_id} data-testid={GRAAMAM_WAREHOUSE.processedRow(w.order_id)}>
+                  <td className="py-3 px-6 font-mono text-sm text-on-surface dark:text-white">{w.wh_token || "—"}</td>
+                  <td className="py-3 px-6 font-mono text-sm text-on-surface-variant dark:text-outline-variant">{w.order_id}</td>
+                  <td className="py-3 px-6 font-semibold text-on-surface dark:text-white">{w.customer?.name || "-"}</td>
+                  <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant">{w.items_summary || "-"}</td>
+                  <td className="py-3 px-6"><StatusPill status={OUTCOME_STATUS[w.outcome] || "pending"} /></td>
+                  <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant">{w.processed_by || "-"}</td>
+                  <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant whitespace-nowrap">{formatOrderDate(w.processed_at)}</td>
                 </tr>
               ))}
-              {batches.length === 0 ? (<tr><td colSpan={6} className="py-12 text-center text-outline">No batches in warehouse yet.</td></tr>) : null}
             </tbody>
           </table>
+        </div>
+
+        {/* Finished Goods — collapsible, closed by default */}
+        <div className="rounded-2xl bg-surface-container-lowest dark:bg-[#121212] border border-surface-variant/70 dark:border-white/5 shadow-warm-sm overflow-hidden">
+          <button
+            type="button"
+            data-testid={GRAAMAM_WAREHOUSE.finishedGoodsToggle}
+            onClick={() => setFgOpen((v) => !v)}
+            className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-surface-container-low dark:hover:bg-white/5 transition-colors"
+          >
+            <span className="font-label font-bold text-body-md text-on-surface dark:text-white inline-flex items-center gap-2">
+              <Icon name="inventory_2" className="text-[18px]" /> Finished Goods
+              <span className="text-outline text-body-sm font-normal">({finishedGoods.length})</span>
+            </span>
+            <Icon name={fgOpen ? "expand_less" : "expand_more"} className="text-[20px] text-outline" />
+          </button>
+          {fgOpen ? (
+            <table className="w-full text-left border-t border-surface-variant dark:border-white/10">
+              <thead>
+                <tr className="text-outline uppercase text-label-sm tracking-wider">
+                  <th className="py-3 px-6">Product</th>
+                  <th className="py-3 px-6">Available</th>
+                  <th className="py-3 px-6">Unit</th>
+                  <th className="py-3 px-6">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-surface-variant/70 dark:divide-white/5">
+                {finishedGoods.map((p) => (
+                  <tr key={p.product_id} data-testid={GRAAMAM_WAREHOUSE.finishedGoodsRow(p.product_id)}>
+                    <td className="py-3 px-6 font-semibold text-on-surface dark:text-white">{p.name}</td>
+                    <td className={`py-3 px-6 font-bold ${p.in_stock ? "text-olive-success" : "text-terracotta-error"}`}>{formatQty(p.available)}</td>
+                    <td className="py-3 px-6 text-on-surface-variant dark:text-outline-variant">{p.unit}</td>
+                    <td className="py-3 px-6">
+                      {p.in_stock ? (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label bg-olive-success/15 text-olive-success">
+                          <span className="w-1.5 h-1.5 rounded-full bg-olive-success" /> In Stock
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label bg-terracotta-error/15 text-terracotta-error">
+                          <span className="w-1.5 h-1.5 rounded-full bg-terracotta-error" /> Out of Stock
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : null}
         </div>
       </div>
     </AppShell>

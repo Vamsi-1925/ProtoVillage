@@ -207,19 +207,15 @@ def _guess_unit(p: dict) -> str:
 
 
 def _seed_qty(p: dict) -> int:
-    cat = (p.get("category") or "").lower()
-    if "food powder" in cat:
-        return 120
-    if "snack" in cat or "crispies" in cat or "papad" in cat:
-        return 200
-    if "pickle" in cat:
-        return 80
-    if "oil" in cat:
-        return 45
-    if "soup" in cat or "instant" in cat:
-        return 60
-    if "handloom" in cat or "fabric" in cat or "saree" in cat:
-        return 12
-    if "cosmetic" in cat:
-        return 30
-    return 40
+    """Warehouse stock-check demo: finished-goods stock is intentionally
+    scarce — only 2 SKUs (P001, P006) carry a small balance so that, out
+    of the box, one order can pass "Ready for Dispatch" (stock sufficient)
+    and another must "Raise Production" (stock short/zero), matching
+    graamam_v2's Warehouse page demo scenario. Everything else starts at 0
+    until Production/Procurement stocks it via the pipeline."""
+    pid = p.get("id")
+    if pid == "P001":
+        return 10
+    if pid == "P006":
+        return 15
+    return 0

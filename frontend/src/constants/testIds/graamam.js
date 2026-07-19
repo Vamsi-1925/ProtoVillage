@@ -63,6 +63,7 @@ export const GRAAMAM_ORDERS = {
   orderRowEdit: (oid) => `graamam-order-edit-${oid}`,
   orderRowCancel: (oid) => `graamam-order-cancel-${oid}`,
   orderRowDiscuss: (oid) => `graamam-order-discuss-${oid}`,
+  orderRowRaiseInvoice: (oid) => `graamam-orders-raise-invoice-${oid}`,
   orderHistoryDialog: "graamam-order-history-dialog",
 };
 
@@ -148,4 +149,13 @@ export const GRAAMAM_REPORTS = {
 export const GRAAMAM_WAREHOUSE = {
   page: "graamam-warehouse-page",
   processDispatches: "graamam-warehouse-process-dispatches",
+  pendingSection: "graamam-warehouse-pending-section",
+  pendingEmpty: "graamam-warehouse-pending-empty",
+  pendingCard: (oid) => `graamam-warehouse-pending-card-${oid}`,
+  readyButton: (oid) => `graamam-warehouse-ready-${oid}`,
+  raiseProdButton: (oid) => `graamam-warehouse-raise-prod-${oid}`,
+  processedSection: "graamam-warehouse-processed-section",
+  processedRow: (oid) => `graamam-warehouse-processed-row-${oid}`,
+  finishedGoodsToggle: "graamam-warehouse-finished-goods-toggle",
+  finishedGoodsRow: (pid) => `graamam-warehouse-finished-goods-row-${pid}`,
 };

@@ -54,6 +54,15 @@ export const masterRepository = {
   b2cCustomers: () => _fetchJson(`${API}/graamam/master/customers/b2c`),
 };
 
+// ---------- WAREHOUSE (stock-check gate: warehouse_check -> ready_dispatch | production_pending) ----------
+export const warehouseRepository = {
+  pending: () => _fetchJson(`${API}/graamam/warehouse/pending`),
+  processed: () => _fetchJson(`${API}/graamam/warehouse/processed`),
+  finishedGoods: () => _fetchJson(`${API}/graamam/warehouse/finished-goods`),
+  markReady: (orderId) => _fetchJson(`${API}/graamam/warehouse/${orderId}/ready`, { method: "POST" }),
+  raiseProduction: (orderId) => _fetchJson(`${API}/graamam/warehouse/${orderId}/raise-production`, { method: "POST" }),
+};
+
 // ---------- DISCUSSIONS (threads) ----------
 export const threadsRepository = {
   list: ({ status } = {}) => _fetchJson(`${API}/graamam/threads${_qs({ status })}`),

@@ -1,38 +1,30 @@
 [
   {
-    "content": "Backend: extend graamam_orders.py with FY token generator, richer OrderCreate model, customer upsert, totals calc, new create endpoint, edit endpoint",
+    "content": "Backend: create graamam_warehouse.py router (pending/processed/finished-goods/ready/raise-production)",
     "status": "completed"
   },
   {
-    "content": "Backend: improve create_invoice_from_order in graamam_extras.py to use order.items when present",
+    "content": "Backend: register warehouse router in server.py",
     "status": "completed"
   },
   {
-    "content": "Frontend: create indianStates.js lib matching graamam_v2 STATES list",
-    "status": "in_progress"
+    "content": "Backend: adjust _seed_qty in graamam_master.py for scarce demo stock (2 SKUs stocked)",
+    "status": "completed"
   },
   {
-    "content": "Frontend: rewrite CreateOrderDialog.jsx (type toggle, customer autofill, items grid, totals, notes, submit)",
-    "status": "pending"
+    "content": "Frontend: rewrite WarehousePage.jsx (Pending Stock Check cards, Processed table, collapsible Finished Goods)",
+    "status": "completed"
   },
   {
-    "content": "Frontend: rewrite DataTable.jsx orders list columns + row actions (History/Edit/Cancel/Discuss)",
-    "status": "pending"
+    "content": "Frontend: add warehouseRepository to firestoreClient.js",
+    "status": "completed"
   },
   {
-    "content": "Frontend: add OrderHistoryModal for audit trail",
-    "status": "pending"
+    "content": "Frontend: DataTable.jsx - gate Raise Invoice action to status===dispatched",
+    "status": "completed"
   },
   {
-    "content": "Frontend: extend firestoreClient.js ordersRepository (update/cancel/history) + useOrders hook",
-    "status": "pending"
-  },
-  {
-    "content": "Frontend: wire OrdersPage.jsx with edit/cancel/discuss/history + role checks",
-    "status": "pending"
-  },
-  {
-    "content": "Self-check: lint backend/frontend, curl test order creation + GST/token logic, screenshot",
-    "status": "pending"
+    "content": "Self-check: lint, restart services, curl tests for both warehouse paths + invoice gating",
+    "status": "completed"
   }
 ]
