@@ -195,25 +195,35 @@ async def import_master_data(force: bool = False) -> dict:
         stats["costing"] = len(docs)
 
     # ---------- RECIPES (recipe -> product auto-link, by name) ----------
+    # Upserted by name on EVERY startup (not a one-time "if empty" seed) so
+    # newly added sample recipes always load, even if graamam_recipes
+    # already has rows from an earlier partial seed. force=True still
+    # allows a full reset first.
     if force:
         await db.graamam_recipes.delete_many({})
-    if await db.graamam_recipes.count_documents({}) == 0:
-        docs = []
-        for r in master.get("recipes", []):
-            docs.append({
-                "id": gen_id(),
-                "name": r.get("name"),
-                "category": r.get("category") or "",
-                "conversion": float(r.get("conversion") or 1.0),
-                "batch_output": float(r.get("batchOutput") or 1),
-                "ingredients": [
-                    {"item": i.get("item"), "qty": float(i.get("qty") or 0), "cost_per_kg": float(i.get("costPerKg") or 0)}
-                    for i in r.get("ingredients", [])
-                ],
-            })
-        if docs:
-            await db.graamam_recipes.insert_many(docs)
-        stats["recipes"] = len(docs)
+    recipe_docs = master.get("recipes", [])
+    upserted = 0
+    for r in recipe_docs:
+        name = r.get("name")
+        if not name:
+            continue
+        doc = {
+            "name": name,
+            "category": r.get("category") or "",
+            "conversion": float(r.get("conversion") or 1.0),
+            "batch_output": float(r.get("batchOutput") or 1),
+            "ingredients": [
+                {"item": i.get("item"), "qty": float(i.get("qty") or 0), "cost_per_kg": float(i.get("costPerKg") or 0)}
+                for i in r.get("ingredients", [])
+            ],
+        }
+        await db.graamam_recipes.update_one(
+            {"name": name},
+            {"$set": doc, "$setOnInsert": {"id": gen_id()}},
+            upsert=True,
+        )
+        upserted += 1
+    stats["recipes"] = upserted
 
     logger.info("[master] imported %s", stats)
     return stats

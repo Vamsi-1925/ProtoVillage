@@ -336,6 +336,93 @@
           "costPerKg": 160
         }
       ]
+    },
+    {
+      "category": "Food Powder",
+      "name": "Demo Powder - Beta",
+      "conversion": 0.65,
+      "batchOutput": 500,
+      "ingredients": [
+        {
+          "item": "Millet",
+          "qty": 140,
+          "costPerKg": 50
+        },
+        {
+          "item": "Sesame",
+          "qty": 30,
+          "costPerKg": 210
+        },
+        {
+          "item": "Salt",
+          "qty": 10,
+          "costPerKg": 10
+        }
+      ]
+    },
+    {
+      "category": "Snacks",
+      "name": "Demo Snack Mix - X",
+      "conversion": 0.6,
+      "batchOutput": 1000,
+      "ingredients": [
+        {
+          "item": "Millet",
+          "qty": 150,
+          "costPerKg": 50
+        },
+        {
+          "item": "Sesame",
+          "qty": 50,
+          "costPerKg": 210
+        },
+        {
+          "item": "Salt",
+          "qty": 15,
+          "costPerKg": 10
+        }
+      ]
+    },
+    {
+      "category": "Pickle",
+      "name": "Demo Pickle - P1",
+      "conversion": 0.7,
+      "batchOutput": 800,
+      "ingredients": [
+        {
+          "item": "Green Chilli",
+          "qty": 250,
+          "costPerKg": 60
+        },
+        {
+          "item": "Salt",
+          "qty": 60,
+          "costPerKg": 10
+        },
+        {
+          "item": "Sesame",
+          "qty": 20,
+          "costPerKg": 210
+        }
+      ]
+    },
+    {
+      "category": "Oils",
+      "name": "Demo Oil - O1",
+      "conversion": 0.5,
+      "batchOutput": 300,
+      "ingredients": [
+        {
+          "item": "Sesame",
+          "qty": 220,
+          "costPerKg": 210
+        },
+        {
+          "item": "Millet",
+          "qty": 15,
+          "costPerKg": 50
+        }
+      ]
     }
   ],
   "rawMaterials": [

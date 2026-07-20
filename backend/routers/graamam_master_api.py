@@ -1,7 +1,7 @@
-"""Master Data API — read/write for Products, B2B/B2C Customers, Costing."""
+"""Master Data API — read/write for Products, B2B/B2C Customers, Costing, Recipes."""
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, ConfigDict
 
@@ -64,6 +64,7 @@ async def summary():
         "b2b_customers": await db.graamam_customers_b2b.count_documents({}),
         "b2c_customers": await db.graamam_customers_b2c.count_documents({}),
         "costing": await db.graamam_costing.count_documents({}),
+        "recipes": await db.graamam_recipes.count_documents({}),
     }
 
 
@@ -96,3 +97,84 @@ async def create_product(payload: ProductPayload):
     doc["icon"] = "eco"
     await db.graamam_products.insert_one(doc)
     return {k: v for k, v in doc.items() if k != "_id"}
+
+
+# ---------- RECIPES (recipe -> product link is BY NAME; read by
+# graamam_production.py's order_raw_needs()). Field names below
+# (batch_output / cost_per_kg) MUST match exactly what production.py
+# reads from graamam_recipes — do not rename. ----------
+class RecipeIngredientPayload(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    item: str
+    qty: float = 0
+    cost_per_kg: float = 0
+
+
+class RecipePayload(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    name: str
+    category: str = ""
+    conversion: float = 1.0
+    batch_output: float = 1
+    ingredients: List[RecipeIngredientPayload] = []
+
+
+def _recipe_doc(payload: RecipePayload, existing_id: Optional[str] = None) -> dict:
+    return {
+        "id": existing_id or gen_id(),
+        "name": payload.name.strip(),
+        "category": (payload.category or "").strip(),
+        "conversion": float(payload.conversion or 1.0),
+        "batch_output": float(payload.batch_output or 1),
+        "ingredients": [
+            {"item": i.item.strip(), "qty": float(i.qty or 0), "cost_per_kg": float(i.cost_per_kg or 0)}
+            for i in payload.ingredients if i.item and i.item.strip()
+        ],
+    }
+
+
+@router.get("/recipes")
+async def list_recipes():
+    db = get_db()
+    return [serialize(d) async for d in db.graamam_recipes.find({}, {"_id": 0}).sort("name", 1)]
+
+
+@router.post("/recipes", status_code=201)
+async def create_recipe(payload: RecipePayload):
+    db = get_db()
+    name = payload.name.strip()
+    if not name:
+        raise HTTPException(400, "name is required")
+    doc = _recipe_doc(payload)
+    if not doc["ingredients"]:
+        raise HTTPException(400, "at least one ingredient is required")
+    if await db.graamam_recipes.find_one({"name": name}, {"_id": 1}):
+        raise HTTPException(409, f"a recipe named '{name}' already exists")
+    await db.graamam_recipes.insert_one(doc)
+    return {k: v for k, v in doc.items() if k != "_id"}
+
+
+@router.put("/recipes/{name}")
+async def update_recipe(name: str, payload: RecipePayload):
+    db = get_db()
+    existing = await db.graamam_recipes.find_one({"name": name}, {"_id": 0})
+    if not existing:
+        raise HTTPException(404, f"recipe '{name}' not found")
+    new_name = payload.name.strip() or name
+    if new_name != name and await db.graamam_recipes.find_one({"name": new_name}, {"_id": 1}):
+        raise HTTPException(409, f"a recipe named '{new_name}' already exists")
+    doc = _recipe_doc(payload, existing_id=existing.get("id"))
+    if not doc["ingredients"]:
+        raise HTTPException(400, "at least one ingredient is required")
+    await db.graamam_recipes.update_one({"name": name}, {"$set": doc})
+    updated = await db.graamam_recipes.find_one({"name": new_name}, {"_id": 0})
+    return serialize(updated)
+
+
+@router.delete("/recipes/{name}")
+async def delete_recipe(name: str):
+    db = get_db()
+    r = await db.graamam_recipes.delete_one({"name": name})
+    if not r.deleted_count:
+        raise HTTPException(404, f"recipe '{name}' not found")
+    return {"deleted": True, "name": name}
