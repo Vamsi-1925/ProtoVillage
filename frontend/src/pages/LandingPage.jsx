@@ -255,10 +255,10 @@ export default function LandingPage() {
           </p>
           <div className="bg-white border border-on-surface/[0.12] rounded-[18px] max-w-[640px] mx-auto mt-[26px] px-8 py-[34px] text-center shadow-[0_24px_56px_-30px_rgba(29,29,27,0.3)]">
             <div className="flex gap-3.5 flex-wrap justify-center mb-6">
-              <ContactItem Icon={Mail} label="Email" href="mailto:onboarding@graamam.in" value="onboarding@graamam.in" />
+              <ContactItem Icon={Mail} label="Email" href="mailto:xxx@graamam.in" value="xxx@graamam.in" />
               <ContactItem Icon={Phone} label="Phone" href="tel:+910000000000" value="+91 XXXXX XXXXX" gold />
             </div>
-            <BtnPrimary href="mailto:onboarding@graamam.in?subject=Graamam%20Connect%20onboarding" data-testid="contact-onboarding-btn">Contact us for onboarding</BtnPrimary>
+            <BtnPrimary href="mailto:xxx@graamam.in?subject=Graamam%20Connect%20onboarding" data-testid="contact-onboarding-btn">Contact us for onboarding</BtnPrimary>
           </div>
         </div>
       </section>
