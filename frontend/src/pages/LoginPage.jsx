@@ -21,7 +21,7 @@ export default function LoginPage() {
   const { theme, toggle } = useTheme();
   const nav = useNavigate();
 
-  useEffect(() => { if (user) nav("/", { replace: true }); }, [user, nav]);
+  useEffect(() => { if (user) nav("/dashboard", { replace: true }); }, [user, nav]);
   useEffect(() => { fetch(`${API}/graamam/auth/users`).then(r => r.json()).then(setUsers).catch(() => {}); }, []);
 
   const submit = async (e) => {
@@ -29,7 +29,7 @@ export default function LoginPage() {
     setBusy(true); setErr(null);
     try {
       await login(username.trim(), password);
-      nav("/", { replace: true });
+      nav("/dashboard", { replace: true });
     } catch (e2) {
       setErr(e2.message || "Login failed");
     } finally { setBusy(false); }

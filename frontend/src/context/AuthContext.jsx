@@ -40,7 +40,17 @@ export function AuthProvider({ children }) {
 
   const logout = useCallback(() => { setUser(null); }, []);
 
-  const value = useMemo(() => ({ user, login, logout }), [user, login, logout]);
+  // Guest/demo entry point for the landing page's "Try the app now" — no
+  // credentials, full Admin-level access, lands on populated example data
+  // (the backend already seeds orders/inventory/production idempotently
+  // on every startup, so there's nothing extra to seed here).
+  const guestLogin = useCallback(() => {
+    const demoUser = { username: "guest", name: "Guest", role: "admin", guest: true };
+    setUser(demoUser);
+    return demoUser;
+  }, []);
+
+  const value = useMemo(() => ({ user, login, logout, guestLogin }), [user, login, logout, guestLogin]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

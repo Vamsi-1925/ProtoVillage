@@ -1,9 +1,10 @@
 import React from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import RequireAuth from "@/components/graamam/RequireAuth";
+import LandingPage from "@/pages/LandingPage";
 import DashboardPage from "@/pages/DashboardPage";
 import OrdersPage from "@/pages/OrdersPage";
 import InventoryPage from "@/pages/InventoryPage";
@@ -36,9 +37,10 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/" element={<LandingPage />} />
               <Route path="/invoice/:invoiceId" element={<Gate><InvoicePrintPage /></Gate>} />
               <Route path="/dispatch-form/:orderId" element={<Gate><DispatchFormPrintPage /></Gate>} />
-              <Route path="/" element={<Gate><DashboardPage /></Gate>} />
+              <Route path="/dashboard" element={<Gate><DashboardPage /></Gate>} />
               <Route path="/orders" element={<Gate><OrdersPage /></Gate>} />
               <Route path="/inventory" element={<Gate><InventoryPage /></Gate>} />
               <Route path="/producers" element={<Gate><ProducersPage /></Gate>} />
@@ -54,7 +56,7 @@ function App() {
               <Route path="/master-data" element={<Gate><MasterDataPage /></Gate>} />
               <Route path="/admin" element={<Gate><AdminPage /></Gate>} />
               <Route path="/settings" element={<Gate><SettingsPage /></Gate>} />
-              <Route path="*" element={<Gate><DashboardPage /></Gate>} />
+              <Route path="*" element={<Gate><Navigate to="/dashboard" replace /></Gate>} />
             </Routes>
           </BrowserRouter>
         </AuthProvider>

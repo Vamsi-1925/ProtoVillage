@@ -5,7 +5,7 @@ import { GRAAMAM_ORDERS } from "@/constants/testIds";
 import { useAuth, ROLE_NAV } from "@/context/AuthContext";
 
 const NAV = [
-  { key: "dashboard",  label: "Dashboard",   icon: "dashboard",                to: "/",             testId: GRAAMAM_ORDERS.sidebarNavDashboard },
+  { key: "dashboard",  label: "Dashboard",   icon: "dashboard",                to: "/dashboard",    testId: GRAAMAM_ORDERS.sidebarNavDashboard },
   { key: "orders",     label: "Orders",      icon: "shopping_cart",            to: "/orders",       testId: GRAAMAM_ORDERS.sidebarNavOrders, badgeKey: "orders" },
   { key: "warehouse",  label: "Warehouse",   icon: "warehouse",                to: "/warehouse",    testId: GRAAMAM_ORDERS.sidebarNavWarehouse },
   { key: "dispatch",   label: "Dispatch",    icon: "local_shipping",           to: "/dispatch",     testId: GRAAMAM_ORDERS.sidebarNavDispatch },
@@ -54,7 +54,7 @@ export default function Sidebar({ badges = {} }) {
             <NavLink
               key={item.key}
               to={item.to}
-              end={item.to === "/"}
+              end
               data-testid={item.testId}
               className={({ isActive }) => [
                 "mx-1 my-0.5 rounded-lg px-3.5 py-2 flex items-center gap-3 transition-all duration-200",

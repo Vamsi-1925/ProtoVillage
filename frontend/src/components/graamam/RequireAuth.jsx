@@ -4,7 +4,7 @@ import { useAuth, canAccess } from "@/context/AuthContext";
 
 // Route → nav key mapping for role-based gating.
 const ROUTE_KEY = {
-  "/": "dashboard",
+  "/dashboard": "dashboard",
   "/orders": "orders",
   "/warehouse": "warehouse",
   "/dispatch": "dispatch",
@@ -33,7 +33,7 @@ export default function RequireAuth({ children }) {
 
   const key = ROUTE_KEY[loc.pathname];
   if (key && !canAccess(user.role, key)) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
   return children;
 }
