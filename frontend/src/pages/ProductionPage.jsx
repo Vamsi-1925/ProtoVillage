@@ -76,7 +76,7 @@ function TokenCard({ token, onCreateSlip, onViewSlip, onStart, onComplete, onSen
               ) : token.status === "open" && shortage ? (
                 <button type="button" data-testid={GRAAMAM_PRODUCTION.sendToProcButton(token.token_id)} onClick={() => onSendToProc(token.token_id)}
                   className="font-label font-bold text-body-sm px-4 py-2 rounded-lg bg-tertiary-fixed-dim text-on-tertiary-fixed shadow-warm-sm inline-flex items-center gap-2">
-                  <Icon name="shopping_cart" className="text-[16px]" /> Send to Procurement
+                  <Icon name="inventory_2" className="text-[16px]" /> Restock in Inventory
                 </button>
               ) : token.status === "in_progress" ? (
                 <button type="button" disabled={busy} data-testid={GRAAMAM_PRODUCTION.completeButton(token.token_id)} onClick={() => onComplete(token.token_id)}
@@ -216,7 +216,7 @@ export default function ProductionPage() {
                   key={t.token_id} token={t} busy={busyId === t.token_id}
                   onCreateSlip={handleCreateSlip} onViewSlip={setSlipToken}
                   onStart={handleStart} onComplete={handleComplete}
-                  onSendToProc={() => nav("/procurement")}
+                  onSendToProc={() => nav("/inventory")}
                 />
               ))}
             </div>

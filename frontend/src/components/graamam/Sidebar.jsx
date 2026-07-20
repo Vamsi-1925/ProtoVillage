@@ -10,13 +10,16 @@ const NAV = [
   { key: "warehouse",  label: "Warehouse",   icon: "warehouse",                to: "/warehouse",    testId: GRAAMAM_ORDERS.sidebarNavWarehouse },
   { key: "dispatch",   label: "Dispatch",    icon: "local_shipping",           to: "/dispatch",     testId: GRAAMAM_ORDERS.sidebarNavDispatch },
   { key: "production", label: "Production",  icon: "precision_manufacturing",  to: "/production",   testId: GRAAMAM_ORDERS.sidebarNavProduction },
-  { key: "procurement",label: "Procurement", icon: "local_mall",               to: "/procurement",  testId: GRAAMAM_ORDERS.sidebarNavProcurement },
+  // Out of scope for Phase 1 "Live now" contest build — route stays defined, just unlinked.
+  // { key: "procurement",label: "Procurement", icon: "local_mall",               to: "/procurement",  testId: GRAAMAM_ORDERS.sidebarNavProcurement },
   { key: "inventory",  label: "Inventory",   icon: "inventory_2",              to: "/inventory",    testId: GRAAMAM_ORDERS.sidebarNavInventory },
-  { key: "store",      label: "Store",       icon: "storefront",               to: "/store",        testId: GRAAMAM_ORDERS.sidebarNavStore },
+  // Out of scope for Phase 1 "Live now" contest build — route stays defined, just unlinked.
+  // { key: "store",      label: "Store",       icon: "storefront",               to: "/store",        testId: GRAAMAM_ORDERS.sidebarNavStore },
   { key: "accounts",   label: "Accounts",    icon: "account_balance_wallet",   to: "/accounts",     testId: "graamam-sidebar-nav-accounts", tag: "NEW" },
   { key: "reports",    label: "Reports",     icon: "bar_chart",                to: "/reports",      testId: GRAAMAM_ORDERS.sidebarNavReports },
-  { key: "approvals",  label: "Approvals",   icon: "verified",                 to: "/approvals",    testId: "graamam-sidebar-nav-approvals", tag: "NEW" },
-  { key: "discussions",label: "Discussions", icon: "forum",                    to: "/discussions",  testId: "graamam-sidebar-nav-discussions", tag: "NEW" },
+  // Out of scope for Phase 1 "Live now" contest build — route stays defined, just unlinked.
+  // { key: "approvals",  label: "Approvals",   icon: "verified",                 to: "/approvals",    testId: "graamam-sidebar-nav-approvals", tag: "NEW" },
+  // { key: "discussions",label: "Discussions", icon: "forum",                    to: "/discussions",  testId: "graamam-sidebar-nav-discussions", tag: "NEW" },
   { key: "masterdata", label: "Master Data", icon: "folder_special",           to: "/master-data",  testId: "graamam-sidebar-nav-masterdata", tag: "NEW" },
   { key: "admin",      label: "Admin Panel", icon: "admin_panel_settings",     to: "/admin",        testId: "graamam-sidebar-nav-admin", tag: "NEW" },
 ];
@@ -25,7 +28,9 @@ export default function Sidebar({ badges = {} }) {
   const { user } = useAuth();
   const allowed = (user && ROLE_NAV[user.role]) || ROLE_NAV.admin;
   const items = NAV.filter((i) => allowed.includes(i.key));
-  const canSettings = allowed.includes("settings");
+  // Settings out of scope for Phase 1 "Live now" contest build — kept
+  // available for a later phase; route stays defined, just unlinked here.
+  // const canSettings = allowed.includes("settings");
 
   return (
     <nav
@@ -70,6 +75,7 @@ export default function Sidebar({ badges = {} }) {
         })}
       </div>
 
+      {/* Settings out of scope for Phase 1 "Live now" contest build — commented out, not deleted.
       {canSettings ? (
         <div className="px-4 pt-3 border-t border-white/10">
           <NavLink to="/settings" className={({ isActive }) => [
@@ -82,6 +88,7 @@ export default function Sidebar({ badges = {} }) {
           </NavLink>
         </div>
       ) : null}
+      */}
     </nav>
   );
 }
